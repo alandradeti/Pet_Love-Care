@@ -97,7 +97,6 @@ public class Cliente {
                         + "Sexo_Cliente, "
                         + "Endereco_Cliente, "
                         + "Email_Cliente, "
-                        + "Data_Cadastro_Cliente, "
                         + "Telefone_Fixo_Cliente,"
                         + " Telefone_Celular_Cliente) "
                     + "VALUES("
