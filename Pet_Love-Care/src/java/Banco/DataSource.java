@@ -1,4 +1,4 @@
-package classesBanco;
+package Banco;
 
 import java.io.Serializable;
 import java.sql.*;
