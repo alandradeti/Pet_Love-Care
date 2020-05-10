@@ -1,4 +1,4 @@
-package classesBanco;
+package Banco;
 
 import java.io.Serializable;
 import java.sql.*;
@@ -32,12 +32,22 @@ public class DataSource implements Serializable {
 
     }
 
-    //Método que realiza a conexão
+    /**
+     * Método: getConnection()
+     * @param: 
+     * @purpose: Realiza o retorno da conexão. 
+     * @return: Connection.
+     */
     public Connection getConnection() {
         return this.connection;
     }
     
-    //Método que realiza o fehcmaneto da conexão
+    /**
+     * Método: closeDataSource()
+     * @param: 
+     * @purpose: Realiza o fechamento da conexão. 
+     * @return:
+     */
     public void closeDataSource(){
         try{
             connection.close();
