@@ -13,74 +13,83 @@ public class Cliente {
     private String  sEmail_cliente;
     private String  sTelefone_fixo_cliente;
     private String  sTelefone_celular_cliente;
+    private String  sSenha_cliente;
 
     public Cliente() {
     }
 
-    public String getNome_cliente() {
+    public String getsNome_cliente() {
         return sNome_cliente;
     }
 
-    public void setNome_cliente(String sNome_cliente) {
+    public void setsNome_cliente(String sNome_cliente) {
         this.sNome_cliente = sNome_cliente;
     }
 
-    public String getCpf_cliente() {
+    public String getsCpf_cliente() {
         return sCpf_cliente;
     }
 
-    public void setCpf_cliente(String sCpf_cliente) {
+    public void setsCpf_cliente(String sCpf_cliente) {
         this.sCpf_cliente = sCpf_cliente;
     }
 
-    public String getRg_cliente() {
+    public String getsRg_cliente() {
         return sRg_cliente;
     }
 
-    public void setRg_cliente(String sRg_cliente) {
+    public void setsRg_cliente(String sRg_cliente) {
         this.sRg_cliente = sRg_cliente;
     }
 
-    public char getSexo_cliente() {
+    public char getcSexo_cliente() {
         return cSexo_cliente;
     }
 
-    public void setSexo_cliente(char sSexo_cliente) {
-        this.cSexo_cliente = sSexo_cliente;
+    public void setcSexo_cliente(char cSexo_cliente) {
+        this.cSexo_cliente = cSexo_cliente;
     }
 
-    public String getEndereco_cliente() {
+    public String getsEndereco_cliente() {
         return sEndereco_cliente;
     }
 
-    public void setEndereco_cliente(String sEndereco_cliente) {
+    public void setsEndereco_cliente(String sEndereco_cliente) {
         this.sEndereco_cliente = sEndereco_cliente;
     }
 
-    public String getEmail_cliente() {
+    public String getsEmail_cliente() {
         return sEmail_cliente;
     }
 
-    public void setEmail_cliente(String sEmail_cliente) {
+    public void setsEmail_cliente(String sEmail_cliente) {
         this.sEmail_cliente = sEmail_cliente;
     }
 
-    public String getTelefone_fixo_cliente() {
+    public String getsTelefone_fixo_cliente() {
         return sTelefone_fixo_cliente;
     }
 
-    public void setTelefone_fixo_cliente(String sTelefone_fixo_cliente) {
+    public void setsTelefone_fixo_cliente(String sTelefone_fixo_cliente) {
         this.sTelefone_fixo_cliente = sTelefone_fixo_cliente;
     }
 
-    public String getTelefone_celular_cliente() {
+    public String getsTelefone_celular_cliente() {
         return sTelefone_celular_cliente;
     }
 
-    public void setTelefone_celular_cliente(String sTelefone_celular_cliente) {
+    public void setsTelefone_celular_cliente(String sTelefone_celular_cliente) {
         this.sTelefone_celular_cliente = sTelefone_celular_cliente;
     }
 
+    public String getsSenha_cliente() {
+        return sSenha_cliente;
+    }
+
+    public void setsSenha_cliente(String sSenha_cliente) {
+        this.sSenha_cliente = sSenha_cliente;
+    }
+    
     public String incluir() {
         try {
             // Carregar Driver do MySQL
@@ -90,24 +99,26 @@ public class Cliente {
             Statement stmt = con.createStatement();//Criar o fluxo para mandar comando sql o banco
 
             String sql = 
-                    "INSERT INTO TB_Clientes("
+                    "INSERT INTO TB_Cliente("
                         + "Nome_Cliente, "
                         + "CPF_Cliente, "
                         + "RG_Cliente, "
                         + "Sexo_Cliente, "
                         + "Endereco_Cliente, "
                         + "Email_Cliente, "
-                        + "Telefone_Fixo_Cliente,"
-                        + " Telefone_Celular_Cliente) "
+                        + "Telefone_Fixo_Cliente, "
+                        + "Telefone_Celular_Cliente, "
+                        + "Senha_Cliente) "
                     + "VALUES("
-                        + getNome_cliente() + "','"
-                        + getCpf_cliente() + "','" 
-                        + getRg_cliente() + "','" 
-                        + getSexo_cliente() + "','"
-                        + getEndereco_cliente() + "','" 
-                        + getEmail_cliente() + "','" 
-                        + getTelefone_fixo_cliente() + "','" 
-                        + getTelefone_celular_cliente() + "')";
+                        + getsNome_cliente() + "','"
+                        + getsCpf_cliente() + "','" 
+                        + getsRg_cliente() + "','" 
+                        + getcSexo_cliente() + "','"
+                        + getsEndereco_cliente() + "','" 
+                        + getsEmail_cliente() + "','" 
+                        + getsTelefone_fixo_cliente() + "','" 
+                        + getsTelefone_celular_cliente() + "','" 
+                        + getsSenha_cliente() + "')";
             stmt.executeUpdate(sql);// Executa o comando SQL
             con.close();//Fecha a conexão
             stmt.close();//Fecha o fluxo 
@@ -128,16 +139,17 @@ public class Cliente {
             Statement stmt = con.createStatement();//Criar o fluxo para mandar comando sql o banco
             String sql = 
                     "UPDATE "
-                        + "TB_Clientes "
+                        + "TB_Cliente "
                     + "SET "
-                        + "Nome_Cliente='" + getNome_cliente() + "',"
-                        + "CPF_Cliente='" + getCpf_cliente() + "',"
-                        + "RG_Cliente='" + getRg_cliente() + "',"
-                        + "Sexo_Cliente='" + getSexo_cliente() + "',"
-                        + "Endereco_Cliente='" + getEndereco_cliente() + "',"
-                        + "Email_Cliente='" + getEmail_cliente() + "',"
-                        + "Telefone_Fixo_Cliente='" + getTelefone_fixo_cliente() + "'," 
-                        + "Telefone_Celular_Cliente='" + getTelefone_celular_cliente() + "' "
+                        + "Nome_Cliente='" + getsNome_cliente() + "',"
+                        + "CPF_Cliente='" + getsCpf_cliente() + "',"
+                        + "RG_Cliente='" + getsRg_cliente() + "',"
+                        + "Sexo_Cliente='" + getcSexo_cliente() + "',"
+                        + "Endereco_Cliente='" + getsEndereco_cliente() + "',"
+                        + "Email_Cliente='" + getsEmail_cliente() + "',"
+                        + "Telefone_Fixo_Cliente='" + getsTelefone_fixo_cliente() + "'," 
+                        + "Telefone_Celular_Cliente='" + getsTelefone_fixo_cliente() + "',"
+                        + "Senha_Cliente='" + getsSenha_cliente() + "' "
                     + "WHERE "
                         + "ID_Cliente = " + id;
             stmt.executeUpdate(sql);// Executa o comando SQL
@@ -158,7 +170,7 @@ public class Cliente {
             //Fazer a conexão verifique se o usuário root e a senha 123 são iguais na máquina de teste caso contrário, altere na linha abaixo.
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/ecommerce?useTimezone=true&serverTimezone=UTC&useSSL=false", "root", "123");
             Statement stmt = con.createStatement();//Criar o fluxo para mandar comando sql o banco
-            String sql = "DELETE FROM TB_Clientes WHERE ID_Cliente = " + id;
+            String sql = "DELETE FROM TB_Cliente WHERE ID_Cliente = " + id;
             stmt.executeUpdate(sql);// Executa o comando SQL
             con.close();//Fecha a conexão
             stmt.close();//Fecha o fluxo 
