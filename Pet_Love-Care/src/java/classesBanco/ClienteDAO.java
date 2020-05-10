@@ -74,11 +74,10 @@ public class ClienteDAO extends Cliente{
             dataSource.closeDataSource();
             ps.close();
  
-        }catch(SQLException ex){
-            System.err.println("Erro ao realizar inserção " + ex.getMessage());
-        }catch(Exception ex){
-            System.err.println("Erro geral " + ex.getMessage());
-        }
-        return true;
+        }catch(SQLException ex){return(false);
+        }catch(Exception ex){return(false);}
+        return (true);
     }
+    
+    
 }
