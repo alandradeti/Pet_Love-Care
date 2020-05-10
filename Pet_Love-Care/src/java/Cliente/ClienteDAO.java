@@ -10,6 +10,12 @@ public class ClienteDAO extends Cliente {
     //Instanciando a classe de conexão
     DataSource dataSource = new DataSource();
 
+    /**
+     * Método: Consultar()
+     * @param:
+     * @purpose: Realizar a consulta no banco. 
+     * @return: Lista de clientes existentes.
+     */
     public ArrayList<Cliente> Consultar(){
         try{
             String sSql = "SELECT *, date_format(`Data_Nascimento_Cliente`,'%d/%m/%Y') FROM TB_Cliente";
@@ -54,6 +60,12 @@ public class ClienteDAO extends Cliente {
         return null;
     }
     
+    /**
+     * Método: Incluir()
+     * @param:
+     * @purpose: Realizar a inclusão de um novo cliente. 
+     * @return: boolean.
+     */
     public boolean Incluir() {
         try {
             String sSql
@@ -94,6 +106,12 @@ public class ClienteDAO extends Cliente {
         return (true);
     }
 
+    /**
+     * Método: Alterar()
+     * @param: iIdCliente
+     * @purpose: Realizar a alteração de um cliente existente. 
+     * @return: boolean.
+     */
     public boolean Alterar(int iId_Cliente) {
         try {
             String sSql = "UPDATE "
@@ -126,6 +144,12 @@ public class ClienteDAO extends Cliente {
         return (true);
     }
     
+    /**
+     * Método: Excluir()
+     * @param: iIdCliente
+     * @purpose: Realizar a exclusão de um cliente existente. 
+     * @return: boolean.
+     */
     public boolean Excluir(int iId_Cliente){
     	 try {
             String sSql = "DELETE FROM "
