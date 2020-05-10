@@ -39,26 +39,26 @@
         <div class="form-row">
           <div class="form-group col-md-6">
              <label class="col-form-label mt-4 login_label">Nome do Produto:</label>
-            <input type="text" class="form-control" 
-                   id="Nome_Produto" placeholder="Insira o nome do produto" required />
+            <input type="text" class="form-control" name="nome_produto"
+                   id="nome_produto" placeholder="Insira o nome do produto" required />
           </div>
           <div class="form-group col-md-6">
             <label class="col-form-label mt-4 login_label">Valor do Produto:</label>
-            <input type="text" class="form-control" 
-                   id="Valor_Produto" placeholder="R$ " required />
+            <input type="text" class="form-control" name="valor_produto"
+                   id="valor_produto" placeholder="R$ " required />
           </div>
         </div>
           
         <div class="form-row">
           <div class="form-group col-md-6">
              <label class="col-form-label mt-4 login_label">Quantidade do Produto:</label>
-            <input type="text" class="form-control" 
-                   id="Quantidade_Produto" placeholder="Insira quantos produtos possuí" required />
+            <input type="text" class="form-control" name="quantidade_produto"
+                   id="quantidade_produto" placeholder="Insira quantos produtos possuí" required />
           </div>
           <div class="form-group col-md-6">
             <label class="col-form-label mt-4 login_label">Quantidade em estoque:</label>
-            <input type="text" class="form-control" 
-                   id="Quantidade_Estoque_Produto" 
+            <input type="text" class="form-control" name="quantidade_estoque_produto"
+                   id="quantidade_estoque_produto" 
                    placeholder="Quantidade de produtos em estoque" required />
           </div>
         </div>
@@ -67,7 +67,8 @@
           <div class="form-group col-md-6">
             <label class="col-form-label mt-4 login_label">Imagem do Produto:</label>
             <div class="warapper">
-                <input type="file" accept="image/*" onchange="preview_image(event)">
+                <input type="file" accept="image/*" id="imagem_produto" 
+                       name="imagem_produto" onchange="preview_image(event)">
                 <img id="imagem" class="tamanho_imagem"/>
             </div>
           </div>

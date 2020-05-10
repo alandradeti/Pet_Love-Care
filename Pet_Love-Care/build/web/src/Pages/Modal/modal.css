@@ -1,0 +1,141 @@
+/* Parte do login */
+
+/* espaçamento da tela de login */
+.space_login {
+    margin: auto;
+    width: 400px;
+    padding: 8% 0 0;
+}
+.space_cadastro {
+    margin: auto;
+    width: 700px;
+    padding: 8% 0 0;
+}
+.space_vacina {
+    margin: auto;
+    width: 500px;
+    padding: 8% 0 0;
+}
+/* Conteudo do login */
+.tela_login {
+    position: relative;
+    z-index: 1;
+    background: rgb(255, 215, 151);
+    max-width: 450px;
+    margin: 0 auto 100px;
+    padding: 45px;
+    text-align: center;
+    box-shadow: 
+        0 0 20px 0 rgba(0, 0, 0, 0.2), 
+        0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.tela_cadastro {
+    position: relative;
+    z-index: 1;
+    background: rgb(255, 215, 151);
+    max-width: 700px;
+    margin: 0 auto 100px;
+    padding: 45px;
+    text-align: center;
+    box-shadow: 
+        0 0 20px 0 rgba(0, 0, 0, 0.2), 
+        0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.tela_vacina {
+    position: relative;
+    z-index: 1;
+    background: rgb(255, 215, 151);
+    max-width: 500px;
+    margin: 0 auto 100px;
+    padding: 45px;
+    box-shadow: 
+        0 0 20px 0 rgba(0, 0, 0, 0.2), 
+        0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+/* Modal */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 999; 
+    padding-top: 100px; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+}
+
+/* Botao fechar modal */
+.close_modal_login, .close_modal_cadastro, 
+.close_modal_vacina {
+    position: relative;
+    z-index: 999;
+    color: #957D56;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close_modal_login:hover,
+.close_modal_login:focus,
+.close_modal_vacina:hover,
+.close_modal_vacina:focus,
+.close_modal_cadastro:hover,
+.close_modal_cadastro:focus {
+    color: #5A3630;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#abrir_modal_login, 
+#abrir_modal_cadastro, 
+#abrir_modal_vacina,
+#abrir_modal_compras {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-decoration: none;
+    color: black;
+}
+/* Modal tela de casdastro (login)*/
+.modal_cadastro {
+    display: none; 
+    position: fixed; 
+    z-index: 999; 
+    padding-top: -50px; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+}
+/* Modal tela de casdastrar vacina */
+.modal_vacina {
+    display: none; 
+    position: fixed; 
+    z-index: 999; 
+    padding-top: -50px; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+}
+
+.centralizar {
+    text-align: center;
+}
+
+.centralizar_btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 85px
+}

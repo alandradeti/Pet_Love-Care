@@ -6,27 +6,33 @@
     <link rel="stylesheet" href="../../../css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="../css/padrao.css" type="text/css"/>
     <link rel="stylesheet" href="../css/padrao.css" type="text/css">
+    <link rel="stylesheet" href="../Modal/modal.css" type="text/css">
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <!-- <script type="text/javascript" src="../../../js/bootstrap.min.js"></script>-->
-  <!-- <script type="text/javascript" src="../../../js/jquery.slim.min.js"></script> -->
+  <title>Pet Love Care</title>
+  
+  <!--<script type="text/javascript" src="../../../js/bootstrap.min.js"></script>-->
+  <!--<script type="text/javascript" src="../../../js/jquery.slim.min.js"></script>--> 
   <script type="text/javascript" src="../../jquery.min.js"></script>
   <script src="../js/padrao.js"></script>
+  
   <script>
     $(function () {
-      $("#header_login").load("../Login/Login.html");
+      $("#header_compras").load("../Modal/Compras.html");
     });
     $(function () {
-      $("#header_cadastro").load("../Login/Cadastrar.html");
+      $("#header_login").load("../Modal/Login.html");
+    });
+    $(function () {
+      $("#header_cadastro").load("../Modal/Cadastrar.html");
+    });
+    $(function () {
+      $("#header_vacina").load("../Modal/Vacina.html");
     });
   </script>
- 
-
 </head>
-
-
+<body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light custom_navbar">
     <img src="../../img/Logo/Logo-remove.png" />
     <button class="navbar-toggler custom_icon" type="button" data-toggle="collapse"
@@ -34,6 +40,7 @@
       aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
           <a class="nav-link" href="../Home/Home.html">Home <span class="sr-only">(current)</span></a>
@@ -47,22 +54,36 @@
         <li class="nav-item">
           <a class="nav-link" href="../Produtos/Produtos.html">Cadastrar Produtos</a>
         </li>
-          <li class="nav-item">
+        <li class="nav-item">
           <a class="nav-link" href="../Pet/Pet.html">Cadastrar Pet</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../Vacina/Vacina.html">Vacina</a>
+        </li>
       </ul>
-      <a id="abrir_modal_login" href="#" class="login_cadastro mr-4">
+   
+      <a id="abrir_modal_compras" href="../Compras/Compras.html" class="login_cadastro mr-3">
+        <div class="balao ml-3"><span class="latido_miado">
+          <i class="fa fa-money-bill-alt"></i></span>
+        </div>
+         <i class="fas fa-shopping-cart" style='font-size:26px;color: black;'>
+         </i> Carrinho
+      </a>
+        
+      <a id="abrir_modal_login" href="#" class="login_cadastro mr-3">
         <div class="balao ml-3"><span class="latido_miado">Au-Au</span></div>
         <i class="fas fa-dog" style='font-size:26px;color: black;'></i> Login
       </a>
+        
       <a id="abrir_modal_cadastro" href="#" class="login_cadastro">
         <div class="balao ml-3"><span class="latido_miado">Meow</span></div>
-        <i class="fas fa-cat" style='font-size:26px;color: black;'></i> Cadastrar
+        <i class="fas fa-cat" style='font-size:26px;color: black;'></i>
+        Cadastrar
       </a>
     </div>
   </nav>
+  <div id="header_compras"></div>
   <div id="header_login"></div>
   <div id="header_cadastro"></div>
-
-
+</body>
 </html>

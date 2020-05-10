@@ -40,12 +40,12 @@
           <div class="form-group col-md-6">
             <label class="col-form-label mt-4 login_label">Tipo:</label>
             <input type="text" class="form-control" 
-                   id="Tipo_Agendamento" placeholder="Típo do agendamento" required />
+                   name="tipo_agendamento" id="tipo_agendamento" placeholder="Típo do agendamento" required />
           </div>
           <div class="form-group col-md-6">
             <label class="col-form-label mt-4 login_label">Horário:</label>
-            <input type="time" class="form-control" 
-                   id="Horario_Agendamento" placeholder="Insira um horário" required />
+            <input type="time" class="form-control" name="horario_agendamento" 
+                   id="horario_agendamento" placeholder="Insira um horário" required />
           </div>
         </div>
           
@@ -53,30 +53,30 @@
            <div class="form-row">
             <div class="form-group col-md-6">
                 <label class="col-form-label login_label">Data:</label>
-                <input type="date" class="form-control col-12" 
-                     id="Data_Agendamento" placeholder="Data dpara consulta" required />
+                <input type="date" class="form-control col-12" name="data_agendamento"
+                     id="data_agendamento" placeholder="Data dpara consulta" required />
             </div>
             <div class="form-group col-md-6">
             <label class="col-form-label login_label">Vacína:</label>
-            <input type="email" class="form-control col-12" 
-                 id="Vacina_ID_Vacina" placeholder="Nome da vacína" required />
+            <input type="text" class="form-control col-12" name="vacina_id_vacina"
+                 id="vacina_id_vacina" placeholder="Nome da vacína" required />
             </div>
         </div>
           
         <div class="form-row">
             <div class="form-group col-md-6">
              <label class="col-form-label login_label">Pet:</label>
-             <input type="text" class="form-control" 
-                    id="Pet_ID_Pet" placeholder="Cachorro/Gato..." required />
+             <input type="text" class="form-control" name="pet_id_pet"
+                    id="pet_id_pet" placeholder="Cachorro/Gato..." required />
             </div>
             <div class="form-group col-md-6">
              <label class="col-form-label login_label">Veterinário:</label>
               <select class="form-control" required>
                   <option>Selecione um veterinário</option>
-                  <option>Ailton Lima</option>
-                  <option>Caio Cesar</option>
-                  <option>Felipe Silva</option>
-                  <option>Gustavo Scarpim</option>
+                  <option id="verinario_id_veterinario">Ailton Lima</option>
+                  <option id="verinario_id_veterinario">Caio Cesar</option>
+                  <option id="verinario_id_veterinario">Felipe Silva</option>
+                  <option id="verinario_id_veterinario">Gustavo Scarpim</option>
               </select>
             </div>
         </div>
