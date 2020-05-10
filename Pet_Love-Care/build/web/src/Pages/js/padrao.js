@@ -42,7 +42,7 @@ window.onclick = (event) => {
 $(function(){
     $('#formCadastrarCliente').submit(function(){
         $.ajax({
-            url: '../Login/IncluirCliente.jsp',
+            url: '../Modal/IncluirCliente.jsp',
             type: 'POST',
             data: $('#formCadastrarCliente').serialize(),
             success: function(data){

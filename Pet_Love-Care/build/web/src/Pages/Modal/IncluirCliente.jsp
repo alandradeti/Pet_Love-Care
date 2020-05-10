@@ -17,6 +17,7 @@
             <jsp:setProperty name="cliente" property="email_cliente" value="${param.email_cliente}"/>
             <jsp:setProperty name="cliente" property="telefone_fixo_cliente" value="${param.telefone_fixo_cliente}"/>
             <jsp:setProperty name="cliente" property="telefone_celular_cliente" value="${param.telefone_celular_cliente}"/>
+            <jsp:setProperty name="cliente" property="data_nascimento_cliente" value="${param.data_nascimento_cliente}"/>
             <jsp:setProperty name="cliente" property="senha_cliente" value="${param.senha_cliente}"/>
             
             <!-- Tratamento de redirecionamento da pagina -->

@@ -15,6 +15,8 @@
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="../../../js/jquery.min.js"></script>
     <script src="../js/padrao.js"></script>
+    <script src="../js/ajax.min.js"></script>
+    <script src="../js/sweetalert2.min.js"></script>
   </head>
 
   <body>
@@ -27,7 +29,7 @@
             <img src="../../img/Logo/Logo-cabeca.png" />
             <h4>Faça o seu cadastro</h4>
           </div>
-          <form>
+          <form id="formCadastrarCliente">
             <div class="col">
               <div class="form-row">
                 <div class="form-row col-12">
@@ -122,10 +124,10 @@
                   </div>
                   <div class="form-group col-6">
                     <label class="col-form-label login_label">Sexo</label>
-                    <select class="form-control" id="sexo_cliente">
+                    <select class="form-control" name="sexo_cliente" id="sexo_cliente">
                       <option>Selecione</option>
-                      <option id="sexo_cliente">Masculino</option>
-                      <option id="sexo_cliente">Feminino</option>
+                      <option value="M">Masculino</option>
+                      <option value="F">Feminino</option>
                     </select>
                   </div>
                 </div>
