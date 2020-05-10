@@ -24,3 +24,8 @@
     align-items: center;
     justify-content: center;
 }
+
+.tamanho_imagem
+{
+ max-width:300px;
+}

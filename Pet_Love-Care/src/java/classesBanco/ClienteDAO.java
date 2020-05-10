@@ -54,17 +54,19 @@ public class ClienteDAO extends Cliente{
                         + "Email_Cliente,"
                         + "Telefone_Fixo_Cliente,"
                         + "Telefone_Celular_Cliente,"
+                        + "Data_Nascimento_Cliente,"
                         + "Senha_Cliente"
-                    + ")VALUES('" 
-                    + getNome_cliente() + "','" 
-                    + getCpf_cliente() + "','" 
-                    + getRg_cliente() + "','" 
-                    + getSexo_cliente() + "','" 
-                    + getEndereco_cliente() + "','" 
-                    + getEmail_cliente() + "','" 
-                    + getTelefone_fixo_cliente() + "','" 
-                    + getTelefone_celular_cliente() + "','" 
-                    + getSenha_cliente() + "')";
+                    + ")VALUES("
+                    + "'" + getNome_cliente() + "',"
+                    + "'" + getCpf_cliente() + "',"
+                    + "'" + getRg_cliente() + "',"
+                    + "'" + getSexo_cliente() + "',"
+                    + "'" + getEndereco_cliente() + "',"
+                    + "'" + getEmail_cliente() + "',"
+                    + "'" + getTelefone_fixo_cliente() + "',"
+                    + "'" + getTelefone_celular_cliente() + "',"
+                    + "'" + getData_nascimento_cliente() + "',"
+                    + "'" + getSenha_cliente() + "')";
             PreparedStatement ps = dataSource.getConnection().prepareStatement(sSql); // Realiza a conexão e o preparo da query
             ps.executeUpdate(sSql); // Executa a query
             

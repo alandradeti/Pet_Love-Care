@@ -10,12 +10,13 @@ public class Cliente {
     private String  sEmail_cliente;
     private String  sTelefone_fixo_cliente;
     private String  sTelefone_celular_cliente;
+    private String  sData_nascimento_cliente;
     private String  sSenha_cliente;
 
     public Cliente() {
     }
     
-     public int getId_cliente() {
+    public int getId_cliente() {
         return iId_cliente;
     }
 
@@ -85,6 +86,14 @@ public class Cliente {
 
     public void setTelefone_celular_cliente(String sTelefone_celular_cliente) {
         this.sTelefone_celular_cliente = sTelefone_celular_cliente;
+    }
+    
+    public String getData_nascimento_cliente(){
+        return sData_nascimento_cliente;
+    }
+    
+    public void setData_nascimento_cliente(String sData_nascimento_cliente){
+        this.sData_nascimento_cliente = sData_nascimento_cliente;
     }
     
     public String getSenha_cliente() {
