@@ -17,6 +17,8 @@
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>
         <script src="../../../js/jquery.min.js"></script>
         <script src="../js/padrao.js"></script>
+        <script src="../js/ajax.min.js"></script>
+        <script src="../js/sweetalert2.min.js"></script>
     </head>
 
     <body>
@@ -29,20 +31,20 @@
                         <img src="../../img/Logo/Logo-cabeca.png">
                         <h4>Faça o seu cadastro</h4>
                     </div>
-                    <form>
+                    <form id="formCadastrarCliente" name="formCadastrarCliente">
                         <div class="col">
                             <div class="form-row">
                                 <div class="form-row col-12">
                                     <div class="form-group col-6">
                                         <label class="col-form-label login_label">Nome</label>
                                         <input type="text" class="form-control" 
-                                               id="Nome_Cliente" placeholder="Insira o seu Nome" required />
+                                               name="nome_cliente" id="nome_cliente" placeholder="Insira o seu Nome" required />
                                     </div>    
 
                                     <div class="form-group col-6">
                                         <label class="col-form-label login_label">CPF</label>
                                         <input type="text" class="form-control" 
-                                               id="CPF_Cliente" placeholder="Insira o seu CPF..." required />
+                                               name="cpf_cliente"  id="cpf_cliente" placeholder="Insira o seu CPF..." required />
                                     </div>    
                                 </div>    
 
@@ -50,12 +52,12 @@
                                     <div class="form-group col-6">
                                         <label class="col-form-label login_label">RG</label>
                                         <input type="text" class="form-control" 
-                                               id="RG_Cliente" placeholder="Insira o seu RG..." required />
+                                            name="rg_cliente"   id="rg_cliente" placeholder="Insira o seu RG..." required />
                                     </div>    
                                     <div class="form-group col-6">
                                         <label class="col-form-label login_label">Email</label>
                                         <input type="email" class="form-control" 
-                                               id="Email_Cliente" placeholder="Email válido..." required />
+                                            name="email_cliente"  id="email_cliente" placeholder="Email válido..." required />
                                     </div>    
                                 </div>    
 
@@ -63,12 +65,12 @@
                                     <div class="form-group col-6">
                                         <label class="col-form-label login_label">Telefone</label>
                                         <input type="text" class="form-control" 
-                                               id="Telefone_Fixo_Cliente" placeholder="(11) 1111-1111" required />
+                                               name="telefone_fixo_cliente" id="telefone_fixo_cliente" placeholder="(11) 1111-1111" required />
                                     </div>    
                                     <div class="form-group col-6">
                                         <label class="col-form-label login_label">Celular</label>
                                         <input type="text" class="form-control" 
-                                               id="Telefone_Celular_Cliente" placeholder="(11) 99999-9999" required />
+                                               name="telefone_celular_cliente" id="telefone_celular_cliente" placeholder="(11) 99999-9999" required />
                                     </div>    
                                 </div>    
 
@@ -76,27 +78,25 @@
                                     <div class="form-group col-6">
                                         <label class="col-form-label login_label">Senha</label>
                                         <input type="password" class="form-control" 
-                                               id="Senha_Cliente" placeholder="Insira uma senha" required />
+                                               name="senha_cliente" id="senha_cliente" placeholder="Insira uma senha" required />
                                     </div>    
                                     <div class="form-group col-6">
                                         <label class="col-form-label login_label">Sexo</label>
-                                        <select class="form-control" id="Sexo_Cliente">
-                                            <option>Masculino</option>
-                                            <option>Feminino</option>
+                                        <select class="form-control" name="sexo_cliente" id="sexo_cliente">
+                                            <option value="M">Masculino</option>
+                                            <option value="F">Feminino</option>
                                         </select>
                                     </div>    
                                 </div>   
 
-
-
                                 <label class="col-form-label login_label">Endereço</label>
                                 <input type="text" class="form-control" 
-                                       id="Endereco_Cliente" placeholder="Nome da rua" required />
+                                       name="endereco_cliente" id="endereco_cliente" placeholder="Nome da rua" required />
 
                                 <p class="criar_cadastro mt-2">Já possuí cadastro?<a href="#">
                                         Entre aqui!</a></p>
                             </div>
-                            <button class="btn btn_login ">Cadastrar</button>
+                            <button type="submit" class="btn btn_login ">Cadastrar</button>
                         </div>
                     </form>
                 </div>

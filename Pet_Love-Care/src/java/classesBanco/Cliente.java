@@ -1,10 +1,7 @@
 package classesBanco;
 
-import java.io.Serializable;
-import java.sql.*;
-
 public class Cliente {
-    //private int iId_cliente;
+    private int     iId_cliente;
     private String  sNome_cliente;
     private String  sCpf_cliente;
     private String  sRg_cliente;
@@ -13,8 +10,17 @@ public class Cliente {
     private String  sEmail_cliente;
     private String  sTelefone_fixo_cliente;
     private String  sTelefone_celular_cliente;
+    private String  sSenha_cliente;
 
     public Cliente() {
+    }
+    
+     public int getId_cliente() {
+        return iId_cliente;
+    }
+
+    public void setId_cliente(int iId_cliente) {
+        this.iId_cliente = iId_cliente;
     }
 
     public String getNome_cliente() {
@@ -80,40 +86,47 @@ public class Cliente {
     public void setTelefone_celular_cliente(String sTelefone_celular_cliente) {
         this.sTelefone_celular_cliente = sTelefone_celular_cliente;
     }
+    
+    public String getSenha_cliente() {
+        return sSenha_cliente;
+    }
 
-    public String incluir() {
+    public void setSenha_cliente(String sSenha_cliente) {
+        this.sSenha_cliente = sSenha_cliente;
+    }
+
+    /*public String incluir() {
         try {
+            DataSource dataSource = new DataSource();
             // Carregar Driver do MySQL
-            Class.forName("com.mysql.cj.jdbc.Driver");
+            //Class.forName("com.mysql.cj.jdbc.Driver");
             //Fazer a conexão verifique se o usuário root e a senha são iguais na máquina de teste caso contrário, altere na linha abaixo.
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/ecommerce?useTimezone=true&serverTimezone=UTC&useSSL=false", "root", "123");
-            Statement stmt = con.createStatement();//Criar o fluxo para mandar comando sql o banco
+            //Connection con = DriverManager.getConnection("jdbc:mysql://localhost/bd_petlovecare?useTimezone=true&serverTimezone=UTC&useSSL=false", "root", "123");
+            //Statement stmt = con.createStatement();//Criar o fluxo para mandar comando sql o banco
+            
+            Statement stmt = dataSource.getConnection().createStatement();
 
-            String sql = 
-                    "INSERT INTO TB_Clientes("
+            String sSql = 
+                    "INSERT INTO TB_Cliente("
                         + "Nome_Cliente, "
                         + "CPF_Cliente, "
                         + "RG_Cliente, "
                         + "Sexo_Cliente, "
                         + "Endereco_Cliente, "
                         + "Email_Cliente, "
-                        + "Data_Cadastro_Cliente, "
                         + "Telefone_Fixo_Cliente,"
-                        + " Telefone_Celular_Cliente) "
-                    + "VALUES("
-                        + getNome_cliente() + "','"
-                        + getCpf_cliente() + "','" 
-                        + getRg_cliente() + "','" 
-                        + getSexo_cliente() + "','"
-                        + getEndereco_cliente() + "','" 
-                        + getEmail_cliente() + "','" 
-                        + getTelefone_fixo_cliente() + "','" 
-                        + getTelefone_celular_cliente() + "')";
-            stmt.executeUpdate(sql);// Executa o comando SQL
-            con.close();//Fecha a conexão
-            stmt.close();//Fecha o fluxo 
-        } catch (ClassNotFoundException e) {
-            return "Erro:" + e.getMessage();
+                        + "Telefone_Celular_Cliente,"
+                        + "Senha_Cliente"
+                    + ")VALUES('" + getNome_cliente() + "','" + getCpf_cliente() + "','" + getRg_cliente() + "','" + getSexo_cliente() + "','" + getEndereco_cliente() + "','" + getEmail_cliente() + "','" + getTelefone_fixo_cliente() + "','" + getTelefone_celular_cliente() + "','" + getSenha_cliente() + "')";
+            stmt.executeUpdate(sSql);
+            
+            dataSource.closeDataSource();
+            stmt.close();
+ 
+            
+            //stmt.executeUpdate(sql);// Executa o comando SQL
+            //con.close();//Fecha a conexão
+            //stmt.close();//Fecha o fluxo 
         } catch (SQLException e) {
             return "Erro:" + e.getMessage();
         }
@@ -183,5 +196,5 @@ public class Cliente {
         } catch (Exception ex) {
             return null;
         }
-    }
+    }*/
 }
