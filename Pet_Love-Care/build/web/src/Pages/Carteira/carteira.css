@@ -42,13 +42,3 @@
     color: white;
     text-align: center;
 }
-
-.dataTables_paginate, .dataTables_info, .paginate_button{
-    display: none;
-}
-
-.btn_next_prev {
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
-}

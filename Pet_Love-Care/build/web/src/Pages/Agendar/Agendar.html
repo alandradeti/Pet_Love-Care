@@ -66,8 +66,10 @@
         <div class="form-row">
             <div class="form-group col-md-6">
              <label class="col-form-label login_label">Pet:</label>
-             <input type="text" class="form-control" name="pet_id_pet"
-                    id="pet_id_pet" placeholder="Cachorro/Gato..." required />
+              <select class="form-control" required>
+                  <option>Selecione um veterinário</option>
+                  <option id="pet_id_pet"></option>
+              </select>
             </div>
             <div class="form-group col-md-6">
              <label class="col-form-label login_label">Veterinário:</label>
@@ -80,7 +82,6 @@
               </select>
             </div>
         </div>
-           
           <div class="pst_btn_agendar">
             <button class="btn btn_agendar mt-4 ">Agendar</button>
           </div>
