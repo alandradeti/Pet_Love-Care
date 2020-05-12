@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pet Love Care</title>
+
+  <link rel="stylesheet" href="../../../css//bootstrap.min.css">
+  <link rel="shortcut icon" href="../../img/Icon/Logo-cabeca.png">
+  <link rel="stylesheet" href="../css/padrao.css">
+  <link rel="stylesheet" href="./home.css">
+  <link rel="stylesheet" href="./login.css">
+
+  <script src="../../../js/jquery.slim.min.js"></script>
+  <script src="../../../js/bootstrap.min.js"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <script src="../../../js/jquery.min.js"></script>
+  <script src="../js/padrao.js"></script>
+</head>
+
+<body>
+
+  <!-- Formulário de login -->
+  <div id="modal_login" class="modal">
+    <div class="space_login">
+      <span class="close_modal_login mr-3">&times;</span>
+      <div class="tela_login">
+        <div class="login_logo">
+          <img src="../../img/Logo/Logo-cabeca.png">
+          <h4>Faça o seu login</h4>
+        </div>
+          <form method="POST" action="../Login/sessaoLogin.jsp">
+          <div class="login-form row">
+            <label class="col-form-label col-3 mt-3 login_label">E-mail</label>
+            <input name="email_cliente" id="email_cliente" type="email" class="form-control col-8 mt-3" placeholder="Seu email..." required />
+
+            <label class="col-form-label col-3 mt-4 login_label">Senha</label>
+            <input name="senha_cliente" id="senha_cliente" class="form-control col-8 mt-4" placeholder="Senha" required />
+            
+            <p class="criar_cadastro mt-2">Não é registrado?<a href="#">
+                Crie sua conta!</a></p>
+          </div>
+          <button class="btn btn_login mt-4">Login</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

@@ -38,17 +38,5 @@ window.onclick = (event) => {
   }
 }
 
-//Envio do formulário de cadastramento Cliente
-$(function(){
-    $('#formCadastrarCliente').submit(function(){
-        $.ajax({
-            url: '../Modal/IncluirCliente.jsp',
-            type: 'POST',
-            data: $('#formCadastrarCliente').serialize(),
-            success: function(data){
-                alert("Funcionou");
-            }
-        });
-        return false;
-    });
-});
+
+
