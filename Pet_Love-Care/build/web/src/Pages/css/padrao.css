@@ -1,0 +1,112 @@
+/* NavBar */
+.custom_navbar {
+    background-color: rgb(248, 208, 144) !important;
+}
+/* Icon togle */
+.custom_icon {
+    background-color: rgb(238, 190, 113);
+}
+/* Botão Menu e cadastro */
+.login_cadastro:hover {
+    border-bottom: 1px solid black;
+    border-radius: 1px;
+}
+
+/* Cabeça do logo */
+.login_logo {
+    margin-bottom: 5%;
+    margin-top: -20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+/* Label de usuario e senha */
+.login_label {
+    font-size: 18px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+/* Mensagem de criar cadastro */
+.criar_cadastro {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: auto;
+}
+/* Botao login */
+.btn_login {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: white;
+    border: none;
+    background-color: #ffa411;
+}
+
+.btn_login:hover {
+    color: white;
+    border: none;
+    background-color: #f09f1d;
+}
+
+/* Balao onde o gato e cachorro falam */
+.balao{
+    background: #000;
+    border-radius: 15px;
+    width: 40px;
+    height: 25px;
+    position: absolute;
+    margin-top: -30px;
+}
+
+.balao:after{
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 15px solid #000;
+    bottom: -10px;
+    left: 10%;
+}
+
+.latido_miado {
+    margin-top: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    color: #fff;
+}
+
+.balao{
+    display: none;
+}
+.login_cadastro:hover .balao{
+    display: block;
+}
+
+/* Logo gato */
+.cabeca_gato {
+    height: 80px;
+}
+/* Background de tela de fundo */
+.background {
+    display: table;
+    width: 100%;
+    height: 100vh;
+    padding: 100px 0;
+    background: url('../../img/Fundos/background.png') no-repeat bottom center scroll;
+    background-position: 30% 45%;
+    background-size: cover;
+}
+
+.centralizar {
+    text-align: center;
+}
+
+.centralizar_btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 85px
+}
+
+.funcionario_label {
+    font-size: 16px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
