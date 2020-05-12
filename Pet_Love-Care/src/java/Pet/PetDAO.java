@@ -1,11 +1,12 @@
-package Cliente;
+package Pet;
 
 import Banco.DataSource;
 import java.sql.*;
 
-public class ClienteDAO extends Cliente {
 
-    //Instanciando a classe de conexão
+
+public class PetDAO extends Pet{
+     //Instanciando a classe de conexão
     DataSource dataSource = new DataSource();
 
     /**
@@ -34,33 +35,31 @@ public class ClienteDAO extends Cliente {
      */
     public boolean Incluir() {
         try {
-            String sSql
-                    = "INSERT INTO TB_Cliente("
-                    + "Nome_Cliente,"
-                    + "CPF_Cliente,"
-                    + "RG_Cliente,"
-                    + "Sexo_Cliente,"
-                    + "Endereco_Cliente,"
-                    + "Email_Cliente,"
-                    + "Telefone_Fixo_Cliente,"
-                    + "Telefone_Celular_Cliente,"
-                    + "Data_Nascimento_Cliente,"
-                    + "Tipo_Cliente,"
-                    + "Codigo_Funcionario,"
-                    + "Senha_Cliente"
-                    + ")VALUES("
-                    + "'" + getNome_cliente() + "',"
-                    + "'" + getCpf_cliente() + "',"
-                    + "'" + getRg_cliente() + "',"
-                    + "'" + getSexo_cliente() + "',"
-                    + "'" + getEndereco_cliente() + "',"
-                    + "'" + getEmail_cliente() + "',"
-                    + "'" + getTelefone_fixo_cliente() + "',"
-                    + "'" + getTelefone_celular_cliente() + "',"
-                    + "'" + getData_nascimento_cliente() + "',"
-                    + "'" + getTipo_cliente() + "',"
-                    + "'" + getCodigo_funcionario() + "',"
-                    + "'" + getSenha_cliente() + "')";
+            String sSql = 
+                    "INSERT INTO TB_Pet("
+                        + "Especie_Pet, "
+                        + "Nome_Pet, "
+                        + "Raca_Pet, "
+                        + "Idade_Pet, "
+                        + "Porte_Pet, "
+                        + "Peso_Pet, "
+                        + "Altura_Pet, "
+                        + "Sexo_Pet, "
+                        + "Castracao_Pet, "
+                        + "Cor_Pelagem_Pet,"
+                        + "Cliente_Id_Cliente"
+                        +")VALUES("
+                        +"'" + getEspecie_pet() + "',"
+                        +"'" + getNome_pet() + "',"
+                        +"'" + getRaca_pet() + "',"
+                        +"'" + getIdade_pet() + "',"
+                        +"'" + getPorte_pet() + "'," 
+                        +"'" + getPeso_pet() + "',"
+                        +"'" + getAltura_pet() + "'," 
+                        +"'" + getSexo_pet() + "'," 
+                        +"'" + getCastracao_pet() + "',"
+                        +"'" + getCor_pelagem_pet() + "',"
+                        +"'" + getCliente_id_cliente() + "')";
             PreparedStatement ps = dataSource.getConnection().prepareStatement(sSql); // Realiza a conexão e o preparo da query
             ps.executeUpdate(sSql); // Executa a query
 
@@ -82,7 +81,7 @@ public class ClienteDAO extends Cliente {
      * @purpose: Realizar a alteração de um cliente existente. 
      * @return: boolean.
      */
-    public boolean Alterar(int iId_Cliente) {
+    /*public boolean Alterar(int iId_Cliente) {
         try {
             String sSql = "UPDATE "
                     + "TB_Cliente"
@@ -112,7 +111,7 @@ public class ClienteDAO extends Cliente {
             return (false);
         }
         return (true);
-    }
+    }*/
     
     /**
      * Método: Excluir()
@@ -120,7 +119,7 @@ public class ClienteDAO extends Cliente {
      * @purpose: Realizar a exclusão de um cliente existente. 
      * @return: boolean.
      */
-    public boolean Excluir(int iId_Cliente){
+    /*public boolean Excluir(int iId_Cliente){
     	 try {
             String sSql = "DELETE FROM "
                             + "TB_Cliente "
@@ -139,6 +138,5 @@ public class ClienteDAO extends Cliente {
             return (false);
         }
         return(true);
-    }
-
+    }*/
 }

@@ -11,6 +11,8 @@ public class Cliente {
     private String  sTelefone_fixo_cliente;
     private String  sTelefone_celular_cliente;
     private String  sData_nascimento_cliente;
+    private int     iTipo_cliente;
+    private String  sCodigo_funcionario;
     private String  sSenha_cliente;
 
     public Cliente() {
@@ -96,6 +98,22 @@ public class Cliente {
         this.sData_nascimento_cliente = sData_nascimento_cliente;
     }
     
+     public int getTipo_cliente() {
+        return iTipo_cliente;
+    }
+
+    public void setTipo_cliente(int iTipo_cliente) {
+        this.iTipo_cliente = iTipo_cliente;
+    }
+
+    public String getCodigo_funcionario() {
+        return sCodigo_funcionario;
+    }
+
+    public void setCodigo_funcionario(String sCodigo_funcionario) {
+        this.sCodigo_funcionario = sCodigo_funcionario;
+    }
+    
     public String getSenha_cliente() {
         return sSenha_cliente;
     }
@@ -103,5 +121,6 @@ public class Cliente {
     public void setSenha_cliente(String sSenha_cliente) {
         this.sSenha_cliente = sSenha_cliente;
     }
+
 
 }
