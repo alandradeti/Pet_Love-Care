@@ -1,11 +1,10 @@
-package Cliente;
+package Veterinario;
 
 import Banco.DataSource;
 import java.sql.*;
 
-public class ClienteDAO extends Cliente {
-
-    //Instanciando a classe de conexão
+public class VeterinarioDAO extends Veterinario {
+     //Instanciando a classe de conexão
     DataSource dataSource = new DataSource();
 
     /**
@@ -35,32 +34,28 @@ public class ClienteDAO extends Cliente {
     public boolean Incluir() {
         try {
             String sSql
-                    = "INSERT INTO TB_Cliente("
-                    + "Nome_Cliente,"
-                    + "CPF_Cliente,"
-                    + "RG_Cliente,"
-                    + "Sexo_Cliente,"
-                    + "Endereco_Cliente,"
-                    + "Email_Cliente,"
-                    + "Telefone_Fixo_Cliente,"
-                    + "Telefone_Celular_Cliente,"
-                    + "Data_Nascimento_Cliente,"
-                    + "Tipo_Cliente,"
-                    + "Codigo_Funcionario,"
-                    + "Senha_Cliente"
+                    = "INSERT INTO TB_Veterinario("
+                    + "Nome_Veterinario,"
+                    + "CPF_Veterinario,"
+                    + "RG_Veterinario,"
+                    + "Sexo_Veterinario,"
+                    + "Endereco_Veterinario,"
+                    + "Email_Veterinario,"
+                    + "Telefone_Fixo_Veterinario,"
+                    + "Telefone_Celular_Veterinario,"
+                    + "Data_Nascimento_Veterinario,"
+                    + "Senha_Veterinario"
                     + ")VALUES("
-                    + "'" + getNome_cliente() + "',"
-                    + "'" + getCpf_cliente() + "',"
-                    + "'" + getRg_cliente() + "',"
-                    + "'" + getSexo_cliente() + "',"
-                    + "'" + getEndereco_cliente() + "',"
-                    + "'" + getEmail_cliente() + "',"
-                    + "'" + getTelefone_fixo_cliente() + "',"
-                    + "'" + getTelefone_celular_cliente() + "',"
-                    + "'" + getData_nascimento_cliente() + "',"
-                    + "'" + getTipo_cliente() + "',"
-                    + "'" + getCodigo_funcionario() + "',"
-                    + "'" + getSenha_cliente() + "')";
+                    + "'" + getNome_veterinario() + "',"
+                    + "'" + getCpf_veterinario() + "',"
+                    + "'" + getRg_veterinario() + "',"
+                    + "'" + getSexo_veterinario() + "',"
+                    + "'" + getEndereco_veterinario() + "',"
+                    + "'" + getEmail_veterinario() + "',"
+                    + "'" + getTelefone_fixo_veterinario() + "',"
+                    + "'" + getTelefone_celular_veterinario() + "',"
+                    + "'" + getData_nascimento_veterinario() + "',"
+                    + "'" + getSenha_veterinario() + "')";
             PreparedStatement ps = dataSource.getConnection().prepareStatement(sSql); // Realiza a conexão e o preparo da query
             ps.executeUpdate(sSql); // Executa a query
 
@@ -82,23 +77,23 @@ public class ClienteDAO extends Cliente {
      * @purpose: Realizar a alteração de um cliente existente. 
      * @return: boolean.
      */
-    public boolean Alterar(int iId_Cliente) {
+    public boolean Alterar(int iId_Veterinario) {
         try {
             String sSql = "UPDATE "
-                    + "TB_Cliente"
+                    + "TB_Veterinario"
                     + "SET "
-                    + "Nome_Cliente = '" + getNome_cliente() + "',"
-                    + "CPF_Cliente = '" + getCpf_cliente() + "',"
-                    + "RG_Cliente = '" + getRg_cliente() + "',"
-                    + "Sexo_Cliente = '" + getSexo_cliente() + "',"
-                    + "Endereco_Cliente = '" + getEndereco_cliente() + "',"
-                    + "Email_Cliente = '" + getEmail_cliente() + "',"
-                    + "Telefone_Fixo_Cliente = '" + getTelefone_fixo_cliente() + "',"
-                    + "Telefone_Celular_Cliente = '" + getTelefone_celular_cliente() + "',"
-                    + "Data_Nascimento_Cliente = '" + getData_nascimento_cliente() + "',"
-                    + "Senha_Cliente = '" + getSenha_cliente() + "'"
+                    + "Nome_Veterinario = '" + getNome_veterinario() + "',"
+                    + "CPF_Veterinario = '" + getCpf_veterinario() + "',"
+                    + "RG_Veterinario = '" + getRg_veterinario() + "',"
+                    + "Sexo_Veterinario = '" + getSexo_veterinario() + "',"
+                    + "Endereco_Veterinario = '" + getEndereco_veterinario() + "',"
+                    + "Email_Veterinario = '" + getEmail_veterinario() + "',"
+                    + "Telefone_Fixo_Veterinario = '" + getTelefone_fixo_veterinario() + "',"
+                    + "Telefone_Celular_Veterinario = '" + getTelefone_celular_veterinario() + "',"
+                    + "Data_Nascimento_Veterinario = '" + getData_nascimento_veterinario() + "',"
+                    + "Senha_Veterinario = '" + getSenha_veterinario() + "'"
                     + "WHERE"
-                    + "Id_Cliente = " + iId_Cliente;
+                    + "Id_Veterinario = " + iId_Veterinario;
             PreparedStatement ps = dataSource.getConnection().prepareStatement(sSql); // Realiza a conexão e o preparo da query
             ps.executeUpdate(sSql); // Executa a query
 
@@ -120,12 +115,12 @@ public class ClienteDAO extends Cliente {
      * @purpose: Realizar a exclusão de um cliente existente. 
      * @return: boolean.
      */
-    public boolean Excluir(int iId_Cliente){
+    public boolean Excluir(int iId_Veterinario){
     	 try {
             String sSql = "DELETE FROM "
-                            + "TB_Cliente "
+                            + "TB_Veterinario "
                         + "WHERE "
-                            + "Id_Cliente = " + iId_Cliente;
+                            + "Id_Veterinario = " + iId_Veterinario;
             PreparedStatement ps = dataSource.getConnection().prepareStatement(sSql); // Realiza a conexão e o preparo da query
             ps.executeUpdate(sSql); // Executa a query
             
@@ -140,5 +135,5 @@ public class ClienteDAO extends Cliente {
         }
         return(true);
     }
-
 }
+
