@@ -49,10 +49,10 @@
                     <option value="Banho e Tosa">Banho e Tosa</option>
                 </select>
             </div>
-          <div class="form-group col-md-6">
+			<div class="form-group col-md-6">
             <label class="col-form-label mt-4 login_label">Horário:</label>
-            <input type="time" class="form-control" 
-                   id="Horario_Agendamento" placeholder="Insira um horÃ¡rio" required />
+            <input type="time" class="form-control" name="horario_agendamento" 
+                   id="horario_agendamento" placeholder="Insira um horário" required />
           </div>
         </div>
           
@@ -60,19 +60,19 @@
            <div class="form-row">
             <div class="form-group col-md-6">
                 <label class="col-form-label login_label">Data:</label>
-                <input type="date" class="form-control col-12" 
-                     id="Data_Agendamento" placeholder="Data dpara consulta" required />
+                <input type="date" class="form-control col-12" name="data_agendamento"
+                     id="data_agendamento" placeholder="Data dpara consulta" required />
             </div>
             <div class="form-group col-md-6">
-            <label class="col-form-label login_label">Vacina:</label>
-            <input type="email" class="form-control col-12" 
-                 id="Vacina_ID_Vacina" placeholder="Nome da vacÃ­na" required />
+            <label class="col-form-label login_label">Vacína:</label>
+            <input type="text" class="form-control col-12" name="vacina_id_vacina"
+                 id="vacina_id_vacina" placeholder="Nome da vacína" required />
             </div>
         </div>
           
         <div class="form-row">
             <div class="form-group col-md-6">
-             <label class="col-form-label login_label">Veterinário:</label>
+             <label class="col-form-label login_label">Pet:</label>
               <select name="id_pet" id="id_pet" class="form-control" required>
                   <%
                         ResultSet rsPet = cliente.Consultar("SELECT Id_Pet,Nome_Pet FROM TB_Pet WHERE Cliente_Id_Cliente = '" + session.getAttribute("id_cliente") + "'");
@@ -98,7 +98,6 @@
               </select>
             </div>
         </div>
-           
           <div class="pst_btn_agendar">
             <button class="btn btn_agendar mt-4 ">Agendar</button>
           </div>
@@ -110,19 +109,3 @@
 
 </html>
 
-
-<!--    RemoÃ§Ãµes
-<div class="form-group col-md-6">
-              <label class="col-form-label mt-4 login_label">Data:</label>
-              <input type="date" class="form-control" placeholder="Insira um nome de usuÃ¡rio" required />
-            </div>
-<label class="col-form-label login_label">Nome do Pet:</label>
-          <input type="text" class="form-control col-12" placeholder="Insira o nome do animal..." required />
-
-          <label class="col-form-label login_label">Categoria:</label>
-          <select type="text" class="form-control col-12" placeholder="Insira um nome de usuÃ¡rio" required>
-            <option>Selecione uma categoria</option>
-            <option>Consulta de rotina</option>
-            <option>Consulta emergencial!</option>
-            <option>CastraÃ§Ã£o</option>
-          </select>-->

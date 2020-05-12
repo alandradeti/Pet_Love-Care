@@ -17,10 +17,28 @@
 .btn_agendar:hover {
     color: white;
     background-color: #f09f1d !important;
-  }
+}
 
 .pst_btn_agendar {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+#myTable thead {
+    background-color: #343A40;
+    color: white;
+    text-align: center;
+}
+
+#myTable th {
+    background-color: #343A40;
+    color: white;
+    text-align: center;
+}
+
+#myTable tr {
+    background-color: #343A40;
+    color: white;
+    text-align: center;
 }

@@ -82,16 +82,19 @@
         </div>
         <img src="../../img/Produtos/produto_1.png" class="card-img-top custom_img_produtos" alt="...">
         <div class="card-body">
-          <h5 class="card-title">Ração Hills</h5>
-          <p class="card-text">Ração Hills sabor carne, recomendada para cachorros de porte pequeno.</p>
-          <p class="card-text">R$ 19,99</p>
+          <h5 class="card-title" id="nome_produto">Ração Hills</h5>
+          <p class="card-text" id="descricao_produto">Ração Hills sabor carne, recomendada para cachorros de porte pequeno.</p>
+          <p class="card-text" id="valor_produto">R$ 19,99</p>
           
           <div class="input-group mb-3 input_center">
             <div class="input-group-prepend">
               <button class="btn btn-dark" 
                       type="button">+</button>
             </div>
-            <input type="text" class="form-control col-2" value="0" aria-label="Example text with button addon" aria-describedby="button-addon1">
+            <input type="text" class="form-control col-2" 
+                   id="quantidade_produto"
+                   name="quantidade_produto"
+                   aria-describedby="button-addon1">
             <div class="input-group-append">
               <button class="btn btn-dark"
                       type="button">-</button>
@@ -107,15 +110,17 @@
         </div>
         <img src="../../img/Produtos/produto_2.png" class="card-img-top custom_img_produtos" alt="...">
         <div class="card-body">
-          <h5 class="card-title">Royal Canin</h5>
-          <p class="card-text">Royal Canin sabor carne, recomendada para cachorros de porte médio e grande.</p>
-          <p class="card-text">R$ 19,99</p>
+          <h5 class="card-title" id="nome_produto">Royal Canin</h5>
+          <p class="card-text" id="descricao_produto">Royal Canin sabor carne, recomendada para cachorros de porte médio e grande.</p>
+          <p class="card-text" id="valor_produto">R$ 19,99</p>
          <div class="input-group mb-3 input_center">
             <div class="input-group-prepend">
               <button class="btn btn-dark" 
                       type="button">+</button>
             </div>
-            <input type="text" class="form-control col-2" value="0" aria-label="Example text with button addon" aria-describedby="button-addon1">
+            <input type="text" class="form-control col-2" 
+                   id="quantidade_produto" name="quantidade_produto"
+                   aria-describedby="button-addon1">
             <div class="input-group-append">
               <button class="btn btn-dark"
                       type="button">-</button>
@@ -131,15 +136,17 @@
         </div>
         <img src="../../img/Produtos/produto_3.png" class="card-img-top custom_img_produtos" alt="...">
         <div class="card-body">
-          <h5 class="card-title">Ração Golden</h5>
-          <p class="card-text">Golden sabor carne defumada, recomendada para cachorros de porte médio.</p>
-          <p class="card-text">R$ 19,99</p>
+          <h5 class="card-title" id="nome_produto">Ração Golden</h5>
+          <p class="card-text" id="descricao_produto" >Golden sabor carne defumada, recomendada para cachorros de porte médio.</p>
+          <p class="card-text" id="valor_produto">R$ 19,99</p>
           <div class="input-group mb-3 input_center">
             <div class="input-group-prepend">
               <button class="btn btn-dark" 
                       type="button">+</button>
             </div>
-            <input type="text" class="form-control col-2" value="0" aria-label="Example text with button addon" aria-describedby="button-addon1">
+            <input type="text" class="form-control col-2" 
+                   id="quantidade_produto" name="quantidade_produto" 
+                   aria-describedby="button-addon1">
             <div class="input-group-append">
               <button class="btn btn-dark"
                       type="button">-</button>
@@ -155,15 +162,17 @@
         </div>
         <img src="../../img/Produtos/produto_4.png" class="card-img-top custom_img_produtos" alt="...">
         <div class="card-body">
-          <h5 class="card-title">Antipugas Bravecto</h5>
-          <p class="card-text">Braveo antipugas, recomendado para cachorros de porte médio e pequeno.</p>
-          <p class="card-text">R$ 19,99</p>
+          <h5 class="card-title" id="nome_produto">Antipugas Bravecto</h5>
+          <p class="card-text" id="descricao_produto">Braveo antipugas, recomendado para cachorros de porte médio e pequeno.</p>
+          <p class="card-text" id="valor_produto">R$ 19,99</p>
           <div class="input-group mb-3 input_center">
             <div class="input-group-prepend">
               <button class="btn btn-dark" 
                       type="button">+</button>
             </div>
-            <input type="text" class="form-control col-2" value="0" aria-label="Example text with button addon" aria-describedby="button-addon1">
+            <input type="text" class="form-control col-2" 
+                   id="quantidade_produto" name="quantidade_produto"
+                   aria-describedby="button-addon1">
             <div class="input-group-append">
               <button class="btn btn-dark"
                       type="button">-</button>
@@ -181,15 +190,17 @@
         </div>
         <img src="../../img/Produtos/produto_5.png" class="card-img-top custom_img_produtos" alt="...">
         <div class="card-body">
-          <h5 class="card-title">Super Secão</h5>
-          <p class="card-text">Super Secão Citrus Tapete Higiênico Petix para Cães - 30 Unidades.</p>
-          <p class="card-text">R$ 19,99</p>
+          <h5 class="card-title" id="nome_produto">Super Secão</h5>
+          <p class="card-text" id="descricao_produto">Super Secão Citrus Tapete Higiênico Petix para Cães - 30 Unidades.</p>
+          <p class="card-text" id="valor_produto">R$ 19,99</p>
         <div class="input-group mb-3 input_center">
             <div class="input-group-prepend">
               <button class="btn btn-dark" 
                       type="button">+</button>
             </div>
-            <input type="text" class="form-control col-2" value="0" aria-label="Example text with button addon" aria-describedby="button-addon1">
+            <input type="text" class="form-control col-2" 
+                   id="quantidade_produto" name="quantidade_produto" 
+                   aria-describedby="button-addon1">
             <div class="input-group-append">
               <button class="btn btn-dark"
                       type="button">-</button>
@@ -205,15 +216,18 @@
         </div> 
         <img src="../../img/Produtos/produto_6.png" class="card-img-top custom_img_produtos" alt="...">
         <div class="card-body">
-          <h5 class="card-title">Arranhadores</h5>
-          <p class="card-text">Brinquedo Arranhador São Pet Maxball para Gatos de qualquer idade.</p>
-          <p class="card-text">R$ 19,99</p>
+          <h5 class="card-title" id="nome_produto">Arranhadores</h5>
+          <p class="card-text" id="descricao_produto">Brinquedo Arranhador São Pet Maxball para Gatos de qualquer idade.</p>
+          <p class="card-text" id="valor_produto">R$ 19,99</p>
          <div class="input-group mb-3 input_center">
             <div class="input-group-prepend">
               <button class="btn btn-dark" 
                       type="button">+</button>
             </div>
-            <input type="text" class="form-control col-2" value="0" aria-label="Example text with button addon" aria-describedby="button-addon1">
+            <input type="text" class="form-control col-2" 
+                   id="quantidade_produto"
+                   name="quantidade_produto" 
+                   aria-describedby="button-addon1">
             <div class="input-group-append">
               <button class="btn btn-dark"
                       type="button">-</button>
@@ -229,15 +243,17 @@
         </div>
         <img src="../../img/Produtos/produto_7.png" class="card-img-top custom_img_produtos" alt="...">
         <div class="card-body">
-          <h5 class="card-title">Areia</h5>
-          <p class="card-text">Areia Higiênica Chalesco e Garfield com Cristais de Sílica para Gatos - 2kg.</p>
-          <p class="card-text">R$ 19,99</p>
+          <h5 class="card-title" id="nome_produto">Areia</h5>
+          <p class="card-text" id="descricao_produto">Areia Higiênica Chalesco e Garfield com Cristais de Sílica para Gatos - 2kg.</p>
+          <p class="card-text" id="valor_produto">R$ 19,99</p>
          <div class="input-group mb-3 input_center">
             <div class="input-group-prepend">
               <button class="btn btn-dark" 
                       type="button">+</button>
             </div>
-            <input type="text" class="form-control col-2" value="0" aria-label="Example text with button addon" aria-describedby="button-addon1">
+            <input type="text" class="form-control col-2" 
+                   id="quantidade_produto" name="quantidade_produto"
+                   aria-describedby="button-addon1">
             <div class="input-group-append">
               <button class="btn btn-dark"
                       type="button">-</button>
@@ -253,15 +269,17 @@
         </div>
         <img src="../../img/Produtos/produto_8.png" class="card-img-top custom_img_produtos" alt="...">
         <div class="card-body">
-          <h5 class="card-title">Antipugas</h5>
-          <p class="card-text">Antipugas para cães, recomendado para cachorros de porte médio e grande.</p>
-          <p class="card-text">R$ 19,99</p>
+          <h5 class="card-title" id="nome_produto">Antipugas</h5>
+          <p class="card-text" id="descricao_produto">Antipugas para cães, recomendado para cachorros de porte médio e grande.</p>
+          <p class="card-text" id="valor_produto">R$ 19,99</p>
          <div class="input-group mb-3 input_center">
             <div class="input-group-prepend">
               <button class="btn btn-dark" 
                       type="button">+</button>
             </div>
-            <input type="text" class="form-control col-2" value="0" aria-label="Example text with button addon" aria-describedby="button-addon1">
+            <input type="text" class="form-control col-2" 
+                   id="quantidade_produto" name="quantidade_produto" 
+                   aria-describedby="button-addon1">
             <div class="input-group-append">
               <button class="btn btn-dark"
                       type="button">-</button>
