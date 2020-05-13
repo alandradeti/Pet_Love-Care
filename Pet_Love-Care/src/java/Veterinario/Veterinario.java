@@ -1,7 +1,6 @@
 package Veterinario;
 
 public class Veterinario {
-    //private int iId_veterinario;
     private String  sNome_veterinario;
     private String  sCpf_veterinario;
     private String  sRg_veterinario;
@@ -11,7 +10,6 @@ public class Veterinario {
     private String  sTelefone_fixo_veterinario;
     private String  sTelefone_celular_veterinario;
     private String  sData_Nascimento_Veterinario;
-    private String  sSenha_veterinario;
 
     public Veterinario() {
     }
@@ -86,14 +84,6 @@ public class Veterinario {
 
     public void setData_nascimento_veterinario(String sData_Nascimento_Veterinario) {
         this.sData_Nascimento_Veterinario = sData_Nascimento_Veterinario;
-    }
-
-    public String getSenha_veterinario() {
-        return sSenha_veterinario;
-    }
-
-    public void setSenha_veterinario(String sSenha_veterinario) {
-        this.sSenha_veterinario = sSenha_veterinario;
     }
     
     /*public String incluir() {
