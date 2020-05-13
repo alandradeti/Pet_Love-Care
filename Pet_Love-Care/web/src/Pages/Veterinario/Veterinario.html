@@ -16,10 +16,12 @@
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>
         <script src="../../../js/jquery.min.js"></script>
         <script src="../js/padrao.js"></script>
+        <script src="../js/ajax.min.js"></script>
+        <script src="../js/post.js"></script>
 
         <script>
             $(function () {
-                $("#headerDiv").load("../Menu/Menu.html");
+                $("#headerDiv").load("../Menu/Menu.jsp");
             });
         </script>
     </head>
@@ -34,77 +36,81 @@
                     <img src="../../img/Logo/Veterinario.png" class="cabeca_gato">
                     <h3>Cadastro Veterinário</h3>
                 </div>
-                <form>
+                <form name="formCadastrarVeterinario" id="formCadastrarVeterinario">
                     <div class="col">
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label class="col-form-label mt-4 login_label">Nome Completo:</label>
                                 <input type="text" class="form-control" 
-                                       id="Nome_Veterinario" placeholder="Nome do veterinário" required />
+                                       name="nome_veterinario" id="nome_veterinario" placeholder="Nome do veterinário" required />
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="col-form-label mt-4 login_label">CPF:</label>
                                 <input type="text" class="form-control" 
-                                       id="Cpf_Veterinario" placeholder="CPF do veterinário" required />
+                                       name="cpf_veterinario" id="cpf_veterinario" placeholder="CPF do veterinário" required />
                             </div>
                         </div>
 
-                        <div class="form-row">
-                            <div class="form-group col-md-12">
-                                <label class="col-form-label login_label">Endereço:</label>
-                                <input type="text" class="form-control" 
-                                       id="Endereco_Veterinario" placeholder="Nome da rua" required />
+                        <div class="form-group">
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label class="col-form-label login_label">Endereço:</label>
+                                    <input type="text" class="form-control" name="endereco_veterinario"
+                                           id="endereco_veterinario" placeholder="Nome da rua" required />
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label class="col-form-label login_label">Data de nascimento:</label>
+                                    <input type="date" class="form-control" name="data_nascimento_veterinario"
+                                           id="data_nascimento_veterinario"  required />
+                                </div>
                             </div>
-                        </div>  
+                        </div>
+
 
                         <div class="form-group">
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label class="col-form-label login_label">RG:</label>
                                     <input type="text" class="form-control col-12" 
-                                           id="Rg_Veterinario" placeholder="RG do veterinário" required />
+                                           name="rg_veterinario" id="rg_veterinario" placeholder="RG do veterinário" required />
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label class="col-form-label login_label">Sexo:</label>
-                                    <select class="form-control col-12" id="Sexo_Veterinario" required >
+                                    <select class="form-control col-12" name="sexo_veterinario" id="sexo_veterinario" required >
                                         <option>Selecione o sexo</option>
-                                        <option id="M">Masculino</option>
-                                        <option id="F">Feminino</option>
+                                        <option value="M">Masculino</option>
+                                        <option value="F">Feminino</option>
                                     </select>
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label class="col-form-label login_label">Email:</label>
-                                    <input type="text" class="form-control" 
-                                           id="Email_Veterinario" placeholder="Insira um email válido" required />
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label class="col-form-label login_label">Telefone Fixo:</label>
-                                    <input type="text" class="form-control" 
-                                           id="Telefone_Fixo_Veterinario" placeholder="(11) 1111-1111" required />
-                                </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label class="col-form-label login_label">Email:</label>
+                                <input type="text" class="form-control" 
+                                       name="email_veterinario" id="email_veterinario" placeholder="Insira um email válido" required />
                             </div>
-
-                            <div class="form-row">
-
-                                <div class="form-group col-md-6">
-                                    <label class="col-form-label login_label">Telefone Celular:</label>
-                                    <input type="text" class="form-control" 
-                                           id="Telefone_Celular_Veterinario" placeholder="(11) 99999-9999" required />
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label class="col-form-label login_label">Senha:</label>
-                                    <input type="password" class="form-control" 
-                                           id="Senha_Veterinario" placeholder="Senha..." required />
-                                </div>
-                            </div>
-
-                            <div class="pst_btn_agendar">
-                                <button class="btn btn_agendar mt-4 ">Cadastrar</button>
+                            <div class="form-group col-md-6">
+                                <label class="col-form-label login_label">Telefone Fixo:</label>
+                                <input type="text" class="form-control" 
+                                       name="telefone_fixo_veterinario" id="telefone_fixo_veterinario" placeholder="(11) 1111-1111" required />
                             </div>
                         </div>
+
+                        <div class="form-row">
+
+                            <div class="form-group col-md-6">
+                                <label class="col-form-label login_label">Telefone Celular:</label>
+                                <input type="text" class="form-control" 
+                                       name="telefone_celular_veterinario" id="telefone_celular_veterinario" placeholder="(11) 99999-9999" required />
+                            </div>
+                        </div>
+
+                        <div class="pst_btn_agendar">
+                            <button class="btn btn_agendar mt-4 ">Cadastrar</button>
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>
