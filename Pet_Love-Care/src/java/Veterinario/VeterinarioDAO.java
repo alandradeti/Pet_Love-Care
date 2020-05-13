@@ -43,8 +43,7 @@ public class VeterinarioDAO extends Veterinario {
                     + "Email_Veterinario,"
                     + "Telefone_Fixo_Veterinario,"
                     + "Telefone_Celular_Veterinario,"
-                    + "Data_Nascimento_Veterinario,"
-                    + "Senha_Veterinario"
+                    + "Data_Nascimento_Veterinario"
                     + ")VALUES("
                     + "'" + getNome_veterinario() + "',"
                     + "'" + getCpf_veterinario() + "',"
@@ -54,8 +53,7 @@ public class VeterinarioDAO extends Veterinario {
                     + "'" + getEmail_veterinario() + "',"
                     + "'" + getTelefone_fixo_veterinario() + "',"
                     + "'" + getTelefone_celular_veterinario() + "',"
-                    + "'" + getData_nascimento_veterinario() + "',"
-                    + "'" + getSenha_veterinario() + "')";
+                    + "'" + getData_nascimento_veterinario() + "')";
             PreparedStatement ps = dataSource.getConnection().prepareStatement(sSql); // Realiza a conexão e o preparo da query
             ps.executeUpdate(sSql); // Executa a query
 
@@ -90,8 +88,7 @@ public class VeterinarioDAO extends Veterinario {
                     + "Email_Veterinario = '" + getEmail_veterinario() + "',"
                     + "Telefone_Fixo_Veterinario = '" + getTelefone_fixo_veterinario() + "',"
                     + "Telefone_Celular_Veterinario = '" + getTelefone_celular_veterinario() + "',"
-                    + "Data_Nascimento_Veterinario = '" + getData_nascimento_veterinario() + "',"
-                    + "Senha_Veterinario = '" + getSenha_veterinario() + "'"
+                    + "Data_Nascimento_Veterinario = '" + getData_nascimento_veterinario() + "'"
                     + "WHERE"
                     + "Id_Veterinario = " + iId_Veterinario;
             PreparedStatement ps = dataSource.getConnection().prepareStatement(sSql); // Realiza a conexão e o preparo da query
