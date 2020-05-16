@@ -1,6 +1,9 @@
 <%@page language="java" import="java.sql.*" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<jsp:useBean id="cliente" class="Cliente.ClienteDAO"/>
+<jsp:useBean id="agendamento" class="Agendamento.AgendamentoDAO"/>
+<jsp:useBean id="vacina" class="Agendamento.AgendamentoDAO"/>
+<jsp:useBean id="veterinario" class="Veterinario.VeterinarioDAO"/>
+<jsp:useBean id="pet" class="Pet.PetDAO"/>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,10 +22,12 @@
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>
         <script src="../../../js/jquery.min.js"></script>
         <script src="../js/padrao.js"></script>
+        <script src="../js/ajax.min.js"></script>
+        <script src="../js/post.js"></script>
 
         <script>
             $(function () {
-                $("#headerDiv").load("../Menu/Menu.html");
+                $("#headerDiv").load("../Menu/Menu.jsp");
             });
         </script>
     </head>
@@ -37,7 +42,7 @@
                     <img src="../../img/Logo/Gato-cabeca.png" class="cabeca_gato">
                     <h3>Agende uma consulta</h3>
                 </div>
-                <form>
+                <form id="formCadastrarAgendamento">
                     <div class="col">
                         <div class="form-row">
                             <div class="form-group col-md-6">
@@ -50,7 +55,7 @@
                                 </select>
                             </div>
                             <div class="form-group col-md-6">
-                                <label class="col-form-label mt-4 login_label">Horário:</label>
+                                <label class="col-form-label login_label">Horário:</label>
                                 <input type="time" class="form-control" name="horario_agendamento" 
                                        id="horario_agendamento" placeholder="Insira um horário" required />
                             </div>
@@ -61,12 +66,26 @@
                                 <div class="form-group col-md-6">
                                     <label class="col-form-label login_label">Data:</label>
                                     <input type="date" class="form-control col-12" name="data_agendamento"
-                                           id="data_agendamento" placeholder="Data dpara consulta" required />
+                                           id="data_agendamento" placeholder="Data para consulta" required />
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label class="col-form-label login_label">Vacína:</label>
-                                    <input type="text" class="form-control col-12" name="vacina_id_vacina"
-                                           id="vacina_id_vacina" placeholder="Nome da vacína" required />
+                                    <label class="col-form-label login_label">Vacina:</label>
+                                    <select name="id_vacina" id="id_vacina" class="form-control">
+                                        
+                                        <%
+                                            ResultSet rsVacina = agendamento.Consultar("SELECT Id_Vacina,Nome_Vacina FROM TB_Vacina");
+                                            if(rsVacina.next()){
+                                                do{
+                                        %>      
+                                                    <option value="<%=rsVacina.getString("id_vacina")%>"><%=rsVacina.getString("nome_vacina")%></option>
+                                        <%      }while (rsVacina.next());
+                                            }else{
+                                        %> 
+                                                <option value=""></option>
+                                        <%
+                                            }
+                                        %>
+                                    </select>
                                 </div>
                             </div>
 
@@ -75,10 +94,10 @@
                                     <label class="col-form-label login_label">Pet:</label>
                                     <select name="id_pet" id="id_pet" class="form-control" required>
                                         <%
-                                            ResultSet rsPet = cliente.Consultar("SELECT Id_Pet,Nome_Pet FROM TB_Pet WHERE Cliente_Id_Cliente = '" + session.getAttribute("id_cliente") + "'");
+                                            ResultSet rsPet = pet.Consultar("SELECT Id_Pet,Nome_Pet FROM TB_Pet WHERE Cliente_Id_Cliente = '" + session.getAttribute("id_cliente") + "'");
                                             while (rsPet.next()) {
                                         %>
-                                        <option value="<%=rsPet.getString("id_pet")%>"><%=rsPet.getString("nome_pet")%></option>
+                                                <option value="<%=rsPet.getString("id_pet")%>"><%=rsPet.getString("nome_pet")%></option>
                                         <%
                                             }
                                         %>
@@ -88,10 +107,10 @@
                                     <label class="col-form-label login_label">Veterinário:</label>
                                     <select name="id_veterinario" id="id_veterinario" class="form-control" required>
                                         <%
-                                            ResultSet rsVeterinario = cliente.Consultar("SELECT Id_Veterinario,Nome_Veterinario FROM TB_Veterinario");
+                                            ResultSet rsVeterinario = veterinario.Consultar("SELECT Id_Veterinario,Nome_Veterinario FROM TB_Veterinario");
                                             while (rsVeterinario.next()) {
                                         %>
-                                        <option value="<%=rsVeterinario.getString("id_veterinario")%>"><%=rsVeterinario.getString("nome_veterinario")%></option>
+                                                <option value="<%=rsVeterinario.getString("id_veterinario")%>"><%=rsVeterinario.getString("nome_veterinario")%></option>
                                         <%
                                             }
                                         %>
