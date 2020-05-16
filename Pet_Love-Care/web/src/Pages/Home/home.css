@@ -16,7 +16,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 200px;
+    width: 120px;
     height: 180px;
 }
 
@@ -36,4 +36,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.input_center {
+    text-align: center;
+    aling-items: center;
+    justify-content: center;
+}
+
+.aling_btn {
+    margin-left: 65%;
 }
