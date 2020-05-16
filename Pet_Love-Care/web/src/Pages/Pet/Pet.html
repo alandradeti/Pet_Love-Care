@@ -72,8 +72,12 @@
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label class="col-form-label login_label">Porte:</label>
-                                <input type="text" class="form-control" 
-                                       name="porte_pet" id="porte_pet" placeholder="Porte do Pet, grande, médio..." required />
+                                <select class="form-control col-12" name="porte_pet" id="porte_pet" required>
+                                    <option>Selecione</option>
+                                    <option value="Pequeno">Pequeno</option>
+                                    <option value="Médio">Médio</option>
+                                    <option value="Grandes">Grande</option>
+                                </select>
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="col-form-label login_label">Peso:</label>
@@ -124,5 +128,4 @@
 
         </div>
     </body>
-
 </html>
