@@ -74,24 +74,6 @@
                                     <input type="date" class="form-control col-12" name="data_final_agendamento"
                                            id="data_final_agendamento" placeholder="Data Final"/>
                                 </div>
-                                <div class="form-group col-md-6">
-                                    <label class="col-form-label login_label">Vacina:</label>
-                                    <select name="id_vacina" id="id_vacina" class="form-control">   
-                                        <%
-                                            ResultSet rsVacina = agendamento.Consultar("SELECT Id_Vacina,Nome_Vacina FROM TB_Vacina");
-                                            if(rsVacina.next()){
-                                                do{
-                                        %>      
-                                                    <option value="<%=rsVacina.getString("id_vacina")%>"><%=rsVacina.getString("nome_vacina")%></option>
-                                        <%      }while (rsVacina.next());
-                                            }else{
-                                        %> 
-                                                <option value=""></option>
-                                        <%
-                                            }
-                                        %>
-                                    </select>
-                                </div>
                             </div>
 
                             <div class="form-row">
@@ -122,6 +104,28 @@
                                     </select>
                                 </div>
                             </div>
+                                        
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label class="col-form-label login_label">Vacina:</label>
+                                    <select name="id_vacina" id="id_vacina" class="form-control">   
+                                        <%
+                                            ResultSet rsVacina = agendamento.Consultar("SELECT Id_Vacina,Nome_Vacina FROM TB_Vacina");
+                                            if(rsVacina.next()){
+                                                do{
+                                        %>      
+                                                    <option value="<%=rsVacina.getString("id_vacina")%>"><%=rsVacina.getString("nome_vacina")%></option>
+                                        <%      }while (rsVacina.next());
+                                            }else{
+                                        %> 
+                                                <option value=""></option>
+                                        <%
+                                            }
+                                        %>
+                                    </select>
+                                </div>
+                            </div>
+                                    
                             <div class="pst_btn_agendar">
                                 <button class="btn btn_agendar mt-4 ">Agendar</button>
                             </div>
