@@ -11,7 +11,7 @@
 <jsp:setProperty name="pet" property="sexo_pet" value="${param.sexo_pet}"/>
 <jsp:setProperty name="pet" property="castracao_pet" value="${param.castracao_pet}"/>
 <jsp:setProperty name="pet" property="cor_pelagem_pet" value="${param.cor_pelagem_pet}"/>
-<jsp:setProperty name="pet" property="id_cliente" value="<%= session.getAttribute("id_cliente")%>"/>
+<jsp:setProperty name="pet" property="cliente_id_cliente" value="<%= session.getAttribute("id_cliente")%>"/>
 
 <!-- Tratamento de redirecionamento da pagina -->
 <%
