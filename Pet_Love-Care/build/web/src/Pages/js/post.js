@@ -44,3 +44,19 @@ $(function () {
     });
 
 });
+
+//Envio do formulário de cadastramento Agendamento
+$(function () {
+    $('#formCadastrarAgendamento').submit(function () {
+        $.ajax({
+            url: '../Agendar/IncluirAgendamento.jsp',
+            type: 'POST',
+            data: $('#formCadastrarAgendamento').serialize(),
+            success: function (data) {
+                alert("Funcionou");
+            }
+        });
+        return false;
+    });
+
+});
