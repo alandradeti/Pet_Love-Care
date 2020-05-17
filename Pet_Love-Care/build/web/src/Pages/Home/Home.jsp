@@ -22,6 +22,12 @@
             $(function () {
                 $("#headerDiv").load("../Menu/Menu.jsp");
             });
+            $(function () {
+                $("#modal_edit_produtos").load("./Modal_editar.html");
+            });
+            $('#myModal').on('shown.bs.modal', function () {
+                $('#myInput').trigger('focus')
+            });
         </script>
     </head>
 
@@ -73,17 +79,23 @@
 
         <!-- Produtos -->
         <section class="background">
-            <h1 class="custom_titulo_produtos">ConheÃ§am alguns de nossos produtos!</h1>
+            <h1 class="custom_titulo_produtos">Conheçam alguns de nossos produtos!</h1>
             <div class="row custom_body_produtos">
                 <div class="card custom_card_produtos" style="width: 18rem;">
                     <div class="aling_btn">
                         <button class="btn btn-danger mt-2"><i class="fa fa-trash"></i></button> 
-                        <button class="btn btn-warning mt-2"><i class="fa fa-pen"></i></button>
+
+                        <button type="button" class="btn btn-warning btn_cadastrar_vacinas mt-2"
+                                data-toggle="modal" data-target="#modal_edit_produtos">
+                            <a class="btn_vacina" data-toggle="modal">
+                                <i class="fa fa-pen"></i>
+                            </a>
+                        </button>
                     </div>
                     <img src="../../img/Produtos/produto_1.png" class="card-img-top custom_img_produtos" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title" id="nome_produto">RaÃ§Ã£o Hills</h5>
-                        <p class="card-text" id="descricao_produto">RaÃ§Ã£o Hills sabor carne, recomendada para cachorros de porte pequeno.</p>
+                        <h5 class="card-title" id="nome_produto">Ração Hills</h5>
+                        <p class="card-text" id="descricao_produto">Ração Hills sabor carne, recomendada para cachorros de porte pequeno.</p>
                         <p class="card-text" id="valor_produto">R$ 19,99</p>
 
                         <div class="input-group mb-3 input_center">
@@ -111,7 +123,7 @@
                     <img src="../../img/Produtos/produto_2.png" class="card-img-top custom_img_produtos" alt="...">
                     <div class="card-body">
                         <h5 class="card-title" id="nome_produto">Royal Canin</h5>
-                        <p class="card-text" id="descricao_produto">Royal Canin sabor carne, recomendada para cachorros de porte mÃ©dio e grande.</p>
+                        <p class="card-text" id="descricao_produto">Royal Canin sabor carne, recomendada para cachorros de porte médio e grande.</p>
                         <p class="card-text" id="valor_produto">R$ 19,99</p>
                         <div class="input-group mb-3 input_center">
                             <div class="input-group-prepend">
@@ -136,8 +148,8 @@
                     </div>
                     <img src="../../img/Produtos/produto_3.png" class="card-img-top custom_img_produtos" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title" id="nome_produto">RaÃ§Ã£o Golden</h5>
-                        <p class="card-text" id="descricao_produto" >Golden sabor carne defumada, recomendada para cachorros de porte mÃ©dio.</p>
+                        <h5 class="card-title" id="nome_produto">Ração Golden</h5>
+                        <p class="card-text" id="descricao_produto" >Golden sabor carne defumada, recomendada para cachorros de porte médio.</p>
                         <p class="card-text" id="valor_produto">R$ 19,99</p>
                         <div class="input-group mb-3 input_center">
                             <div class="input-group-prepend">
@@ -163,7 +175,7 @@
                     <img src="../../img/Produtos/produto_4.png" class="card-img-top custom_img_produtos" alt="...">
                     <div class="card-body">
                         <h5 class="card-title" id="nome_produto">Antipugas Bravecto</h5>
-                        <p class="card-text" id="descricao_produto">Braveo antipugas, recomendado para cachorros de porte mÃ©dio e pequeno.</p>
+                        <p class="card-text" id="descricao_produto">Braveo antipugas, recomendado para cachorros de porte médio e pequeno.</p>
                         <p class="card-text" id="valor_produto">R$ 19,99</p>
                         <div class="input-group mb-3 input_center">
                             <div class="input-group-prepend">
@@ -190,8 +202,8 @@
                     </div>
                     <img src="../../img/Produtos/produto_5.png" class="card-img-top custom_img_produtos" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title" id="nome_produto">Super SecÃ£o</h5>
-                        <p class="card-text" id="descricao_produto">Super SecÃ£o Citrus Tapete HigiÃªnico Petix para CÃ£es - 30 Unidades.</p>
+                        <h5 class="card-title" id="nome_produto">Super Secão</h5>
+                        <p class="card-text" id="descricao_produto">Super Secão Citrus Tapete Higiênico Petix para Cães - 30 Unidades.</p>
                         <p class="card-text" id="valor_produto">R$ 19,99</p>
                         <div class="input-group mb-3 input_center">
                             <div class="input-group-prepend">
