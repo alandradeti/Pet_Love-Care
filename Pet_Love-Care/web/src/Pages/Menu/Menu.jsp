@@ -5,7 +5,7 @@
     ResultSet rs = cliente.Consultar("SELECT Tipo_Cliente FROM TB_Cliente WHERE Id_Cliente = '" + session.getAttribute("id_cliente") + "'");
 %>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 
     <head>
         <link rel="stylesheet" href="../../../css/bootstrap.min.css" type="text/css"/>
@@ -51,8 +51,14 @@
                 <%      }
                 %>
                 <%      if (rs.getBoolean("Tipo_Cliente") == true) {%>
-                <li class="nav-item">
-                    <a class="nav-link" href="../Veterinario/Veterinario.html">Veterinário</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Veterinário
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="nav-link" href="../Veterinario/Consultar_Veterinario.html">Consultar</a>
+                        <a class="nav-link" href="../Veterinario/Veterinario.html">Cadastrar</a>
+                    </div>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -68,15 +74,21 @@
                         Agendamento
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="../Agendar/Agendar.jsp">Consultar</a>
                         <a class="dropdown-item" href="../Agendar/Agendar.jsp">Agendar</a>
-                        <a class="dropdown-item" href="../Agendar/IncluirAgendamento.jsp">Incluir</a>
                     </div>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="../Compras/Compras.html">Compras</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../Pet/Pet.html">Pet</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Pet
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Consultar</a>
+                        <a class="dropdown-item" href="../Pet/Pet.html">Cadastrar</a>
+                    </div>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="../Vacina/VacinaConsultar.html">Vacina</a>
