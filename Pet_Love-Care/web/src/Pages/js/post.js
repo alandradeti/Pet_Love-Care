@@ -68,6 +68,7 @@ $(function () {
             url: '../Vacina/IncluirVacina.jsp',
             type: 'POST',
             data: $('#formCadastrarVacina').serialize(),
+            
             success: function (data) {
                 alert("Funcionou");
             }
