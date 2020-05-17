@@ -58,7 +58,6 @@ $(function () {
         });
         return false;
     });
-
 });
 
 //Envio do formulário de cadastramento Vacina
@@ -75,5 +74,4 @@ $(function () {
         });
         return false;
     });
-
 });
