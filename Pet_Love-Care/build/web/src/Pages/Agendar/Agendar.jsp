@@ -52,6 +52,7 @@
                                     <option value="Consulta">Consulta</option>
                                     <option value="Vacina">Vacina</option>
                                     <option value="Banho e Tosa">Banho e Tosa</option>
+                                    <option value="Hospedagem">Hospedagem</option>
                                 </select>
                             </div>
                             <div class="form-group col-md-6">
@@ -65,27 +66,13 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label class="col-form-label login_label">Data:</label>
-                                    <input type="date" class="form-control col-12" name="data_agendamento"
-                                           id="data_agendamento" placeholder="Data para consulta" required />
+                                    <input type="date" class="form-control col-12" name="data_inicial_agendamento"
+                                           id="data_inicial_agendamento" placeholder="Data" required />
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label class="col-form-label login_label">Vacina:</label>
-                                    <select name="id_vacina" id="id_vacina" class="form-control">
-                                        
-                                        <%
-                                            ResultSet rsVacina = agendamento.Consultar("SELECT Id_Vacina,Nome_Vacina FROM TB_Vacina");
-                                            if(rsVacina.next()){
-                                                do{
-                                        %>      
-                                                    <option value="<%=rsVacina.getString("id_vacina")%>"><%=rsVacina.getString("nome_vacina")%></option>
-                                        <%      }while (rsVacina.next());
-                                            }else{
-                                        %> 
-                                                <option value=""></option>
-                                        <%
-                                            }
-                                        %>
-                                    </select>
+                                    <label class="col-form-label login_label">Data Final:</label>
+                                    <input type="date" class="form-control col-12" name="data_final_agendamento"
+                                           id="data_final_agendamento" placeholder="Data Final"/>
                                 </div>
                             </div>
 
@@ -117,6 +104,28 @@
                                     </select>
                                 </div>
                             </div>
+                                        
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label class="col-form-label login_label">Vacina:</label>
+                                    <select name="id_vacina" id="id_vacina" class="form-control">   
+                                        <%
+                                            ResultSet rsVacina = agendamento.Consultar("SELECT Id_Vacina,Nome_Vacina FROM TB_Vacina");
+                                            if(rsVacina.next()){
+                                                do{
+                                        %>      
+                                                    <option value="<%=rsVacina.getString("id_vacina")%>"><%=rsVacina.getString("nome_vacina")%></option>
+                                        <%      }while (rsVacina.next());
+                                            }else{
+                                        %> 
+                                                <option value=""></option>
+                                        <%
+                                            }
+                                        %>
+                                    </select>
+                                </div>
+                            </div>
+                                    
                             <div class="pst_btn_agendar">
                                 <button class="btn btn_agendar mt-4 ">Agendar</button>
                             </div>
