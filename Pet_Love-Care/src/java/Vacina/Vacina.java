@@ -1,46 +1,38 @@
 package Vacina;
 
 public class Vacina {
-    //private int iId_vacina;
+
     private String  sNome_vacina;
     private float   fValor_vacina;
-    private int     iQuantidade_estoque_vacina;
     private String  sDescricao_vacina;
 
     public Vacina() {
     }
 
-    public String getsNome_vacina() {
+    public String getNome_vacina() {
         return sNome_vacina;
     }
 
-    public void setsNome_vacina(String sNome_vacina) {
+    public void setNome_vacina(String sNome_vacina) {
         this.sNome_vacina = sNome_vacina;
     }
 
-    public float getfValor_vacina() {
+    public float getValor_vacina() {
         return fValor_vacina;
     }
 
-    public void setfValor_vacina(float fValor_vacina) {
+    public void setValor_vacina(float fValor_vacina) {
         this.fValor_vacina = fValor_vacina;
     }
 
-    public int getiQuantidade_estoque_vacina() {
-        return iQuantidade_estoque_vacina;
-    }
-
-    public void setiQuantidade_Estoque_Vacina(int iQuantidade_estoque_vacina) {
-        this.iQuantidade_estoque_vacina = iQuantidade_estoque_vacina;
-    }
-
-    public String getsDescricao_vacina() {
+    public String getDescricao_vacina() {
         return sDescricao_vacina;
     }
 
-    public void setsDescricao_Vacina(String sDescricao_vacina) {
+    public void setDescricao_Vacina(String sDescricao_vacina) {
         this.sDescricao_vacina = sDescricao_vacina;
     }
+    
     
     /*public String incluir() {
         try {
