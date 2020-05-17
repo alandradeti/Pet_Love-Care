@@ -86,7 +86,7 @@
                         Pet
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Consultar</a>
+                        <a class="dropdown-item" href="../Pet/Consultar_Pet.html">Consultar</a>
                         <a class="dropdown-item" href="../Pet/Pet.html">Cadastrar</a>
                     </div>
                 </li>
