@@ -11,7 +11,7 @@ public class Pet {
     private char cSexo_pet;
     private int iCastracao_pet;
     private String sCor_pelagem_pet;
-    private int iCliente_Id_Cliente;
+    private int iId_cliente;
 
     public Pet() {
     }
@@ -96,13 +96,15 @@ public class Pet {
         this.sCor_pelagem_pet = sCor_pelagem_pet;
     }
     
-    public int getCliente_id_cliente() {
-        return iCliente_Id_Cliente;
+    public int getId_cliente() {
+        return iId_cliente;
     }
 
-    public void setCliente_id_cliente(int iCliente_Id_Cliente) {
-        this.iCliente_Id_Cliente = iCliente_Id_Cliente;
+    public void setId_cliente(int iId_cliente) {
+        this.iId_cliente = iId_cliente;
     }
+
+
     
     /*public String incluir() {
         try {
@@ -212,5 +214,4 @@ public class Pet {
             return null;
         }
     }*/
-
 }
