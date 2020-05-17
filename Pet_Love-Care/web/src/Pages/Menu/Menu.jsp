@@ -74,7 +74,7 @@
                         Agendamento
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="../Agendar/Agendar.jsp">Consultar</a>
+                        <a class="dropdown-item" href="../Agendar/Consultar_Agendamento.html">Consultar</a>
                         <a class="dropdown-item" href="../Agendar/Agendar.jsp">Agendar</a>
                     </div>
                 </li>
