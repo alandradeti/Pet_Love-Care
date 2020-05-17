@@ -50,3 +50,8 @@
 .btn_cadastrar_vacinas:hover {
     background: #38b548;
 }
+
+.btn_vacina {
+    width: 40px;
+    heigth: 40px;
+}
