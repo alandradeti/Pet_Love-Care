@@ -59,7 +59,7 @@ public class PetDAO extends Pet{
                         +"'" + getSexo_pet() + "'," 
                         +"'" + getCastracao_pet() + "',"
                         +"'" + getCor_pelagem_pet() + "',"
-                        +"'" + getCliente_id_cliente() + "')";
+                        +"'" + getId_cliente() + "')";
             PreparedStatement ps = dataSource.getConnection().prepareStatement(sSql); // Realiza a conexão e o preparo da query
             ps.executeUpdate(sSql); // Executa a query
 
