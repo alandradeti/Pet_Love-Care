@@ -160,7 +160,6 @@ CREATE TABLE `tb_vacina` (
   `Id_Vacina` int NOT NULL AUTO_INCREMENT,
   `Nome_Vacina` varchar(50) NOT NULL,
   `Valor_Vacina` float NOT NULL,
-  `Quantidade_Estoque_Vacina` int NOT NULL,
   `Descricao_Vacina` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`Id_Vacina`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -268,7 +267,6 @@ DROP TABLE IF EXISTS `vw_carteira_vacinacao`;
  `Id_Vacina` int ,
  `Nome_Vacina` varchar(50) ,
  `Valor_Vacina` float ,
- `Quantidade_Estoque_Vacina` int ,
  `Descricao_Vacina` varchar(255) 
 )*/;
 
@@ -319,7 +317,7 @@ DROP TABLE IF EXISTS `vw_compra`;
 /*!50001 DROP TABLE IF EXISTS `vw_carteira_vacinacao` */;
 /*!50001 DROP VIEW IF EXISTS `vw_carteira_vacinacao` */;
 
-/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_carteira_vacinacao` AS select `c`.`Pet_Id_Pet` AS `Pet_Id_Pet`,`c`.`Vacina_Id_Vacina` AS `Vacina_Id_Vacina`,`p`.`Id_Pet` AS `Id_Pet`,`p`.`Especie_Pet` AS `Especie_Pet`,`p`.`Nome_Pet` AS `Nome_Pet`,`p`.`Raca_Pet` AS `Raca_Pet`,`p`.`Idade_Pet` AS `Idade_Pet`,`p`.`Porte_Pet` AS `Porte_Pet`,`p`.`Peso_Pet` AS `Peso_Pet`,`p`.`Altura_Pet` AS `Altura_Pet`,`p`.`Sexo_Pet` AS `Sexo_Pet`,`p`.`Castracao_Pet` AS `Castracao_Pet`,`p`.`Cor_Pelagem_Pet` AS `Cor_Pelagem_Pet`,`v`.`Id_Vacina` AS `Id_Vacina`,`v`.`Nome_Vacina` AS `Nome_Vacina`,`v`.`Valor_Vacina` AS `Valor_Vacina`,`v`.`Quantidade_Estoque_Vacina` AS `Quantidade_Estoque_Vacina`,`v`.`Descricao_Vacina` AS `Descricao_Vacina` from ((`tb_carteira_vacinacao` `c` join `tb_pet` `p` on((`c`.`Pet_Id_Pet` = `p`.`Id_Pet`))) join `tb_vacina` `v` on((`c`.`Vacina_Id_Vacina` = `v`.`Id_Vacina`))) */;
+/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_carteira_vacinacao` AS select `c`.`Pet_Id_Pet` AS `Pet_Id_Pet`,`c`.`Vacina_Id_Vacina` AS `Vacina_Id_Vacina`,`p`.`Id_Pet` AS `Id_Pet`,`p`.`Especie_Pet` AS `Especie_Pet`,`p`.`Nome_Pet` AS `Nome_Pet`,`p`.`Raca_Pet` AS `Raca_Pet`,`p`.`Idade_Pet` AS `Idade_Pet`,`p`.`Porte_Pet` AS `Porte_Pet`,`p`.`Peso_Pet` AS `Peso_Pet`,`p`.`Altura_Pet` AS `Altura_Pet`,`p`.`Sexo_Pet` AS `Sexo_Pet`,`p`.`Castracao_Pet` AS `Castracao_Pet`,`p`.`Cor_Pelagem_Pet` AS `Cor_Pelagem_Pet`,`v`.`Id_Vacina` AS `Id_Vacina`,`v`.`Nome_Vacina` AS `Nome_Vacina`,`v`.`Valor_Vacina` AS `Valor_Vacina`,`v`.`Descricao_Vacina` AS `Descricao_Vacina` from ((`tb_carteira_vacinacao` `c` join `tb_pet` `p` on((`c`.`Pet_Id_Pet` = `p`.`Id_Pet`))) join `tb_vacina` `v` on((`c`.`Vacina_Id_Vacina` = `v`.`Id_Vacina`))) */;
 
 /*View structure for view vw_compra */
 
