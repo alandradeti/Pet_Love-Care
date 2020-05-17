@@ -2,7 +2,8 @@
 <jsp:useBean id="agendamento" class="Agendamento.AgendamentoDAO"/>
 
 <jsp:setProperty name="agendamento" property="tipo_agendamento" value="${param.tipo_agendamento}"/>
-<jsp:setProperty name="agendamento" property="data_agendamento" value="${param.data_agendamento}"/>
+<jsp:setProperty name="agendamento" property="data_inicial_agendamento" value="${param.data_inicial_agendamento}"/>
+<jsp:setProperty name="agendamento" property="data_final_agendamento" value="${param.data_final_agendamento}"/>
 <jsp:setProperty name="agendamento" property="horario_agendamento" value="${param.horario_agendamento}"/>
 <jsp:setProperty name="agendamento" property="id_vacina" value="${param.id_vacina}"/>
 <jsp:setProperty name="agendamento" property="id_pet" value="${param.id_pet}"/>
