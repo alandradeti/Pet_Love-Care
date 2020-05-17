@@ -1,3 +1,6 @@
+<%@page language="java" import="java.sql.*" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<jsp:useBean id="vacina" class="Vacina.VacinaDAO"/>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,7 +37,7 @@
   <!-- Menu -->
   <div id="headerDiv"></div>
   <div class="background">
-  <!-- Formulário -->
+  <!-- FormulÃ¡rio -->
   <div class="card container mt-5 card_consulta">
       <button type="button" class="btn btn_cadastrar_vacinas mt-2"
               data-toggle="modal" data-target="#modal_vacina">
@@ -46,33 +49,38 @@
         <img src="../../img/Logo/Vacina_pata.png" class="cabeca_gato">
       <h3 class="mt-2">Vacinas disponíveis</h3>
     </div>
-     <table class="table table-hover table-dark mt-4 responsive">
+     <table id="tbVacina" class="table table-hover table-dark mt-4 responsive">
        <thead>
          <tr class="text-center">
            <th scope="col">ID</th>
            <th scope="col">Nome</th>
            <th scope="col">Valor</th>
-           <th scope="col">Quantidade Estoque</th>
            <th scope="col">Descrição</th>
            <th scope="col">Ações</th>
          </tr>
        </thead>
        <tbody>
-         <tr class="text-center">
-           <th scope="row">1</th>
-           <td>Legal</td>
-           <td>0</td>
-           <td>0</td>
-           <td>Vacina legal</td>
-           <td>
-            <button class="btn btn-warning mt-2">
-                <i class="fa fa-pen"></i>
-            </button>
-            <button class="btn btn-danger mt-2">
-                <i class="fa fa-trash"></i>
-            </button> 
-           </td>
-         </tr>
+         <%
+            ResultSet rsVacina = vacina.Consultar("SELECT * FROM TB_Vacina");
+            while(rsVacina.next()){
+         %>
+                    <tr class="text-center">
+                      <th scope="row" id="id_vacina"><%=rsVacina.getString("id_vacina")%></th>
+                      <td id="nome_vacina"><%=rsVacina.getString("nome_vacina")%></td>
+                      <td id="valor_vacina"><%=rsVacina.getString("valor_vacina")%></td>
+                      <td id="descricao_vacina"><%=rsVacina.getString("descricao_vacina")%></td>
+                      <td>
+                       <button class="btn btn-warning mt-2">
+                           <i class="fa fa-pen"></i>
+                       </button>
+                       <button class="btn btn-danger mt-2">
+                           <i class="fa fa-trash"></i>
+                       </button> 
+                      </td>
+                    </tr>
+        <%
+            }
+        %> 
        </tbody>
      </table>
    </div>

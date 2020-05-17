@@ -91,7 +91,7 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../Vacina/VacinaConsultar.html">Vacina</a>
+                    <a class="nav-link" href="../Vacina/VacinaConsultar.jsp">Vacina</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="../Carteira/Carteira.html">Carteira</a>
