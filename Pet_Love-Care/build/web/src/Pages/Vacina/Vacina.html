@@ -17,21 +17,6 @@
         <script src="../js/padrao.js"></script>
         <script src="../js/ajax.min.js"></script>
         <script src="../js/post.js"></script>
-        <script>
-            $(function () {
-    $('#formCadastrarVacina').submit(function () {
-        $.ajax({
-            url: '../Vacina/IncluirVacina.jsp',
-            type: 'POST',
-            data: $('#formCadastrarVacina').serialize(),
-            success: function (data) {
-                alert("Funcionou");
-            }
-        });
-        return false;
-    });
-});
-        </script>
     </head>
 
     <body>
