@@ -78,9 +78,6 @@
                         <a class="dropdown-item" href="../Agendar/Agendar.jsp">Agendar</a>
                     </div>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../Compras/Compras.html">Compras</a>
-                </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Pet
@@ -90,8 +87,19 @@
                         <a class="dropdown-item" href="../Pet/Pet.html">Cadastrar</a>
                     </div>
                 </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Clientes
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="../Cliente/Consultar_Cliente.html">Consultar</a>
+                    </div>
+                </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../Vacina/VacinaConsultar.html">Vacina</a>
+                    <a class="nav-link" href="../Compras/Compras.html">Compras</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../Vacina/Constultar_Vacina.html">Vacina</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="../Carteira/Carteira.html">Carteira</a>

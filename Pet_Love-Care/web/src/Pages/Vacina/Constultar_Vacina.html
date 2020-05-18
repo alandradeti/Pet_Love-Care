@@ -22,7 +22,10 @@
       $("#headerDiv").load("../Menu/Menu.jsp");
     });
     $(function () {
-      $("#header_vacina").load("./Vacina.html");
+      $("#header_vacina").load("./Cadastrar_Vacina.html");
+    });
+    $(function () {
+      $("#header_editar_vacina").load("./Editar_Vacina.html");
     });
     $('#myModal').on('shown.bs.modal', function () {
       $('#myInput').trigger('focus')
@@ -65,8 +68,11 @@
            <td>0</td>
            <td>Vacina legal</td>
            <td>
-            <button class="btn btn-warning mt-2">
-                <i class="fa fa-pen"></i>
+             <button type="button" class="btn btn btn-warning mt-2"
+              data-toggle="modal" data-target="#modal_editar_vacina">
+                <a data-toggle="modal">
+                 <i class="fa fa-pen"></i>
+                </a>
             </button>
             <button class="btn btn-danger mt-2">
                 <i class="fa fa-trash"></i>
@@ -79,6 +85,7 @@
   </div>
   
   <div id="header_vacina"></div>
+  <div id="header_editar_vacina"></div>
 
 </body>
 
