@@ -11,7 +11,6 @@
         <link rel="stylesheet" href="../css/padrao.css" />
         <link rel="stylesheet" href="../Home/home.css" />
 
-        <script src="../../../js/jquery.slim.min.js"></script>
         <script src="../../../js/bootstrap.min.js"></script>
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>
         <script src="../../../js/jquery.min.js"></script>
@@ -23,7 +22,7 @@
                 $("#headerDiv").load("../Menu/Menu.jsp");
             });
             $(function () {
-                $("#modal_edit_produtos").load("./Modal_editar.html");
+                $("#header_produtos").load("./Produto_editar.html");
             });
             $('#myModal').on('shown.bs.modal', function () {
                 $('#myInput').trigger('focus')
@@ -85,7 +84,7 @@
                     <div class="aling_btn">
                         <button class="btn btn-danger mt-2"><i class="fa fa-trash"></i></button> 
 
-                        <button type="button" class="btn btn-warning btn_cadastrar_vacinas mt-2"
+                        <button type="button" class="btn btn-warning mt-2"
                                 data-toggle="modal" data-target="#modal_edit_produtos">
                             <a class="btn_vacina" data-toggle="modal">
                                 <i class="fa fa-pen"></i>
@@ -118,7 +117,10 @@
                 <div class="card custom_card_produtos" style="width: 18rem;">
                     <div class="aling_btn">
                         <button class="btn btn-danger mt-2"><i class="fa fa-trash"></i></button> 
-                        <button class="btn btn-warning mt-2"><i class="fa fa-pen"></i></button>
+                        <button type="button" class="btn btn-warning mt-2"
+                                data-toggle="modal" data-target="#modal_edit_produtos">
+                            <a class="btn_vacina" data-toggle="modal"><i class="fa fa-pen"></i></a> 
+                        </button>
                     </div>
                     <img src="../../img/Produtos/produto_2.png" class="card-img-top custom_img_produtos" alt="...">
                     <div class="card-body">
@@ -144,7 +146,10 @@
                 <div class="card custom_card_produtos" style="width: 18rem;">
                     <div class="aling_btn">
                         <button class="btn btn-danger mt-2"><i class="fa fa-trash"></i></button> 
-                        <button class="btn btn-warning mt-2"><i class="fa fa-pen"></i></button>
+                        <button type="button" class="btn btn-warning mt-2"
+                                data-toggle="modal" data-target="#modal_edit_produtos">
+                            <a class="btn_vacina" data-toggle="modal"><i class="fa fa-pen"></i></a> 
+                        </button>
                     </div>
                     <img src="../../img/Produtos/produto_3.png" class="card-img-top custom_img_produtos" alt="...">
                     <div class="card-body">
@@ -170,7 +175,10 @@
                 <div class="card custom_card_produtos" style="width: 18rem;">
                     <div class="aling_btn">
                         <button class="btn btn-danger mt-2"><i class="fa fa-trash"></i></button> 
-                        <button class="btn btn-warning mt-2"><i class="fa fa-pen"></i></button>
+                        <button type="button" class="btn btn-warning mt-2"
+                                data-toggle="modal" data-target="#modal_edit_produtos">
+                            <a class="btn_vacina" data-toggle="modal"><i class="fa fa-pen"></i></a>
+                        </button>
                     </div>
                     <img src="../../img/Produtos/produto_4.png" class="card-img-top custom_img_produtos" alt="...">
                     <div class="card-body">
@@ -198,7 +206,10 @@
                 <div class="card custom_card_produtos" style="width: 18rem;">
                     <div class="aling_btn">
                         <button class="btn btn-danger mt-2"><i class="fa fa-trash"></i></button> 
-                        <button class="btn btn-warning mt-2"><i class="fa fa-pen"></i></button>
+                        <button type="button" class="btn btn-warning mt-2"
+                                data-toggle="modal" data-target="#modal_edit_produtos">
+                            <a class="btn_vacina" data-toggle="modal"><i class="fa fa-pen"></i></a>
+                        </button>
                     </div>
                     <img src="../../img/Produtos/produto_5.png" class="card-img-top custom_img_produtos" alt="...">
                     <div class="card-body">
@@ -224,7 +235,10 @@
                 <div class="card custom_card_produtos" style="width: 18rem;">
                     <div class="aling_btn">
                         <button class="btn btn-danger mt-2"><i class="fa fa-trash"></i></button> 
-                        <button class="btn btn-warning mt-2"><i class="fa fa-pen"></i></button>
+                        <button type="button" class="btn btn-warning mt-2"
+                                data-toggle="modal" data-target="#modal_edit_produtos">
+                            <a class="btn_vacina" data-toggle="modal"><i class="fa fa-pen"></i></a> 
+                        </button>
                     </div> 
                     <img src="../../img/Produtos/produto_6.png" class="card-img-top custom_img_produtos" alt="...">
                     <div class="card-body">
@@ -251,7 +265,10 @@
                 <div class="card custom_card_produtos" style="width: 18rem;">
                     <div class="aling_btn">
                         <button class="btn btn-danger mt-2"><i class="fa fa-trash"></i></button> 
-                        <button class="btn btn-warning mt-2"><i class="fa fa-pen"></i></button>
+                        <button type="button" class="btn btn-warning mt-2"
+                                data-toggle="modal" data-target="#modal_edit_produtos">
+                            <a class="btn_vacina" data-toggle="modal"><i class="fa fa-pen"></i></a> 
+                        </button>
                     </div>
                     <img src="../../img/Produtos/produto_7.png" class="card-img-top custom_img_produtos" alt="...">
                     <div class="card-body">
@@ -277,7 +294,10 @@
                 <div class="card custom_card_produtos" style="width: 18rem;">
                     <div class="aling_btn">
                         <button class="btn btn-danger mt-2"><i class="fa fa-trash"></i></button> 
-                        <button class="btn btn-warning mt-2"><i class="fa fa-pen"></i></button>
+                        <button type="button" class="btn btn-warning mt-2"
+                                data-toggle="modal" data-target="#modal_edit_produtos">
+                            <a class="btn_vacina" data-toggle="modal"><i class="fa fa-pen"></i></a>
+                        </button>
                     </div>
                     <img src="../../img/Produtos/produto_8.png" class="card-img-top custom_img_produtos" alt="...">
                     <div class="card-body">
@@ -301,6 +321,8 @@
                 </div>
             </div>
         </section>
+        
+     <div id="header_produtos"></div>
     </body>
 
 </html>

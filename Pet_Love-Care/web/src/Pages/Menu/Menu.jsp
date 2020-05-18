@@ -56,7 +56,7 @@
                         Veterinário
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="nav-link" href="../Veterinario/Consultar_Veterinario.html">Consultar</a>
+                        <a class="nav-link" href="../Veterinario/Consultar_Veterinario.jsp">Consultar</a>
                         <a class="nav-link" href="../Veterinario/Veterinario.html">Cadastrar</a>
                     </div>
                 </li>
@@ -74,7 +74,7 @@
                         Agendamento
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="../Agendar/Agendar.jsp">Consultar</a>
+                        <a class="dropdown-item" href="../Agendar/Consultar_Agendamento.html">Consultar</a>
                         <a class="dropdown-item" href="../Agendar/Agendar.jsp">Agendar</a>
                     </div>
                 </li>
@@ -86,12 +86,12 @@
                         Pet
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Consultar</a>
+                        <a class="dropdown-item" href="../Pet/Consultar_Pet.html">Consultar</a>
                         <a class="dropdown-item" href="../Pet/Pet.html">Cadastrar</a>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../Vacina/VacinaConsultar.html">Vacina</a>
+                    <a class="nav-link" href="../Vacina/VacinaConsultar.jsp">Vacina</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="../Carteira/Carteira.html">Carteira</a>

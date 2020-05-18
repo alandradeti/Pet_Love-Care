@@ -9,8 +9,9 @@
   <link rel="stylesheet" href="../../../css/bootstrap.min.css">
   <link rel="shortcut icon" href="../../img/Icon/Logo-cabeca.png">
   <link rel="stylesheet" href="../css/padrao.css">
-  <link rel="stylesheet" href="./Veterinario.css" > 
+  <link rel="stylesheet" href="./agendar.css" > 
 
+  <script src="../../../js/jquery.slim.min.js"></script>
   <script src="../../../js/bootstrap.min.js"></script>
   <script src="https://kit.fontawesome.com/a076d05399.js"></script>
   <script src="../../../js/jquery.min.js"></script>
@@ -19,12 +20,6 @@
   <script>
     $(function () {
       $("#headerDiv").load("../Menu/Menu.jsp");
-    });
-    $(function () {
-      $("#header_veterinario").load("./Modal_Editar.html");
-    });
-    $('#myModal').on('shown.bs.modal', function () {
-      $('#myInput').trigger('focus')
     });
   </script>
 </head>
@@ -36,34 +31,30 @@
   <!-- Formulário -->
   <div class="card container mt-5 card_consulta">
     <div class="text-center mt-4">
-        <img src="../../img/Logo/veterinario_oculos.png" class="cabeca_gato">
-      <h3 class="mt-2">Consultar veterinário</h3>
+        <img src="../../img/Logo/dog_coleira.png" class="cabeca_gato">
+      <h3 class="mt-2">Consultar Agendamento</h3>
     </div>
-     <table class="table table-hover table-dark mt-4 responsive">
+     <table class="table responsive table-hover table-dark mt-4">
        <thead>
          <tr class="text-center">
            <th scope="col">ID</th>
-           <th scope="col">Nome</th>
-           <th scope="col">Telefone</th>
-           <th scope="col">Sexo</th>
-           <th scope="col">Data de Nascimento</th>
+           <th scope="col">Tipo</th>
+           <th scope="col">Horário</th>
+           <th scope="col">Data</th>
+           <th scope="col">Data Final</th>
+           <th scope="col">Veterinário</th>
            <th scope="col">Ações</th>
          </tr>
        </thead>
        <tbody>
          <tr class="text-center">
            <th scope="row">1</th>
-           <td>Veterinario</td>
-           <td>94230-2394</td>
-           <td>M</td>
-           <td>05/03/1987</td>
+           <td>Consulta</td>
+           <td>16:40 H</td>
+           <td>05/03/2020</td>
+           <td>07/03/2020</td>
+           <td>Ailton</td>
            <td>
-            <button type="button" class="btn btn btn-warning mt-2"
-              data-toggle="modal" data-target="#modal_veterinario">
-                <a data-toggle="modal">
-                 <i class="fa fa-pen"></i>
-                </a>
-            </button>
             <button class="btn btn-danger mt-2">
                 <i class="fa fa-trash"></i>
             </button> 
@@ -74,7 +65,6 @@
    </div>
   </div>
   
-    <div id="header_veterinario"></div>
 
 </body>
 
