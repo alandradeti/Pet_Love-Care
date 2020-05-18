@@ -68,7 +68,7 @@
                   <td><%=rsVeterinario.getString("cpf_veterinario")%></td>
                   <td><%=rsVeterinario.getString("data_nascimento_veterinario")%></td>
                   <td>
-                      <button data-target="#modal_veterinario" class="btn btn btn-warning mt-2" name="alterarVeterinario" id="alterarVeterinario">
+                      <button data-toggle="modal" data-target="#modal_veterinario" class="btn btn btn-warning mt-2" name="alterarVeterinario" id="alterarVeterinario">
                           <a data-toggle="modal">
                         <i class="fa fa-pen"></i>
                        </a>
