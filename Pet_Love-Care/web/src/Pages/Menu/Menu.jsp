@@ -56,7 +56,7 @@
                         Veterinário
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="nav-link" href="../Veterinario/Consultar_Veterinario.html">Consultar</a>
+                        <a class="nav-link" href="../Veterinario/Consultar_Veterinario.jsp">Consultar</a>
                         <a class="nav-link" href="../Veterinario/Veterinario.html">Cadastrar</a>
                     </div>
                 </li>
