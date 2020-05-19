@@ -15,7 +15,7 @@
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>
         <script src="../../../js/jquery.min.js"></script>
         <script src="../js/padrao.js"></script>
-    <script>
+        <script>
             $(function () {
                 $("#headerDiv").load("../Menu/Menu.jsp");
             });
@@ -28,14 +28,12 @@
         <div class="background">
             <!-- FormulÃ¡rio -->
             <div class="card container mt-5 card_consulta">
-                <button type="button" class="btn btn-danger btn_cadastrar_vacinas mt-2">
-                    <a>
-                        <i class="fa fa-trash"></i>
-                    </a>
+                <button type="button" class="btn btn-danger btn_excluir mt-2">
+                    <a><i class="fa fa-trash"></i></a>
                 </button>
                 <div class="text-center mt-4">
                     <img src="../../img/Logo/cachorro_dodoi.png" class="cabeca_gato">
-                    <h3>Cadastrar Vacina</h3>
+                    <h3>Editar Vacina</h3>
                 </div>
                 <form>
                     <label class="col-form-label login_label">Nome</label>

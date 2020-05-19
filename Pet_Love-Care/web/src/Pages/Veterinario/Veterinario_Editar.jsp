@@ -18,26 +18,30 @@
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>
         <script src="../../../js/jquery.min.js"></script>
         <script src="../js/padrao.js"></script>
+    <script>
+            $(function () {
+                $("#headerDiv").load("../Menu/Menu.jsp");
+            });
+        </script>
     </head>
 
     <body>
-        <!-- FormulÃ¡rio de login -->
-        <div class="modal fade modal_veterinario" id="modal_veterinario">
-            <div class="space_veterinario">
-                
-                <button type="button" 
-                        class="close close_modal_veterinario mr-2 mt-1" 
-                        data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+        <!-- Menu -->
+        <div id="headerDiv"></div>
+        <div class="background">
+            <!-- FormulÃÂ¡rio -->
+            <div class="card container mt-5 card_consulta">
+                <button type="button" class="btn btn-danger btn_excluir mt-2">
+                    <a>
+                        <i class="fa fa-trash"></i>
+                    </a>
                 </button>
-                
-                <div class="tela_veterinario">  
-                    <div class="centralizar">
-                        <img src="../../img/Logo/mulher_veterinaria.png" 
-                             alt="icone" class="tamanho_icone"/>
-                        <h4 class="mt-3">Editar VeterinÃ¡rio</h4>
-                    </div>
-                    <input type="text" class="form-control" name="id_veterinario" id="id_veterinario" required />
+                <div class="centralizar">
+                    <img src="../../img/Logo/mulher_veterinaria.png" 
+                         alt="icone" class="tamanho_icone"/>
+                    <h4 class="mt-3">Editar Veterinario(a)</h4>
+                </div>
+                <input type="text" class="form-control" name="id_veterinario" id="id_veterinario" required />
                     
                     <%
                         /*if(request.getParameter("alterarVeterinario")!=null){**/
@@ -125,12 +129,7 @@
                             }
                         /*}*/
                     %>
-                    <div class="modal-dialog">
-
-                    </div>
-                </div>
             </div>
         </div>
-
     </body>
 </html>

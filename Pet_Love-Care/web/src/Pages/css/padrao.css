@@ -105,3 +105,75 @@
     font-size: 16px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+
+/* Parte onde fica o card da consulta */
+.card_consulta {
+    background-color: #FFD797 !important;
+    border-radius: 15px !important;
+    box-shadow: 0px 2px 2px black;
+    max-width: 800px !important;
+}
+
+/* Botão agendamento */
+.btn_agendar {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: white !important;
+    border: none;
+    background-color: #ffa411 !important;
+}
+
+.btn_agendar:hover {
+    color: white;
+    background-color: #f09f1d !important;
+}
+
+.pst_btn_agendar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* Tamanho do icone */
+.tamanho_icone {
+    width: 90px;
+    height: 80px;
+}
+
+.btn_cadastrar_vacinas {
+    position: relative;
+    left: 95%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 40px;  
+    font-size: 18px;
+    border-radius: 100%;
+    background: #218838;
+    cursor: pointer;
+}
+
+.btn_excluir {
+    position: relative;
+    left: 95%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 40px;  
+    font-size: 18px;
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+.icone_plus {
+    color: black;
+}
+
+.btn_cadastrar_vacinas:hover {
+    background: #38b548;
+}
+
+.btn_vacina {
+    width: 40px;
+    heigth: 40px;
+}

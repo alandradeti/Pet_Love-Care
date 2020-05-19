@@ -2,7 +2,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <jsp:useBean id="veterinario" class="Veterinario.VeterinarioDAO"/>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
   <meta charset="UTF-8">
@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="../css/padrao.css">
   <link rel="stylesheet" href="./Veterinario.css" > 
 
+  <script src="../../../js/jquery.slim.min.js"></script>
   <script src="../../../js/bootstrap.min.js"></script>
   <script src="https://kit.fontawesome.com/a076d05399.js"></script>
   <script src="../../../js/jquery.min.js"></script>
@@ -23,19 +24,10 @@
     $(function () {
       $("#headerDiv").load("../Menu/Menu.jsp");
     });
-    $(function () {
-      $("#header_veterinario").load("./Veterinario_Editar.jsp");
-    });
-    $('#myModal').on('shown.bs.modal', function () {
-      $('#myInput').trigger('focus');
-    });
-    
     function setJsp() {
         var jsp = document.getElemtnById("jsp");
         jsp.value = rsVeterinario.getString("id_veterinario");
     };
-    
-
   </script>
 </head>
 
@@ -58,7 +50,6 @@
            <th scope="col">Telefone</th>
            <th scope="col">CPF</th>
            <th scope="col">Data de Nascimento</th>
-           <th scope="col">Ações</th>
          </tr>
        </thead>
        <tbody>
@@ -74,16 +65,6 @@
                   <td><%=rsVeterinario.getString("telefone_celular_veterinario")%></td>
                   <td><%=rsVeterinario.getString("cpf_veterinario")%></td>
                   <td><%=rsVeterinario.getString("data_nascimento_veterinario")%></td>
-                  <td>
-                      <button data-toggle="modal" data-target="#modal_veterinario" class="btn btn btn-warning mt-2" name="alterarVeterinario" id="alterarVeterinario">
-                          <a data-toggle="modal">
-                        <i class="fa fa-pen"></i>
-                       </a>
-                   </button>
-                   <button class="btn btn-danger mt-2">
-                       <i class="fa fa-trash"></i>
-                   </button> 
-                  </td>
                   </tr>
                 </form>
         <%
