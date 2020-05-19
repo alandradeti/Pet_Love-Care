@@ -29,6 +29,13 @@
     $('#myModal').on('shown.bs.modal', function () {
       $('#myInput').trigger('focus');
     });
+    
+    function setJsp() {
+        var jsp = document.getElemtnById("jsp");
+        jsp.value = rsVeterinario.getString("id_veterinario");
+    };
+    
+
   </script>
 </head>
 
@@ -40,7 +47,7 @@
   <div class="card container mt-5 card_consulta">
     <div class="text-center mt-4">
         <img src="../../img/Logo/veterinario_oculos.png" class="cabeca_gato">
-      <h3 class="mt-2">Consultar veterinÃ¡rio</h3>
+      <h3 class="mt-2">Consultar veterinário</h3>
     </div>
       
      <table class="table table-hover table-dark mt-4 responsive">

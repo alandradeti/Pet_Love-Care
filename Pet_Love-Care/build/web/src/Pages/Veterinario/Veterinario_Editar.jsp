@@ -40,7 +40,7 @@
                     <input type="text" class="form-control" name="id_veterinario" id="id_veterinario" required />
                     
                     <%
-                        if(request.getParameter("alterarVeterinario")!=null){
+                        /*if(request.getParameter("alterarVeterinario")!=null){**/
                             ResultSet rsVeterinario = veterinario.Consultar("SELECT * FROM tb_veterinario WHERE id_veterinario = " + request.getParameter("id_veterinario"));
                             if(rsVeterinario.next()){
 
@@ -123,7 +123,7 @@
                             }else{
                                 out.println("Nenhum registro");
                             }
-                        }
+                        /*}*/
                     %>
                     <div class="modal-dialog">
 
