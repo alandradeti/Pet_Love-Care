@@ -99,7 +99,7 @@
                     <a class="nav-link" href="../Compras/Compras.html">Compras</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../Vacina/Constultar_Vacina.html">Vacina</a>
+                    <a class="nav-link" href="../Vacina/VacinaConsultar.jsp">Vacina</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="../Carteira/Carteira.html">Carteira</a>

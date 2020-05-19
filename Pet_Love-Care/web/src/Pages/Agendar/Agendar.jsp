@@ -1,7 +1,7 @@
 <%@page language="java" import="java.sql.*" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <jsp:useBean id="agendamento" class="Agendamento.AgendamentoDAO"/>
-<jsp:useBean id="vacina" class="Agendamento.AgendamentoDAO"/>
+<jsp:useBean id="vacina" class="Vacina.VacinaDAO"/>
 <jsp:useBean id="veterinario" class="Veterinario.VeterinarioDAO"/>
 <jsp:useBean id="pet" class="Pet.PetDAO"/>
 <!DOCTYPE html>
@@ -110,7 +110,7 @@
                                     <label class="col-form-label login_label">Vacina:</label>
                                     <select name="id_vacina" id="id_vacina" class="form-control">   
                                         <%
-                                            ResultSet rsVacina = agendamento.Consultar("SELECT Id_Vacina,Nome_Vacina FROM TB_Vacina");
+                                            ResultSet rsVacina = vacina.Consultar("SELECT Id_Vacina,Nome_Vacina FROM TB_Vacina");
                                             if(rsVacina.next()){
                                                 do{
                                         %>      
