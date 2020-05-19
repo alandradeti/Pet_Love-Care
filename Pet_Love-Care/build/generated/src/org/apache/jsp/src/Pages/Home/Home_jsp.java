@@ -133,9 +133,9 @@ public final class Home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    <div class=\"aling_btn\">\r\n");
       out.write("                        <button class=\"btn btn-danger mt-2\"><i class=\"fa fa-trash\"></i></button> \r\n");
       out.write("\r\n");
-      out.write("                        <button type=\"button\" class=\"btn btn-warning mt-2\"\r\n");
-      out.write("                                data-toggle=\"modal\" data-target=\"#modal_edit_produtos\">\r\n");
-      out.write("                            <a class=\"btn_vacina\" data-toggle=\"modal\">\r\n");
+      out.write("                        <button type=\"button\" class=\"btn btn-warning mt-2\">\r\n");
+      out.write("                            <a class=\"btn_vacina\" \r\n");
+      out.write("                               href=\"../Home/Produto_editar.html\">\r\n");
       out.write("                                <i class=\"fa fa-pen\"></i>\r\n");
       out.write("                            </a>\r\n");
       out.write("                        </button>\r\n");
