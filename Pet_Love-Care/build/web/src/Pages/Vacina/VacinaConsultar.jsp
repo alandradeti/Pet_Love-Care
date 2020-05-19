@@ -62,22 +62,6 @@
          </tr>
        </thead>
        <tbody>
-<<<<<<< HEAD:Pet_Love-Care/build/web/src/Pages/Vacina/Constultar_Vacina.html
-         <tr class="text-center">
-           <th scope="row">1</th>
-           <td>Legal</td>
-           <td>0</td>
-           <td>0</td>
-           <td>Vacina legal</td>
-           <td>
-            <button type="button" class="btn btn-warning mt-2">
-                <a href="Editar_Vacina.html">
-                 <i class="fa fa-pen icone_plus"></i>
-                </a>
-            </button>
-           </td>
-         </tr>
-=======
          <%
             ResultSet rsVacina = vacina.Consultar("SELECT * FROM TB_Vacina");
             while(rsVacina.next()){
@@ -99,7 +83,6 @@
         <%
             }
         %> 
->>>>>>> Dev:Pet_Love-Care/build/web/src/Pages/Vacina/VacinaConsultar.jsp
        </tbody>
      </table>
    </div>
