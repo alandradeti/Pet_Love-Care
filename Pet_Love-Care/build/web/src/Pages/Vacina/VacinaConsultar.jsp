@@ -27,9 +27,6 @@
     $(function () {
       $("#header_vacina").load("./Cadastrar_Vacina.html");
     });
-    $(function () {
-      $("#header_editar_vacina").load("./Editar_Vacina.html");
-    });
     $('#myModal').on('shown.bs.modal', function () {
       $('#myInput').trigger('focus')
     });
@@ -42,8 +39,9 @@
   <div class="background">
   <!-- FormulÃ¡rio -->
   <div class="card container mt-5 card_consulta">
-      <button type="button" class="btn btn-success btn_cadastrar_vacinas mt-2">
-          <a class="btn_vacina" href="../Vacina/Cadastrar_Vacina.html">
+      <button type="button" class="btn btn_cadastrar_vacinas mt-2"
+              data-toggle="modal" data-target="#modal_vacina">
+        <a class="btn_vacina" data-toggle="modal">
         <i class="fa fa-plus icone_plus"></i>
         </a>
       </button>
@@ -73,10 +71,11 @@
                       <td id="descricao_vacina"><%=rsVacina.getString("descricao_vacina")%></td>
                       <td>
                        <button class="btn btn-warning mt-2">
-                           <i class="fa fa-pen"></i>
+                           <a href="Editar_Vacina.html">
+                               <i class="fa fa-pen icone_plus"></i></a>
                        </button>
                        <button class="btn btn-danger mt-2">
-                           <i class="fa fa-trash"></i>
+                           <i class="fa fa-trash icone_plus"></i>
                        </button> 
                       </td>
                     </tr>
@@ -87,7 +86,7 @@
      </table>
    </div>
   </div>
-  
+  <div id="header_vacina"></div>
 </body>
 
 </html>
