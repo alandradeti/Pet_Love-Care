@@ -71,7 +71,7 @@
                       <td id="descricao_vacina"><%=rsVacina.getString("descricao_vacina")%></td>
                       <td>
                        <button class="btn btn-warning mt-2">
-                           <a href="Editar_Vacina.html">
+                           <a href="Editar_Vacina.jsp">
                                <i class="fa fa-pen icone_plus"></i></a>
                        </button>
                        <button class="btn btn-danger mt-2">
