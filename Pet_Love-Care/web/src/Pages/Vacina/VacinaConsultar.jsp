@@ -14,8 +14,6 @@
   <link rel="stylesheet" href="../css/padrao.css">
   <link rel="stylesheet" href="./Vacina.css" > 
 
-
-  <script src="../../../js/jquery.slim.min.js"></script>
   <script src="../../../js/bootstrap.min.js"></script>
   <script src="https://kit.fontawesome.com/a076d05399.js"></script>
   <script src="../../../js/jquery.min.js"></script>
@@ -56,7 +54,6 @@
            <th scope="col">Nome</th>
            <th scope="col">Valor</th>
            <th scope="col">Descrição</th>
-           <th scope="col">Ações</th>
          </tr>
        </thead>
        <tbody>
@@ -69,15 +66,6 @@
                       <td id="nome_vacina"><%=rsVacina.getString("nome_vacina")%></td>
                       <td id="valor_vacina"><%=rsVacina.getString("valor_vacina")%></td>
                       <td id="descricao_vacina"><%=rsVacina.getString("descricao_vacina")%></td>
-                      <td>
-                       <button class="btn btn-warning mt-2">
-                           <a href="Editar_Vacina.jsp">
-                               <i class="fa fa-pen icone_plus"></i></a>
-                       </button>
-                       <button class="btn btn-danger mt-2">
-                           <i class="fa fa-trash icone_plus"></i>
-                       </button> 
-                      </td>
                     </tr>
         <%
             }
@@ -90,3 +78,13 @@
 </body>
 
 </html>
+<!--
+  <td>
+                       <button class="btn btn-warning mt-2">
+                           <a href="Editar_Vacina.jsp">
+                               <i class="fa fa-pen icone_plus"></i></a>
+                       </button>
+                       <button class="btn btn-danger mt-2">
+                           <i class="fa fa-trash icone_plus"></i>
+                       </button> 
+                      </td>-->
