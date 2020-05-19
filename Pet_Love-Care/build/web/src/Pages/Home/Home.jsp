@@ -84,9 +84,9 @@
                     <div class="aling_btn">
                         <button class="btn btn-danger mt-2"><i class="fa fa-trash"></i></button> 
 
-                        <button type="button" class="btn btn-warning mt-2"
-                                data-toggle="modal" data-target="#modal_edit_produtos">
-                            <a class="btn_vacina" data-toggle="modal">
+                        <button type="button" class="btn btn-warning mt-2">
+                            <a class="btn_vacina" 
+                               href="../Home/Produto_editar.html">
                                 <i class="fa fa-pen"></i>
                             </a>
                         </button>
