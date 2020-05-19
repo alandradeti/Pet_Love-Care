@@ -75,3 +75,20 @@ $(function () {
         return false;
     });
 });
+
+//Envio do formulário de cadastramento Vacina
+$(function () {
+    $('#formAlterarVacina').submit(function () {
+        $.ajax({
+            url: '../Vacina/AlterarVacina.jsp',
+            type: 'POST',
+            data: $('#formAlterarVacina').serialize(),
+            
+            success: function (data) {
+                alert("Funcionou");
+            }
+        });
+        return false;
+    });
+});
+
