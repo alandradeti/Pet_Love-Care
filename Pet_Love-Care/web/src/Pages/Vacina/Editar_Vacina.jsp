@@ -1,3 +1,7 @@
+<%@page language="java" import="java.sql.*" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<jsp:useBean id="vacina" class="Vacina.VacinaDAO"/>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -9,11 +13,14 @@
         <link rel="shortcut icon" href="../../img/Icon/Logo-cabeca.png" />
         <link rel="stylesheet" href="../css/padrao.css" />
         <link rel="stylesheet" href="./Vacina.css" />
-
+        
+        
         <script src="../../../js/jquery.slim.min.js"></script>
         <script src="../../../js/bootstrap.min.js"></script>
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>
         <script src="../../../js/jquery.min.js"></script>
+        <script src="../js/ajax.min.js"></script>
+        <script src="../js/post.js"></script>
         <script src="../js/padrao.js"></script>
         <script>
             $(function () {
@@ -26,65 +33,76 @@
         <!-- Menu -->
         <div id="headerDiv"></div>
         <div class="background">
-            <!-- FormulÃ¡rio -->
+            <!-- FormulÃÂ¡rio -->
             <div class="card container mt-5 card_consulta">
-                <button type="button" class="btn btn-danger btn_excluir mt-2">
-                    <a><i class="fa fa-trash"></i></a>
+                <button type="button" class="btn btn-danger btn_cadastrar_vacinas mt-2">
+                    <a>
+                        <i class="fas fa-arrow-circle-left"></i>
+                    </a>
                 </button>
                 <div class="text-center mt-4">
                     <img src="../../img/Logo/cachorro_dodoi.png" class="cabeca_gato">
                     <h3>Editar Vacina</h3>
                 </div>
-                <form>
-                    <label class="col-form-label login_label">Nome</label>
-                    <input
-                        type="text"
-                        class="form-control"
-                        name="nome_vacina"
-                        id="nome_vacina"
-                        placeholder="Insira o nome da vacina"
-                        required
-                        />
+                
+                 <%
+                    if(request.getParameter("id_vacina")!=null){
+                    ResultSet rsVacina = vacina.Consultar("SELECT * FROM tb_vacina WHERE Id_Vacina = " + request.getParameter("id_vacina"));
+                    if(rsVacina.next()){
+                %>
+                <form id="formAlterarDadosVacina">
+                    <input type="hidden" name="id_vacina" id="id_vacina" value="<%=rsVacina.getString("id_vacina")%>" />
+                            
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label class="col-form-label login_label mt-3">Nome</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        name="nome_vacina"
+                                        id="nome_vacina"
+                                        placeholder="Insira o nome da vacina"
+                                        required
+                                        value="<%=rsVacina.getString("nome_vacina")%>"
+                                        />
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label class="col-form-label login_label mt-3">Valor</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        name="valor_vacina"
+                                        id="valor_vacina"
+                                        placeholder="Preço R$ "
+                                        required
+                                        value="<%=rsVacina.getString("valor_vacina")%>"
+                                        />
+                                </div>
+                            </div>
 
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label class="col-form-label login_label mt-3">Quantidade</label>
+                            <label class="col-form-label login_label">Descrição</label>
                             <input
-                                type="number"
                                 class="form-control"
-                                name="quantidade_estoque_vacina"
-                                id="quantidade_estoque_vacina"
-                                placeholder="Quantidade no estoque"
+                                input="text"
+                                name="descricao_vacina"
+                                id="descricao_vacina"
+                                placeholder="Descrição"
                                 required
-                                />
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label class="col-form-label login_label mt-3">Valor</label>
-                            <input
-                                type="text"
-                                class="form-control"
-                                name="valor_vacina"
-                                id="valor_vacina"
-                                placeholder="Preço R$ "
-                                required
-                                />
-                        </div>
-                    </div>
-
-                    <label class="col-form-label login_label">Descrição</label>
-                    <textarea
-                        class="form-control"
-                        name="descricao_vacina"
-                        id="descricao_vacina"
-                        placeholder="Descrição"
-                        required
-                        ></textarea>
-                    <div class="centralizar_btn"> 
-                        <button class="btn btn_login mt-4 centralizar_btn mb-3">
-                            Cadastrar
-                        </button>
-                    </div>
-                </form>
+                                value="<%=rsVacina.getString("descricao_vacina")%>"
+                                >
+                            <div class="centralizar_btn"> 
+                                <button class="btn btn_login mt-4 centralizar_btn mb-3">
+                                    Alterar
+                                </button>
+                            </div>
+                        </form>
+                       <%
+                }
+                else{
+                    out.println("Nenhum registro");
+                }
+            }
+            %>
             </div>
         </div>
     </body>

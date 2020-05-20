@@ -66,14 +66,15 @@ public class VacinaDAO extends Vacina{
      */
     public boolean Alterar(int iId_Vacina) {
         try {
-            String sSql = "UPDATE "
-                    + "TB_Cliente"
-                    + "SET "
-                    + "Nome_Vacina = '" + getNome_vacina() + "',"
-                    + "Valor_Vacina = '" + getValor_vacina() + "',"
-                    + "Descricao_Vacina = '" + getDescricao_vacina() + "'"
-                    + "WHERE"
-                    + "Id_Vacina = " + iId_Vacina;
+            String sSql = 
+                        "UPDATE "
+                            + "TB_Vacina "
+                        + " SET "
+                            + "Nome_Vacina='"+ getNome_vacina()+"',"
+                            + "Valor_Vacina='"+ getValor_vacina()+"',"
+                            + "Descricao_Vacina='"+ getDescricao_vacina()+"'"
+                        + " WHERE"
+                            + " Id_Vacina = " + iId_Vacina;
             PreparedStatement ps = dataSource.getConnection().prepareStatement(sSql); // Realiza a conexão e o preparo da query
             ps.executeUpdate(sSql); // Executa a query
 
@@ -95,12 +96,12 @@ public class VacinaDAO extends Vacina{
      * @purpose: Realizar a exclusão de um cliente existente. 
      * @return: boolean.
      */
-    public boolean Excluir(int iId_Cliente){
+    public boolean Excluir(int iId_Vacina){
     	 try {
             String sSql = "DELETE FROM "
-                            + "TB_Cliente "
+                            + "TB_Vacina "
                         + "WHERE "
-                            + "Id_Cliente = " + iId_Cliente;
+                            + "Id_Vacina = " + iId_Vacina;
             PreparedStatement ps = dataSource.getConnection().prepareStatement(sSql); // Realiza a conexão e o preparo da query
             ps.executeUpdate(sSql); // Executa a query
             
