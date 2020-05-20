@@ -51,15 +51,8 @@
                 <%      }
                 %>
                 <%      if (rs.getBoolean("Tipo_Cliente") == true) {%>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Veterinário
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="nav-link" href="../Veterinario/Consultar_Veterinario.jsp">Consultar</a>
-                        <a class="nav-link" href="../Veterinario/Veterinario.html">Cadastrar</a>
-                        <a class="nav-link" href="../Veterinario/Veterinario_Editar.jsp">Alterar</a>
-                    </div>
+                <li class="nav-item">
+                    <a class="nav-link" href="../Veterinario/Consultar_Veterinario.jsp">Veterinário</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -71,45 +64,22 @@
                         <a class="dropdown-item" href="../Home/Produto_editar.html">Alterar</a>
                     </div>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Agendamento
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="../Agendar/Consultar_Agendamento.html">Consultar</a>
-                        <a class="dropdown-item" href="../Agendar/Agendar.jsp">Agendar</a>
-                    </div>
+                <li class="nav-item">
+                    <a class="nav-link" href="../Agendar/Consultar_Agendamento.html">Agendamento</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Pet
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="../Pet/Consultar_Pet.html">Consultar</a>
-                        <a class="dropdown-item" href="../Pet/Pet.html">Cadastrar</a>
-                        <a class="dropdown-item" href="../Pet/Editar_Pet.html">Alterar</a>
-                    </div>
+                <li class="nav-item">
+                    <a class="nav-link" href="../Pet/Consultar_Pet.html">Pet</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Clientes
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="../Cliente/Consultar_Cliente.html">Consultar</a>
-                        <a class="dropdown-item" href="../Cliente/Editar_Cliente.html">Alterar</a>
-                    </div>
+                <li class="nav-item">
+                    <a class="nav-link" href="../Cliente/Consultar_Cliente.html">Cliente</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="../Compras/Compras.html">Compras</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <li class="nav-item">
+                    <a class="nav-link" href="../Vacina/VacinaConsultar.jsp">
                         Vacina
                     </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="nav-link" href="../Vacina/VacinaConsultar.jsp">Consultar</a>
-                        <a class="dropdown-item" href="../Vacina/Editar_Vacina.jsp">Alterar</a>
-                    </div>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="../Carteira/Carteira.html">Carteira</a>

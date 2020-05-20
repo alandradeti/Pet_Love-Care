@@ -34,6 +34,10 @@
     color: white;
     border: none;
     background-color: #ffa411;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
 }
 
 .btn_login:hover {
@@ -138,7 +142,7 @@
     height: 80px;
 }
 
-.btn_cadastrar_vacinas {
+.btn_cadastrar {
     position: relative;
     left: 95%;
     display: flex;
@@ -148,8 +152,13 @@
     width: 40px;  
     font-size: 18px;
     border-radius: 100%;
-    background: #218838;
+    background: #28a745;
     cursor: pointer;
+}
+
+.btn_cadastrar:hover {
+    color: white;
+    background: #38b548;
 }
 
 .btn_excluir {
@@ -165,15 +174,65 @@
     cursor: pointer;
 }
 
-.icone_plus {
-    color: black;
-}
-
-.btn_cadastrar_vacinas:hover {
-    background: #38b548;
-}
 
 .btn_vacina {
     width: 40px;
     heigth: 40px;
+}
+
+.icone_plus {
+    color: black;
+    text-decoration: none;
+}
+
+.icone_plus:hover {
+    color: white;
+    text-decoration: none;
+}
+
+.btn_voltar {
+    position: absolute;
+    left: 93%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 40px;
+    font-size: 18px;
+    border-radius: 100%;
+    background: #efa329;
+    margin-top: 10px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn_voltar:hover {
+    background: #e69d27;
+    text-decoration: none;
+}
+
+.btn_tabela_acoes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search {
+    position: absolute;
+    margin-left: 132%;
+}
+
+.btn_search {
+    position: absolute;
+    left: 190%;
+    height: 40px;
+    width: 40px;
+    color: black;
+    background-color: #28A745;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn_search:hover {
+    background-color: #35bd54;
 }
