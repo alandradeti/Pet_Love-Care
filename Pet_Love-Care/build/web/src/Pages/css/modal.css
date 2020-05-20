@@ -135,10 +135,9 @@
 }
 
 .centralizar_btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: 10px;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
 }
 /*Fundo do modal vacinas*/
 .modal-backdrop {

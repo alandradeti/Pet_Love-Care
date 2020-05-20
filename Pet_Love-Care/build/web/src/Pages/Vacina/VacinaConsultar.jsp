@@ -2,7 +2,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <jsp:useBean id="vacina" class="Vacina.VacinaDAO"/>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="PT-BR">
 
     <head>
         <meta charset="UTF-8">
@@ -12,9 +12,9 @@
         <link rel="stylesheet" href="../../../css/bootstrap.min.css">
         <link rel="shortcut icon" href="../../img/Icon/Logo-cabeca.png">
         <link rel="stylesheet" href="../css/padrao.css">
-        <link rel="stylesheet" href="./Vacina.css" > 
-        
-        <script src="../../../js/jquery.slim.min.js"></script>
+        <link rel="stylesheet" href="./Vacina.css"> 
+        <link rel="stylesheet" href="../css/modal.css"> 
+      
         <script src="../../../js/bootstrap.min.js"></script>
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>
         <script src="../../../js/jquery.min.js"></script>
@@ -38,10 +38,11 @@
     <body>
         <!-- Menu -->
         <div id="headerDiv"></div>
+        
         <div class="background">
             <!-- FormulÃ¡rio -->
             <div class="card container mt-5 card_consulta">
-                <button type="button" class="btn btn_cadastrar_vacinas mt-2"
+                <button type="button" class="btn btn_cadastrar mt-2"
                         data-toggle="modal" data-target="#modal_vacina">
                     <a class="btn_vacina" data-toggle="modal">
                         <i class="fa fa-plus icone_plus"></i>
@@ -51,11 +52,14 @@
                     <img src="../../img/Logo/Vacina_pata.png" class="cabeca_gato">
                     <h3 class="mt-2">Vacinas disponíveis</h3>
                 </div>
-                <form id="formPesquisarNomeVacina" method="POST" action="VacinaConsultar.jsp">
+                <form id="formPesquisarNomeVacina" method="POST" 
+                      action="VacinaConsultar.jsp" class="form-inline my-2 my-lg-0">
                     <div class="form-group col-6">
 
-                        <input type="text" name="nome_vacina" id="nome_vacina" />
-                        <button type="submit" class="btn btn-danger mt-2" id="pesquisarVacina" name="pesquisarVacina">
+                        <input type="text" name="nome_vacina" id="nome_vacina" 
+                               class="form-control mr-sm-2 search"/>
+                        <button type="submit" 
+                                class="btn btn-outline-success my-2 my-sm-0 btn_search" id="pesquisarVacina" name="pesquisarVacina">
                             <i class="fas fa-search"></i>
                         </button> 
                     </div>
@@ -84,18 +88,20 @@
                                             <td id="valor_vacina"><%=rsVacinaPesquisa.getString("valor_vacina")%></td>
                                             <td id="descricao_vacina"><%=rsVacinaPesquisa.getString("descricao_vacina")%></td>
                                             <td>
+                                            <div class="row btn_tabela_acoes">
                                                 <form id="formAlterarVacina" method="POST" action="Editar_Vacina.jsp">  
                                                     <input type="hidden" id="id_vacina" name="id_vacina" value="<%=rsVacinaPesquisa.getString("id_vacina")%>">
-                                                    <button href="Editar_Vacina.jsp" id="alterarVacina" name="alterarVacina" class="btn btn-warning mt-2">
+                                                    <button href="Editar_Vacina.jsp" id="alterarVacina" name="alterarVacina" class="btn btn-warning">
                                                         <i class="fa fa-pen icone_plus"></i>
                                                     </button>
                                                 </form>
                                                 <form id="formExcluirDadosVacina">
                                                     <input type="hidden" id="id_vacina" name="id_vacina" value="<%=rsVacinaPesquisa.getString("id_vacina")%>">
-                                                    <button class="btn btn-danger mt-2" id="excluirVacina" name="excluirVacina">
+                                                    <button class="btn btn-danger" id="excluirVacina" name="excluirVacina">
                                                         <i class="fa fa-trash icone_plus"></i>
                                                     </button> 
                                                 </form>
+                                            </div>
                                             </td>
                                         </tr>
                         <%          }
@@ -109,25 +115,27 @@
                                             <td id="valor_vacina"><%=rsVacina.getString("valor_vacina")%></td>
                                             <td id="descricao_vacina"><%=rsVacina.getString("descricao_vacina")%></td>
                                             <td>
+                                            <div class="row btn_tabela_acoes">
                                                 <form id="formAlterarVacina" method="POST" action="Editar_Vacina.jsp">  
                                                     <input type="hidden" id="id_vacina" name="id_vacina" value="<%=rsVacina.getString("id_vacina")%>">
-                                                    <button href="Editar_Vacina.jsp" id="alteraVacina" name="alteraVacina" class="btn btn-warning mt-2">
+                                                    <button href="Editar_Vacina.jsp" id="alteraVacina" name="alteraVacina" class="btn btn-warning">
                                                         <i class="fa fa-pen icone_plus"></i>
                                                     </button>
                                                 </form>
                                                     <form id="formExcluirDadosVacina">
                                                     <input type="hidden" id="id_vacina" name="id_vacina" value="<%=rsVacina.getString("id_vacina")%>">
-                                                    <button class="btn btn-danger mt-2" id="excluirVacina" name="excluirVacina">
+                                                    <button class="btn btn-danger" id="excluirVacina" name="excluirVacina">
                                                         <i class="fa fa-trash icone_plus"></i>
                                                     </button> 
                                                 </form>
+                                            </div>
                                             </td>
                                         </tr>
                     <%
                                     }
                                 } else {
                     %>
-                                    <h1>Não Possui Registros</h1>
+                                    <code>Não Possui Registros</code>
                     <%          }
                         } else {
                             ResultSet rsVacina = vacina.Consultar("SELECT * FROM TB_Vacina");
@@ -139,18 +147,20 @@
                                     <td id="valor_vacina"><%=rsVacina.getString("valor_vacina")%></td>
                                     <td id="descricao_vacina"><%=rsVacina.getString("descricao_vacina")%></td>
                                     <td>
+                                      <div class="row btn_tabela_acoes">
                                         <form id="formAlterarVacina" method="POST" action="Editar_Vacina.jsp">  
                                             <input type="hidden" id="id_vacina" name="id_vacina" value="<%=rsVacina.getString("id_vacina")%>">
-                                            <button href="Editar_Vacina.jsp" id="alteraVacina" name="alteraVacina" class="btn btn-warning mt-2">
+                                            <button href="Editar_Vacina.jsp" id="alteraVacina" name="alteraVacina" class="btn btn-warning">
                                                 <i class="fa fa-pen icone_plus"></i>
                                             </button>
                                         </form>
                                         <form id="formExcluirDadosVacina">
                                             <input type="hidden" id="id_vacina" name="id_vacina" value="<%=rsVacina.getString("id_vacina")%>">
-                                            <button class="btn btn-danger mt-2" id="excluirVacina" name="excluirVacina">
+                                            <button class="btn btn-danger ml-2" id="excluirVacina" name="excluirVacina">
                                                 <i class="fa fa-trash icone_plus"></i>
                                             </button> 
                                         </form>
+                                      </div>
                                     </td>
                                 </tr>
                     <%
@@ -161,6 +171,6 @@
                 </table>
             </div>
         </div>
-        <div id="header_vacina"></div>
+      <div id="header_vacina"></div>
     </body>
 </html>

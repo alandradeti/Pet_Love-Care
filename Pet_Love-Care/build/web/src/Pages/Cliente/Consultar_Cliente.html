@@ -20,12 +20,6 @@
     $(function () {
       $("#headerDiv").load("../Menu/Menu.jsp");
     });
-    $(function () {
-      $("#header_editar_cliente").load("./Editar_Cliente.html");
-    });
-    $('#myModal').on('shown.bs.modal', function () {
-      $('#myInput').trigger('focus')
-    });
   </script>
 </head>
 
@@ -39,6 +33,19 @@
         <img src="../../img/Logo/homem.png" class="cabeca_gato">
       <h3 class="mt-2">Consultar Cliente</h3>
     </div>
+      <form id="formPesquisarNomeCliente" method="POST" 
+            action="Consultar_Cliente" class="form-inline my-2 my-lg-0">
+          <div class="form-group col-6">
+
+              <input type="text" name="nome_cliente" id="nome_cliente" 
+                     class="form-control mr-sm-2 search"/>
+              <button type="submit" 
+                      class="btn btn-outline-success my-2 my-sm-0 btn_search" 
+                      id="pesquisarVacina" name="pesquisarCliente">
+                  <i class="fas fa-search"></i>
+              </button> 
+          </div>
+      </form>
      <table class="table responsive table-hover table-dark mt-4">
        <thead>
          <tr class="text-center">
@@ -48,6 +55,7 @@
            <th scope="col">Tipo Conta</th>
            <th scope="col">Sexo</th>
            <th scope="col">Email</th>
+           <th scope="col">Ações</th>
          </tr>
        </thead>
        <tbody>
@@ -58,25 +66,25 @@
            <td>Admin</td>
            <td>M</td>
            <td>admin@admin.com</td>
-          
+           <td>
+            <div class="row btn_tabela_acoes">
+                <input type="hidden" id="id_cliente" name="id_cliente">
+                <a href="./Editar_Cliente.html">
+                  <button id="alterarCliente" name="alterarCliente" class="btn btn-warning" >
+                       <i class="fa fa-pen icone_plus"></i>
+                  </button>
+                </a>
+                <input type="hidden" id="id_cliente" name="id_cliente">
+                <button class="btn btn-danger ml-2" id="excluirCliente" name="excluirCliente">
+                    <i class="fa fa-trash icone_plus"></i>
+                </button> 
+            </div>
+           </td>
          </tr>
        </tbody>
      </table>
    </div>
   </div>
-  <div id="header_editar_cliente"></div>
 </body>
 
 </html>
-<!--
- <td>
-            <button type="button" class="btn btn btn-warning mt-2"
-              data-toggle="modal" data-target="#modal_editar_pet">
-                <a data-toggle="modal">
-                 <i class="fa fa-pen"></i>
-                </a>
-            </button>
-            <button class="btn btn-danger mt-2">
-                <i class="fa fa-trash"></i>
-            </button> 
-           </td>-->
