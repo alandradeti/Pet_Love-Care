@@ -14,12 +14,15 @@
         <link rel="stylesheet" href="../css/padrao.css">
         <link rel="stylesheet" href="./Vacina.css" > 
 
-
+        
         <script src="../../../js/jquery.slim.min.js"></script>
         <script src="../../../js/bootstrap.min.js"></script>
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>
         <script src="../../../js/jquery.min.js"></script>
+        <script src="../js/ajax.min.js"></script>
+        <script src="../js/post.js"></script>
         <script src="../js/padrao.js"></script>
+        
         <script>
             $(function () {
                 $("#headerDiv").load("../Menu/Menu.jsp");
@@ -49,6 +52,16 @@
                     <img src="../../img/Logo/Vacina_pata.png" class="cabeca_gato">
                     <h3 class="mt-2">Vacinas disponíveis</h3>
                 </div>
+                <form id="formPesquisarNomeVacina" method="POST" action="VacinaConsultar.jsp">
+                    <div class="form-group col-6">
+
+                        <input type="text" name="nome_vacina" id="nome_vacina" />
+                        <button type="submit" class="btn btn-danger mt-2" id="pesquisarVacina" name="pesquisarVacina">
+                            <i class="fas fa-search"></i>
+                        </button> 
+                    </div>
+                </form>
+
                 <table id="tbVacina" class="table table-hover table-dark mt-4 responsive">
                     <thead>
                         <tr class="text-center">
@@ -61,32 +74,90 @@
                     </thead>
                     <tbody>
                         <%
+                            if (request.getParameter("pesquisarVacina") != null) {
+                                ResultSet rsVacinaPesquisa = vacina.Consultar("SELECT * FROM TB_Vacina WHERE Nome_Vacina = '" + request.getParameter("nome_vacina") + "'");
+                                if (rsVacinaPesquisa.isBeforeFirst() && !request.getParameter("nome_vacina").isEmpty()) {
+                                    while (rsVacinaPesquisa.next()) {
+                        %>
+                                        <tr class="text-center">
+                                            <th scope="row"><%=rsVacinaPesquisa.getString("id_vacina")%></th>
+                                            <td id="nome_vacina"><%=rsVacinaPesquisa.getString("nome_vacina")%></td>
+                                            <td id="valor_vacina"><%=rsVacinaPesquisa.getString("valor_vacina")%></td>
+                                            <td id="descricao_vacina"><%=rsVacinaPesquisa.getString("descricao_vacina")%></td>
+                                            <td>
+                                                <form id="formAlterarVacina" method="POST" action="Editar_Vacina.jsp">  
+                                                    <input type="hidden" id="id_vacina" name="id_vacina" value="<%=rsVacinaPesquisa.getString("id_vacina")%>">
+                                                    <button href="Editar_Vacina.jsp" id="alterarVacina" name="alterarVacina" class="btn btn-warning mt-2">
+                                                        <i class="fa fa-pen icone_plus"></i>
+                                                    </button>
+                                                </form>
+                                                <form id="formExcluirDadosVacina">
+                                                    <input type="hidden" id="id_vacina" name="id_vacina" value="<%=rsVacinaPesquisa.getString("id_vacina")%>">
+                                                    <button class="btn btn-danger mt-2" id="excluirVacina" name="excluirVacina">
+                                                        <i class="fa fa-trash icone_plus"></i>
+                                                    </button> 
+                                                </form>
+                                            </td>
+                                        </tr>
+                        <%          }
+                                } else if (request.getParameter("nome_vacina").isEmpty()) {
+                                    ResultSet rsVacina = vacina.Consultar("SELECT * FROM TB_Vacina");
+                                    while (rsVacina.next()) {
+                        %>
+                                        <tr class="text-center">
+                                            <th scope="row"><%=rsVacina.getString("id_vacina")%></th>
+                                            <td id="nome_vacina"><%=rsVacina.getString("nome_vacina")%></td>
+                                            <td id="valor_vacina"><%=rsVacina.getString("valor_vacina")%></td>
+                                            <td id="descricao_vacina"><%=rsVacina.getString("descricao_vacina")%></td>
+                                            <td>
+                                                <form id="formAlterarVacina" method="POST" action="Editar_Vacina.jsp">  
+                                                    <input type="hidden" id="id_vacina" name="id_vacina" value="<%=rsVacina.getString("id_vacina")%>">
+                                                    <button href="Editar_Vacina.jsp" id="alteraVacina" name="alteraVacina" class="btn btn-warning mt-2">
+                                                        <i class="fa fa-pen icone_plus"></i>
+                                                    </button>
+                                                </form>
+                                                    <form id="formExcluirDadosVacina">
+                                                    <input type="hidden" id="id_vacina" name="id_vacina" value="<%=rsVacina.getString("id_vacina")%>">
+                                                    <button class="btn btn-danger mt-2" id="excluirVacina" name="excluirVacina">
+                                                        <i class="fa fa-trash icone_plus"></i>
+                                                    </button> 
+                                                </form>
+                                            </td>
+                                        </tr>
+                    <%
+                                    }
+                                } else {
+                    %>
+                                    <h1>Não Possui Registros</h1>
+                    <%          }
+                        } else {
                             ResultSet rsVacina = vacina.Consultar("SELECT * FROM TB_Vacina");
                             while (rsVacina.next()) {
-                        %>
-                        <tr class="text-center">
-                            <th scope="row"><%=rsVacina.getString("id_vacina")%></th>
-                            <td id="nome_vacina"><%=rsVacina.getString("nome_vacina")%></td>
-                            <td id="valor_vacina"><%=rsVacina.getString("valor_vacina")%></td>
-                            <td id="descricao_vacina"><%=rsVacina.getString("descricao_vacina")%></td>
-                            <td>
-                                <form id="AlterarVacina" method="POST" action="Editar_Vacina.jsp">  
-                                    <input type="hidden" id="id_vacina" name="id_vacina" value="<%=rsVacina.getString("id_vacina")%>">
-                                    <button href="Editar_Vacina.jsp" id="alteraVacina" name="alteraVacina" class="btn btn-warning mt-2">
-                                        <i class="fa fa-pen icone_plus"></i>
-                                    </button>
-                                </form>
-                                <form id="ExcluirVacina" method="POST" action="ExcluirVacina.jsp">
-                                    <input type="hidden" id="id_vacina" name="id_vacina" value="<%=rsVacina.getString("id_vacina")%>">
-                                    <button class="btn btn-danger mt-2" id="removeVacina" name="removeVacina">
-                                        <i class="fa fa-trash icone_plus"></i>
-                                    </button> 
-                                </form>
-                            </td>
-                        </tr>
-                        <%
+                    %>
+                                <tr class="text-center">
+                                    <th scope="row"><%=rsVacina.getString("id_vacina")%></th>
+                                    <td id="nome_vacina"><%=rsVacina.getString("nome_vacina")%></td>
+                                    <td id="valor_vacina"><%=rsVacina.getString("valor_vacina")%></td>
+                                    <td id="descricao_vacina"><%=rsVacina.getString("descricao_vacina")%></td>
+                                    <td>
+                                        <form id="formAlterarVacina" method="POST" action="Editar_Vacina.jsp">  
+                                            <input type="hidden" id="id_vacina" name="id_vacina" value="<%=rsVacina.getString("id_vacina")%>">
+                                            <button href="Editar_Vacina.jsp" id="alteraVacina" name="alteraVacina" class="btn btn-warning mt-2">
+                                                <i class="fa fa-pen icone_plus"></i>
+                                            </button>
+                                        </form>
+                                        <form id="formExcluirDadosVacina">
+                                            <input type="hidden" id="id_vacina" name="id_vacina" value="<%=rsVacina.getString("id_vacina")%>">
+                                            <button class="btn btn-danger mt-2" id="excluirVacina" name="excluirVacina">
+                                                <i class="fa fa-trash icone_plus"></i>
+                                            </button> 
+                                        </form>
+                                    </td>
+                                </tr>
+                    <%
                             }
-                        %> 
+                        }
+                    %>
                     </tbody>
                 </table>
             </div>

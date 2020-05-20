@@ -14,13 +14,13 @@
         <link rel="stylesheet" href="../css/padrao.css" />
         <link rel="stylesheet" href="./Vacina.css" />
         
-        <script src="../js/ajax.min.js"></script>
-        <script src="../js/post.js"></script>
+        
         <script src="../../../js/jquery.slim.min.js"></script>
         <script src="../../../js/bootstrap.min.js"></script>
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>
         <script src="../../../js/jquery.min.js"></script>
-        
+        <script src="../js/ajax.min.js"></script>
+        <script src="../js/post.js"></script>
         <script src="../js/padrao.js"></script>
         
     <script>
@@ -65,7 +65,7 @@
                     ResultSet rsVacina = vacina.Consultar("SELECT * FROM tb_vacina WHERE Id_Vacina = " + request.getParameter("id_vacina"));
                     if(rsVacina.next()){
                 %>
-                <form id="formAlterarVacina">
+                <form id="formAlterarDadosVacina">
                     <input type="hidden" name="id_vacina" id="id_vacina" value="<%=rsVacina.getString("id_vacina")%>" />
                             
                             <div class="form-row">
