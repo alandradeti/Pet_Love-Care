@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="../../../css/bootstrap.min.css">
   <link rel="shortcut icon" href="../../img/Icon/Logo-cabeca.png">
   <link rel="stylesheet" href="../css/padrao.css">
-  <link rel="stylesheet" href="./pet.css" > 
+  <link rel="stylesheet" href="./cliente.css" > 
 
   <script src="../../../js/bootstrap.min.js"></script>
   <script src="https://kit.fontawesome.com/a076d05399.js"></script>
@@ -21,7 +21,7 @@
       $("#headerDiv").load("../Menu/Menu.jsp");
     });
     $(function () {
-      $("#header_pet").load("./Editar_Pet.html");
+      $("#header_editar_cliente").load("./Editar_Cliente.html");
     });
     $('#myModal').on('shown.bs.modal', function () {
       $('#myInput').trigger('focus')
@@ -36,43 +36,44 @@
   <!-- Formulário -->
   <div class="card container mt-5 card_consulta">
     <div class="text-center mt-4">
-        <img src="../../img/Logo/Dog_2Cor.png" class="cabeca_gato">
-      <h3 class="mt-2">Consultar Pet</h3>
+        <img src="../../img/Logo/homem.png" class="cabeca_gato">
+      <h3 class="mt-2">Consultar Cliente</h3>
     </div>
      <table class="table responsive table-hover table-dark mt-4">
        <thead>
          <tr class="text-center">
            <th scope="col">ID</th>
-           <th scope="col">Espécie</th>
            <th scope="col">Nome</th>
-           <th scope="col">Idade</th>
-           <th scope="col">Porte</th>
+           <th scope="col">Telefone</th>
+           <th scope="col">Tipo Conta</th>
            <th scope="col">Sexo</th>
+           <th scope="col">Email</th>
          </tr>
        </thead>
        <tbody>
          <tr class="text-center">
            <th scope="row">1</th>
-           <td>Cachorro</td>
-           <td>Canjica</td>
-           <td>5</td>
-           <td>Médio</td>
+           <td>Robô</td>
+           <td>3222441000</td>
+           <td>Admin</td>
            <td>M</td>
+           <td>admin@admin.com</td>
+          
          </tr>
        </tbody>
      </table>
    </div>
   </div>
-      <div id="header_pet"></div>
+  <div id="header_editar_cliente"></div>
 </body>
 
 </html>
-
-<!-- <td>
+<!--
+ <td>
             <button type="button" class="btn btn btn-warning mt-2"
-                data-toggle="modal" data-target="#modal_pet">
+              data-toggle="modal" data-target="#modal_editar_pet">
                 <a data-toggle="modal">
-                <i class="fa fa-pen"></i>
+                 <i class="fa fa-pen"></i>
                 </a>
             </button>
             <button class="btn btn-danger mt-2">

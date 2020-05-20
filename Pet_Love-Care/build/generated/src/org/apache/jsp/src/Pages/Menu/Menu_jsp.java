@@ -138,9 +138,6 @@ public final class Menu_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                        <a class=\"dropdown-item\" href=\"../Agendar/Agendar.jsp\">Agendar</a>\r\n");
       out.write("                    </div>\r\n");
       out.write("                </li>\r\n");
-      out.write("                <li class=\"nav-item\">\r\n");
-      out.write("                    <a class=\"nav-link\" href=\"../Compras/Compras.html\">Compras</a>\r\n");
-      out.write("                </li>\r\n");
       out.write("                <li class=\"nav-item dropdown\">\r\n");
       out.write("                    <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdown\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\r\n");
       out.write("                        Pet\r\n");
@@ -149,6 +146,17 @@ public final class Menu_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                        <a class=\"dropdown-item\" href=\"../Pet/Consultar_Pet.html\">Consultar</a>\r\n");
       out.write("                        <a class=\"dropdown-item\" href=\"../Pet/Pet.html\">Cadastrar</a>\r\n");
       out.write("                    </div>\r\n");
+      out.write("                </li>\r\n");
+      out.write("                <li class=\"nav-item dropdown\">\r\n");
+      out.write("                    <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdown\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\r\n");
+      out.write("                        Clientes\r\n");
+      out.write("                    </a>\r\n");
+      out.write("                    <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">\r\n");
+      out.write("                        <a class=\"dropdown-item\" href=\"../Cliente/Consultar_Cliente.html\">Consultar</a>\r\n");
+      out.write("                    </div>\r\n");
+      out.write("                </li>\r\n");
+      out.write("                <li class=\"nav-item\">\r\n");
+      out.write("                    <a class=\"nav-link\" href=\"../Compras/Compras.html\">Compras</a>\r\n");
       out.write("                </li>\r\n");
       out.write("                <li class=\"nav-item\">\r\n");
       out.write("                    <a class=\"nav-link\" href=\"../Vacina/VacinaConsultar.jsp\">Vacina</a>\r\n");

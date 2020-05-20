@@ -60,7 +60,17 @@ $(function () {
     });
 });
 
-//Envio do formulário de cadastramento Vacina
+
+
+
+
+/****************************************************************/
+/********************                   *************************/
+/******************** TRATAMENTO VACINA *************************/
+/********************                   *************************/
+/****************************************************************/
+
+//Envio do formulário de Cadastramento Vacina
 $(function () {
     $('#formCadastrarVacina').submit(function () {
         $.ajax({
@@ -75,3 +85,37 @@ $(function () {
         return false;
     });
 });
+
+//Envio do formulário de Alteração Vacina   
+$(function () {
+    $('#formAlterarDadosVacina').submit(function () {
+        $.ajax({
+            url: '../Vacina/AlterarVacina.jsp',
+            type: 'POST',
+            data: $('#formAlterarDadosVacina').serialize(),
+            
+            success: function (data) {
+                alert("Funcionou");
+            }
+        });
+        return false;
+    });
+});
+
+//Envio do formulário de Exclusão Vacina   
+$(function () {
+    $('#formExcluirDadosVacina').submit(function () {
+        $.ajax({
+            url: '../Vacina/ExcluirVacina.jsp',
+            type: 'POST',
+            data: $('#formExcluirDadosVacina').serialize(),
+            
+            success: function (data) {
+                alert("Funcionou");
+            }
+        });
+        return false;
+    });
+});
+
+
