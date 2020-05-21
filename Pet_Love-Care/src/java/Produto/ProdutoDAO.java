@@ -69,17 +69,20 @@ public class ProdutoDAO extends Produto{
      * @purpose: Realizar a alteração de um cliente existente. 
      * @return: boolean.
      */
-   /* public boolean Alterar(int iId_Vacina) {
+    public boolean Alterar(int iId_Produto) {
         try {
             String sSql = 
                         "UPDATE "
-                            + "TB_Vacina "
+                            + "TB_Produto"
                         + " SET "
-                            + "Nome_Vacina='"+ getNome_vacina()+"',"
-                            + "Valor_Vacina='"+ getValor_vacina()+"',"
-                            + "Descricao_Vacina='"+ getDescricao_vacina()+"'"
+                            + "Nome_Produto='"+ getNome_produto()+"',"
+                            + "Valor_Produto='"+ getValor_produto()+"',"
+                            + "Quantidade_Estoque_Produto='"+ getQuantidade_estoque_produto()+"',"
+                            + "Descricao_Produto='"+ getDescricao_produto()+"',"
+                            + "Valor_Produto='"+ getValor_produto()+"',"
+                            + "Numero_Imagem_Produto='"+ getNumero_imagem_produto()+"'"
                         + " WHERE"
-                            + " Id_Vacina = " + iId_Vacina;
+                            + " Id_Produto = " + iId_Produto;
             PreparedStatement ps = dataSource.getConnection().prepareStatement(sSql); // Realiza a conexão e o preparo da query
             ps.executeUpdate(sSql); // Executa a query
 
@@ -93,7 +96,7 @@ public class ProdutoDAO extends Produto{
             return (false);
         }
         return (true);
-    }*/
+    }
     
     /**
      * Método: Excluir()
@@ -101,12 +104,12 @@ public class ProdutoDAO extends Produto{
      * @purpose: Realizar a exclusão de um cliente existente. 
      * @return: boolean.
      */
-    /*public boolean Excluir(int iId_Vacina){
+    public boolean Excluir(int iId_Produto){
     	 try {
             String sSql = "DELETE FROM "
-                            + "TB_Vacina "
+                            + "TB_Produto "
                         + "WHERE "
-                            + "Id_Vacina = " + iId_Vacina;
+                            + "Id_Produto = " + iId_Produto;
             PreparedStatement ps = dataSource.getConnection().prepareStatement(sSql); // Realiza a conexão e o preparo da query
             ps.executeUpdate(sSql); // Executa a query
             
@@ -120,5 +123,5 @@ public class ProdutoDAO extends Produto{
             return (false);
         }
         return(true);
-    }*/
+    }
 }

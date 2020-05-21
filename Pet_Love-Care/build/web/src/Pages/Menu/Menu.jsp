@@ -61,7 +61,6 @@
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="../Home/Home.jsp">Consultar</a>
                         <a class="dropdown-item" href="../Produtos/Produtos.html">Cadastrar</a>
-                        <a class="dropdown-item" href="../Home/Produto_editar.html">Alterar</a>
                     </div>
                 </li>
                 <li class="nav-item">
@@ -87,16 +86,16 @@
                 <%      }
                 %>
                 <%      if (rs.getBoolean("Tipo_Cliente") == false) {%>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Pet
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="nav-link" href="../Pet/Consultar_Pet.html">Consultar</a>
-                        <a class="nav-link" href="../Pet/Pet.html">Cadastrar</a>
-                        <a class="dropdown-item" href="../Pet/Editar_Pet.html">Alterar</a>
-                    </div>
-                </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Pet
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="nav-link" href="../Pet/Consultar_Pet.html">Consultar</a>
+                            <a class="nav-link" href="../Pet/Pet.html">Cadastrar</a>
+                            <a class="dropdown-item" href="../Pet/Editar_Pet.html">Alterar</a>
+                        </div>
+                    </li>
                 <%      }
                     }
                 %>
