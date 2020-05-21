@@ -14,12 +14,12 @@
         <link rel="stylesheet" href="../css/padrao.css">
         <link rel="stylesheet" href="./Vacina.css" > 
       
+        <script src="../js/ajax.min.js"></script>
+        <script src="../js/post.js"></script>
         <script src="../../../js/jquery.slim.min.js"></script>
         <script src="../../../js/bootstrap.min.js"></script>
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>
         <script src="../../../js/jquery.min.js"></script>
-        <script src="../js/ajax.min.js"></script>
-        <script src="../js/post.js"></script>
         <script src="../js/padrao.js"></script>
         
         <script>
@@ -91,7 +91,7 @@
                                                     </button>
                                                 </form>
                                                 <form id="formExcluirDadosVacina">
-                                                    <input type="hidden" id="id_vacina" name="id_vacina" value="<%=rsVacinaPesquisa.getString("id_vacina")%>">
+                                                    <input type="hidden" id="id_vacina1" name="id_vacina1" value="<%=rsVacinaPesquisa.getString("id_vacina")%>">
                                                     <button class="btn btn-danger mt-2" id="excluirVacina" name="excluirVacina">
                                                         <i class="fa fa-trash icone_plus"></i>
                                                     </button> 
@@ -116,7 +116,7 @@
                                                     </button>
                                                 </form>
                                                     <form id="formExcluirDadosVacina">
-                                                    <input type="hidden" id="id_vacina" name="id_vacina" value="<%=rsVacina.getString("id_vacina")%>">
+                                                    <input type="hidden" id="id_vacina1" name="id_vacina1" value="<%=rsVacina.getString("id_vacina")%>">
                                                     <button class="btn btn-danger mt-2" id="excluirVacina" name="excluirVacina">
                                                         <i class="fa fa-trash icone_plus"></i>
                                                     </button> 
@@ -145,8 +145,8 @@
                                                 <i class="fa fa-pen icone_plus"></i>
                                             </button>
                                         </form>
-                                        <form id="formExcluirDadosVacina">
-                                            <input type="hidden" id="id_vacina" name="id_vacina" value="<%=rsVacina.getString("id_vacina")%>">
+                                            <form id="formExcluirDadosVacina">
+                                            <input type="hidden" id="id_vacina1" name="id_vacina1" value="<%=rsVacina.getString("id_vacina")%>">
                                             <button class="btn btn-danger mt-2" id="excluirVacina" name="excluirVacina">
                                                 <i class="fa fa-trash icone_plus"></i>
                                             </button> 

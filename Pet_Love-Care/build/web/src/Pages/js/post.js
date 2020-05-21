@@ -119,3 +119,29 @@ $(function () {
 });
 
 
+/****************************************************************/
+/********************                   *************************/
+/******************** TRATAMENTO PRODUTO *************************/
+/********************                   *************************/
+/****************************************************************/
+
+
+//Envio do formulário de Exclusão Vacina   
+$(function () {
+    $('#formCadastrarProduto').submit(function () {
+        $.ajax({
+            url: '../Produtos/IncluirProduto.jsp',
+            type: 'POST',
+            data: $('#formCadastrarProduto').serialize(),
+            
+            success: function (data) {
+                alert("Funcionou");
+            }
+        });
+        return false;
+    });
+});
+
+
+
+
