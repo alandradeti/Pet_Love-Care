@@ -64,7 +64,7 @@
                         </button> 
                     </div>
                 </form>
-				
+
                 <table id="tbVacina" class="table table-hover table-dark mt-4 responsive">
                     <thead>
                         <tr class="text-center">

@@ -203,7 +203,7 @@ public final class Home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.print(rsProduto.getString("numero_imagem_produto"));
       out.write(".png\" class=\"card-img-top custom_img_produtos\" alt=\"...\">\r\n");
       out.write("                                    <div class=\"card-body\">\r\n");
-      out.write("                                        <form id=\"formAlterarVacina\" method=\"POST\" action=\"Editar_Produto.jsp\">  \r\n");
+      out.write("                                        <form id=\"formAlterarProduto\" method=\"POST\" action=\"../Produtos/Editar_Produto.jsp\">  \r\n");
       out.write("                                                <input type=\"hidden\" id=\"id_produto\" name=\"id_produto\" value=\"");
       out.print(rsProduto.getString("id_produto"));
       out.write("\">\r\n");
@@ -211,7 +211,7 @@ public final class Home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                                    <i class=\"fa fa-pen icone_plus\"></i>\r\n");
       out.write("                                                </button>\r\n");
       out.write("                                        </form>\r\n");
-      out.write("                                        <form id=\"formExcluirDadosVacina\">\r\n");
+      out.write("                                        <form id=\"formExcluirDadosProduto\">\r\n");
       out.write("                                                <input type=\"hidden\" id=\"id_produto\" name=\"id_produto\" value=\"");
       out.print(rsProduto.getString("id_produto"));
       out.write("\">\r\n");
