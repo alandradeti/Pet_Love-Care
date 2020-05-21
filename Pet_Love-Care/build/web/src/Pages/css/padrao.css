@@ -34,6 +34,10 @@
     color: white;
     border: none;
     background-color: #ffa411;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
 }
 
 .btn_login:hover {
@@ -104,4 +108,131 @@
 .funcionario_label {
     font-size: 16px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+/* Parte onde fica o card da consulta */
+.card_consulta {
+    background-color: #FFD797 !important;
+    border-radius: 15px !important;
+    box-shadow: 0px 2px 2px black;
+    max-width: 800px !important;
+}
+
+/* Botão agendamento */
+.btn_agendar {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: white !important;
+    border: none;
+    background-color: #ffa411 !important;
+}
+
+.btn_agendar:hover {
+    color: white;
+    background-color: #f09f1d !important;
+}
+
+.pst_btn_agendar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* Tamanho do icone */
+.tamanho_icone {
+    width: 90px;
+    height: 80px;
+}
+
+.btn_cadastrar {
+    position: relative;
+    left: 95%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 40px;  
+    font-size: 18px;
+    border-radius: 100%;
+    background: #28a745;
+    cursor: pointer;
+}
+
+.btn_cadastrar:hover {
+    color: white;
+    background: #38b548;
+}
+
+.btn_excluir {
+    position: relative;
+    left: 95%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 40px;  
+    font-size: 18px;
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+
+.btn_vacina {
+    width: 40px;
+    heigth: 40px;
+}
+
+.icone_plus {
+    color: black;
+    text-decoration: none;
+}
+
+.icone_plus:hover {
+    color: white;
+    text-decoration: none;
+}
+
+.btn_voltar {
+    position: absolute;
+    left: 93%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 40px;
+    font-size: 18px;
+    border-radius: 100%;
+    background: #efa329;
+    margin-top: 10px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn_voltar:hover {
+    background: #e69d27;
+    text-decoration: none;
+}
+
+.btn_tabela_acoes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search {
+    position: absolute;
+    margin-left: 132%;
+}
+
+.btn_search {
+    position: absolute;
+    left: 190%;
+    height: 40px;
+    width: 40px;
+    color: black;
+    background-color: #28A745;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn_search:hover {
+    background-color: #35bd54;
 }

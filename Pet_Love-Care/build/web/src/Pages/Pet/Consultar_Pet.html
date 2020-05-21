@@ -21,7 +21,7 @@
       $("#headerDiv").load("../Menu/Menu.jsp");
     });
     $(function () {
-      $("#header_pet").load("./Editar_Pet.html");
+      $("#header_pet").load("./Cadastrar_pet.html");
     });
     $('#myModal').on('shown.bs.modal', function () {
       $('#myInput').trigger('focus')
@@ -35,10 +35,28 @@
   <div class="background">
   <!-- Formulário -->
   <div class="card container mt-5 card_consulta">
+    <button type="button" class="btn btn_cadastrar mt-2"
+            data-toggle="modal" data-target="#modal_pet">
+        <a class="btn_vacina" data-toggle="modal">
+            <i class="fa fa-plus icone_plus"></i>
+        </a>
+    </button>
     <div class="text-center mt-4">
         <img src="../../img/Logo/Dog_2Cor.png" class="cabeca_gato">
       <h3 class="mt-2">Consultar Pet</h3>
     </div>
+      <form id="formPesquisarNomePet" method="POST" 
+            action="Consultar_Pet.html" class="form-inline my-2 my-lg-0">
+        <div class="form-group col-6">
+            <input type="text" name="nome_pet" id="nome_pet" 
+                   class="form-control mr-sm-2 search"/>
+            <button type="submit" 
+                    class="btn btn-outline-success my-2 my-sm-0 btn_search" 
+                    id="pesquisarPet" name="pesquisarPet">
+                <i class="fas fa-search"></i>
+            </button> 
+        </div>
+      </form>
      <table class="table responsive table-hover table-dark mt-4">
        <thead>
          <tr class="text-center">
@@ -60,6 +78,30 @@
            <td>Médio</td>
            <td>M</td>
            <td>
+            <div class="row btn_tabela_acoes">
+                <input type="hidden" id="id_cliente" name="id_cliente">
+                <a href="./Editar_Pet.html">
+                  <button id="alterarCliente" name="alterarCliente" class="btn btn-warning" >
+                       <i class="fa fa-pen icone_plus"></i>
+                  </button>
+                </a>
+                <input type="hidden" id="id_cliente" name="id_cliente">
+                <button class="btn btn-danger ml-2" id="excluirCliente" name="excluirCliente">
+                    <i class="fa fa-trash icone_plus"></i>
+                </button> 
+            </div>
+           </td>
+         </tr>
+       </tbody>
+     </table>
+   </div>
+  </div>
+      <div id="header_pet"></div>
+</body>
+
+</html>
+
+<!-- <td>
             <button type="button" class="btn btn btn-warning mt-2"
                 data-toggle="modal" data-target="#modal_pet">
                 <a data-toggle="modal">
@@ -69,15 +111,4 @@
             <button class="btn btn-danger mt-2">
                 <i class="fa fa-trash"></i>
             </button> 
-           </td>
-         </tr>
-       </tbody>
-     </table>
-   </div>
-  </div>
-      <div id="header_pet"></div>
-
-
-</body>
-
-</html>
+           </td>-->

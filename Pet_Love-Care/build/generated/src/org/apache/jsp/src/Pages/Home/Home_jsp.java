@@ -3,6 +3,7 @@ package org.apache.jsp.src.Pages.Home;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import java.sql.*;
 
 public final class Home_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -30,7 +31,7 @@ public final class Home_jsp extends org.apache.jasper.runtime.HttpJspBase
     PageContext _jspx_page_context = null;
 
     try {
-      response.setContentType("text/html");
+      response.setContentType("text/html;charset=UTF-8");
       pageContext = _jspxFactory.getPageContext(this, request, response,
       			null, true, 8192, true);
       _jspx_page_context = pageContext;
@@ -41,6 +42,27 @@ public final class Home_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
+      out.write("\r\n");
+      out.write("\r\n");
+      Produto.ProdutoDAO produto = null;
+      synchronized (_jspx_page_context) {
+        produto = (Produto.ProdutoDAO) _jspx_page_context.getAttribute("produto", PageContext.PAGE_SCOPE);
+        if (produto == null){
+          produto = new Produto.ProdutoDAO();
+          _jspx_page_context.setAttribute("produto", produto, PageContext.PAGE_SCOPE);
+        }
+      }
+      out.write('\r');
+      out.write('\n');
+      Cliente.ClienteDAO cliente = null;
+      synchronized (_jspx_page_context) {
+        cliente = (Cliente.ClienteDAO) _jspx_page_context.getAttribute("cliente", PageContext.PAGE_SCOPE);
+        if (cliente == null){
+          cliente = new Cliente.ClienteDAO();
+          _jspx_page_context.setAttribute("cliente", cliente, PageContext.PAGE_SCOPE);
+        }
+      }
+      out.write("\r\n");
       out.write("<!DOCTYPE html>\r\n");
       out.write("<html lang=\"en\">\r\n");
       out.write("\r\n");
@@ -54,6 +76,7 @@ public final class Home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <link rel=\"stylesheet\" href=\"../css/padrao.css\" />\r\n");
       out.write("        <link rel=\"stylesheet\" href=\"../Home/home.css\" />\r\n");
       out.write("\r\n");
+      out.write("        <script src=\"../../../js/jquery.slim.min.js\"></script>\r\n");
       out.write("        <script src=\"../../../js/bootstrap.min.js\"></script>\r\n");
       out.write("        <script src=\"https://kit.fontawesome.com/a076d05399.js\"></script>\r\n");
       out.write("        <script src=\"../../../js/jquery.min.js\"></script>\r\n");
@@ -63,12 +86,6 @@ public final class Home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <script>\r\n");
       out.write("            $(function () {\r\n");
       out.write("                $(\"#headerDiv\").load(\"../Menu/Menu.jsp\");\r\n");
-      out.write("            });\r\n");
-      out.write("            $(function () {\r\n");
-      out.write("                $(\"#header_produtos\").load(\"./Produto_editar.html\");\r\n");
-      out.write("            });\r\n");
-      out.write("            $('#myModal').on('shown.bs.modal', function () {\r\n");
-      out.write("                $('#myInput').trigger('focus')\r\n");
       out.write("            });\r\n");
       out.write("        </script>\r\n");
       out.write("    </head>\r\n");
@@ -129,48 +146,99 @@ public final class Home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <section class=\"background\">\r\n");
       out.write("            <h1 class=\"custom_titulo_produtos\">Conheçam alguns de nossos produtos!</h1>\r\n");
       out.write("            <div class=\"row custom_body_produtos\">\r\n");
-      out.write("                <div class=\"card custom_card_produtos\" style=\"width: 18rem;\">\r\n");
-      out.write("                    <div class=\"aling_btn\">\r\n");
-      out.write("                        <button class=\"btn btn-danger mt-2\"><i class=\"fa fa-trash\"></i></button> \r\n");
+      out.write("                \r\n");
+      out.write("                ");
+
+                    ResultSet rsCliente = cliente.Consultar("SELECT Tipo_Cliente FROM TB_Cliente WHERE Id_Cliente = '" + session.getAttribute("id_cliente") + "'");
+                    if(rsCliente.next()){
+                        if (rsCliente.getBoolean("Tipo_Cliente") == false){
+                            ResultSet rsProduto = produto.Consultar("SELECT * FROM TB_Produto");
+                            while (rsProduto.next()) {
+                
       out.write("\r\n");
-      out.write("                        <button type=\"button\" class=\"btn btn-warning mt-2\"\r\n");
-      out.write("                                data-toggle=\"modal\" data-target=\"#modal_edit_produtos\">\r\n");
-      out.write("                            <a class=\"btn_vacina\" data-toggle=\"modal\">\r\n");
-      out.write("                                <i class=\"fa fa-pen\"></i>\r\n");
-      out.write("                            </a>\r\n");
-      out.write("                        </button>\r\n");
-      out.write("                    </div>\r\n");
-      out.write("                    <img src=\"../../img/Produtos/produto_1.png\" class=\"card-img-top custom_img_produtos\" alt=\"...\">\r\n");
-      out.write("                    <div class=\"card-body\">\r\n");
-      out.write("                        <h5 class=\"card-title\" id=\"nome_produto\">Ração Hills</h5>\r\n");
-      out.write("                        <p class=\"card-text\" id=\"descricao_produto\">Ração Hills sabor carne, recomendada para cachorros de porte pequeno.</p>\r\n");
-      out.write("                        <p class=\"card-text\" id=\"valor_produto\">R$ 19,99</p>\r\n");
+      out.write("                                <div class=\"card custom_card_produtos\" style=\"width: 18rem;\">\r\n");
+      out.write("                                    <img src=\"../../img/Produtos/produto_");
+      out.print(rsProduto.getString("numero_imagem_produto"));
+      out.write(".png\" class=\"card-img-top custom_img_produtos\" alt=\"...\">\r\n");
+      out.write("                                    <div class=\"card-body\">\r\n");
+      out.write("                                        <h5 class=\"card-title\" id=\"nome_produto\">");
+      out.print(rsProduto.getString("nome_produto"));
+      out.write("</h5>\r\n");
+      out.write("                                        <p class=\"card-text\" id=\"descricao_produto\">");
+      out.print(rsProduto.getString("descricao_produto"));
+      out.write("</p>\r\n");
+      out.write("                                        <form id=\"formAdicionarCarrinho\">  \r\n");
+      out.write("                                            <p class=\"card-text\" id=\"valor_produto\">");
+      out.print(rsProduto.getString("valor_produto"));
+      out.write("</p>\r\n");
+      out.write("                                            <div class=\"input-group mb-3 input_center\">\r\n");
+      out.write("                                            <label class=\"col-form-label login_label\">Qtde:</label>\r\n");
+      out.write("                                            <input type=\"text\" class=\"form-control col-2\" \r\n");
+      out.write("                                                id=\"quantidade_produto\"\r\n");
+      out.write("                                                name=\"quantidade_produto\"\r\n");
+      out.write("                                                aria-describedby=\"button-addon1\">\r\n");
+      out.write("                                            </div>\r\n");
+      out.write("                                            <input type=\"hidden\" id=\"nome_produto\" name=\"nome_produto\" value=\"");
+      out.print(rsProduto.getString("nome_produto"));
+      out.write("\">\r\n");
+      out.write("                                            <input type=\"hidden\" id=\"id_produto\" name=\"id_produto\" value=\"");
+      out.print(rsProduto.getString("id_produto"));
+      out.write("\">\r\n");
+      out.write("                                            <button id=\"adicionaProduto\" name=\"adicionaProduto\" class=\"btn btn-warning mt-2\">\r\n");
+      out.write("                                                <i class=\"fa fa-plus icone_plus\"></i>\r\n");
+      out.write("                                            </button>\r\n");
+      out.write("                                        </form>\r\n");
+      out.write("                                    </div>\r\n");
+      out.write("                                </div>\r\n");
+      out.write("                ");
+
+                            }
+                        }else{
+                            ResultSet rsProduto = produto.Consultar("SELECT * FROM TB_Produto");
+                            while (rsProduto.next()) {
+                
       out.write("\r\n");
-      out.write("                        <div class=\"input-group mb-3 input_center\">\r\n");
-      out.write("                            <div class=\"input-group-prepend\">\r\n");
-      out.write("                                <button class=\"btn btn-dark\" \r\n");
-      out.write("                                        type=\"button\">+</button>\r\n");
-      out.write("                            </div>\r\n");
-      out.write("                            <input type=\"text\" class=\"form-control col-2\" \r\n");
-      out.write("                                   id=\"quantidade_produto\"\r\n");
-      out.write("                                   name=\"quantidade_produto\"\r\n");
-      out.write("                                   aria-describedby=\"button-addon1\">\r\n");
-      out.write("                            <div class=\"input-group-append\">\r\n");
-      out.write("                                <button class=\"btn btn-dark\"\r\n");
-      out.write("                                        type=\"button\">-</button>\r\n");
-      out.write("                            </div>\r\n");
-      out.write("                        </div>\r\n");
-      out.write("                    </div>\r\n");
-      out.write("                </div>\r\n");
+      out.write("                                <div class=\"card custom_card_produtos\" style=\"width: 18rem;\">\r\n");
+      out.write("                                    <img src=\"../../img/Produtos/produto_");
+      out.print(rsProduto.getString("numero_imagem_produto"));
+      out.write(".png\" class=\"card-img-top custom_img_produtos\" alt=\"...\">\r\n");
+      out.write("                                    <div class=\"card-body\">\r\n");
+      out.write("                                        <form id=\"formAlterarVacina\" method=\"POST\" action=\"Editar_Produto.jsp\">  \r\n");
+      out.write("                                                <input type=\"hidden\" id=\"id_produto\" name=\"id_produto\" value=\"");
+      out.print(rsProduto.getString("id_produto"));
+      out.write("\">\r\n");
+      out.write("                                                <button href=\"Editar_Vacina.jsp\" id=\"alterarProduto\" name=\"alterarProduto\" class=\"btn btn-warning mt-2\">\r\n");
+      out.write("                                                    <i class=\"fa fa-pen icone_plus\"></i>\r\n");
+      out.write("                                                </button>\r\n");
+      out.write("                                        </form>\r\n");
+      out.write("                                        <form id=\"formExcluirDadosVacina\">\r\n");
+      out.write("                                                <input type=\"hidden\" id=\"id_produto\" name=\"id_produto\" value=\"");
+      out.print(rsProduto.getString("id_produto"));
+      out.write("\">\r\n");
+      out.write("                                                <button class=\"btn btn-danger mt-2\" id=\"excluirProduto\" name=\"excluirProduto\">\r\n");
+      out.write("                                                    <i class=\"fa fa-trash icone_plus\"></i>\r\n");
+      out.write("                                                </button> \r\n");
+      out.write("                                        </form>\r\n");
+      out.write("                                        <h5 class=\"card-title\" id=\"nome_produto\">");
+      out.print(rsProduto.getString("nome_produto"));
+      out.write("</h5>\r\n");
+      out.write("                                        <p class=\"card-text\" id=\"descricao_produto\">");
+      out.print(rsProduto.getString("descricao_produto"));
+      out.write("</p>\r\n");
+      out.write("                                        <p class=\"card-text\" id=\"valor_produto\">");
+      out.print(rsProduto.getString("valor_produto"));
+      out.write("</p>\r\n");
       out.write("\r\n");
-      out.write("                <div class=\"card custom_card_produtos\" style=\"width: 18rem;\">\r\n");
-      out.write("                    <div class=\"aling_btn\">\r\n");
-      out.write("                        <button class=\"btn btn-danger mt-2\"><i class=\"fa fa-trash\"></i></button> \r\n");
-      out.write("                        <button type=\"button\" class=\"btn btn-warning mt-2\"\r\n");
-      out.write("                                data-toggle=\"modal\" data-target=\"#modal_edit_produtos\">\r\n");
-      out.write("                            <a class=\"btn_vacina\" data-toggle=\"modal\"><i class=\"fa fa-pen\"></i></a> \r\n");
-      out.write("                        </button>\r\n");
-      out.write("                    </div>\r\n");
+      out.write("                                    </div>\r\n");
+      out.write("                                </div>\r\n");
+      out.write("                ");
+
+                            }
+                        }
+                    }
+                
+      out.write("\r\n");
+      out.write("                <!--<div class=\"card custom_card_produtos\" style=\"width: 18rem;\">\r\n");
       out.write("                    <img src=\"../../img/Produtos/produto_2.png\" class=\"card-img-top custom_img_produtos\" alt=\"...\">\r\n");
       out.write("                    <div class=\"card-body\">\r\n");
       out.write("                        <h5 class=\"card-title\" id=\"nome_produto\">Royal Canin</h5>\r\n");
@@ -193,13 +261,6 @@ public final class Home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                </div>\r\n");
       out.write("\r\n");
       out.write("                <div class=\"card custom_card_produtos\" style=\"width: 18rem;\">\r\n");
-      out.write("                    <div class=\"aling_btn\">\r\n");
-      out.write("                        <button class=\"btn btn-danger mt-2\"><i class=\"fa fa-trash\"></i></button> \r\n");
-      out.write("                        <button type=\"button\" class=\"btn btn-warning mt-2\"\r\n");
-      out.write("                                data-toggle=\"modal\" data-target=\"#modal_edit_produtos\">\r\n");
-      out.write("                            <a class=\"btn_vacina\" data-toggle=\"modal\"><i class=\"fa fa-pen\"></i></a> \r\n");
-      out.write("                        </button>\r\n");
-      out.write("                    </div>\r\n");
       out.write("                    <img src=\"../../img/Produtos/produto_3.png\" class=\"card-img-top custom_img_produtos\" alt=\"...\">\r\n");
       out.write("                    <div class=\"card-body\">\r\n");
       out.write("                        <h5 class=\"card-title\" id=\"nome_produto\">Ração Golden</h5>\r\n");
@@ -222,13 +283,6 @@ public final class Home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                </div>\r\n");
       out.write("\r\n");
       out.write("                <div class=\"card custom_card_produtos\" style=\"width: 18rem;\">\r\n");
-      out.write("                    <div class=\"aling_btn\">\r\n");
-      out.write("                        <button class=\"btn btn-danger mt-2\"><i class=\"fa fa-trash\"></i></button> \r\n");
-      out.write("                        <button type=\"button\" class=\"btn btn-warning mt-2\"\r\n");
-      out.write("                                data-toggle=\"modal\" data-target=\"#modal_edit_produtos\">\r\n");
-      out.write("                            <a class=\"btn_vacina\" data-toggle=\"modal\"><i class=\"fa fa-pen\"></i></a>\r\n");
-      out.write("                        </button>\r\n");
-      out.write("                    </div>\r\n");
       out.write("                    <img src=\"../../img/Produtos/produto_4.png\" class=\"card-img-top custom_img_produtos\" alt=\"...\">\r\n");
       out.write("                    <div class=\"card-body\">\r\n");
       out.write("                        <h5 class=\"card-title\" id=\"nome_produto\">Antipugas Bravecto</h5>\r\n");
@@ -253,13 +307,6 @@ public final class Home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("            <div class=\"row custom_body_produtos\">\r\n");
       out.write("                <div class=\"card custom_card_produtos\" style=\"width: 18rem;\">\r\n");
-      out.write("                    <div class=\"aling_btn\">\r\n");
-      out.write("                        <button class=\"btn btn-danger mt-2\"><i class=\"fa fa-trash\"></i></button> \r\n");
-      out.write("                        <button type=\"button\" class=\"btn btn-warning mt-2\"\r\n");
-      out.write("                                data-toggle=\"modal\" data-target=\"#modal_edit_produtos\">\r\n");
-      out.write("                            <a class=\"btn_vacina\" data-toggle=\"modal\"><i class=\"fa fa-pen\"></i></a>\r\n");
-      out.write("                        </button>\r\n");
-      out.write("                    </div>\r\n");
       out.write("                    <img src=\"../../img/Produtos/produto_5.png\" class=\"card-img-top custom_img_produtos\" alt=\"...\">\r\n");
       out.write("                    <div class=\"card-body\">\r\n");
       out.write("                        <h5 class=\"card-title\" id=\"nome_produto\">Super Secão</h5>\r\n");
@@ -282,13 +329,6 @@ public final class Home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                </div>\r\n");
       out.write("\r\n");
       out.write("                <div class=\"card custom_card_produtos\" style=\"width: 18rem;\">\r\n");
-      out.write("                    <div class=\"aling_btn\">\r\n");
-      out.write("                        <button class=\"btn btn-danger mt-2\"><i class=\"fa fa-trash\"></i></button> \r\n");
-      out.write("                        <button type=\"button\" class=\"btn btn-warning mt-2\"\r\n");
-      out.write("                                data-toggle=\"modal\" data-target=\"#modal_edit_produtos\">\r\n");
-      out.write("                            <a class=\"btn_vacina\" data-toggle=\"modal\"><i class=\"fa fa-pen\"></i></a> \r\n");
-      out.write("                        </button>\r\n");
-      out.write("                    </div> \r\n");
       out.write("                    <img src=\"../../img/Produtos/produto_6.png\" class=\"card-img-top custom_img_produtos\" alt=\"...\">\r\n");
       out.write("                    <div class=\"card-body\">\r\n");
       out.write("                        <h5 class=\"card-title\" id=\"nome_produto\">Arranhadores</h5>\r\n");
@@ -312,13 +352,6 @@ public final class Home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                </div>\r\n");
       out.write("\r\n");
       out.write("                <div class=\"card custom_card_produtos\" style=\"width: 18rem;\">\r\n");
-      out.write("                    <div class=\"aling_btn\">\r\n");
-      out.write("                        <button class=\"btn btn-danger mt-2\"><i class=\"fa fa-trash\"></i></button> \r\n");
-      out.write("                        <button type=\"button\" class=\"btn btn-warning mt-2\"\r\n");
-      out.write("                                data-toggle=\"modal\" data-target=\"#modal_edit_produtos\">\r\n");
-      out.write("                            <a class=\"btn_vacina\" data-toggle=\"modal\"><i class=\"fa fa-pen\"></i></a> \r\n");
-      out.write("                        </button>\r\n");
-      out.write("                    </div>\r\n");
       out.write("                    <img src=\"../../img/Produtos/produto_7.png\" class=\"card-img-top custom_img_produtos\" alt=\"...\">\r\n");
       out.write("                    <div class=\"card-body\">\r\n");
       out.write("                        <h5 class=\"card-title\" id=\"nome_produto\">Areia</h5>\r\n");
@@ -341,13 +374,6 @@ public final class Home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                </div>\r\n");
       out.write("\r\n");
       out.write("                <div class=\"card custom_card_produtos\" style=\"width: 18rem;\">\r\n");
-      out.write("                    <div class=\"aling_btn\">\r\n");
-      out.write("                        <button class=\"btn btn-danger mt-2\"><i class=\"fa fa-trash\"></i></button> \r\n");
-      out.write("                        <button type=\"button\" class=\"btn btn-warning mt-2\"\r\n");
-      out.write("                                data-toggle=\"modal\" data-target=\"#modal_edit_produtos\">\r\n");
-      out.write("                            <a class=\"btn_vacina\" data-toggle=\"modal\"><i class=\"fa fa-pen\"></i></a>\r\n");
-      out.write("                        </button>\r\n");
-      out.write("                    </div>\r\n");
       out.write("                    <img src=\"../../img/Produtos/produto_8.png\" class=\"card-img-top custom_img_produtos\" alt=\"...\">\r\n");
       out.write("                    <div class=\"card-body\">\r\n");
       out.write("                        <h5 class=\"card-title\" id=\"nome_produto\">Antipugas</h5>\r\n");
@@ -367,11 +393,10 @@ public final class Home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                            </div>\r\n");
       out.write("                        </div>\r\n");
       out.write("                    </div>\r\n");
-      out.write("                </div>\r\n");
+      out.write("                </div>-->\r\n");
       out.write("            </div>\r\n");
       out.write("        </section>\r\n");
       out.write("        \r\n");
-      out.write("     <div id=\"header_produtos\"></div>\r\n");
       out.write("    </body>\r\n");
       out.write("\r\n");
       out.write("</html>");

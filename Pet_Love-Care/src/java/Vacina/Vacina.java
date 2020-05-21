@@ -29,7 +29,7 @@ public class Vacina {
         return sDescricao_vacina;
     }
 
-    public void setDescricao_Vacina(String sDescricao_vacina) {
+    public void setDescricao_vacina(String sDescricao_vacina) {
         this.sDescricao_vacina = sDescricao_vacina;
     }
     
