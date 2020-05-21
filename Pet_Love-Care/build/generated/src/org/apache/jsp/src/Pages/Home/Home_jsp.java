@@ -204,10 +204,10 @@ public final class Home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write(".png\" class=\"card-img-top custom_img_produtos\" alt=\"...\">\r\n");
       out.write("                                    <div class=\"card-body\">\r\n");
       out.write("                                        <form id=\"formAlterarProduto\" method=\"POST\" action=\"../Produtos/Produto_Editar.jsp\">  \r\n");
-      out.write("                                                <input type=\"hidden\" id=\"id_produto\" name=\"id_produto\" value=\"");
+      out.write("                                                <input type=\"text\" id=\"id_produto\" name=\"id_produto\" value=\"");
       out.print(rsProduto.getString("id_produto"));
       out.write("\">\r\n");
-      out.write("                                                <button href=\"../Produtos/Produto_Editar.jsp\" id=\"alterarProduto\" name=\"alterarProduto\" class=\"btn btn-warning mt-2\">\r\n");
+      out.write("                                                <button type=\"submit\" class=\"btn btn-warning mt-2\">\r\n");
       out.write("                                                    <i class=\"fa fa-pen icone_plus\"></i>\r\n");
       out.write("                                                </button>\r\n");
       out.write("                                        </form>\r\n");
