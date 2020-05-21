@@ -1,50 +1,3 @@
-//Envio do formulário de cadastramento Cliente
-$(function () {
-    $('#formCadastrarCliente').submit(function () {
-        $.ajax({
-            url: '../Cliente/IncluirCliente.jsp',
-            type: 'POST',
-            data: $('#formCadastrarCliente').serialize(),
-            success: function (data) {
-                alert("Funcionou");
-            }
-        });
-        return false;
-    });
-
-});
-
-//Envio do formulário de cadastramento Veterinario
-$(function () {
-    $('#formCadastrarVeterinario').submit(function () {
-        $.ajax({
-            url: '../Veterinario/IncluirVeterinario.jsp',
-            type: 'POST',
-            data: $('#formCadastrarVeterinario').serialize(),
-            success: function (data) {
-                alert("Funcionou");
-            }
-        });
-        return false;
-    });
-});
-
-//Envio do formulário de cadastramento Pet
-$(function () {
-    $('#formCadastrarPet').submit(function () {
-        $.ajax({
-            url: '../Pet/IncluirPet.jsp',
-            type: 'POST',
-            data: $('#formCadastrarPet').serialize(),
-            success: function (data) {
-                alert("Funcionou");
-            }
-        });
-        return false;
-    });
-
-});
-
 //Envio do formulário de cadastramento Agendamento
 $(function () {
     $('#formCadastrarAgendamento').submit(function () {
@@ -59,9 +12,6 @@ $(function () {
         return false;
     });
 });
-
-
-
 
 
 /****************************************************************/
@@ -112,12 +62,122 @@ $(function () {
             
             success: function (data) {
                 alert("Funcionou");
+                window.location.href = "../Home/Home.jsp";
             }
         });
         return false;
     });
 });
 
+/****************************************************************/
+/********************                   *************************/
+/******************** TRATAMENTO PET 	*************************/
+/********************                   *************************/
+/****************************************************************/
+
+//Envio do formulário de cadastramento Pet
+$(function () {
+    $('#formCadastrarPet').submit(function () {
+        $.ajax({
+            url: '../Pet/IncluirPet.jsp',
+            type: 'POST',
+            data: $('#formCadastrarPet').serialize(),
+            success: function (data) {
+                alert("Funcionou");
+            }
+        });
+        return false;
+    });
+
+});
+
+//Envio do formulário de Alteração Pet  
+$(function () {
+    $('#formAlterarDadosPet').submit(function () {
+        $.ajax({
+            url: '../Pet/AlterarPet.jsp',
+            type: 'POST',
+            data: $('#formAlterarDadosPet').serialize(),
+            
+            success: function (data) {
+                alert("Funcionou");
+            }
+        });
+        return false;
+    });
+});
+
+//Envio do formulário de Exclusão Pet  
+$(function () {
+    $('#formExcluirDadosPet').submit(function () {
+        $.ajax({
+            url: '../Pet/ExcluirPet.jsp',
+            type: 'POST',
+            data: $('#formExcluirDadosPet').serialize(),
+            
+            success: function (data) {
+                alert("Funcionou");
+                window.location.href = "../Home/Home.jsp";
+            }
+        });
+        return false;
+    });
+});
+
+
+/****************************************************************/
+/********************                   	 ********************/
+/******************** TRATAMENTO VETERINARIO ********************/
+/********************                   	 ********************/
+/****************************************************************/
+
+//Envio do formulário de cadastramento Veterinario
+$(function () {
+    $('#formCadastrarVeterinario').submit(function () {
+        $.ajax({
+            url: '../Veterinario/IncluirVeterinario.jsp',
+            type: 'POST',
+            data: $('#formCadastrarVeterinario').serialize(),
+            success: function (data) {
+                alert("Funcionou");
+            }
+        });
+        return false;
+    });
+});
+
+//Envio do formulário de Alteração Veterinario ;
+$(function () {
+    $('#formAlterarDadosVeterinario').submit(function () {
+        $.ajax({
+            url: '../Veterinario/AlterarVeterinario.jsp',
+            type: 'POST',
+            data: $('#formAlterarDadosVeterinario').serialize(),
+            
+            success: function (data) {
+                alert("Funcionou");
+            }
+        });
+        return false;
+    });
+});
+
+//Envio do formulário de Exclusão Veterinario  
+$(function () {
+    $('#formExcluirDadosVeterinario').submit(function () {
+        $.ajax({
+            url: '../Veterinario/ExcluirVeterinario.jsp',
+            type: 'POST',
+            data: $('#formExcluirDadosVeterinario').serialize(),
+            
+            success: function (data) {
+                alert("Funcionou");
+                window.location.href = "../Home/Home.jsp";
+            }
+        });
+        return false;
+    });
+});
 
 /****************************************************************/
 /********************                   *************************/
@@ -133,14 +193,16 @@ $(function () {
             url: '../Produtos/IncluirProduto.jsp',
             type: 'POST',
             data: $('#formCadastrarProduto').serialize(),
-            
             success: function (data) {
                 alert("Funcionou");
             }
         });
         return false;
     });
+
 });
+
+
 
 //Envio do formulário de Alterar Produto
 $(function () {
@@ -176,5 +238,56 @@ $(function () {
 });
 
 
+/****************************************************************/
+/********************                   *************************/
+/******************** TRATAMENTO CLIENTE ************************/
+/********************                   *************************/
+/****************************************************************/
+
+//Envio do formulário de cadastramento Cliente
+$(function () {
+    $('#formCadastrarCliente').submit(function () {
+        $.ajax({
+            url: '../Cliente/IncluirCliente.jsp',
+            type: 'POST',
+            data: $('#formCadastrarCliente').serialize(),
+			success: function (data) {
+                alert("Funcionou");
+            }
+        });
+        return false;
+    });
+});
+
+
+//Envio do formulário de Alteração Cliente ;
+$(function () {
+    $('#formAlterarDadosCliente').submit(function () {
+        $.ajax({
+            url: '../Cliente/AlterarCliente.jsp',
+            type: 'POST',
+            data: $('#formAlterarDadosCliente').serialize(),
+            success: function (data) {
+                alert("Funcionou");
+            }
+        });
+        return false;
+    });
+});
+
+//Envio do formulário de Exclusão Cliente 
+$(function () {
+    $('#formExcluirDadosCliente').submit(function () {
+        $.ajax({
+            url: '../Cliente/ExcluirCliente.jsp',
+            type: 'POST',
+            data: $('#formExcluirDadosCliente').serialize(),
+			success: function (data) {
+                alert("Funcionou");
+            }
+        });
+        return false;
+    });
+});
 
 
