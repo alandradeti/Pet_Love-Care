@@ -24,25 +24,22 @@
         <script src="../js/padrao.js"></script>
         <script src="../js/ajax.min.js"></script>
         <script src="../js/post.js"></script>
-
-        <script>
-            $(function () {
-                $("#headerDiv").load("../Menu/Menu.jsp");
-            });
-        </script>
     </head>
 
     <body>
-        <!-- Menu -->
-        <div id="headerDiv"></div>
-        <div class="background">
-            <!-- FormulÃ¡rio -->
-            <div class="card container mt-5 card_consulta">
-                <div class="text-center mt-4">
-                    <img src="../../img/Logo/Gato-cabeca.png" class="cabeca_gato">
-                    <h3>Agende uma consulta</h3>
-                </div>
-                <form id="formCadastrarAgendamento">
+        <div class="modal fade modal_vacina" id="modal_agendamento">
+            <div class="space_vacina">
+                <button type="button" class="close close_modal_vacina mr-2 mt-1" 
+                        data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <div class="tela_vacina">  
+                    <div class="centralizar">
+                        <img src="../../img/Logo/dog_sorrindo.png" 
+                             alt="icone" class="tamanho_icone"/>
+                        <h4 class="mt-3">Agende uma consulta</h4>
+                    </div>
+                    <form id="formCadastrarAgendamento">
                     <div class="col">
                         <div class="form-row">
                             <div class="form-group col-md-6">
@@ -130,7 +127,11 @@
                                 <button class="btn btn_agendar mt-4 ">Agendar</button>
                             </div>
                         </div>
-                </form>
+                    </form>
+                    <div class="modal-dialog">
+
+                    </div>
+                </div>
             </div>
         </div>
     </body>

@@ -34,12 +34,10 @@
         <div id="headerDiv"></div>
         <div class="background">
             <!-- FormulÃÂ¡rio -->
-            <div class="card container mt-5 card_consulta">
-                <button type="button" class="btn btn-danger btn_cadastrar_vacinas mt-2">
-                    <a>
-                        <i class="fas fa-arrow-circle-left"></i>
+            <div class="card container card_consulta">
+                    <a class="btn_voltar" href="./VacinaConsultar.jsp">
+                        <i class="fas fa-arrow-left icone_plus"></i>
                     </a>
-                </button>
                 <div class="text-center mt-4">
                     <img src="../../img/Logo/cachorro_dodoi.png" class="cabeca_gato">
                     <h3>Editar Vacina</h3>
