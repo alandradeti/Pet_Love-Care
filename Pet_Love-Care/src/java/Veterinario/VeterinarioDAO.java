@@ -78,7 +78,7 @@ public class VeterinarioDAO extends Veterinario {
     public boolean Alterar(int iId_veterinario) {
         try {
             String sSql = "UPDATE "
-                    + "TB_Veterinario"
+                    + "TB_Veterinario "
                     + "SET "
                     + "Nome_Veterinario = '" + getNome_veterinario() + "',"
                     + "CPF_Veterinario = '" + getCpf_veterinario() + "',"
@@ -88,8 +88,8 @@ public class VeterinarioDAO extends Veterinario {
                     + "Email_Veterinario = '" + getEmail_veterinario() + "',"
                     + "Telefone_Fixo_Veterinario = '" + getTelefone_fixo_veterinario() + "',"
                     + "Telefone_Celular_Veterinario = '" + getTelefone_celular_veterinario() + "',"
-                    + "Data_Nascimento_Veterinario = '" + getData_nascimento_veterinario() + "'"
-                    + "WHERE"
+                    + "Data_Nascimento_Veterinario = '" + getData_nascimento_veterinario() + "' "
+                    + "WHERE "
                     + "Id_Veterinario = " + iId_veterinario;
             PreparedStatement ps = dataSource.getConnection().prepareStatement(sSql); // Realiza a conexão e o preparo da query
             ps.executeUpdate(sSql); // Executa a query
