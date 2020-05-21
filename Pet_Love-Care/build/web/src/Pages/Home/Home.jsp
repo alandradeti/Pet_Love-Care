@@ -118,17 +118,11 @@
                                 <div class="card custom_card_produtos" style="width: 18rem;">
                                     <img src="../../img/Produtos/produto_<%=rsProduto.getString("numero_imagem_produto")%>.png" class="card-img-top custom_img_produtos" alt="...">
                                     <div class="card-body">
-                                        <form id="formAlterarProduto" method="POST" action="../Produtos/Editar_Produto.jsp">  
+                                        <form id="formAlterarProduto" method="POST" action="../Produtos/Produto_Editar.jsp">  
                                                 <input type="hidden" id="id_produto" name="id_produto" value="<%=rsProduto.getString("id_produto")%>">
-                                                <button href="Editar_Vacina.jsp" id="alterarProduto" name="alterarProduto" class="btn btn-warning mt-2">
+                                                <button href="../Produtos/Produto_Editar.jsp" id="alterarProduto" name="alterarProduto" class="btn btn-warning mt-2">
                                                     <i class="fa fa-pen icone_plus"></i>
                                                 </button>
-                                        </form>
-                                        <form id="formExcluirDadosProduto">
-                                                <input type="hidden" id="id_produto" name="id_produto" value="<%=rsProduto.getString("id_produto")%>">
-                                                <button class="btn btn-danger mt-2" id="excluirProduto" name="excluirProduto">
-                                                    <i class="fa fa-trash icone_plus"></i>
-                                                </button> 
                                         </form>
                                         <h5 class="card-title" id="nome_produto"><%=rsProduto.getString("nome_produto")%></h5>
                                         <p class="card-text" id="descricao_produto"><%=rsProduto.getString("descricao_produto")%></p>
