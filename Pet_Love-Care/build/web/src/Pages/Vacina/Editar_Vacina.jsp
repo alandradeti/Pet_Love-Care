@@ -34,24 +34,28 @@
         <div id="headerDiv"></div>
         <div class="background">
             <!-- FormulÃÂ¡rio -->
-            <div class="card container mt-5 card_consulta">
-                <button type="button" class="btn btn-danger btn_cadastrar_vacinas mt-2">
-                    <a>
-                        <i class="fas fa-arrow-circle-left"></i>
+            <div class="card container card_consulta">
+                    <a class="btn_voltar" href="./VacinaConsultar.jsp">
+                        <i class="fas fa-arrow-left icone_plus"></i>
                     </a>
-                </button>
+                    <form id="formExcluirDadosVacina">
+                        <input type="hidden" id="id_vacina" name="id_vacina" value="<%=request.getParameter("id_vacina")%>">
+                        <button type="submit" class="btn btn-danger" id="excluirVacina" name="excluirVacina">
+                            <i class="fa fa-trash icone_plus"></i>
+                        </button> 
+                    </form>
                 <div class="text-center mt-4">
                     <img src="../../img/Logo/cachorro_dodoi.png" class="cabeca_gato">
                     <h3>Editar Vacina</h3>
                 </div>
                 
-                 <%
+                <%
                     if(request.getParameter("id_vacina")!=null){
                     ResultSet rsVacina = vacina.Consultar("SELECT * FROM tb_vacina WHERE Id_Vacina = " + request.getParameter("id_vacina"));
                     if(rsVacina.next()){
                 %>
-                <form id="formAlterarDadosVacina">
-                    <input type="hidden" name="id_vacina" id="id_vacina" value="<%=rsVacina.getString("id_vacina")%>" />
+                        <form id="formAlterarDadosVacina">
+                            <input type="hidden" name="id_vacina" id="id_vacina" value="<%=rsVacina.getString("id_vacina")%>" />
                             
                             <div class="form-row">
                                 <div class="form-group col-md-6">
@@ -96,6 +100,8 @@
                                 </button>
                             </div>
                         </form>
+                                
+                                
                        <%
                 }
                 else{

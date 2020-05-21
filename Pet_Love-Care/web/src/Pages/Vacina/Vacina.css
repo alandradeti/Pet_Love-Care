@@ -30,19 +30,6 @@
     height: 80px;
 }
 
-.btn_cadastrar_vacinas {
-    position: relative;
-    left: 95%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 40px;
-    width: 40px;  
-    font-size: 18px;
-    border-radius: 100%;
-    background: #218838;
-    cursor: pointer;
-}
 .icone_plus {
     color: black;
 }

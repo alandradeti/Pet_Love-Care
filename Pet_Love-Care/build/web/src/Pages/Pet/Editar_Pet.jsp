@@ -28,11 +28,9 @@
         <div class="background">
             <!-- FormulÃÂ¡rio -->
             <div class="card container mt-5 card_consulta">
-                <button type="button" class="btn btn-danger btn_excluir mt-2">
-                    <a>
-                        <i class="fa fa-trash"></i>
-                    </a>
-                </button>
+                <a class="btn_voltar" href="./Consultar_Pet.html">
+                        <i class="fas fa-arrow-left icone_plus"></i>
+                 </a>
                 <div class="centralizar">
                     <img src="../../img/Logo/dog_cinza.png" 
                          alt="icone" class="tamanho_icone"/>

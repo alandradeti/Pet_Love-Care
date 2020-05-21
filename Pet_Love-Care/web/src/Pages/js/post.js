@@ -14,9 +14,6 @@ $(function () {
 });
 
 
-
-
-
 /****************************************************************/
 /********************                   *************************/
 /******************** TRATAMENTO VACINA *************************/
@@ -74,7 +71,7 @@ $(function () {
 
 /****************************************************************/
 /********************                   *************************/
-/******************** TRATAMENTO PET *************************/
+/******************** TRATAMENTO PET 	*************************/
 /********************                   *************************/
 /****************************************************************/
 
@@ -127,10 +124,11 @@ $(function () {
     });
 });
 
+
 /****************************************************************/
-/********************                   *************************/
+/********************                   	 ********************/
 /******************** TRATAMENTO VETERINARIO ********************/
-/********************                   *************************/
+/********************                   	 ********************/
 /****************************************************************/
 
 //Envio do formulário de cadastramento Veterinario
@@ -183,6 +181,65 @@ $(function () {
 
 /****************************************************************/
 /********************                   *************************/
+/******************** TRATAMENTO PRODUTO ************************/
+/********************                   *************************/
+/****************************************************************/
+
+
+//Envio do formulário de Incluir Produto  
+$(function () {
+    $('#formCadastrarProduto').submit(function () {
+        $.ajax({
+            url: '../Produtos/IncluirProduto.jsp',
+            type: 'POST',
+            data: $('#formCadastrarProduto').serialize(),
+            success: function (data) {
+                alert("Funcionou");
+            }
+        });
+        return false;
+    });
+
+});
+
+
+
+//Envio do formulário de Alterar Produto
+$(function () {
+    $('#formAlterarDadosProduto').submit(function () {
+        $.ajax({
+            url: '../Produtos/AlterarProduto.jsp',
+            type: 'POST',
+            data: $('#formAlterarDadosProduto').serialize(),
+            
+            success: function (data) {
+                alert("Funcionou");
+            }
+        });
+        return false;
+    });
+});
+
+//Envio do formulário de Exclusão Produto
+$(function () {
+    $('#formExcluirDadosProduto').submit(function () {
+        $.ajax({
+            url: '../Produtos/ExcluirProduto.jsp',
+            type: 'POST',
+            data: $('#formExcluirDadosProduto').serialize(),
+            
+            success: function (data) {
+                alert("Funcionou");
+                window.location.href = "../Home/Home.jsp";
+            }
+        });
+        return false;
+    });
+});
+
+
+/****************************************************************/
+/********************                   *************************/
 /******************** TRATAMENTO CLIENTE ************************/
 /********************                   *************************/
 /****************************************************************/
@@ -194,14 +251,14 @@ $(function () {
             url: '../Cliente/IncluirCliente.jsp',
             type: 'POST',
             data: $('#formCadastrarCliente').serialize(),
-            success: function (data) {
+			success: function (data) {
                 alert("Funcionou");
             }
         });
         return false;
     });
-
 });
+
 
 //Envio do formulário de Alteração Cliente ;
 $(function () {
@@ -210,7 +267,6 @@ $(function () {
             url: '../Cliente/AlterarCliente.jsp',
             type: 'POST',
             data: $('#formAlterarDadosCliente').serialize(),
-            
             success: function (data) {
                 alert("Funcionou");
             }
@@ -226,10 +282,8 @@ $(function () {
             url: '../Cliente/ExcluirCliente.jsp',
             type: 'POST',
             data: $('#formExcluirDadosCliente').serialize(),
-            
-            success: function (data) {
+			success: function (data) {
                 alert("Funcionou");
-                window.location.href = "../Home/Home.jsp";
             }
         });
         return false;

@@ -68,17 +68,10 @@
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="../Home/Home.jsp">Consultar</a>
                         <a class="dropdown-item" href="../Produtos/Produtos.html">Cadastrar</a>
-                        <a class="dropdown-item" href="../Home/Produto_editar.html">Alterar</a>
                     </div>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Agendamento
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="../Agendar/Consultar_Agendamento.html">Consultar</a>
-                        <a class="dropdown-item" href="../Agendar/Agendar.jsp">Agendar</a>
-                    </div>
+                <li class="nav-item">
+                    <a class="nav-link" href="../Agendar/Consultar_Agendamento.html">Agendamento</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -102,14 +95,10 @@
                 <li class="nav-item">
                     <a class="nav-link" href="../Compras/Compras.html">Compras</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <li class="nav-item">
+                    <a class="nav-link" href="../Vacina/VacinaConsultar.jsp">
                         Vacina
                     </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="nav-link" href="../Vacina/VacinaConsultar.jsp">Consultar</a>
-                        <a class="dropdown-item" href="../Vacina/Editar_Vacina.jsp">Alterar</a>
-                    </div>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="../Carteira/Carteira.html">Carteira</a>
