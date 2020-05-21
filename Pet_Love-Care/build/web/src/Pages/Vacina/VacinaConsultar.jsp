@@ -62,7 +62,7 @@
          </tr>
        </thead>
        <tbody>
-<<<<<<< HEAD:Pet_Love-Care/build/web/src/Pages/Vacina/Constultar_Vacina.html
+<<<<<<< HEAD:Pet_Love-Care/web/src/Pages/Vacina/Constultar_Vacina.html
          <tr class="text-center">
            <th scope="row">1</th>
            <td>Legal</td>
@@ -99,7 +99,7 @@
         <%
             }
         %> 
->>>>>>> Dev:Pet_Love-Care/build/web/src/Pages/Vacina/VacinaConsultar.jsp
+>>>>>>> Dev:Pet_Love-Care/web/src/Pages/Vacina/VacinaConsultar.jsp
        </tbody>
      </table>
    </div>
