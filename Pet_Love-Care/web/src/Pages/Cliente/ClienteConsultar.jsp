@@ -75,12 +75,6 @@
                                                         <i class="fa fa-pen icone_plus"></i>
                                                     </button>
                                                 </form>
-                                                <form id="formExcluirDadosCliente">
-                                                    <input type="hidden" id="id_cliente" name="id_cliente" value="<%=rsClientePesquisa.getString("id_cliente")%>">
-                                                    <button class="btn btn-danger mt-2" id="excluirCliente" name="excluirCliente">
-                                                        <i class="fa fa-trash icone_plus"></i>
-                                                    </button> 
-                                                </form>
                                             </td>
                                         </tr>
                         <%          }
@@ -100,12 +94,6 @@
                                                     <button href="Editar_Cliente.jsp" id="alterarCliente" name="alterarCliente" class="btn btn-warning mt-2">
                                                         <i class="fa fa-pen icone_plus"></i>
                                                     </button>
-                                                </form>
-                                                <form id="formExcluirDadosCliente">
-                                                    <input type="hidden" id="id_cliente" name="id_cliente" value="<%=rsCliente.getString("id_cliente")%>">
-                                                    <button class="btn btn-danger mt-2" id="excluirCliente" name="excluirCliente">
-                                                        <i class="fa fa-trash icone_plus"></i>
-                                                    </button> 
                                                 </form>
                                             </td>
                                         </tr>
@@ -132,12 +120,6 @@
                                                         <i class="fa fa-pen icone_plus"></i>
                                                     </button>
                                                 </form>
-                                                <form id="formExcluirDadosCliente">
-                                                    <input type="hidden" id="id_cliente" name="id_cliente" value="<%=rsCliente.getString("id_cliente")%>">
-                                                    <button class="btn btn-danger mt-2" id="excluirCliente" name="excluirCliente">
-                                                        <i class="fa fa-trash icone_plus"></i>
-                                                    </button> 
-                                                </form>
                                             </td>
                                         </tr>
                     <%
@@ -152,15 +134,3 @@
     </body>
 
 </html>
-<!--
- <td>
-            <button type="button" class="btn btn btn-warning mt-2"
-              data-toggle="modal" data-target="#modal_editar_pet">
-                <a data-toggle="modal">
-                 <i class="fa fa-pen"></i>
-                </a>
-            </button>
-            <button class="btn btn-danger mt-2">
-                <i class="fa fa-trash"></i>
-            </button> 
-           </td>-->

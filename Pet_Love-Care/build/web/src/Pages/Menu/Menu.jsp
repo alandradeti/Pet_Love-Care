@@ -58,7 +58,6 @@
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="nav-link" href="../Veterinario/VeterinarioConsultar.jsp">Consultar</a>
                         <a class="nav-link" href="../Veterinario/Veterinario.html">Cadastrar</a>
-                        <a class="nav-link" href="../Veterinario/Editar_Veterinario.jsp">Alterar</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -80,7 +79,6 @@
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="../Pet/PetConsultar.jsp">Consultar</a>
                         <a class="dropdown-item" href="../Pet/Cadastrar_Pet.html">Cadastrar</a>
-                        <a class="dropdown-item" href="../Pet/Editar_Pet.jsp">Alterar</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -89,7 +87,6 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="../Cliente/ClienteConsultar.jsp">Consultar</a>
-                        <a class="dropdown-item" href="../Cliente/Editar_Cliente.jsp">Alterar</a>
                     </div>
                 </li>
                 <li class="nav-item">
@@ -113,7 +110,6 @@
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="nav-link" href="../Pet/PetConsultar.jsp">Consultar</a>
                         <a class="nav-link" href="../Pet/Cadastrar_Pet.html">Cadastrar</a>
-                        <a class="dropdown-item" href="../Pet/Editar_Pet.jsp">Alterar</a>
                     </div>
                 </li>
                 <%      }

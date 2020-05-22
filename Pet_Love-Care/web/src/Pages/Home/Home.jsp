@@ -119,7 +119,7 @@
                                     <img src="../../img/Produtos/produto_<%=rsProduto.getString("numero_imagem_produto")%>.png" class="card-img-top custom_img_produtos" alt="...">
                                     <div class="card-body">
                                         <form id="formAlterarProduto" method="POST" action="../Produtos/Produto_Editar.jsp">  
-                                                <input type="text" id="id_produto" name="id_produto" value="<%=rsProduto.getString("id_produto")%>">
+                                                <input type="hidden" id="id_produto" name="id_produto" value="<%=rsProduto.getString("id_produto")%>">
                                                 <button type="submit" class="btn btn-warning mt-2">
                                                     <i class="fa fa-pen icone_plus"></i>
                                                 </button>
