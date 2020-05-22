@@ -4,61 +4,54 @@ public class Produto {
     //private int iId_produto;
     private String sNome_produto;
     private float fValor_produto;
-    private int iQuantidade_produto;
     private int iQuantidade_estoque_produto ;
     private String sDescricao_produto;
-    private String sImagem_produto;
+    private int iNumero_imagem_produto;
 
     public Produto() {
     }
 
-    public String getsNome_produto() {
+    public String getNome_produto() {
         return sNome_produto;
     }
 
-    public void setsNome_produto(String sNome_produto) {
+    public void setNome_produto(String sNome_produto) {
         this.sNome_produto = sNome_produto;
     }
 
-    public float getfValor_produto() {
+    public float getValor_produto() {
         return fValor_produto;
     }
 
-    public void setfValor_produto(float fValor_produto) {
+    public void setValor_produto(float fValor_produto) {
         this.fValor_produto = fValor_produto;
     }
 
-    public int getiQuantidade_produto() {
-        return iQuantidade_produto;
-    }
-
-    public void setiQuantidade_produto(int iQuantidade_produto) {
-        this.iQuantidade_produto = iQuantidade_produto;
-    }
-
-    public int getiQuantidade_estoque_produto() {
+    public int getQuantidade_estoque_produto() {
         return iQuantidade_estoque_produto;
     }
 
-    public void setiQuantidade_estoque_produto(int iQuantidade_estoque_produto) {
+    public void setQuantidade_estoque_produto(int iQuantidade_estoque_produto) {
         this.iQuantidade_estoque_produto = iQuantidade_estoque_produto;
     }
+
+    public int getNumero_imagem_produto() {
+        return iNumero_imagem_produto;
+    }
+
+    public void setNumero_imagem_produto(int iNumero_imagem_produto) {
+        this.iNumero_imagem_produto = iNumero_imagem_produto;
+    }
     
-    public String getsDescricao_produto() {
+    public String getDescricao_produto() {
         return sDescricao_produto;
     }
 
-    public void setsDescricao_produto(String sDescricao_produto) {
+    public void setDescricao_produto(String sDescricao_produto) {
         this.sDescricao_produto = sDescricao_produto;
     }
 
-    public String getsImagem_produto() {
-        return sImagem_produto;
-    }
 
-    public void setsImagem_produto(String sImagem_produto) {
-        this.sImagem_produto = sImagem_produto;
-    }
     
     /*public String incluir() {
         try {
@@ -150,4 +143,5 @@ public class Produto {
             return null;
         }
     }*/
+   
 }

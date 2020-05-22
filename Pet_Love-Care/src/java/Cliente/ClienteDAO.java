@@ -85,7 +85,7 @@ public class ClienteDAO extends Cliente {
     public boolean Alterar(int iId_Cliente) {
         try {
             String sSql = "UPDATE "
-                    + "TB_Cliente"
+                    + "TB_Cliente "
                     + "SET "
                     + "Nome_Cliente = '" + getNome_cliente() + "',"
                     + "CPF_Cliente = '" + getCpf_cliente() + "',"
@@ -96,8 +96,10 @@ public class ClienteDAO extends Cliente {
                     + "Telefone_Fixo_Cliente = '" + getTelefone_fixo_cliente() + "',"
                     + "Telefone_Celular_Cliente = '" + getTelefone_celular_cliente() + "',"
                     + "Data_Nascimento_Cliente = '" + getData_nascimento_cliente() + "',"
-                    + "Senha_Cliente = '" + getSenha_cliente() + "'"
-                    + "WHERE"
+                    + "Tipo_Cliente = '" + getTipo_cliente() + "',"
+                    + "Codigo_Funcionario = '" + getCodigo_funcionario() + "',"
+                    + "Senha_Cliente = '" + getSenha_cliente() + "' "
+                    + "WHERE "
                     + "Id_Cliente = " + iId_Cliente;
             PreparedStatement ps = dataSource.getConnection().prepareStatement(sSql); // Realiza a conexão e o preparo da query
             ps.executeUpdate(sSql); // Executa a query

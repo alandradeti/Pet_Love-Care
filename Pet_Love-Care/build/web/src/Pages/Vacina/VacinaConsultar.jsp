@@ -15,11 +15,13 @@
         <link rel="stylesheet" href="./Vacina.css"> 
         <link rel="stylesheet" href="../css/modal.css"> 
       
-        <script src="../../../js/bootstrap.min.js"></script>
-        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-        <script src="../../../js/jquery.min.js"></script>
         <script src="../js/ajax.min.js"></script>
         <script src="../js/post.js"></script>
+        <script src="../../../js/bootstrap.min.js"></script>
+        
+        <script src="../../../js/jquery.min.js"></script>
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+        
         <script src="../js/padrao.js"></script>
         
         <script>
@@ -58,8 +60,7 @@
 
                         <input type="text" name="nome_vacina" id="nome_vacina" 
                                class="form-control mr-sm-2 search"/>
-                        <button type="submit" 
-                                class="btn btn-outline-success my-2 my-sm-0 btn_search" id="pesquisarVacina" name="pesquisarVacina">
+                        <button type="submit" class="btn btn-outline-success my-2 my-sm-0 btn_search" id="pesquisarVacina" name="pesquisarVacina">
                             <i class="fas fa-search"></i>
                         </button> 
                     </div>
@@ -95,12 +96,6 @@
                                                         <i class="fa fa-pen icone_plus"></i>
                                                     </button>
                                                 </form>
-                                                <form id="formExcluirDadosVacina">
-                                                    <input type="hidden" id="id_vacina" name="id_vacina" value="<%=rsVacinaPesquisa.getString("id_vacina")%>">
-                                                    <button class="btn btn-danger" id="excluirVacina" name="excluirVacina">
-                                                        <i class="fa fa-trash icone_plus"></i>
-                                                    </button> 
-                                                </form>
                                             </div>
                                             </td>
                                         </tr>
@@ -121,12 +116,6 @@
                                                     <button href="Editar_Vacina.jsp" id="alteraVacina" name="alteraVacina" class="btn btn-warning">
                                                         <i class="fa fa-pen icone_plus"></i>
                                                     </button>
-                                                </form>
-                                                    <form id="formExcluirDadosVacina">
-                                                    <input type="hidden" id="id_vacina" name="id_vacina" value="<%=rsVacina.getString("id_vacina")%>">
-                                                    <button class="btn btn-danger" id="excluirVacina" name="excluirVacina">
-                                                        <i class="fa fa-trash icone_plus"></i>
-                                                    </button> 
                                                 </form>
                                             </div>
                                             </td>
@@ -153,12 +142,6 @@
                                             <button href="Editar_Vacina.jsp" id="alteraVacina" name="alteraVacina" class="btn btn-warning">
                                                 <i class="fa fa-pen icone_plus"></i>
                                             </button>
-                                        </form>
-                                        <form id="formExcluirDadosVacina">
-                                            <input type="hidden" id="id_vacina" name="id_vacina" value="<%=rsVacina.getString("id_vacina")%>">
-                                            <button class="btn btn-danger ml-2" id="excluirVacina" name="excluirVacina">
-                                                <i class="fa fa-trash icone_plus"></i>
-                                            </button> 
                                         </form>
                                       </div>
                                     </td>
