@@ -75,12 +75,6 @@
                                                         <i class="fa fa-pen icone_plus"></i>
                                                     </button>
                                                 </form>
-                                                <form id="formExcluirDadosVeterinario">
-                                                    <input type="hidden" id="id_veterinario" name="id_veterinario" value="<%=rsVeterinarioPesquisa.getString("id_veterinario")%>">
-                                                    <button class="btn btn-danger mt-2" id="excluirVeterinario" name="excluirVeterinario">
-                                                        <i class="fa fa-trash icone_plus"></i>
-                                                    </button> 
-                                                </form>
                                             </td>
                                         </tr>
                         <%          }
@@ -100,12 +94,6 @@
                                                     <button href="Editar_Veterinario.jsp" id="alteraVeterinario" name="alteraVeterinario" class="btn btn-warning mt-2">
                                                         <i class="fa fa-pen icone_plus"></i>
                                                     </button>
-                                                </form>
-                                                    <form id="formExcluirDadosVeterinario">
-                                                    <input type="hidden" id="id_veterinario" name="id_veterinario" value="<%=rsVeterinario.getString("id_veterinario")%>">
-                                                    <button class="btn btn-danger mt-2" id="excluirVeterinario" name="excluirVeterinario">
-                                                        <i class="fa fa-trash icone_plus"></i>
-                                                    </button> 
                                                 </form>
                                             </td>
                                         </tr>
@@ -131,12 +119,6 @@
                                             <button href="Editar_Veterinario.jsp" id="alteraVeterinario" name="alteraVeterinario" class="btn btn-warning mt-2">
                                                 <i class="fa fa-pen icone_plus"></i>
                                             </button>
-                                        </form>
-                                            <form id="formExcluirDadosVeterinario">
-                                            <input type="hidden" id="id_veterinario" name="id_veterinario" value="<%=rsVeterinario.getString("id_veterinario")%>">
-                                            <button class="btn btn-danger mt-2" id="excluirVeterinario" name="excluirVeterinario">
-                                                <i class="fa fa-trash icone_plus"></i>
-                                            </button> 
                                         </form>
                                     </td>
                                 </tr>

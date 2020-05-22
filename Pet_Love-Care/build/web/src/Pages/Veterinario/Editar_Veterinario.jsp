@@ -31,25 +31,26 @@
         <div class="background">
             <!-- FormulÃÂ¡rio -->
             <div class="card container mt-5 card_consulta">
-                <button type="button" class="btn btn-danger btn_excluir mt-2">
-                    <a>
+                <form id="formExcluirDadosVeterinario">
+                    <input type="hidden" id="id_veterinario" name="id_veterinario" value="<%=request.getParameter("id_veterinario")%>">
+                    <button class="btn btn-danger mt-2" id="excluirVeterinario" name="excluirVeterinario">
                         <i class="fa fa-trash"></i>
-                    </a>
-                </button>
+                    </button> 
+                </form>
                 <div class="centralizar">
                     <img src="../../img/Logo/mulher_veterinaria.png" 
                          alt="icone" class="tamanho_icone"/>
                     <h4 class="mt-3">Editar Veterinario(a)</h4>
                 </div>
-                <input type="text" class="form-control" name="id_veterinario" id="id_veterinario" required />
-                    
+    
                     <%
                         /*if(request.getParameter("alterarVeterinario")!=null){**/
                             ResultSet rsVeterinario = veterinario.Consultar("SELECT * FROM tb_veterinario WHERE id_veterinario = " + request.getParameter("id_veterinario"));
                             if(rsVeterinario.next()){
 
                     %>
-                                <form id="formAlterarVeterinario">
+                                <form id="formAlterarDadosVeterinario">
+                                    <input type="hidden" class="form-control" name="id_veterinario" id="id_veterinario" value="<%=request.getParameter("id_veterinario")%>" required />
                                     <div class="col">
                                         <div class="form-row">
                                             <div class="form-group col-md-6">
@@ -89,8 +90,12 @@
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label class="col-form-label login_label">Sexo:</label>
-                                                    <select class="form-control col-12" name="sexo_veterinario"  id="sexo_veterinario" disabled>
-                                                        <option value="<%=rsVeterinario.getString("sexo_veterinario")%>"><%=rsVeterinario.getString("sexo_veterinario")%></option>
+                                                    <select class="form-control col-12" name="sexo_veterinario"  id="sexo_veterinario" readonly>
+                                                        <% if (rsVeterinario.getString("sexo_veterinario").equals("M")){ %>
+                                                            <option value="<%=rsVeterinario.getString("sexo_veterinario")%>">Masculino</option>
+                                                        <% }else{ %>
+                                                            <option value="<%=rsVeterinario.getString("sexo_veterinario")%>">Feminino</option>
+                                                        <% } %>
                                                     </select>
                                                 </div>
                                             </div>
