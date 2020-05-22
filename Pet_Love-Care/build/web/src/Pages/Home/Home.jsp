@@ -3,7 +3,7 @@
 <jsp:useBean id="produto" class="Produto.ProdutoDAO"/>
 <jsp:useBean id="cliente" class="Cliente.ClienteDAO"/>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="PT-BR">
 
     <head>
         <meta charset="UTF-8">

@@ -50,16 +50,16 @@
                         <i class="fa fa-plus icone_plus"></i>
                     </a>
                 </button>
-                <div class="text-center mt-4">
+                <div class="text-center mt-2">
                     <img src="../../img/Logo/Vacina_pata.png" class="cabeca_gato">
-                    <h3 class="mt-2">Vacinas disponíveis</h3>
+                    <h3 class="mb-4">Vacinas disponíveis</h3>
                 </div>
                 <form id="formPesquisarNomeVacina" method="POST" 
                       action="VacinaConsultar.jsp" class="form-inline my-2 my-lg-0">
                     <div class="form-group col-6">
 
                         <input type="text" name="nome_vacina" id="nome_vacina" 
-                               class="form-control mr-sm-2 search"/>
+                               class="form-control mr-sm-2 search" placeholder="Pesquisar..."/>
                         <button type="submit" class="btn btn-outline-success my-2 my-sm-0 btn_search" id="pesquisarVacina" name="pesquisarVacina">
                             <i class="fas fa-search"></i>
                         </button> 

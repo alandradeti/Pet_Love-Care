@@ -35,15 +35,15 @@
         <div class="background">
             <!-- FormulÃÂ¡rio -->
             <div class="card container card_consulta">
-                    <a class="btn_voltar" href="./VacinaConsultar.jsp">
-                        <i class="fas fa-arrow-left icone_plus"></i>
-                    </a>
                     <form id="formExcluirDadosVacina">
                         <input type="hidden" id="id_vacina" name="id_vacina" value="<%=request.getParameter("id_vacina")%>">
-                        <button type="submit" class="btn btn-danger" id="excluirVacina" name="excluirVacina">
+                        <button type="submit" class="btn btn-danger mt-2 btn_excluir" id="excluirVacina" name="excluirVacina">
                             <i class="fa fa-trash icone_plus"></i>
                         </button> 
                     </form>
+                    <a class="btn_voltar" href="./VacinaConsultar.jsp">
+                        <i class="fas fa-arrow-left icone_plus"></i>
+                    </a>
                 <div class="text-center mt-4">
                     <img src="../../img/Logo/cachorro_dodoi.png" class="cabeca_gato">
                     <h3>Editar Vacina</h3>

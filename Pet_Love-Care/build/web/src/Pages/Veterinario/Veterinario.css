@@ -24,3 +24,22 @@
     align-items: center;
     justify-content: center;
 }
+
+/* Tamanho do icone */
+.tamanho_icone {
+    width: 90px;
+    height: 80px;
+}
+
+.icone_plus {
+    color: black;
+}
+
+.btn_cadastrar_vacinas:hover {
+    background: #38b548;
+}
+
+.btn_vacina {
+    width: 40px;
+    heigth: 40px;
+}
