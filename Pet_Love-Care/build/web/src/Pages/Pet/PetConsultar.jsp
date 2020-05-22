@@ -49,6 +49,27 @@
                 <form id="formPesquisarNomePet" method="POST" action="PetConsultar.jsp">
                     <div class="form-group col-6">
                         <input type="text" name="nome_pet" id="nome_pet" />
+                        
+                        <%  if(rs.next()){
+                                if (rs.getBoolean("Tipo_Cliente") == true){
+                        %>
+                                    <select class="form-control col-12" name="id_cliente" id="id_cliente">
+                                        <option value="">Todos</option>
+                        <%              ResultSet rsPetPesquisa = pet.Consultar("SELECT DISTINCT Cliente_Id_Cliente FROM TB_Pet");
+                                        while(rsPetPesquisa.next()){
+                                            ResultSet rsClientePet = pet.Consultar("SELECT Id_Cliente, Nome_Cliente FROM TB_Cliente WHERE Id_Cliente = " + rsPetPesquisa.getString("cliente_id_cliente"));
+                                            while(rsClientePet.next()){
+                        %>          
+                                                <option value="<%=rsClientePet.getString("id_cliente")%>"><%=rsClientePet.getString("nome_cliente")%></option> 
+                        <%
+                                            }
+                                        }
+                        %>
+                                    </select>
+                        <%      }
+                            }
+                        %>
+                                
                         <button type="submit" class="btn btn-danger mt-2" id="pesquisarPet" name="pesquisarPet">
                             <i class="fas fa-search"></i>
                         </button> 
@@ -63,211 +84,287 @@
                             <th scope="col">Idade</th>
                             <th scope="col">Porte</th>
                             <th scope="col">Sexo</th>
+                            <th scope="col">Dono</th>
+                            <th scope="col">Ações</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <%
-                            if(rs.next()){
-                            if (rs.getBoolean("Tipo_Cliente") == true){
-                            if (request.getParameter("pesquisarPet") != null) {
-                                ResultSet rsPetPesquisa = pet.Consultar("SELECT * FROM TB_Pet WHERE Nome_Pet = '" + request.getParameter("nome_pet") + "'");
-                                if (rsPetPesquisa.isBeforeFirst() && !request.getParameter("nome_pet").isEmpty()) {
-                                    while (rsPetPesquisa.next()) {
-                        %>
-                                        <tr class="text-center">
-                                            <th scope="row"><%=rsPetPesquisa.getString("id_pet")%></th>
-                                            <td id="especie_pet"><%=rsPetPesquisa.getString("especie_pet")%></td>
-                                            <td id="nome_pet"><%=rsPetPesquisa.getString("nome_pet")%></td>
-                                            <td id="idade_pet"><%=rsPetPesquisa.getString("idade_pet")%></td>
-                                            <td id="porte_pet"><%=rsPetPesquisa.getString("porte_pet")%></td>
-                                            <td id="sexo_pet"><%=rsPetPesquisa.getString("sexo_pet")%></td>
-                                            <td>
-                                                <form id="formAlterarPet" method="POST" action="Editar_Pet.jsp">  
-                                                    <input type="hidden" id="id_pet" name="id_pet" value="<%=rsPetPesquisa.getString("id_pet")%>">
-                                                    <button href="Editar_Pet.jsp" id="alterarPet" name="alterarPet" class="btn btn-warning mt-2">
-                                                        <i class="fa fa-pen icone_plus"></i>
-                                                    </button>
-                                                </form>
-                                                <form id="formExcluirDadosPet">
-                                                    <input type="hidden" id="id_pet" name="id_pet" value="<%=rsPetPesquisa.getString("id_pet")%>">
-                                                    <button class="btn btn-danger mt-2" id="excluiPet" name="excluirPet">
-                                                        <i class="fa fa-trash icone_plus"></i>
-                                                    </button> 
-                                                </form>
-                                            </td>
-                                        </tr>
-                        <%          }
-                                } else if (request.getParameter("nome_pet").isEmpty()) {
-                                    ResultSet rsPet = pet.Consultar("SELECT * FROM TB_Pet");
-                                    while (rsPet.next()) {
-                        %>
-                                        <tr class="text-center">
-                                            <th scope="row"><%=rsPet.getString("id_pet")%></th>
-                                            <td id="especie_pet"><%=rsPet.getString("especie_pet")%></td>
-                                            <td id="nome_pet"><%=rsPet.getString("nome_pet")%></td>
-                                            <td id="idade_pet"><%=rsPet.getString("idade_pet")%></td>
-                                            <td id="porte_pet"><%=rsPet.getString("porte_pet")%></td>
-                                            <td id="sexo_pet"><%=rsPet.getString("sexo_pet")%></td>
-                                            <td>
-                                                <form id="formAlterarPet" method="POST" action="Editar_Pet.jsp">  
-                                                    <input type="hidden" id="id_pet" name="id_pet" value="<%=rsPet.getString("id_pet")%>">
-                                                    <button href="Editar_Pet.jsp" id="alterarPet" name="alterarPet" class="btn btn-warning mt-2">
-                                                        <i class="fa fa-pen icone_plus"></i>
-                                                    </button>
-                                                </form>
-                                                <form id="formExcluirDadosPet">
-                                                    <input type="hidden" id="id_pet" name="id_pet" value="<%=rsPet.getString("id_pet")%>">
-                                                    <button class="btn btn-danger mt-2" id="excluiPet" name="excluirPet">
-                                                        <i class="fa fa-trash icone_plus"></i>
-                                                    </button> 
-                                                </form>
-                                            </td>
-                                        </tr>
-                    <%
+                <%          ResultSet rsCliente = cliente.Consultar("SELECT Tipo_Cliente FROM TB_Cliente WHERE Id_Cliente = '" + session.getAttribute("id_cliente") + "'");
+                            if(rsCliente.next()){
+                                if (rsCliente.getBoolean("Tipo_Cliente") == true){
+                                    if (request.getParameter("pesquisarPet") != null) {
+                                        if (!request.getParameter("nome_pet").isEmpty() && !request.getParameter("id_cliente").isEmpty()) {
+                                            ResultSet rsPetPesquisa = pet.Consultar("SELECT * FROM TB_Pet WHERE Nome_Pet = '" + request.getParameter("nome_pet") + "' AND Cliente_Id_Cliente = " + request.getParameter("id_cliente"));
+                                            if(rsPetPesquisa.isBeforeFirst()){
+                                                while (rsPetPesquisa.next()) {
+                %>
+                                                    <tr class="text-center">
+                                                        <th scope="row"><%=rsPetPesquisa.getString("id_pet")%></th>
+                                                        <td id="especie_pet"><%=rsPetPesquisa.getString("especie_pet")%></td>
+                                                        <td id="nome_pet"><%=rsPetPesquisa.getString("nome_pet")%></td>
+                                                        <td id="idade_pet"><%=rsPetPesquisa.getString("idade_pet")%></td>
+                                                        <td id="porte_pet"><%=rsPetPesquisa.getString("porte_pet")%></td>
+                                                        <td id="sexo_pet"><%=rsPetPesquisa.getString("sexo_pet")%></td>
+
+                <%                                      ResultSet rsClientePet = pet.Consultar("SELECT * FROM TB_Cliente WHERE Id_Cliente = " + rsPetPesquisa.getString("cliente_id_cliente"));
+                                                        if(rsClientePet.next()){
+                %>
+                                                            <td id="id_cliente"><%=rsClientePet.getString("nome_cliente")%></td>
+                <%
+                                                        }
+                %>
+                                                        <td>
+                                                            <form id="formAlterarPet" method="POST" action="Editar_Pet.jsp">  
+                                                                <input type="hidden" id="id_pet" name="id_pet" value="<%=rsPetPesquisa.getString("id_pet")%>">
+                                                                <button href="Editar_Pet.jsp" id="alterarPet" name="alterarPet" class="btn btn-warning mt-2">
+                                                                    <i class="fa fa-pen icone_plus"></i>
+                                                                </button>
+                                                            </form>
+                                                        </td>
+                                                    </tr>
+                <%                              }
+                                            }else{
+                %>
+                                                <h1>Não Possui Registros</h1>      
+                <%                          }
+                                        } else if (request.getParameter("nome_pet").isEmpty() && request.getParameter("id_cliente").isEmpty()) {
+                                            ResultSet rsPet = pet.Consultar("SELECT * FROM TB_Pet");
+                                            while (rsPet.next()) {
+                %>
+                                                <tr class="text-center">
+                                                    <th scope="row"><%=rsPet.getString("id_pet")%></th>
+                                                    <td id="especie_pet"><%=rsPet.getString("especie_pet")%></td>
+                                                    <td id="nome_pet"><%=rsPet.getString("nome_pet")%></td>
+                                                    <td id="idade_pet"><%=rsPet.getString("idade_pet")%></td>
+                                                    <td id="porte_pet"><%=rsPet.getString("porte_pet")%></td>
+                                                    <td id="sexo_pet"><%=rsPet.getString("sexo_pet")%></td>
+                                                    
+                <%                                  ResultSet rsClientePet = pet.Consultar("SELECT * FROM TB_Cliente WHERE Id_Cliente = " + rsPet.getString("cliente_id_cliente"));
+                                                    if(rsClientePet.next()){
+                %>
+                                                            <td id="id_cliente"><%=rsClientePet.getString("nome_cliente")%></td>
+                <%
+                                                        }
+                %>
+                                                    <td>
+                                                        <form id="formAlterarPet" method="POST" action="Editar_Pet.jsp">  
+                                                            <input type="hidden" id="id_pet" name="id_pet" value="<%=rsPet.getString("id_pet")%>">
+                                                            <button href="Editar_Pet.jsp" id="alterarPet" name="alterarPet" class="btn btn-warning mt-2">
+                                                                <i class="fa fa-pen icone_plus"></i>
+                                                            </button>
+                                                        </form>
+                                                    </td>
+                                                </tr>
+                <%
+                                            }
+                                        }else if(request.getParameter("nome_pet").isEmpty() && !request.getParameter("id_cliente").isEmpty()){
+                                            ResultSet rsPet = pet.Consultar("SELECT * FROM TB_Pet WHERE Cliente_Id_Cliente = " + request.getParameter("id_cliente"));
+                                            while (rsPet.next()) {
+                %>
+                                                <tr class="text-center">
+                                                    <th scope="row"><%=rsPet.getString("id_pet")%></th>
+                                                    <td id="especie_pet"><%=rsPet.getString("especie_pet")%></td>
+                                                    <td id="nome_pet"><%=rsPet.getString("nome_pet")%></td>
+                                                    <td id="idade_pet"><%=rsPet.getString("idade_pet")%></td>
+                                                    <td id="porte_pet"><%=rsPet.getString("porte_pet")%></td>
+                                                    <td id="sexo_pet"><%=rsPet.getString("sexo_pet")%></td>
+                                                    
+                <%                                  ResultSet rsClientePet = pet.Consultar("SELECT * FROM TB_Cliente WHERE Id_Cliente = " + rsPet.getString("cliente_id_cliente"));
+                                                    if(rsClientePet.next()){
+                %>
+                                                        <td id="id_cliente"><%=rsClientePet.getString("nome_cliente")%></td>
+                <%
+                                                    }
+                %>
+                                                    <td>
+                                                        <form id="formAlterarPet" method="POST" action="Editar_Pet.jsp">  
+                                                            <input type="hidden" id="id_pet" name="id_pet" value="<%=rsPet.getString("id_pet")%>">
+                                                            <button href="Editar_Pet.jsp" id="alterarPet" name="alterarPet" class="btn btn-warning mt-2">
+                                                                <i class="fa fa-pen icone_plus"></i>
+                                                            </button>
+                                                        </form>
+                                                    </td>
+                                                </tr>
+                                            
+                <%
+                                            }
+					}else if(!request.getParameter("nome_pet").isEmpty() && request.getParameter("id_cliente").isEmpty()){
+                                            ResultSet rsPet = pet.Consultar("SELECT * FROM TB_Pet WHERE Nome_Pet = '" + request.getParameter("nome_pet") + "'");
+					    if(rsPet.isBeforeFirst()){
+                                                while (rsPet.next()) {
+                %>
+                                                    <tr class="text-center">
+                                                        <th scope="row"><%=rsPet.getString("id_pet")%></th>
+                                                        <td id="especie_pet"><%=rsPet.getString("especie_pet")%></td>
+                                                        <td id="nome_pet"><%=rsPet.getString("nome_pet")%></td>
+                                                        <td id="idade_pet"><%=rsPet.getString("idade_pet")%></td>
+                                                        <td id="porte_pet"><%=rsPet.getString("porte_pet")%></td>
+                                                        <td id="sexo_pet"><%=rsPet.getString("sexo_pet")%></td>
+
+                <%                                      ResultSet rsClientePet = pet.Consultar("SELECT * FROM TB_Cliente WHERE Id_Cliente = " + rsPet.getString("cliente_id_cliente"));
+                                                        if(rsClientePet.next()){
+                %>
+                                                            <td id="id_cliente"><%=rsClientePet.getString("nome_cliente")%></td>
+                <%
+                                                        }
+                %>
+                                                        <td>
+                                                            <form id="formAlterarPet" method="POST" action="Editar_Pet.jsp">  
+                                                                <input type="hidden" id="id_pet" name="id_pet" value="<%=rsPet.getString("id_pet")%>">
+                                                                <button href="Editar_Pet.jsp" id="alterarPet" name="alterarPet" class="btn btn-warning mt-2">
+                                                                    <i class="fa fa-pen icone_plus"></i>
+                                                                </button>
+                                                            </form>
+                                                        </td>
+                                                    </tr>
+                <%
+                                                }
+                                            }else{
+                %>
+                                                <h1>Não Possui Registros</h1>
+                <%                          }
+					}else {
+                %>
+                                            <h1>Não Possui Registros</h1>
+                <%                      }
+                                    } else {
+                                        ResultSet rsPet = pet.Consultar("SELECT * FROM TB_Pet");
+                                        while (rsPet.next()) {
+                %>
+                                            <tr class="text-center">
+                                                <th scope="row"><%=rsPet.getString("id_pet")%></th>
+                                                <td id="especie_pet"><%=rsPet.getString("especie_pet")%></td>
+                                                <td id="nome_pet"><%=rsPet.getString("nome_pet")%></td>
+                                                <td id="idade_pet"><%=rsPet.getString("idade_pet")%></td>
+                                                <td id="porte_pet"><%=rsPet.getString("porte_pet")%></td>
+                                                <td id="sexo_pet"><%=rsPet.getString("sexo_pet")%></td>
+                                                
+                <%                              ResultSet rsClientePet = pet.Consultar("SELECT * FROM TB_Cliente WHERE Id_Cliente = " + rsPet.getString("cliente_id_cliente"));
+                                                if(rsClientePet.next()){
+                %>
+                                                    <td id="id_cliente"><%=rsClientePet.getString("nome_cliente")%></td>
+                <%
+                                                }
+                %>
+                                                <td>
+                                                    <form id="formAlterarPet" method="POST" action="Editar_Pet.jsp">  
+                                                        <input type="hidden" id="id_pet" name="id_pet" value="<%=rsPet.getString("id_pet")%>">
+                                                        <button href="Editar_Pet.jsp" id="alterarPet" name="alterarPet" class="btn btn-warning mt-2">
+                                                            <i class="fa fa-pen icone_plus"></i>
+                                                        </button>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                <%
+                                        }
                                     }
-                                } else {
-                    %>
-                                    <h1>Não Possui Registros</h1>
-                    <%          }
-                        } else {
-                            ResultSet rsPet = pet.Consultar("SELECT * FROM TB_Pet");
-                            while (rsPet.next()) {
-                    %>
-                                <tr class="text-center">
-                                    <th scope="row"><%=rsPet.getString("id_pet")%></th>
-                                    <td id="especie_pet"><%=rsPet.getString("especie_pet")%></td>
-                                    <td id="nome_pet"><%=rsPet.getString("nome_pet")%></td>
-                                    <td id="idade_pet"><%=rsPet.getString("idade_pet")%></td>
-                                    <td id="porte_pet"><%=rsPet.getString("porte_pet")%></td>
-                                    <td id="sexo_pet"><%=rsPet.getString("sexo_pet")%></td>
-                                    <td>
-                                        <form id="formAlterarPet" method="POST" action="Editar_Pet.jsp">  
-                                            <input type="hidden" id="id_pet" name="id_pet" value="<%=rsPet.getString("id_pet")%>">
-                                            <button href="Editar_Pet.jsp" id="alterarPet" name="alterarPet" class="btn btn-warning mt-2">
-                                                <i class="fa fa-pen icone_plus"></i>
-                                            </button>
-                                        </form>
-                                        <form id="formExcluirDadosPet">
-                                            <input type="hidden" id="id_pet" name="id_pet" value="<%=rsPet.getString("id_pet")%>">
-                                            <button class="btn btn-danger mt-2" id="excluiPet" name="excluirPet">
-                                                <i class="fa fa-trash icone_plus"></i>
-                                            </button> 
-                                        </form>
-                                    </td>
-                                </tr>
-                    <%
-                            }
-                        }
-                        }else{
-                            if (request.getParameter("pesquisarPet") != null) {
-                                ResultSet rsPetPesquisa = pet.Consultar("SELECT * FROM TB_Pet WHERE Nome_Pet = '" + request.getParameter("nome_pet") + "' AND Cliente_Id_Cliente = " + session.getAttribute("id_cliente"));
-                                if (rsPetPesquisa.isBeforeFirst() && !request.getParameter("nome_pet").isEmpty()) {
-                                    while (rsPetPesquisa.next()) {
-                    %>
-                                    <tr class="text-center">
-                                        <th scope="row"><%=rsPetPesquisa.getString("id_pet")%></th>
-                                        <td id="especie_pet"><%=rsPetPesquisa.getString("especie_pet")%></td>
-                                        <td id="nome_pet"><%=rsPetPesquisa.getString("nome_pet")%></td>
-                                        <td id="idade_pet"><%=rsPetPesquisa.getString("idade_pet")%></td>
-                                        <td id="porte_pet"><%=rsPetPesquisa.getString("porte_pet")%></td>
-                                        <td id="sexo_pet"><%=rsPetPesquisa.getString("sexo_pet")%></td>
-                                        <td>
-                                            <form id="formAlterarPet" method="POST" action="Editar_Pet.jsp">  
-                                                <input type="hidden" id="id_pet" name="id_pet" value="<%=rsPetPesquisa.getString("id_pet")%>">
-                                                <button href="Editar_Pet.jsp" id="alterarPet" name="alterarPet" class="btn btn-warning mt-2">
-                                                    <i class="fa fa-pen icone_plus"></i>
-                                                </button>
-                                            </form>
-                                            <form id="formExcluirDadosPet">
-                                                <input type="hidden" id="id_pet" name="id_pet" value="<%=rsPetPesquisa.getString("id_pet")%>">
-                                                <button class="btn btn-danger mt-2" id="excluiPet" name="excluirPet">
-                                                    <i class="fa fa-trash icone_plus"></i>
-                                                </button> 
-                                            </form>
-                                        </td>
-                                    </tr>
-                        <%          }
-                                } else if (request.getParameter("nome_pet").isEmpty()) {
-                                    ResultSet rsPet = pet.Consultar("SELECT * FROM TB_Pet WHERE Cliente_id_Cliente = " + session.getAttribute("id_cliente"));
-                                    while (rsPet.next()) {
-                        %>
-                                    <tr class="text-center">
-                                        <th scope="row"><%=rsPet.getString("id_pet")%></th>
-                                        <td id="especie_pet"><%=rsPet.getString("especie_pet")%></td>
-                                        <td id="nome_pet"><%=rsPet.getString("nome_pet")%></td>
-                                        <td id="idade_pet"><%=rsPet.getString("idade_pet")%></td>
-                                        <td id="porte_pet"><%=rsPet.getString("porte_pet")%></td>
-                                        <td id="sexo_pet"><%=rsPet.getString("sexo_pet")%></td>
-                                        <td>
-                                            <form id="formAlterarPet" method="POST" action="Editar_Pet.jsp">  
-                                                <input type="hidden" id="id_pet" name="id_pet" value="<%=rsPet.getString("id_pet")%>">
-                                                <button href="Editar_Pet.jsp" id="alterarPet" name="alterarPet" class="btn btn-warning mt-2">
-                                                    <i class="fa fa-pen icone_plus"></i>
-                                                </button>
-                                            </form>
-                                            <form id="formExcluirDadosPet">
-                                                <input type="hidden" id="id_pet" name="id_pet" value="<%=rsPet.getString("id_pet")%>">
-                                                <button class="btn btn-danger mt-2" id="excluiPet" name="excluirPet">
-                                                    <i class="fa fa-trash icone_plus"></i>
-                                                </button> 
-                                            </form>
-                                        </td>
-                                    </tr>
-                        <%
+                                }else{
+                                    if (request.getParameter("pesquisarPet") != null) {
+                                        ResultSet rsPetPesquisa = pet.Consultar("SELECT * FROM TB_Pet WHERE Nome_Pet = '" + request.getParameter("nome_pet") + "' AND Cliente_Id_Cliente = " + session.getAttribute("id_cliente"));
+                                        if (rsPetPesquisa.isBeforeFirst() && !request.getParameter("nome_pet").isEmpty()) {
+                                            while (rsPetPesquisa.next()) {
+                %>
+                                                <tr class="text-center">
+                                                    <th scope="row"><%=rsPetPesquisa.getString("id_pet")%></th>
+                                                    <td id="especie_pet"><%=rsPetPesquisa.getString("especie_pet")%></td>
+                                                    <td id="nome_pet"><%=rsPetPesquisa.getString("nome_pet")%></td>
+                                                    <td id="idade_pet"><%=rsPetPesquisa.getString("idade_pet")%></td>
+                                                    <td id="porte_pet"><%=rsPetPesquisa.getString("porte_pet")%></td>
+                                                    <td id="sexo_pet"><%=rsPetPesquisa.getString("sexo_pet")%></td>
+                                                    
+                <%                                  ResultSet rsClientePet = pet.Consultar("SELECT * FROM TB_Cliente WHERE Id_Cliente = " + rsPetPesquisa.getString("cliente_id_cliente"));
+                                                    if(rsClientePet.next()){
+                %>
+                                                            <td id="id_cliente"><%=rsClientePet.getString("nome_cliente")%></td>
+                <%
+                                                    }
+                %>
+                                                    
+                                                    
+                                                    <td>
+                                                        <form id="formAlterarPet" method="POST" action="Editar_Pet.jsp">  
+                                                            <input type="hidden" id="id_pet" name="id_pet" value="<%=rsPetPesquisa.getString("id_pet")%>">
+                                                            <button href="Editar_Pet.jsp" id="alterarPet" name="alterarPet" class="btn btn-warning mt-2">
+                                                                <i class="fa fa-pen icone_plus"></i>
+                                                            </button>
+                                                        </form>
+                                                    </td>
+                                                </tr>
+                <%                          }
+                                        } else if (request.getParameter("nome_pet").isEmpty()) {
+                                            ResultSet rsPet = pet.Consultar("SELECT * FROM TB_Pet WHERE Cliente_id_Cliente = " + session.getAttribute("id_cliente"));
+                                            while (rsPet.next()) {
+                %>
+                                                <tr class="text-center">
+                                                    <th scope="row"><%=rsPet.getString("id_pet")%></th>
+                                                    <td id="especie_pet"><%=rsPet.getString("especie_pet")%></td>
+                                                    <td id="nome_pet"><%=rsPet.getString("nome_pet")%></td>
+                                                    <td id="idade_pet"><%=rsPet.getString("idade_pet")%></td>
+                                                    <td id="porte_pet"><%=rsPet.getString("porte_pet")%></td>
+                                                    <td id="sexo_pet"><%=rsPet.getString("sexo_pet")%></td>
+                                                    
+                <%                                  ResultSet rsClientePet = pet.Consultar("SELECT * FROM TB_Cliente WHERE Id_Cliente = " + rsPet.getString("cliente_id_cliente"));
+                                                    if(rsClientePet.next()){
+                %>
+                                                            <td id="id_cliente"><%=rsClientePet.getString("nome_cliente")%></td>
+                <%
+                                                    }
+                %>
+                                                    
+                                                    <td>
+                                                        <form id="formAlterarPet" method="POST" action="Editar_Pet.jsp">  
+                                                            <input type="hidden" id="id_pet" name="id_pet" value="<%=rsPet.getString("id_pet")%>">
+                                                            <button href="Editar_Pet.jsp" id="alterarPet" name="alterarPet" class="btn btn-warning mt-2">
+                                                                <i class="fa fa-pen icone_plus"></i>
+                                                            </button>
+                                                        </form>
+                                                    </td>
+                                                </tr>
+                <%
+                                            }
+                                        } else {
+                %>
+                                            <h1>Não Possui Registros</h1>
+                <%                      }
+                                    } else {
+                                        ResultSet rsPet = pet.Consultar("SELECT * FROM TB_Pet WHERE Cliente_id_Cliente = " + session.getAttribute("id_cliente"));
+                                        while (rsPet.next()) {
+                %>
+                                            <tr class="text-center">
+                                                <th scope="row"><%=rsPet.getString("id_pet")%></th>
+                                                <td id="especie_pet"><%=rsPet.getString("especie_pet")%></td>
+                                                <td id="nome_pet"><%=rsPet.getString("nome_pet")%></td>
+                                                <td id="idade_pet"><%=rsPet.getString("idade_pet")%></td>
+                                                <td id="porte_pet"><%=rsPet.getString("porte_pet")%></td>
+                                                <td id="sexo_pet"><%=rsPet.getString("sexo_pet")%></td>
+                                                
+                <%                              ResultSet rsClientePet = pet.Consultar("SELECT * FROM TB_Cliente WHERE Id_Cliente = " + rsPet.getString("cliente_id_cliente"));
+                                                if(rsClientePet.next()){
+                %>
+                                                    <td id="id_cliente"><%=rsClientePet.getString("nome_cliente")%></td>
+                <%
+                                                }
+                %>
+                                                
+                                                <td>
+                                                    <form id="formAlterarPet" method="POST" action="Editar_Pet.jsp">  
+                                                        <input type="hidden" id="id_pet" name="id_pet" value="<%=rsPet.getString("id_pet")%>">
+                                                        <button href="Editar_Pet.jsp" id="alterarPet" name="alterarPet" class="btn btn-warning mt-2">
+                                                            <i class="fa fa-pen icone_plus"></i>
+                                                        </button>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                <%
+                                        }
                                     }
-                                } else {
-                        %>
-                                    <h1>Não Possui Registros</h1>
-                        <%      }
-                        } else {
-                            ResultSet rsPet = pet.Consultar("SELECT * FROM TB_Pet WHERE Cliente_id_Cliente = " + session.getAttribute("id_cliente"));
-                            while (rsPet.next()) {
-                        %>
-                                <tr class="text-center">
-                                    <th scope="row"><%=rsPet.getString("id_pet")%></th>
-                                    <td id="especie_pet"><%=rsPet.getString("especie_pet")%></td>
-                                    <td id="nome_pet"><%=rsPet.getString("nome_pet")%></td>
-                                    <td id="idade_pet"><%=rsPet.getString("idade_pet")%></td>
-                                    <td id="porte_pet"><%=rsPet.getString("porte_pet")%></td>
-                                    <td id="sexo_pet"><%=rsPet.getString("sexo_pet")%></td>
-                                    <td>
-                                        <form id="formAlterarPet" method="POST" action="Editar_Pet.jsp">  
-                                            <input type="hidden" id="id_pet" name="id_pet" value="<%=rsPet.getString("id_pet")%>">
-                                            <button href="Editar_Pet.jsp" id="alterarPet" name="alterarPet" class="btn btn-warning mt-2">
-                                                <i class="fa fa-pen icone_plus"></i>
-                                            </button>
-                                        </form>
-                                        <form id="formExcluirDadosPet">
-                                            <input type="hidden" id="id_pet" name="id_pet" value="<%=rsPet.getString("id_pet")%>">
-                                            <button class="btn btn-danger mt-2" id="excluiPet" name="excluirPet">
-                                                <i class="fa fa-trash icone_plus"></i>
-                                            </button> 
-                                        </form>
-                                    </td>
-                                </tr>
-                        <%
+                                }
                             }
-                        }
-                        }
-                        }
-                        %>
+                %>
                     </tbody>
                 </table>
             </div>
         </div>
         <div id="header_pet"></div>
     </body>
-
 </html>
-
-<!-- <td>
-            <button type="button" class="btn btn btn-warning mt-2"
-                data-toggle="modal" data-target="#modal_pet">
-                <a data-toggle="modal">
-                <i class="fa fa-pen"></i>
-                </a>
-            </button>
-            <button class="btn btn-danger mt-2">
-                <i class="fa fa-trash"></i>
-            </button> 
-           </td>-->

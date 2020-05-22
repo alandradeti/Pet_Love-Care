@@ -207,7 +207,7 @@ public final class Home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                                <input type=\"hidden\" id=\"id_produto\" name=\"id_produto\" value=\"");
       out.print(rsProduto.getString("id_produto"));
       out.write("\">\r\n");
-      out.write("                                                <button href=\"../Produtos/Produto_Editar.jsp\" id=\"alterarProduto\" name=\"alterarProduto\" class=\"btn btn-warning mt-2\">\r\n");
+      out.write("                                                <button type=\"submit\" class=\"btn btn-warning mt-2\">\r\n");
       out.write("                                                    <i class=\"fa fa-pen icone_plus\"></i>\r\n");
       out.write("                                                </button>\r\n");
       out.write("                                        </form>\r\n");

@@ -117,7 +117,7 @@ $(function () {
             
             success: function (data) {
                 alert("Funcionou");
-                window.location.href = "../Home/Home.jsp";
+                window.location.href = "../Pet/PetConsultar.jsp";
             }
         });
         return false;
@@ -126,9 +126,9 @@ $(function () {
 
 
 /****************************************************************/
-/********************                   	 ********************/
+/********************                        ********************/
 /******************** TRATAMENTO VETERINARIO ********************/
-/********************                   	 ********************/
+/********************                        ********************/
 /****************************************************************/
 
 //Envio do formulário de cadastramento Veterinario
@@ -172,7 +172,7 @@ $(function () {
             
             success: function (data) {
                 alert("Funcionou");
-                window.location.href = "../Home/Home.jsp";
+                window.location.href = "../Veterinario/VeterinarioConsultar.jsp";
             }
         });
         return false;
@@ -239,9 +239,9 @@ $(function () {
 
 
 /****************************************************************/
-/********************                   *************************/
+/********************                    ************************/
 /******************** TRATAMENTO CLIENTE ************************/
-/********************                   *************************/
+/********************                    ************************/
 /****************************************************************/
 
 //Envio do formulário de cadastramento Cliente
@@ -282,12 +282,11 @@ $(function () {
             url: '../Cliente/ExcluirCliente.jsp',
             type: 'POST',
             data: $('#formExcluirDadosCliente').serialize(),
-			success: function (data) {
+            success: function (data) {
                 alert("Funcionou");
+                window.location.href = "../Cliente/ClienteConsultar.jsp";
             }
         });
         return false;
     });
 });
-
-
