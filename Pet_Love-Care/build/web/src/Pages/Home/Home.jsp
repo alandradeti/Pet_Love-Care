@@ -1,3 +1,7 @@
+<%@page language="java" import="java.sql.*" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<jsp:useBean id="produto" class="Produto.ProdutoDAO"/>
+<jsp:useBean id="cliente" class="Cliente.ClienteDAO"/>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -75,39 +79,63 @@
         <section class="background">
             <h1 class="custom_titulo_produtos">Conheçam alguns de nossos produtos!</h1>
             <div class="row custom_body_produtos">
-                <div class="card custom_card_produtos" style="width: 18rem;">
-                    <div class="aling_btn">
-                        <button class="btn btn-danger mt-2"><i class="fa fa-trash"></i></button> 
-                        <button class="btn btn-warning mt-2"><i class="fa fa-pen"></i></button>
-                    </div>
-                    <img src="../../img/Produtos/produto_1.png" class="card-img-top custom_img_produtos" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title" id="nome_produto">Ração Hills</h5>
-                        <p class="card-text" id="descricao_produto">Ração Hills sabor carne, recomendada para cachorros de porte pequeno.</p>
-                        <p class="card-text" id="valor_produto">R$ 19,99</p>
+                
+                <%
+                    ResultSet rsCliente = cliente.Consultar("SELECT Tipo_Cliente FROM TB_Cliente WHERE Id_Cliente = '" + session.getAttribute("id_cliente") + "'");
+                    if(rsCliente.next()){
+                        if (rsCliente.getBoolean("Tipo_Cliente") == false){
+                            ResultSet rsProduto = produto.Consultar("SELECT * FROM TB_Produto");
+                            while (rsProduto.next()) {
+                %>
+                                <div class="card custom_card_produtos" style="width: 18rem;">
+                                    <img src="../../img/Produtos/produto_<%=rsProduto.getString("numero_imagem_produto")%>.png" class="card-img-top custom_img_produtos" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title" id="nome_produto"><%=rsProduto.getString("nome_produto")%></h5>
+                                        <p class="card-text" id="descricao_produto"><%=rsProduto.getString("descricao_produto")%></p>
+                                        <form id="formAdicionarCarrinho">  
+                                            <p class="card-text" id="valor_produto"><%=rsProduto.getString("valor_produto")%></p>
+                                            <div class="input-group mb-3 input_center">
+                                            <label class="col-form-label login_label">Qtde:</label>
+                                            <input type="text" class="form-control col-2" 
+                                                id="quantidade_produto"
+                                                name="quantidade_produto"
+                                                aria-describedby="button-addon1">
+                                            </div>
+                                            <input type="hidden" id="nome_produto" name="nome_produto" value="<%=rsProduto.getString("nome_produto")%>">
+                                            <input type="hidden" id="id_produto" name="id_produto" value="<%=rsProduto.getString("id_produto")%>">
+                                            <button id="adicionaProduto" name="adicionaProduto" class="btn btn-warning mt-2">
+                                                <i class="fa fa-plus icone_plus"></i>
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+                <%
+                            }
+                        }else{
+                            ResultSet rsProduto = produto.Consultar("SELECT * FROM TB_Produto");
+                            while (rsProduto.next()) {
+                %>
+                                <div class="card custom_card_produtos" style="width: 18rem;">
+                                    <img src="../../img/Produtos/produto_<%=rsProduto.getString("numero_imagem_produto")%>.png" class="card-img-top custom_img_produtos" alt="...">
+                                    <div class="card-body">
+                                        <form id="formAlterarProduto" method="POST" action="../Produtos/Produto_Editar.jsp">  
+                                                <input type="hidden" id="id_produto" name="id_produto" value="<%=rsProduto.getString("id_produto")%>">
+                                                <button type="submit" class="btn btn-warning mt-2">
+                                                    <i class="fa fa-pen icone_plus"></i>
+                                                </button>
+                                        </form>
+                                        <h5 class="card-title" id="nome_produto"><%=rsProduto.getString("nome_produto")%></h5>
+                                        <p class="card-text" id="descricao_produto"><%=rsProduto.getString("descricao_produto")%></p>
+                                        <p class="card-text" id="valor_produto"><%=rsProduto.getString("valor_produto")%></p>
 
-                        <div class="input-group mb-3 input_center">
-                            <div class="input-group-prepend">
-                                <button class="btn btn-dark" 
-                                        type="button">+</button>
-                            </div>
-                            <input type="text" class="form-control col-2" 
-                                   id="quantidade_produto"
-                                   name="quantidade_produto"
-                                   aria-describedby="button-addon1">
-                            <div class="input-group-append">
-                                <button class="btn btn-dark"
-                                        type="button">-</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card custom_card_produtos" style="width: 18rem;">
-                    <div class="aling_btn">
-                        <button class="btn btn-danger mt-2"><i class="fa fa-trash"></i></button> 
-                        <button class="btn btn-warning mt-2"><i class="fa fa-pen"></i></button>
-                    </div>
+                                    </div>
+                                </div>
+                <%
+                            }
+                        }
+                    }
+                %>
+                <!--<div class="card custom_card_produtos" style="width: 18rem;">
                     <img src="../../img/Produtos/produto_2.png" class="card-img-top custom_img_produtos" alt="...">
                     <div class="card-body">
                         <h5 class="card-title" id="nome_produto">Royal Canin</h5>
@@ -130,10 +158,6 @@
                 </div>
 
                 <div class="card custom_card_produtos" style="width: 18rem;">
-                    <div class="aling_btn">
-                        <button class="btn btn-danger mt-2"><i class="fa fa-trash"></i></button> 
-                        <button class="btn btn-warning mt-2"><i class="fa fa-pen"></i></button>
-                    </div>
                     <img src="../../img/Produtos/produto_3.png" class="card-img-top custom_img_produtos" alt="...">
                     <div class="card-body">
                         <h5 class="card-title" id="nome_produto">Ração Golden</h5>
@@ -156,10 +180,6 @@
                 </div>
 
                 <div class="card custom_card_produtos" style="width: 18rem;">
-                    <div class="aling_btn">
-                        <button class="btn btn-danger mt-2"><i class="fa fa-trash"></i></button> 
-                        <button class="btn btn-warning mt-2"><i class="fa fa-pen"></i></button>
-                    </div>
                     <img src="../../img/Produtos/produto_4.png" class="card-img-top custom_img_produtos" alt="...">
                     <div class="card-body">
                         <h5 class="card-title" id="nome_produto">Antipugas Bravecto</h5>
@@ -184,10 +204,6 @@
 
             <div class="row custom_body_produtos">
                 <div class="card custom_card_produtos" style="width: 18rem;">
-                    <div class="aling_btn">
-                        <button class="btn btn-danger mt-2"><i class="fa fa-trash"></i></button> 
-                        <button class="btn btn-warning mt-2"><i class="fa fa-pen"></i></button>
-                    </div>
                     <img src="../../img/Produtos/produto_5.png" class="card-img-top custom_img_produtos" alt="...">
                     <div class="card-body">
                         <h5 class="card-title" id="nome_produto">Super Secão</h5>
@@ -210,14 +226,10 @@
                 </div>
 
                 <div class="card custom_card_produtos" style="width: 18rem;">
-                    <div class="aling_btn">
-                        <button class="btn btn-danger mt-2"><i class="fa fa-trash"></i></button> 
-                        <button class="btn btn-warning mt-2"><i class="fa fa-pen"></i></button>
-                    </div> 
                     <img src="../../img/Produtos/produto_6.png" class="card-img-top custom_img_produtos" alt="...">
                     <div class="card-body">
                         <h5 class="card-title" id="nome_produto">Arranhadores</h5>
-                        <p class="card-text" id="descricao_produto">Brinquedo Arranhador São Pet Maxball para Gatos de qualquer idade.</p>
+                        <p class="card-text" id="descricao_produto">Brinquedo Arranhador SÃ£o Pet Maxball para Gatos de qualquer idade.</p>
                         <p class="card-text" id="valor_produto">R$ 19,99</p>
                         <div class="input-group mb-3 input_center">
                             <div class="input-group-prepend">
@@ -237,14 +249,10 @@
                 </div>
 
                 <div class="card custom_card_produtos" style="width: 18rem;">
-                    <div class="aling_btn">
-                        <button class="btn btn-danger mt-2"><i class="fa fa-trash"></i></button> 
-                        <button class="btn btn-warning mt-2"><i class="fa fa-pen"></i></button>
-                    </div>
                     <img src="../../img/Produtos/produto_7.png" class="card-img-top custom_img_produtos" alt="...">
                     <div class="card-body">
                         <h5 class="card-title" id="nome_produto">Areia</h5>
-                        <p class="card-text" id="descricao_produto">Areia Higiênica Chalesco e Garfield com Cristais de Sílica para Gatos - 2kg.</p>
+                        <p class="card-text" id="descricao_produto">Areia HigiÃªnica Chalesco e Garfield com Cristais de SÃ­lica para Gatos - 2kg.</p>
                         <p class="card-text" id="valor_produto">R$ 19,99</p>
                         <div class="input-group mb-3 input_center">
                             <div class="input-group-prepend">
@@ -263,14 +271,10 @@
                 </div>
 
                 <div class="card custom_card_produtos" style="width: 18rem;">
-                    <div class="aling_btn">
-                        <button class="btn btn-danger mt-2"><i class="fa fa-trash"></i></button> 
-                        <button class="btn btn-warning mt-2"><i class="fa fa-pen"></i></button>
-                    </div>
                     <img src="../../img/Produtos/produto_8.png" class="card-img-top custom_img_produtos" alt="...">
                     <div class="card-body">
                         <h5 class="card-title" id="nome_produto">Antipugas</h5>
-                        <p class="card-text" id="descricao_produto">Antipugas para cães, recomendado para cachorros de porte médio e grande.</p>
+                        <p class="card-text" id="descricao_produto">Antipugas para cÃ£es, recomendado para cachorros de porte mÃ©dio e grande.</p>
                         <p class="card-text" id="valor_produto">R$ 19,99</p>
                         <div class="input-group mb-3 input_center">
                             <div class="input-group-prepend">
@@ -286,9 +290,10 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>-->
             </div>
         </section>
+        
     </body>
 
 </html>
