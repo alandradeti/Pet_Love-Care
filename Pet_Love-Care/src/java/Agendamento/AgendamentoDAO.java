@@ -34,25 +34,25 @@ public class AgendamentoDAO extends Agendamento {
      */
     public boolean Incluir() {  
         try {
-            String sSql
-                    = "INSERT INTO TB_Agendamento("
-                    + "Tipo_Agendamento,"
-                    + "Data_inicial_Agendamento,"
-                    + "Data_final_Agendamento,"
-                    + "Horario_Agendamento,"
-                    + "Vacina_Id_Vacina,"
-                    + "Pet_Id_Pet,"
-                    + "Cliente_Id_Cliente,"
-                    + "Veterinario_Id_Veterinario"
+            String sSql =   
+                    "INSERT INTO TB_Agendamento("
+                        + "Tipo_Agendamento,"
+                        + "Data_inicial_Agendamento,"
+                        + "Data_final_Agendamento,"
+                        + "Horario_Agendamento,"
+                        + "Vacina_Id_Vacina,"
+                        + "Pet_Id_Pet,"
+                        + "Cliente_Id_Cliente,"
+                        + "Veterinario_Id_Veterinario"
                     + ")VALUES("
-                    + "'" + getTipo_agendamento() + "',"
-                    + "'" + getData_inicial_agendamento() + "',"
-                    + "'" + getData_final_agendamento() + "',"
-                    + "'" + getHorario_agendamento() + "',"
-                    + "'" + getId_vacina() + "',"
-                    + "'" + getId_pet() + "',"
-                    + "'" + getId_cliente() + "',"
-                    + "'" + getId_veterinario() + "')";
+                        + "'" + getTipo_agendamento() + "',"
+                        + "'" + getData_inicial_agendamento() + "',"
+                        + "'" + getData_final_agendamento() + "',"
+                        + "'" + getHorario_agendamento() + "',"
+                        + "'" + getId_vacina() + "',"
+                        + "'" + getId_pet() + "',"
+                        + "'" + getId_cliente() + "',"
+                        + "'" + getId_veterinario() + "')";
             PreparedStatement ps = dataSource.getConnection().prepareStatement(sSql); // Realiza a conexão e o preparo da query
             ps.executeUpdate(sSql); // Executa a query
 
