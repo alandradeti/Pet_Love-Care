@@ -75,10 +75,10 @@ public class VeterinarioDAO extends Veterinario {
      * @purpose: Realizar a alteração de um cliente existente. 
      * @return: boolean.
      */
-    public boolean Alterar(int iId_Veterinario) {
+    public boolean Alterar(int iId_veterinario) {
         try {
             String sSql = "UPDATE "
-                    + "TB_Veterinario"
+                    + "TB_Veterinario "
                     + "SET "
                     + "Nome_Veterinario = '" + getNome_veterinario() + "',"
                     + "CPF_Veterinario = '" + getCpf_veterinario() + "',"
@@ -88,9 +88,9 @@ public class VeterinarioDAO extends Veterinario {
                     + "Email_Veterinario = '" + getEmail_veterinario() + "',"
                     + "Telefone_Fixo_Veterinario = '" + getTelefone_fixo_veterinario() + "',"
                     + "Telefone_Celular_Veterinario = '" + getTelefone_celular_veterinario() + "',"
-                    + "Data_Nascimento_Veterinario = '" + getData_nascimento_veterinario() + "'"
-                    + "WHERE"
-                    + "Id_Veterinario = " + iId_Veterinario;
+                    + "Data_Nascimento_Veterinario = '" + getData_nascimento_veterinario() + "' "
+                    + "WHERE "
+                    + "Id_Veterinario = " + iId_veterinario;
             PreparedStatement ps = dataSource.getConnection().prepareStatement(sSql); // Realiza a conexão e o preparo da query
             ps.executeUpdate(sSql); // Executa a query
 
@@ -112,12 +112,12 @@ public class VeterinarioDAO extends Veterinario {
      * @purpose: Realizar a exclusão de um cliente existente. 
      * @return: boolean.
      */
-    public boolean Excluir(int iId_Veterinario){
+    public boolean Excluir(int iId_veterinario){
     	 try {
             String sSql = "DELETE FROM "
                             + "TB_Veterinario "
                         + "WHERE "
-                            + "Id_Veterinario = " + iId_Veterinario;
+                            + "Id_Veterinario = " + iId_veterinario;
             PreparedStatement ps = dataSource.getConnection().prepareStatement(sSql); // Realiza a conexão e o preparo da query
             ps.executeUpdate(sSql); // Executa a query
             

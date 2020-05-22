@@ -36,30 +36,30 @@ public class PetDAO extends Pet{
     public boolean Incluir() {
         try {
             String sSql = 
-                    "INSERT INTO TB_Pet("
-                        + "Especie_Pet, "
-                        + "Nome_Pet, "
-                        + "Raca_Pet, "
-                        + "Idade_Pet, "
-                        + "Porte_Pet, "
-                        + "Peso_Pet, "
-                        + "Altura_Pet, "
-                        + "Sexo_Pet, "
-                        + "Castracao_Pet, "
-                        + "Cor_Pelagem_Pet,"
-                        + "Cliente_Id_Cliente"
+                        "INSERT INTO TB_Pet("
+                            + "Especie_Pet, "
+                            + "Nome_Pet, "
+                            + "Raca_Pet, "
+                            + "Idade_Pet, "
+                            + "Porte_Pet, "
+                            + "Peso_Pet, "
+                            + "Altura_Pet, "
+                            + "Sexo_Pet, "
+                            + "Castracao_Pet, "
+                            + "Cor_Pelagem_Pet,"
+                            + "Cliente_Id_Cliente"
                         +")VALUES("
-                        +"'" + getEspecie_pet() + "',"
-                        +"'" + getNome_pet() + "',"
-                        +"'" + getRaca_pet() + "',"
-                        +"'" + getIdade_pet() + "',"
-                        +"'" + getPorte_pet() + "'," 
-                        +"'" + getPeso_pet() + "',"
-                        +"'" + getAltura_pet() + "'," 
-                        +"'" + getSexo_pet() + "'," 
-                        +"'" + getCastracao_pet() + "',"
-                        +"'" + getCor_pelagem_pet() + "',"
-                        +"'" + getCliente_id_cliente() + "')";
+                            +"'" + getEspecie_pet() + "',"
+                            +"'" + getNome_pet() + "',"
+                            +"'" + getRaca_pet() + "',"
+                            +"'" + getIdade_pet() + "',"
+                            +"'" + getPorte_pet() + "'," 
+                            +"'" + getPeso_pet() + "',"
+                            +"'" + getAltura_pet() + "'," 
+                            +"'" + getSexo_pet() + "'," 
+                            +"'" + getCastracao_pet() + "',"
+                            +"'" + getCor_pelagem_pet() + "',"
+                            +"'" + getId_cliente() + "')";
             PreparedStatement ps = dataSource.getConnection().prepareStatement(sSql); // Realiza a conexão e o preparo da query
             ps.executeUpdate(sSql); // Executa a query
 
@@ -77,27 +77,28 @@ public class PetDAO extends Pet{
 
     /**
      * Método: Alterar()
-     * @param: iIdCliente
-     * @purpose: Realizar a alteração de um cliente existente. 
+     * @param: iIdPet
+     * @purpose: Realizar a alteração de um pet existente. 
      * @return: boolean.
      */
-    /*public boolean Alterar(int iId_Cliente) {
+    public boolean Alterar(int iId_Pet) {
         try {
-            String sSql = "UPDATE "
-                    + "TB_Cliente"
-                    + "SET "
-                    + "Nome_Cliente = '" + getNome_cliente() + "',"
-                    + "CPF_Cliente = '" + getCpf_cliente() + "',"
-                    + "RG_Cliente = '" + getRg_cliente() + "',"
-                    + "Sexo_Cliente = '" + getSexo_cliente() + "',"
-                    + "Endereco_Cliente = '" + getEndereco_cliente() + "',"
-                    + "Email_Cliente = '" + getEmail_cliente() + "',"
-                    + "Telefone_Fixo_Cliente = '" + getTelefone_fixo_cliente() + "',"
-                    + "Telefone_Celular_Cliente = '" + getTelefone_celular_cliente() + "',"
-                    + "Data_Nascimento_Cliente = '" + getData_nascimento_cliente() + "',"
-                    + "Senha_Cliente = '" + getSenha_cliente() + "'"
-                    + "WHERE"
-                    + "Id_Cliente = " + iId_Cliente;
+            String sSql =   "UPDATE "
+                                + "TB_Pet"
+                            + " SET "
+                                + "Especie_Pet = '" + getEspecie_pet() + "',"
+                                + "Nome_Pet = '" + getNome_pet() + "',"
+                                + "Raca_Pet = '" + getRaca_pet() + "',"
+                                + "Idade_Pet = '" + getIdade_pet() + "',"
+                                + "Porte_Pet = '" + getPorte_pet() + "',"
+                                + "Peso_Pet = '" + getPeso_pet() + "',"
+                                + "Altura_Pet = '" + getAltura_pet() + "',"
+                                + "Sexo_Pet = '" + getSexo_pet() + "',"
+                                + "Castracao_Pet = '" + getCastracao_pet() + "',"
+                                + "Cor_Pelagem_Pet = '" + getCor_pelagem_pet() + "',"
+                                + "Cliente_Id_Cliente = '" + getId_cliente() + "'"
+                            + " WHERE "
+                                + "Id_Pet = " + iId_Pet;
             PreparedStatement ps = dataSource.getConnection().prepareStatement(sSql); // Realiza a conexão e o preparo da query
             ps.executeUpdate(sSql); // Executa a query
 
@@ -111,20 +112,20 @@ public class PetDAO extends Pet{
             return (false);
         }
         return (true);
-    }*/
+    }
     
     /**
      * Método: Excluir()
-     * @param: iIdCliente
-     * @purpose: Realizar a exclusão de um cliente existente. 
+     * @param: iIdPet
+     * @purpose: Realizar a exclusão de um pet existente. 
      * @return: boolean.
      */
-    /*public boolean Excluir(int iId_Cliente){
+    public boolean Excluir(int iId_Pet){
     	 try {
             String sSql = "DELETE FROM "
-                            + "TB_Cliente "
+                            + "TB_Pet "
                         + "WHERE "
-                            + "Id_Cliente = " + iId_Cliente;
+                            + "Id_Pet = " + iId_Pet;
             PreparedStatement ps = dataSource.getConnection().prepareStatement(sSql); // Realiza a conexão e o preparo da query
             ps.executeUpdate(sSql); // Executa a query
             
@@ -138,5 +139,5 @@ public class PetDAO extends Pet{
             return (false);
         }
         return(true);
-    }*/
+    }
 }
