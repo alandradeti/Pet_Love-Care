@@ -31,12 +31,15 @@
         <div class="background">
             <!-- FormulÃÂ¡rio -->
             <div class="card container mt-5 card_consulta">
-                <form id="formExcluirDadosVeterinario">
-                    <input type="hidden" id="id_veterinario" name="id_veterinario" value="<%=request.getParameter("id_veterinario")%>">
-                    <button class="btn btn-danger mt-2" id="excluirVeterinario" name="excluirVeterinario">
-                        <i class="fa fa-trash"></i>
-                    </button> 
-                </form>
+                    <form id="formExcluirDadosVeterinario">
+                        <input type="hidden" id="id_veterinario" name="id_veterinario" value="<%=request.getParameter("id_veterinario")%>">
+                        <button class="btn btn-danger mt-2 btn_excluir" id="excluirVeterinario" name="excluirVeterinario">
+                            <i class="fa fa-trash"></i>
+                        </button> 
+                    </form>
+                    <a class="btn_voltar" href="./VeterinarioConsultar.jsp">
+                       <i class="fa fa-arrow-left icone_plus"></i>
+                    </a>
                 <div class="centralizar">
                     <img src="../../img/Logo/mulher_veterinaria.png" 
                          alt="icone" class="tamanho_icone"/>
@@ -124,7 +127,7 @@
                                         </div>
 
                                         <div class="pst_btn_agendar">
-                                            <button class="btn btn_agendar mt-3 mb-3">Editar</button>
+                                            <button class="btn btn_agendar mb-4">Editar</button>
                                         </div>
                                     </div>
                                 </form>
