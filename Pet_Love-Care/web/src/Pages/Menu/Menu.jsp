@@ -51,14 +51,10 @@
                 <%      }
                 %>
                 <%      if (rs.getBoolean("Tipo_Cliente") == true) {%>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               <li class="nav-item">
+                    <a class="nav-link" href="../Veterinario/VeterinarioConsultar.jsp">
                         Veterinário
                     </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="nav-link" href="../Veterinario/VeterinarioConsultar.jsp">Consultar</a>
-                        <a class="nav-link" href="../Veterinario/Veterinario.html">Cadastrar</a>
-                    </div>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -72,22 +68,11 @@
                 <li class="nav-item">
                     <a class="nav-link" href="../Agendar/Consultar_Agendamento.html">Agendamento</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Pet
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="../Pet/PetConsultar.jsp">Consultar</a>
-                        <a class="dropdown-item" href="../Pet/Cadastrar_Pet.html">Cadastrar</a>
-                    </div>
+                <li class="nav-item">
+                    <a class="nav-link" href="../Pet/PetConsultar.jsp">Pet</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Clientes
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="../Cliente/ClienteConsultar.jsp">Consultar</a>
-                    </div>
+                <li class="nav-item">
+                     <a class="nav-link" href="../Cliente/ClienteConsultar.jsp">Clientes</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="../Compras/Compras.html">Compras</a>

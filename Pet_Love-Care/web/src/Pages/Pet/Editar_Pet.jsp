@@ -31,19 +31,19 @@
         <div class="background">
             <!-- FormulÃÂÃÂ¡rio -->
             <div class="card container mt-5 card_consulta">
-                <a class="btn_voltar" href="./Consultar_Pet.html">
-                        <i class="fas fa-arrow-left icone_plus"></i>
-                 </a>
                 <form id="formExcluirDadosPet">
                     <input type="hidden" id="id_pet" name="id_pet" value="<%=request.getParameter("id_pet")%>">
-                    <button type="submit" class="btn btn-danger" id="excluirVacina" name="excluirPet">
+                    <button type="submit" class="btn btn-danger mt-2 btn_excluir" id="excluirVacina" name="excluirPet">
                         <i class="fa fa-trash icone_plus"></i>
                     </button> 
                 </form>
+                <a class="btn_voltar" href="./PetConsultar.jsp">
+                    <i class="fas fa-arrow-left icone_plus"></i>
+                </a>
                 <div class="centralizar">
                     <img src="../../img/Logo/dog_cinza.png" 
                          alt="icone" class="tamanho_icone"/>
-                    <h4 class="mt-3">Editar Pet</h4>
+                    <h3 class="mt-3">Editar Pet</h3>
                 </div>
                 <%
                     if(request.getParameter("id_pet")!=null){   

@@ -20,7 +20,7 @@
         <script src="../js/post.js"></script>
         <script src="../js/ajax.min.js"></script>
         <script src="../js/padrao.js"></script>
-     <script>
+        <script>
             $(function () {
                 $("#headerDiv").load("../Menu/Menu.jsp");
             });

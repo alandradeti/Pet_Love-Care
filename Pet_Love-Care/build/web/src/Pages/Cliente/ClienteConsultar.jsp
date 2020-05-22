@@ -35,12 +35,15 @@
             <div class="card container mt-5 card_consulta">
                 <div class="text-center mt-4">
                     <img src="../../img/Logo/homem.png" class="cabeca_gato">
-                    <h3 class="mt-2">Consultar Cliente</h3>
+                    <h3 class="mb-4">Consultar Cliente</h3>
                 </div>
-                <form id="formPesquisarNomeCliente" method="POST" action="ClienteConsultar.jsp">
+                  <form id="formPesquisarNomeCliente" method="POST" 
+                       action="ClienteConsultar.jsp" class="form-inline my-2 my-lg-0">
                     <div class="form-group col-6">
-                        <input type="text" name="nome_cliente" id="nome_cliente" />
-                        <button type="submit" class="btn btn-danger mt-2" id="pesquisarCliente" name="pesquisarCliente">
+                        <input type="text" name="nome_cliente" id="nome_cliente" 
+                               class="form-control mr-sm-2 search" placeholder="Pesquisar..."/>
+                        <button type="submit" class="btn btn-outline-success my-2 my-sm-0 btn_search" 
+                                id="pesquisarCliente" name="pesquisarCliente">
                             <i class="fas fa-search"></i>
                         </button> 
                     </div>
