@@ -31,11 +31,12 @@
         <div class="background">
             <!-- FormulÃÂÃÂ¡rio -->
             <div class="card container mt-5 card_consulta">
-                <button type="button" class="btn btn-danger btn_excluir mt-2">
-                    <a>
-                        <i class="fa fa-trash"></i>
-                    </a>
-                </button>
+                <form id="formExcluirDadosCliente">
+                    <input type="hidden" id="id_cliente" name="id_cliente" value="<%=request.getParameter("id_cliente")%>">
+                    <button class="btn btn-danger mt-2" id="excluirCliente" name="excluirCliente">
+                            <i class="fa fa-trash icone_plus"></i>
+                    </button> 
+                </form>
                 <div class="centralizar">
                     <img src="../../img/Logo/mulher.png" 
                          alt="icone" class="tamanho_icone"/>
@@ -150,7 +151,11 @@
                                 <div class="form-group col-6">
                                     <label class="col-form-label login_label">Sexo</label>
                                     <select class="form-control" name="sexo_cliente" id="sexo_cliente">
-                                        <option value="<%=rsCliente.getString("sexo_cliente")%>"><%=rsCliente.getString("sexo_cliente")%></option>
+                                        <% if (rsCliente.getString("sexo_cliente").equals("M")){ %>
+                                                    <option value="<%=rsCliente.getString("sexo_cliente")%>">Masculino</option>
+                                        <% }else{ %>
+                                                    <option value="<%=rsCliente.getString("sexo_cliente")%>">Feminino</option>
+                                        <% } %>
                                     </select>
                                 </div>
                             </div>
