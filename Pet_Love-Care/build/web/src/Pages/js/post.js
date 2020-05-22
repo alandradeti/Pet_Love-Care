@@ -289,5 +289,3 @@ $(function () {
         return false;
     });
 });
-
-
