@@ -34,25 +34,25 @@ public class AgendamentoDAO extends Agendamento {
      */
     public boolean Incluir() {  
         try {
-            String sSql
-                    = "INSERT INTO TB_Agendamento("
-                    + "Tipo_Agendamento,"
-                    + "Data_inicial_Agendamento,"
-                    + "Data_final_Agendamento,"
-                    + "Horario_Agendamento,"
-                    + "Vacina_Id_Vacina,"
-                    + "Pet_Id_Pet,"
-                    + "Cliente_Id_Cliente,"
-                    + "Veterinario_Id_Veterinario"
+            String sSql =   
+                    "INSERT INTO TB_Agendamento("
+                        + "Tipo_Agendamento,"
+                        + "Data_inicial_Agendamento,"
+                        + "Data_final_Agendamento,"
+                        + "Horario_Agendamento,"
+                        + "Vacina_Id_Vacina,"
+                        + "Pet_Id_Pet,"
+                        + "Cliente_Id_Cliente,"
+                        + "Veterinario_Id_Veterinario"
                     + ")VALUES("
-                    + "'" + getTipo_agendamento() + "',"
-                    + "'" + getData_inicial_agendamento() + "',"
-                    + "'" + getData_final_agendamento() + "',"
-                    + "'" + getHorario_agendamento() + "',"
-                    + "'" + getId_vacina() + "',"
-                    + "'" + getId_pet() + "',"
-                    + "'" + getId_cliente() + "',"
-                    + "'" + getId_veterinario() + "')";
+                        + "'" + getTipo_agendamento() + "',"
+                        + "'" + getData_inicial_agendamento() + "',"
+                        + "'" + getData_final_agendamento() + "',"
+                        + "'" + getHorario_agendamento() + "',"
+                        + "'" + getId_vacina() + "',"
+                        + "'" + getId_pet() + "',"
+                        + "'" + getId_cliente() + "',"
+                        + "'" + getId_veterinario() + "')";
             PreparedStatement ps = dataSource.getConnection().prepareStatement(sSql); // Realiza a conexão e o preparo da query
             ps.executeUpdate(sSql); // Executa a query
 
@@ -74,23 +74,22 @@ public class AgendamentoDAO extends Agendamento {
      * @purpose: Realizar a alteração de um cliente existente. 
      * @return: boolean.
      */
-    /*public boolean Alterar(int iId_Cliente) {
+    public boolean Alterar(int iId_Agendamento) {
         try {
-            String sSql = "UPDATE "
-                    + "TB_Cliente"
-                    + "SET "
-                    + "Nome_Cliente = '" + getNome_cliente() + "',"
-                    + "CPF_Cliente = '" + getCpf_cliente() + "',"
-                    + "RG_Cliente = '" + getRg_cliente() + "',"
-                    + "Sexo_Cliente = '" + getSexo_cliente() + "',"
-                    + "Endereco_Cliente = '" + getEndereco_cliente() + "',"
-                    + "Email_Cliente = '" + getEmail_cliente() + "',"
-                    + "Telefone_Fixo_Cliente = '" + getTelefone_fixo_cliente() + "',"
-                    + "Telefone_Celular_Cliente = '" + getTelefone_celular_cliente() + "',"
-                    + "Data_Nascimento_Cliente = '" + getData_nascimento_cliente() + "',"
-                    + "Senha_Cliente = '" + getSenha_cliente() + "'"
-                    + "WHERE"
-                    + "Id_Cliente = " + iId_Cliente;
+            String sSql = 
+                    "UPDATE "
+                        + "TB_Agendamento"
+                    + " SET "
+                        + "Tipo_Agendamento = '" + getTipo_agendamento() + "',"
+                        + "Horario_Agendamento = '" + getHorario_agendamento() + "',"
+                        + "Vacina_Id_Vacina = '" + getId_vacina() + "',"
+                        + "Pet_Id_Pet = '" + getId_pet() + "',"
+                        + "Cliente_Id_Cliente = '" + getId_cliente() + "',"
+                        + "Veterinario_Id_Veterinario = '" + getId_veterinario() + "',"
+                        + "Data_Final_Agendamento = '" + getData_final_agendamento() + "',"
+                        + "Data_Inicial_Agendamento = '" + getData_inicial_agendamento() + "'"
+                    + " WHERE "
+                        + "Id_Agendamento = " + iId_Agendamento;
             PreparedStatement ps = dataSource.getConnection().prepareStatement(sSql); // Realiza a conexão e o preparo da query
             ps.executeUpdate(sSql); // Executa a query
 
@@ -104,7 +103,7 @@ public class AgendamentoDAO extends Agendamento {
             return (false);
         }
         return (true);
-    }*/
+    }
     
     /**
      * Método: Excluir()
@@ -112,12 +111,12 @@ public class AgendamentoDAO extends Agendamento {
      * @purpose: Realizar a exclusão de um cliente existente. 
      * @return: boolean.
      */
-    /*public boolean Excluir(int iId_Cliente){
+    public boolean Excluir(int iId_Agendamento){
     	 try {
             String sSql = "DELETE FROM "
-                            + "TB_Cliente "
+                            + "TB_Agendamento "
                         + "WHERE "
-                            + "Id_Cliente = " + iId_Cliente;
+                            + "Id_Agendamento = " + iId_Agendamento;
             PreparedStatement ps = dataSource.getConnection().prepareStatement(sSql); // Realiza a conexão e o preparo da query
             ps.executeUpdate(sSql); // Executa a query
             
@@ -131,5 +130,5 @@ public class AgendamentoDAO extends Agendamento {
             return (false);
         }
         return(true);
-    }*/
+    }
 }
