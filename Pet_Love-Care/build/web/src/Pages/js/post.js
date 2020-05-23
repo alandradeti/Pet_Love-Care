@@ -1,3 +1,9 @@
+/*********************************************************************/
+/********************                        *************************/
+/******************** TRATAMENTO AGENDAMENTO *************************/
+/********************                        *************************/
+/*********************************************************************/
+
 //Envio do formulário de cadastramento Agendamento
 $(function () {
     $('#formCadastrarAgendamento').submit(function () {
@@ -7,6 +13,38 @@ $(function () {
             data: $('#formCadastrarAgendamento').serialize(),
             success: function (data) {
                 alert("Funcionou");
+            }
+        });
+        return false;
+    });
+});
+
+//Envio do formulário de cadastramento Agendamento
+$(function () {
+    $('#formAlterarDadosAgendamento').submit(function () {
+        $.ajax({
+            url: '../Agendar/AlterarAgendamento.jsp',
+            type: 'POST',
+            data: $('#formAlterarDadosAgendamento').serialize(),
+            success: function (data) {
+                alert("Funcionou");
+            }
+        });
+        return false;
+    });
+});
+
+//Envio do formulário de Exclusão Agendamento  
+$(function () {
+    $('#formExcluirDadosAgendamento').submit(function () {
+        $.ajax({
+            url: '../Agendar/ExcluirAgendamento.jsp',
+            type: 'POST',
+            data: $('#formExcluirDadosAgendamento').serialize(),
+            
+            success: function (data) {
+                alert("Funcionou");
+                window.location.href = "../Agendar/Consultar_Agendamento.jsp";
             }
         });
         return false;
