@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="../../../css//bootstrap.min.css">
         <link rel="shortcut icon" href="../../img/Icon/Logo-cabeca.png">
         <link rel="stylesheet" href="../css/padrao.css">
-        <link rel="stylesheet" href="pet.css" >
+        <link rel="stylesheet" href="./pet.css" >
 
         <script src="../../../js/jquery.slim.min.js"></script>
         <script src="../../../js/bootstrap.min.js"></script>
@@ -19,24 +19,25 @@
         <script src="../js/ajax.min.js"></script>
         <script src="../js/post.js"></script>
 
-        <script>
-            $(function () {
-                $("#headerDiv").load("../Menu/Menu.jsp");
-            });
-        </script>
     </head>
 
     <body>
         <!-- Menu -->
         <div id="headerDiv"></div>
-        <div class="background">
             <!-- Formulário -->
             <div class="card container card_consulta">
-                <div class="text-center mt-4">
-                    <img src="../../img/Logo/Pinto_Mao.png" class="cabeca_gato">
-                    <h3>Cadastrar Pet</h3>
-                </div>
-                <form id="formCadastrarPet">
+                 <div class="modal fade modal_veterinario" id="modal_pet">
+            <div class="space_veterinario">
+                <button type="button" class="close close_modal_veterinario mr-2 mt-1" 
+                        data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <div class="tela_veterinario">  
+                    <div class="text-center ">
+                        <img src="../../img/Logo/Pinto_Mao.png" class="cabeca_gato">
+                        <h3>Cadastrar Pet</h3>
+                    </div>
+                    <form id="formCadastrarPet">
                     <div class="form-group">
                         <div class="form-row">
                             <div class="form-group col-md-6">
@@ -124,8 +125,13 @@
                         </div>
                     </div>
                 </form>
-            </div>
+                <div class="modal-dialog">
 
+                </div>
+              </div>
+            </div>
+          </div>
+         </div>
         </div>
     </body>
 </html>

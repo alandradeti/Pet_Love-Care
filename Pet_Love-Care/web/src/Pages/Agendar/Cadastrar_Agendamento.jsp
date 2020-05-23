@@ -24,22 +24,25 @@
         <script src="../js/padrao.js"></script>
         <script src="../js/ajax.min.js"></script>
         <script src="../js/post.js"></script>
+
+        <script>
+            $(function () {
+                $("#headerDiv").load("../Menu/Menu.jsp");
+            });
+        </script>
     </head>
 
     <body>
-        <div class="modal fade modal_vacina" id="modal_agendamento">
-            <div class="space_vacina">
-                <button type="button" class="close close_modal_vacina mr-2 mt-1" 
-                        data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <div class="tela_vacina">  
-                    <div class="centralizar">
-                        <img src="../../img/Logo/dog_sorrindo.png" 
-                             alt="icone" class="tamanho_icone"/>
-                        <h4 class="mt-3">Agende uma consulta</h4>
-                    </div>
-                    <form id="formCadastrarAgendamento">
+        <!-- Menu -->
+        <div id="headerDiv"></div>
+        <div class="background">
+            <!-- FormulÃ¡rio -->
+            <div class="card container mt-5 card_consulta">
+                <div class="text-center mt-4">
+                    <img src="../../img/Logo/Gato-cabeca.png" class="cabeca_gato">
+                    <h3>Agende uma consulta</h3>
+                </div>
+                <form id="formCadastrarAgendamento">
                     <div class="col">
                         <div class="form-row">
                             <div class="form-group col-md-6">
@@ -53,22 +56,89 @@
                                 </select>
                             </div>
                             <div class="form-group col-md-6">
-                                <label class="col-form-label login_label">Horário:</label>
-                                <input type="time" class="form-control" name="horario_agendamento" 
-                                       id="horario_agendamento" placeholder="Insira um horário" required />
+                                 <label class="col-form-label login_label">Horários Disponíveis:</label>
+                                <select name="horario_agendamento" id="horario_agendamento" class="form-control" required>
+                                        <%   
+                                            ResultSet rsHorarioAgendamento1 = agendamento.Consultar("SELECT Data_Inicial_Agendamento,Horario_Agendamento FROM TB_Agendamento WHERE Data_Inicial_Agendamento = '" + request.getParameter("data_inicial_agendamento") + "' AND Horario_Agendamento = '09:00'");
+                                            if(!rsHorarioAgendamento1.next()){
+                                        %>
+                                                <option  value="09:00">9:00h</option>
+                                        <%  }
+                                        %>  
+                                        <%   
+                                            ResultSet rsHorarioAgendamento2 = agendamento.Consultar("SELECT Data_Inicial_Agendamento,Horario_Agendamento FROM TB_Agendamento WHERE Data_Inicial_Agendamento = '" + request.getParameter("data_inicial_agendamento") + "' AND Horario_Agendamento = '10:00'");
+                                            if(!rsHorarioAgendamento2.next()){
+                                        %>
+                                                <option  value="10:00">10:00h</option>
+                                        <%  }
+                                        %>
+                                        <%   
+                                            ResultSet rsHorarioAgendamento3 = agendamento.Consultar("SELECT Data_Inicial_Agendamento,Horario_Agendamento FROM TB_Agendamento WHERE Data_Inicial_Agendamento = '" + request.getParameter("data_inicial_agendamento") + "' AND Horario_Agendamento = '11:00'");
+                                            if(!rsHorarioAgendamento3.next()){
+                                        %>
+                                                <option  value="11:00">11:00h</option>
+                                        <%  }
+                                        %>
+                                        <%   
+                                            ResultSet rsHorarioAgendamento4 = agendamento.Consultar("SELECT Data_Inicial_Agendamento,Horario_Agendamento FROM TB_Agendamento WHERE Data_Inicial_Agendamento = '" + request.getParameter("data_inicial_agendamento") + "' AND Horario_Agendamento = '12:00'");
+                                            if(!rsHorarioAgendamento4.next()){
+                                        %>
+                                                <option  value="12:00">12:00h</option>
+                                        <%  }
+                                        %>
+                                        <%   
+                                            ResultSet rsHorarioAgendamento5 = agendamento.Consultar("SELECT Data_Inicial_Agendamento,Horario_Agendamento FROM TB_Agendamento WHERE Data_Inicial_Agendamento = '" + request.getParameter("data_inicial_agendamento") + "' AND Horario_Agendamento = '14:00'");
+                                            if(!rsHorarioAgendamento5.next()){
+                                        %>
+                                                <option  value="14:00">14:00h</option>
+                                        <%  }
+                                        %>
+                                        <%   
+                                            ResultSet rsHorarioAgendamento6 = agendamento.Consultar("SELECT Data_Inicial_Agendamento,Horario_Agendamento FROM TB_Agendamento WHERE Data_Inicial_Agendamento = '" + request.getParameter("data_inicial_agendamento") + "' AND Horario_Agendamento = '15:00'");
+                                            if(!rsHorarioAgendamento6.next()){
+                                        %>
+                                                <option  value="15:00">15:00h</option>
+                                        <%  }
+                                        %>
+                                        <%   
+                                            ResultSet rsHorarioAgendamento7 = agendamento.Consultar("SELECT Data_Inicial_Agendamento,Horario_Agendamento FROM TB_Agendamento WHERE Data_Inicial_Agendamento = '" + request.getParameter("data_inicial_agendamento") + "' AND Horario_Agendamento = '16:00'");
+                                            if(!rsHorarioAgendamento7.next()){
+                                        %>
+                                                <option  value="16:00">16:00h</option>
+                                        <%  }
+                                        %>
+                                        <%   
+                                            ResultSet rsHorarioAgendamento8 = agendamento.Consultar("SELECT Data_Inicial_Agendamento,Horario_Agendamento FROM TB_Agendamento WHERE Data_Inicial_Agendamento = '" + request.getParameter("data_inicial_agendamento") + "' AND Horario_Agendamento = '17:00'");
+                                            if(!rsHorarioAgendamento8.next()){
+                                        %>
+                                                <option  value="17:00">17:00h</option>
+                                        <%  }
+                                        %>
+                                        <%   
+                                            ResultSet rsHorarioAgendamento9 = agendamento.Consultar("SELECT Data_Inicial_Agendamento,Horario_Agendamento FROM TB_Agendamento WHERE Data_Inicial_Agendamento = '" + request.getParameter("data_inicial_agendamento") + "' AND Horario_Agendamento = '18:00'");
+                                            if(!rsHorarioAgendamento9.next()){
+                                        %>
+                                                <option  value="18:00">18:00h</option>
+                                        <%  }
+                                        %>
+                                        <%   
+                                            ResultSet rsHorarioAgendamento10 = agendamento.Consultar("SELECT Data_Inicial_Agendamento,Horario_Agendamento FROM TB_Agendamento WHERE Data_Inicial_Agendamento = '" + request.getParameter("data_inicial_agendamento") + "' AND Horario_Agendamento = '19:00'");
+                                            if(!rsHorarioAgendamento10.next()){
+                                        %>
+                                                <option  value="19:00">19:00h</option>
+                                        <%  }
+                                        %>
+                                </select>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label class="col-form-label login_label">Data:</label>
-                                    <input type="date" class="form-control col-12" name="data_inicial_agendamento"
-                                           id="data_inicial_agendamento" placeholder="Data" required />
-                                </div>
+                                 <input type="hidden" class="form-control col-12" name="data_inicial_agendamento"
+                                           id="data_inicial_agendamento" placeholder="Data" value="<%=request.getParameter("data_inicial_agendamento")%>" required />
                                 <div class="form-group col-md-6">
                                     <label class="col-form-label login_label">Data Final:</label>
-                                    <input type="date" class="form-control col-12" name="data_final_agendamento"
+                                    <input type="text" class="form-control col-12" name="data_final_agendamento"
                                            id="data_final_agendamento" placeholder="Data Final"/>
                                 </div>
                             </div>
@@ -105,18 +175,15 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label class="col-form-label login_label">Vacina:</label>
-                                    <select name="id_vacina" id="id_vacina" class="form-control">   
+                                    <select name="id_vacina" id="id_vacina" class="form-control">
+                                            <option value=""></option>
                                         <%
-                                            ResultSet rsVacina = vacina.Consultar("SELECT Id_Vacina,Nome_Vacina FROM TB_Vacina");
+                                            ResultSet rsVacina = agendamento.Consultar("SELECT Id_Vacina,Nome_Vacina FROM TB_Vacina");
                                             if(rsVacina.next()){
                                                 do{
                                         %>      
                                                     <option value="<%=rsVacina.getString("id_vacina")%>"><%=rsVacina.getString("nome_vacina")%></option>
                                         <%      }while (rsVacina.next());
-                                            }else{
-                                        %> 
-                                                <option value=""></option>
-                                        <%
                                             }
                                         %>
                                     </select>
@@ -127,11 +194,7 @@
                                 <button class="btn btn_agendar mt-4 ">Agendar</button>
                             </div>
                         </div>
-                    </form>
-                    <div class="modal-dialog">
-
-                    </div>
-                </div>
+                </form>
             </div>
         </div>
     </body>
