@@ -36,7 +36,7 @@
                         <i class="fa fa-trash"></i>
                     </button> 
                 </form>
-                <a class="btn_voltar" href="./Carteira.html">
+                <a class="btn_voltar" href="./Consultar_CarteiraVacinacao.html">
                     <i class="fas fa-arrow-left icone_plus"></i>
                 </a>
                 <div class="centralizar">

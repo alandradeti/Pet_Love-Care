@@ -1,3 +1,7 @@
+<%@page language="java" import="java.sql.*" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<jsp:useBean id="vacina" class="Vacina.VacinaDAO"/>
+<jsp:useBean id="pet" class="Pet.PetDAO"/>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,22 +40,26 @@
                              alt="icone" class="tamanho_icone"/>
                         <h4 class="mt-3">Cadastrar Carteira</h4>
                     </div>
-                    <form id="formCadastrarVacina">
-
+                    <form id="formCadastrarCarteiraVacinacao">
+                        <input type="text" name="data_inicial_agendamento" id="data_inicial_agendamento"  placeholder="Data" value="<%=request.getParameter("id_cliente")%>"/>
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label class="col-form-label login_label mt-3">Cachorro:</label>
-                                <input
-                                    type="text"
-                                    class="form-control"
-                                    id="nome_cachorro_pet_vacina"  
-                                    name="nome_cachorro_pet_vacina" placeholder="Nome do cachorro.." required
-                                    />
+                                <select name="id_pet" id="id_pet" class="form-control" required>
+                                        <%
+                                            ResultSet rsPet = pet.Consultar("SELECT Id_Pet,Nome_Pet,Cliente_Id_Cliente FROM TB_Pet WHERE Cliente_Id_Cliente = '" + request.getParameter("id_cliente")+ "'");
+                                            while (rsPet.next()) {
+                                        %>
+                                                <option value="<%=rsPet.getString("id_pet")%>"><%=rsPet.getString("nome_pet")%></option>      
+                                        <%
+                                            }
+                                        %>
+                                </select>
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="col-form-label login_label mt-3">Data:</label>
                                 <input
-                                    type="date"
+                                    type="text"
                                     class="form-control"
                                     name="data_pet_vacina" 
                                     id="data_pet_vacina" required
@@ -60,13 +68,17 @@
                         </div>
 
                         <label class="col-form-label login_label">Nome Vacina:</label>
-                        <input
-                            class="form-control"
-                            name="descricao_vacina"
-                            id="descricao_vacina"
-                            placeholder="Descrição"
-                            required
-                            >
+                        <select name="id_vacina" id="id_vacina" class="form-control">
+                            <%
+                                ResultSet rsVacina = vacina.Consultar("SELECT Id_Vacina,Nome_Vacina FROM TB_Vacina");
+                                if(rsVacina.next()){
+                                    do{
+                            %>      
+                                        <option value="<%=rsVacina.getString("id_vacina")%>"><%=rsVacina.getString("nome_vacina")%></option>
+                            <%      }while (rsVacina.next());
+                                }
+                            %>
+                        </select>
                         <div class="centralizar_btn"> 
                             <button class="btn btn_login mt-4 centralizar_btn">Cadastrar</button>
                         </div>

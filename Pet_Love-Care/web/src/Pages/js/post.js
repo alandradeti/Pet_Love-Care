@@ -328,3 +328,56 @@ $(function () {
         return false;
     });
 });
+
+/*********************************************************************/
+/********************                        *************************/
+/******************** TRATAMENTO AGENDAMENTO *************************/
+/********************                        *************************/
+/*********************************************************************/
+
+//Envio do formulário de cadastramento Carteira de Vacinacao
+$(function () {
+    $('#formCadastrarCarteiraVacinacao').submit(function () {
+        $.ajax({
+                url: '../CarteiraVacinacao/IncluirCarteiraVacinacao.jsp',
+            type: 'POST',
+            data: $('#formCadastrarCarteiraVacinacao').serialize(),
+            success: function (data) {
+                alert("Funcionou");
+            }
+        });
+        return false;
+    });
+});
+
+//Envio do formulário de cadastramento Carteira de Vacinacao
+$(function () {
+    $('#formAlterarDadosCarteiraVacinacao').submit(function () {
+        $.ajax({
+            url: '../CarteiraVacinacao/AlterarCarteiraVacinacao.jsp',
+            type: 'POST',
+            data: $('#formAlterarDadosCarteiraVacinacao').serialize(),
+            success: function (data) {
+                alert("Funcionou");
+            }
+        });
+        return false;
+    });
+});
+
+//Envio do formulário de Exclusão Carteira de Vacinacao
+$(function () {
+    $('#formExcluirDadosCarteiraVacinacao').submit(function () {
+        $.ajax({
+            url: '../CarteiraVacinacao/ExcluirCarteiraVacinacao.jsp',
+            type: 'POST',
+            data: $('#formExcluirDadosCarteiraVacinacao').serialize(),
+            
+            success: function (data) {
+                alert("Funcionou");
+                window.location.href = "../CarteiraVacinacao/Consultar_CarteiraVacinacao.jsp";
+            }
+        });
+        return false;
+    });
+});
