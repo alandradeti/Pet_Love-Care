@@ -141,8 +141,14 @@
                                                         <td><%=rsPesquisaAgendamento.getString("tipo_agendamento")%></td>
                                                         <td><%=rsPesquisaAgendamento.getString("horario_agendamento")%></td>
                                                         <td><%=rsPesquisaAgendamento.getString("data_inicial_agendamento")%></td>
-                                                        <td><%=rsPesquisaAgendamento.getString("data_final_agendamento")%></td>
-            <%                                          ResultSet rsClientePet = agendamento.Consultar("SELECT * FROM TB_Pet WHERE Id_Pet = " + rsPesquisaAgendamento.getString("pet_id_pet"));
+            <%                                          if (!rsPesquisaAgendamento.getString("data_final_agendamento").isEmpty() && !rsPesquisaAgendamento.getString("data_final_agendamento").equalsIgnoreCase("null")){
+            %>
+                                                            <td><%=rsPesquisaAgendamento.getString("data_final_agendamento")%></td>
+            <%                                          }else{
+            %>
+                                                            <td></td>
+            <%                                          }
+                                                        ResultSet rsClientePet = agendamento.Consultar("SELECT * FROM TB_Pet WHERE Id_Pet = " + rsPesquisaAgendamento.getString("pet_id_pet"));
                                                         if(rsClientePet.next()){
             %>    
                                                             <td><%=rsClientePet.getString("nome_pet")%></td>
@@ -165,7 +171,7 @@
                                                             <div class="row btn_tabela_acoes">
                                                                 <form id="formAlterarAgendamento" method="POST" action="Editar_Agendamento.jsp">  
                                                                     <input type="hidden" id="id_agendamento" name="id_agendamento" value="<%=rsPesquisaAgendamento.getString("id_agendamento")%>">
-                                                                    <button href="Editar_Agendamento.jsp" id="alterarVacina" name="alterarVacina" class="btn btn-warning">
+                                                                    <button href="Editar_Agendamento.jsp" id="alterarAgendamento" name="alterarAgendamento" class="btn btn-warning">
                                                                         <i class="fa fa-pen icone_plus"></i>
                                                                     </button>
                                                                 </form>
@@ -188,8 +194,14 @@
                                                         <td><%=rsPesquisaAgendamento.getString("tipo_agendamento")%></td>
                                                         <td><%=rsPesquisaAgendamento.getString("horario_agendamento")%></td>
                                                         <td><%=rsPesquisaAgendamento.getString("data_inicial_agendamento")%></td>
-                                                        <td><%=rsPesquisaAgendamento.getString("data_final_agendamento")%></td>
-            <%                                          ResultSet rsClientePet = agendamento.Consultar("SELECT * FROM TB_Pet WHERE Id_Pet = " + rsPesquisaAgendamento.getString("pet_id_pet"));
+            <%                                          if (!rsPesquisaAgendamento.getString("data_final_agendamento").isEmpty() && !rsPesquisaAgendamento.getString("data_final_agendamento").equalsIgnoreCase("null")){
+            %>
+                                                            <td><%=rsPesquisaAgendamento.getString("data_final_agendamento")%></td>
+            <%                                          }else{
+            %>
+                                                            <td></td>
+            <%                                          }
+                                                        ResultSet rsClientePet = agendamento.Consultar("SELECT * FROM TB_Pet WHERE Id_Pet = " + rsPesquisaAgendamento.getString("pet_id_pet"));
                                                         if(rsClientePet.next()){
             %>    
                                                             <td><%=rsClientePet.getString("nome_pet")%></td>
@@ -212,7 +224,7 @@
                                                             <div class="row btn_tabela_acoes">
                                                                 <form id="formAlterarAgendamento" method="POST" action="Editar_Agendamento.jsp">  
                                                                     <input type="hidden" id="id_agendamento" name="id_agendamento" value="<%=rsPesquisaAgendamento.getString("id_agendamento")%>">
-                                                                    <button href="Editar_Agendamento.jsp" id="alterarVacina" name="alterarVacina" class="btn btn-warning">
+                                                                    <button href="Editar_Agendamento.jsp" id="alterarAgendamento" name="alterarAgendamento" class="btn btn-warning">
                                                                         <i class="fa fa-pen icone_plus"></i>
                                                                     </button>
                                                                 </form>
@@ -235,8 +247,14 @@
                                                         <td><%=rsPesquisaAgendamento.getString("tipo_agendamento")%></td>
                                                         <td><%=rsPesquisaAgendamento.getString("horario_agendamento")%></td>
                                                         <td><%=rsPesquisaAgendamento.getString("data_inicial_agendamento")%></td>
-                                                        <td><%=rsPesquisaAgendamento.getString("data_final_agendamento")%></td>
-            <%                                          ResultSet rsClientePet = agendamento.Consultar("SELECT * FROM TB_Pet WHERE Id_Pet = " + rsPesquisaAgendamento.getString("pet_id_pet"));
+            <%                                          if (!rsPesquisaAgendamento.getString("data_final_agendamento").isEmpty() && !rsPesquisaAgendamento.getString("data_final_agendamento").equalsIgnoreCase("null")){
+            %>
+                                                            <td><%=rsPesquisaAgendamento.getString("data_final_agendamento")%></td>
+            <%                                          }else{
+            %>
+                                                            <td></td>
+            <%                                          }
+                                                        ResultSet rsClientePet = agendamento.Consultar("SELECT * FROM TB_Pet WHERE Id_Pet = " + rsPesquisaAgendamento.getString("pet_id_pet"));
                                                         if(rsClientePet.next()){
             %>    
                                                             <td><%=rsClientePet.getString("nome_pet")%></td>
@@ -259,7 +277,7 @@
                                                             <div class="row btn_tabela_acoes">
                                                                 <form id="formAlterarAgendamento" method="POST" action="Editar_Agendamento.jsp">  
                                                                     <input type="hidden" id="id_agendamento" name="id_agendamento" value="<%=rsPesquisaAgendamento.getString("id_agendamento")%>">
-                                                                    <button href="Editar_Agendamento.jsp" id="alterarVacina" name="alterarVacina" class="btn btn-warning">
+                                                                    <button href="Editar_Agendamento.jsp" id="alterarAgendamento" name="alterarAgendamento" class="btn btn-warning">
                                                                         <i class="fa fa-pen icone_plus"></i>
                                                                     </button>
                                                                 </form>
@@ -282,8 +300,14 @@
                                                         <td><%=rsPesquisaAgendamento.getString("tipo_agendamento")%></td>
                                                         <td><%=rsPesquisaAgendamento.getString("horario_agendamento")%></td>
                                                         <td><%=rsPesquisaAgendamento.getString("data_inicial_agendamento")%></td>
-                                                        <td><%=rsPesquisaAgendamento.getString("data_final_agendamento")%></td>
-            <%                                          ResultSet rsClientePet = agendamento.Consultar("SELECT * FROM TB_Pet WHERE Id_Pet = " + rsPesquisaAgendamento.getString("pet_id_pet"));
+            <%                                          if (!rsPesquisaAgendamento.getString("data_final_agendamento").isEmpty() && !rsPesquisaAgendamento.getString("data_final_agendamento").equalsIgnoreCase("null")){
+            %>
+                                                            <td><%=rsPesquisaAgendamento.getString("data_final_agendamento")%></td>
+            <%                                          }else{
+            %>
+                                                            <td></td>
+            <%                                          }
+                                                        ResultSet rsClientePet = agendamento.Consultar("SELECT * FROM TB_Pet WHERE Id_Pet = " + rsPesquisaAgendamento.getString("pet_id_pet"));
                                                         if(rsClientePet.next()){
             %>    
                                                             <td><%=rsClientePet.getString("nome_pet")%></td>
@@ -306,7 +330,7 @@
                                                             <div class="row btn_tabela_acoes">
                                                                 <form id="formAlterarAgendamento" method="POST" action="Editar_Agendamento.jsp">  
                                                                     <input type="hidden" id="id_agendamento" name="id_agendamento" value="<%=rsPesquisaAgendamento.getString("id_agendamento")%>">
-                                                                    <button href="Editar_Agendamento.jsp" id="alterarVacina" name="alterarVacina" class="btn btn-warning">
+                                                                    <button href="Editar_Agendamento.jsp" id="alterarAgendamento" name="alterarAgendamento" class="btn btn-warning">
                                                                         <i class="fa fa-pen icone_plus"></i>
                                                                     </button>
                                                                 </form>
@@ -334,8 +358,14 @@
                                                     <td><%=rsPesquisaAgendamento.getString("tipo_agendamento")%></td>
                                                     <td><%=rsPesquisaAgendamento.getString("horario_agendamento")%></td>
                                                     <td><%=rsPesquisaAgendamento.getString("data_inicial_agendamento")%></td>
-                                                    <td><%=rsPesquisaAgendamento.getString("data_final_agendamento")%></td>
-            <%                                      ResultSet rsClientePet = agendamento.Consultar("SELECT * FROM TB_Pet WHERE Id_Pet = " + rsPesquisaAgendamento.getString("pet_id_pet"));
+            <%                                      if (!rsPesquisaAgendamento.getString("data_final_agendamento").isEmpty() && !rsPesquisaAgendamento.getString("data_final_agendamento").equalsIgnoreCase("null")){
+            %>
+                                                        <td><%=rsPesquisaAgendamento.getString("data_final_agendamento")%></td>
+            <%                                      }else{
+            %>
+                                                        <td></td>
+            <%                                      }
+                                                    ResultSet rsClientePet = agendamento.Consultar("SELECT * FROM TB_Pet WHERE Id_Pet = " + rsPesquisaAgendamento.getString("pet_id_pet"));
                                                     if(rsClientePet.next()){
             %>    
                                                         <td><%=rsClientePet.getString("nome_pet")%></td>
@@ -358,7 +388,7 @@
                                                         <div class="row btn_tabela_acoes">
                                                             <form id="formAlterarAgendamento" method="POST" action="Editar_Agendamento.jsp">  
                                                                 <input type="hidden" id="id_agendamento" name="id_agendamento" value="<%=rsPesquisaAgendamento.getString("id_agendamento")%>">
-                                                                <button href="Editar_Agendamento.jsp" id="alterarVacina" name="alterarVacina" class="btn btn-warning">
+                                                                <button href="Editar_Agendamento.jsp" id="alterarAgendamento" name="alterarAgendamento" class="btn btn-warning">
                                                                     <i class="fa fa-pen icone_plus"></i>
                                                                 </button>
                                                             </form>
@@ -385,8 +415,14 @@
                                                             <td><%=rsPesquisaAgendamento.getString("tipo_agendamento")%></td>
                                                             <td><%=rsPesquisaAgendamento.getString("horario_agendamento")%></td>
                                                             <td><%=rsPesquisaAgendamento.getString("data_inicial_agendamento")%></td>
-                                                            <td><%=rsPesquisaAgendamento.getString("data_final_agendamento")%></td>
-            <%                                              ResultSet rsClientePet = agendamento.Consultar("SELECT * FROM TB_Pet WHERE Id_Pet = " + rsPesquisaAgendamento.getString("pet_id_pet"));
+            <%                                              if (!rsPesquisaAgendamento.getString("data_final_agendamento").isEmpty() && !rsPesquisaAgendamento.getString("data_final_agendamento").equalsIgnoreCase("null")){
+            %>
+                                                                <td><%=rsPesquisaAgendamento.getString("data_final_agendamento")%></td>
+            <%                                              }else{
+            %>
+                                                                <td></td>
+            <%                                              }
+                                                            ResultSet rsClientePet = agendamento.Consultar("SELECT * FROM TB_Pet WHERE Id_Pet = " + rsPesquisaAgendamento.getString("pet_id_pet"));
                                                             if(rsClientePet.next()){
             %>        
                                                                 <td><%=rsClientePet.getString("nome_pet")%></td>
@@ -403,7 +439,7 @@
                                                                 <div class="row btn_tabela_acoes">
                                                                     <form id="formAlterarAgendamento" method="POST" action="Editar_Agendamento.jsp">  
                                                                         <input type="hidden" id="id_agendamento" name="id_agendamento" value="<%=rsPesquisaAgendamento.getString("id_agendamento")%>">
-                                                                        <button href="Editar_Agendamento.jsp" id="alterarVacina" name="alterarVacina" class="btn btn-warning">
+                                                                        <button href="Editar_Agendamento.jsp" id="alterarAgendamento" name="alterarAgendamento" class="btn btn-warning">
                                                                             <i class="fa fa-pen icone_plus"></i>
                                                                         </button>
                                                                     </form>
@@ -426,8 +462,14 @@
                                                         <td><%=rsPesquisaAgendamento.getString("tipo_agendamento")%></td>
                                                         <td><%=rsPesquisaAgendamento.getString("horario_agendamento")%></td>
                                                         <td><%=rsPesquisaAgendamento.getString("data_inicial_agendamento")%></td>
-                                                        <td><%=rsPesquisaAgendamento.getString("data_final_agendamento")%></td>
-            <%                                          ResultSet rsClientePet = agendamento.Consultar("SELECT * FROM TB_Pet WHERE Id_Pet = " + rsPesquisaAgendamento.getString("pet_id_pet"));
+            <%                                          if (!rsPesquisaAgendamento.getString("data_final_agendamento").isEmpty() && !rsPesquisaAgendamento.getString("data_final_agendamento").equalsIgnoreCase("null")){
+            %>
+                                                            <td><%=rsPesquisaAgendamento.getString("data_final_agendamento")%></td>
+            <%                                          }else{
+            %>
+                                                            <td></td>
+            <%                                          }
+                                                        ResultSet rsClientePet = agendamento.Consultar("SELECT * FROM TB_Pet WHERE Id_Pet = " + rsPesquisaAgendamento.getString("pet_id_pet"));
                                                         if(rsClientePet.next()){
             %>        
                                                             <td><%=rsClientePet.getString("nome_pet")%></td>
@@ -444,7 +486,7 @@
                                                             <div class="row btn_tabela_acoes">
                                                                 <form id="formAlterarAgendamento" method="POST" action="Editar_Agendamento.jsp">  
                                                                     <input type="hidden" id="id_agendamento" name="id_agendamento" value="<%=rsPesquisaAgendamento.getString("id_agendamento")%>">
-                                                                    <button href="Editar_Agendamento.jsp" id="alterarVacina" name="alterarVacina" class="btn btn-warning">
+                                                                    <button href="Editar_Agendamento.jsp" id="alterarAgendamento" name="alterarAgendamento" class="btn btn-warning">
                                                                         <i class="fa fa-pen icone_plus"></i>
                                                                     </button>
                                                                 </form>
@@ -467,8 +509,14 @@
                                                         <td><%=rsPesquisaAgendamento.getString("tipo_agendamento")%></td>
                                                         <td><%=rsPesquisaAgendamento.getString("horario_agendamento")%></td>
                                                         <td><%=rsPesquisaAgendamento.getString("data_inicial_agendamento")%></td>
-                                                        <td><%=rsPesquisaAgendamento.getString("data_final_agendamento")%></td>
-            <%                                          ResultSet rsClientePet = agendamento.Consultar("SELECT * FROM TB_Pet WHERE Id_Pet = " + rsPesquisaAgendamento.getString("pet_id_pet"));
+            <%                                          if (!rsPesquisaAgendamento.getString("data_final_agendamento").isEmpty() && !rsPesquisaAgendamento.getString("data_final_agendamento").equalsIgnoreCase("null")){
+            %>
+                                                            <td><%=rsPesquisaAgendamento.getString("data_final_agendamento")%></td>
+            <%                                          }else{
+            %>
+                                                            <td></td>
+            <%                                          } 
+                                                        ResultSet rsClientePet = agendamento.Consultar("SELECT * FROM TB_Pet WHERE Id_Pet = " + rsPesquisaAgendamento.getString("pet_id_pet"));
                                                         if(rsClientePet.next()){
             %>        
                                                             <td><%=rsClientePet.getString("nome_pet")%></td>
@@ -485,7 +533,7 @@
                                                             <div class="row btn_tabela_acoes">
                                                                 <form id="formAlterarAgendamento" method="POST" action="Editar_Agendamento.jsp">  
                                                                     <input type="hidden" id="id_agendamento" name="id_agendamento" value="<%=rsPesquisaAgendamento.getString("id_agendamento")%>">
-                                                                    <button href="Editar_Agendamento.jsp" id="alterarVacina" name="alterarVacina" class="btn btn-warning">
+                                                                    <button href="Editar_Agendamento.jsp" id="alterarAgendamento" name="alterarAgendamento" class="btn btn-warning">
                                                                         <i class="fa fa-pen icone_plus"></i>
                                                                     </button>
                                                                 </form>
@@ -509,8 +557,14 @@
                                                         <td><%=rsPesquisaAgendamento.getString("tipo_agendamento")%></td>
                                                         <td><%=rsPesquisaAgendamento.getString("horario_agendamento")%></td>
                                                         <td><%=rsPesquisaAgendamento.getString("data_inicial_agendamento")%></td>
-                                                        <td><%=rsPesquisaAgendamento.getString("data_final_agendamento")%></td>
-            <%                                          ResultSet rsClientePet = agendamento.Consultar("SELECT * FROM TB_Pet WHERE Id_Pet = " + rsPesquisaAgendamento.getString("pet_id_pet"));
+            <%                                          if (!rsPesquisaAgendamento.getString("data_final_agendamento").isEmpty() && !rsPesquisaAgendamento.getString("data_final_agendamento").equalsIgnoreCase("null")){
+            %>
+                                                            <td><%=rsPesquisaAgendamento.getString("data_final_agendamento")%></td>
+            <%                                          }else{
+            %>
+                                                            <td></td>
+            <%                                          } 
+                                                        ResultSet rsClientePet = agendamento.Consultar("SELECT * FROM TB_Pet WHERE Id_Pet = " + rsPesquisaAgendamento.getString("pet_id_pet"));
                                                         if(rsClientePet.next()){
             %>        
                                                             <td><%=rsClientePet.getString("nome_pet")%></td>
@@ -527,7 +581,7 @@
                                                             <div class="row btn_tabela_acoes">
                                                                 <form id="formAlterarAgendamento" method="POST" action="Editar_Agendamento.jsp">  
                                                                     <input type="hidden" id="id_agendamento" name="id_agendamento" value="<%=rsPesquisaAgendamento.getString("id_agendamento")%>">
-                                                                    <button href="Editar_Agendamento.jsp" id="alterarVacina" name="alterarVacina" class="btn btn-warning">
+                                                                    <button href="Editar_Agendamento.jsp" id="alterarAgendamento" name="alterarAgendamento" class="btn btn-warning">
                                                                         <i class="fa fa-pen icone_plus"></i>
                                                                     </button>
                                                                 </form>
@@ -554,8 +608,14 @@
                                                     <td><%=rsPesquisaAgendamento.getString("tipo_agendamento")%></td>
                                                     <td><%=rsPesquisaAgendamento.getString("horario_agendamento")%></td>
                                                     <td><%=rsPesquisaAgendamento.getString("data_inicial_agendamento")%></td>
-                                                    <td><%=rsPesquisaAgendamento.getString("data_final_agendamento")%></td>
-            <%                                      ResultSet rsClientePet = agendamento.Consultar("SELECT * FROM TB_Pet WHERE Id_Pet = " + rsPesquisaAgendamento.getString("pet_id_pet"));
+            <%                                      if (!rsPesquisaAgendamento.getString("data_final_agendamento").isEmpty() && !rsPesquisaAgendamento.getString("data_final_agendamento").equalsIgnoreCase("null")){
+            %>
+                                                        <td><%=rsPesquisaAgendamento.getString("data_final_agendamento")%></td>
+            <%                                      }else{
+            %>
+                                                        <td></td>
+            <%                                      } 
+                                                    ResultSet rsClientePet = agendamento.Consultar("SELECT * FROM TB_Pet WHERE Id_Pet = " + rsPesquisaAgendamento.getString("pet_id_pet"));
                                                     if(rsClientePet.next()){
             %>        
                                                         <td><%=rsClientePet.getString("nome_pet")%></td>
@@ -572,7 +632,7 @@
                                                         <div class="row btn_tabela_acoes">
                                                             <form id="formAlterarAgendamento" method="POST" action="Editar_Agendamento.jsp">  
                                                                 <input type="hidden" id="id_agendamento" name="id_agendamento" value="<%=rsPesquisaAgendamento.getString("id_agendamento")%>">
-                                                                <button href="Editar_Agendamento.jsp" id="alterarVacina" name="alterarVacina" class="btn btn-warning">
+                                                                <button href="Editar_Agendamento.jsp" id="alterarAgendamento" name="alterarAgendamento" class="btn btn-warning">
                                                                     <i class="fa fa-pen icone_plus"></i>
                                                                 </button>
                                                             </form>
