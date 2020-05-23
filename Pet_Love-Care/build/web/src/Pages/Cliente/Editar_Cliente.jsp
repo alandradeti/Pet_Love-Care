@@ -33,10 +33,13 @@
             <div class="card container mt-5 card_consulta">
                 <form id="formExcluirDadosCliente">
                     <input type="hidden" id="id_cliente" name="id_cliente" value="<%=request.getParameter("id_cliente")%>">
-                    <button class="btn btn-danger mt-2" id="excluirCliente" name="excluirCliente">
+                    <button class="btn btn-danger mt-2 btn_excluir" id="excluirCliente" name="excluirCliente">
                             <i class="fa fa-trash icone_plus"></i>
                     </button> 
                 </form>
+                <a class="btn_voltar" href="./ClienteConsultar.jsp">
+                    <i class="fas fa-arrow-left icone_plus"></i>
+                </a>
                 <div class="centralizar">
                     <img src="../../img/Logo/mulher.png" 
                          alt="icone" class="tamanho_icone"/>
