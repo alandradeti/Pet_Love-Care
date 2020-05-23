@@ -138,7 +138,7 @@
                                            id="data_inicial_agendamento" placeholder="Data" value="<%=request.getParameter("data_inicial_agendamento")%>" required />
                                 <div class="form-group col-md-6">
                                     <label class="col-form-label login_label">Data Final:</label>
-                                    <input type="date" class="form-control col-12" name="data_final_agendamento"
+                                    <input type="text" class="form-control col-12" name="data_final_agendamento"
                                            id="data_final_agendamento" placeholder="Data Final"/>
                                 </div>
                             </div>
@@ -175,7 +175,8 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label class="col-form-label login_label">Vacina:</label>
-                                    <select name="id_vacina" id="id_vacina" class="form-control">   
+                                    <select name="id_vacina" id="id_vacina" class="form-control">
+                                            <option value=""></option>
                                         <%
                                             ResultSet rsVacina = agendamento.Consultar("SELECT Id_Vacina,Nome_Vacina FROM TB_Vacina");
                                             if(rsVacina.next()){
@@ -183,10 +184,6 @@
                                         %>      
                                                     <option value="<%=rsVacina.getString("id_vacina")%>"><%=rsVacina.getString("nome_vacina")%></option>
                                         <%      }while (rsVacina.next());
-                                            }else{
-                                        %> 
-                                                <option value=""></option>
-                                        <%
                                             }
                                         %>
                                     </select>
