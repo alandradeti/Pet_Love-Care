@@ -46,7 +46,7 @@
                 <%  if (rs.next()) {
                         if (rs.getBoolean("Tipo_Cliente") == false) {%>
                 <li class="nav-item">
-                    <a class="nav-link" href="../Agendar/Agendar.jsp">Agendar</a>
+                    <a class="nav-link" href="../Agendar/Consultar_Agendamento.jsp">Agendamento</a>
                 </li>
                 <%      }
                 %>
@@ -66,7 +66,7 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../Agendar/Consultar_Agendamento.html">Agendamento</a>
+                    <a class="nav-link" href="../Agendar/Consultar_Agendamento.jsp">Agendamento</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="../Pet/PetConsultar.jsp">Pet</a>
