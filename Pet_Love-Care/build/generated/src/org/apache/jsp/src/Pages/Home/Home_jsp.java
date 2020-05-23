@@ -64,7 +64,7 @@ public final class Home_jsp extends org.apache.jasper.runtime.HttpJspBase
       }
       out.write("\r\n");
       out.write("<!DOCTYPE html>\r\n");
-      out.write("<html lang=\"en\">\r\n");
+      out.write("<html lang=\"PT-BR\">\r\n");
       out.write("\r\n");
       out.write("    <head>\r\n");
       out.write("        <meta charset=\"UTF-8\">\r\n");
