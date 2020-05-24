@@ -1,0 +1,74 @@
+/* Parte onde fica o card da consulta */
+.card_consulta {
+    background-color: #FFD797 !important;
+    border-radius: 15px !important;
+    box-shadow: 0px 2px 2px black;
+    max-width: 800px !important;
+}
+
+/* Botão agendamento */
+.btn_agendar {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: white !important;
+    border: none;
+    background-color: #ffa411 !important;
+}
+
+.btn_agendar:hover {
+    color: white;
+    background-color: #f09f1d !important;
+  }
+
+.pst_btn_agendar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Tamanho do icone */
+.tamanho_icone {
+    width: 90px;
+    height: 80px;
+}
+
+.icone_plus {
+    color: black;
+}
+
+.btn_cadastrar_vacinas:hover {
+    background: #38b548;
+}
+
+.btn_vacina {
+    width: 40px;
+    heigth: 40px;
+}
+
+.relatorio_box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    border: 2px solid black;
+    padding: 10px;
+}
+
+.relatorio_centralizar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.estilo_span {
+    font-weight: bolder;
+    font-size: 25px;
+}
+
+.relatorio_titulo_hidden {
+    display: none;
+}
+
+.logo_imprimi {
+    display: none;
+}

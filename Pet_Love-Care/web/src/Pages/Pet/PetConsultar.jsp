@@ -61,7 +61,8 @@
                         <%  if(rs.next()){
                                 if (rs.getBoolean("Tipo_Cliente") == true){
                         %>
-                                    <select class="form-control col-12" name="id_cliente" id="id_cliente">
+                                    <label class="label_pet">Cliente:</label>
+                                    <select class="form-control col-8" name="id_cliente" id="id_cliente">
                                         <option value="">Todos</option>
                         <%              ResultSet rsPetPesquisa = pet.Consultar("SELECT DISTINCT Cliente_Id_Cliente FROM TB_Pet");
                                         while(rsPetPesquisa.next()){
@@ -83,7 +84,7 @@
                         </button> 
                     </div>
                 </form>
-                <table id="tbPet" class="table responsive table-hover table-dark mt-2">
+                <table id="tbPet" class="table responsive table-hover table-dark mt-4">
                     <thead>
                         <tr class="text-center">
                             <th scope="col">ID</th>
