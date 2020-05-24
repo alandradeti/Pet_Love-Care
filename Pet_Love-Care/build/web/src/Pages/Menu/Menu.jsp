@@ -91,14 +91,8 @@
                 <%      }
                 %>
                 <%      if (rs.getBoolean("Tipo_Cliente") == false) {%>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Pet
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="nav-link" href="../Pet/PetConsultar.jsp">Consultar</a>
-                        <a class="nav-link" href="../Pet/Cadastrar_Pet.html">Cadastrar</a>
-                    </div>
+                <li class="nav-item">
+                    <a class="nav-link" href="../Pet/PetConsultar.jsp">Pet</a>
                 </li>
                 <%      }
                     }
