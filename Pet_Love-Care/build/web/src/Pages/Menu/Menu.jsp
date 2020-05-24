@@ -87,6 +87,12 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="../CarteiraVacinacao/Consultar_CarteiraVacinacao.jsp">Carteira de Vacinação</a>
+                    
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../Relatorio/Relatorio.jsp">
+                        Teste Relatorio
+                    </a>
                 </li>
                 <%      }
                 %>
