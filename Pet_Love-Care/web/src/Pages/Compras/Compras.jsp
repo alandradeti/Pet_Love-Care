@@ -69,12 +69,10 @@
                             <td><%=rsCarrinho.getFloat("preco_carrinho")%></td>
                             <td>
                               <div class="row btn_tabela_acoes">
-                                
                                     <input type="hidden" id="id_carrinho" name="id_carrinho" value="<%=rsCarrinho.getString("id_carrinho")%>">
                                     <button type="submit" id="excluirProdutoCarrinho" name="excluirProdutoCarrinho" class="btn btn-danger mt-2 btn_excluir">
                                         <i class="fa fa-trash icone_plus"></i>
                                     </button>
-                                
                               </div>
                             </td>
                         </tr>
