@@ -22,12 +22,6 @@
     $(function () {
       $("#headerDiv").load("../Menu/Menu.jsp");
     });
-    $(function () {
-        $("#header_carteira").load("./Cadastrar_Carteira.html");
-    });
-    $('#myModal').on('shown.bs.modal', function () {
-        $('#myInput').trigger('focus')
-    });
   </script>
 </head>
 
@@ -37,9 +31,8 @@
   <div class="background">
   <!-- Formulário -->
     <div class="card container mb-4 card_consulta">
-        <button type="button" class="btn btn_cadastrar mt-2"
-                data-toggle="modal" data-target="#modal_carteira">
-            <a class="btn_vacina" data-toggle="modal">
+        <button type="button" class="btn btn_cadastrar mt-2">
+            <a class="btn_vacina" href="Cadastrar_Carteira.html">
                 <i class="fa fa-plus icone_plus"></i>
             </a>
         </button>
@@ -86,7 +79,6 @@
       <br />
     </div>
   </div>
-  <div id="header_carteira"></div>
 </body>
 
 </html>

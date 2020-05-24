@@ -1,7 +1,7 @@
 
 /* Imagem dos anuncios */
 .custom_img_anuncios {
-    width: 100%;
+    width: 155px;
     /* height: 200px; */
 }
 
@@ -18,6 +18,9 @@
     align-items: center;
     width: 120px;
     height: 180px;
+    border: 1px #f3f3f3 solid;
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-bottom: 20px;
 }
 
 /* Parte onde fica o card de cada produto */
@@ -28,6 +31,7 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    max-width: 286px;
 }
 
 /* Titulo dos produtos */
@@ -46,4 +50,57 @@
 
 .aling_btn {
     margin-left: 65%;
+}
+
+.editar_produto {
+    position: relative;
+    margin-left: 94%;
+    margin-bottom: 20px;
+    margin-top: -10px !important;
+}
+
+.bordado {
+    /*border: 1px solid black;*/
+    /*background-color: #f3f3f3;*/
+}
+
+.background_home {
+    display: table;
+    width: 100%;
+    height: 100vh;
+    padding: 100px 0px 20px 30px;
+    background: url('../../img/Fundos/background.png') no-repeat bottom center scroll;
+    background-position: 30% 45%;
+    background-size: cover;
+}
+
+.card-title {
+    font-size: 22px;
+    /*border-bottom: 1px black solid;*/
+}
+
+.text_qtd {
+    font-weight: bolder;
+    font-size: 14px;
+}
+
+.card-text {
+    max-width: 160px;
+}
+
+/*Parte do cliente*/
+.btn_plus_cliente {
+    margin-bottom: 30px;
+}
+
+.centralizar_btn_cliente {
+    justify-content: center;
+}
+
+.center_cliente {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 200px;
+    max-width: 200px;
 }
