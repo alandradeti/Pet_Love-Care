@@ -42,7 +42,7 @@
                         <i class="fa fa-trash"></i>
                     </button> 
                 </form>
-                <a class="btn_voltar" href="./Consultar_Agendamento.html">
+                <a class="btn_voltar" href="./Consultar_Agendamento.jsp">
                     <i class="fa fa-arrow-left icone_plus"></i>
                 </a>
                 <div class="centralizar">

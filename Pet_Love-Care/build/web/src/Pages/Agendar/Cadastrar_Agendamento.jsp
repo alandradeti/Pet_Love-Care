@@ -38,6 +38,9 @@
         <div class="background">
             <!-- FormulÃ¡rio -->
             <div class="card container mt-5 card_consulta">
+                <a class="btn_voltar" href="./Consultar_Agendamento.jsp">
+                    <i class="fa fa-arrow-left icone_plus"></i>
+                </a>
                 <div class="text-center mt-4">
                     <img src="../../img/Logo/Gato-cabeca.png" class="cabeca_gato">
                     <h3>Agende uma consulta</h3>
