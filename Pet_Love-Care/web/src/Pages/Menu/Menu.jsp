@@ -83,6 +83,11 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="../Relatorio/Relatorio.jsp">
+                        Teste Relatorio
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="../Carteira/Carteira.html">Carteira</a>
                 </li>
                 <%      }

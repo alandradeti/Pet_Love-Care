@@ -1,0 +1,34 @@
+@media print {
+    @Page{
+        size: A4;
+    }
+    .btn_agendar {
+        display: none;
+        visibility: hidden;
+    }
+    .card_consulta {
+        background-color: #fff !important;
+        border: none !important;
+        border-radius: 0px !important;
+        box-shadow: 0px 0px 0px0 white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .titulo_page {
+        visibility: hidden;
+    }
+    .cabeca_gato {
+        visibility: hidden;
+    }
+    .relatorio_titulo_hidden {
+        display: block;
+        margin-top: 10px;
+    }
+    .logo_imprimi {
+        display: block;
+    }
+    .relatorio_box {
+        max-width: 600px !important;
+    }
+}
