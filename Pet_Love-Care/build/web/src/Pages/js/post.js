@@ -329,11 +329,11 @@ $(function () {
     });
 });
 
-/*********************************************************************/
-/********************                        *************************/
-/******************** TRATAMENTO AGENDAMENTO *************************/
-/********************                        *************************/
-/*********************************************************************/
+/********************************************************************************/
+/********************                                   *************************/
+/******************** TRATAMENTO CARTEIRA DE VACINACAO  *************************/
+/********************                                   *************************/
+/********************************************************************************/
 
 //Envio do formulário de cadastramento Carteira de Vacinacao
 $(function () {
@@ -381,3 +381,46 @@ $(function () {
         return false;
     });
 });
+
+
+
+/****************************************************************************/
+/********************                                 ***********************/
+/******************** TRATAMENTO CARRINHO DE COMPRAS  ***********************/
+/********************                                 ***********************/
+/****************************************************************************/
+
+//Envio do formulário de cadastramento Carteira de Vacinacao
+/*$(function () {
+    $('#formAdicionarCarrinho').submit(function () {
+        $.ajax({
+            url: '../Compras/CarrinhoCompras.jsp',
+            type: 'POST',
+            dataType: 'html',
+            data: $('#formAdicionarCarrinho').serialize(),
+            success: function (data) {
+                alert("Funcionou");
+            }
+        })
+        return false;
+    });
+});*/
+
+//Envio do formulário de cadastramento Carteira de Vacinacao
+/*$(function () {
+    $('#formExcluirProdutoCarrinho').submit(function () {
+        $.ajax({
+            url: '../Compras/ExcluirCarrinho.jsp',
+            type: 'POST',
+            data: $('#formExcluirProdutoCarrinho').serialize(),
+            success: function (data) {
+                alert("Funcionou");
+                window.location.href = "../Compras/Compras.jsp";
+            }
+        });
+        return false;
+    });
+});*/
+
+
+
