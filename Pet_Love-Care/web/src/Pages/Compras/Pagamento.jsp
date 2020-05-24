@@ -11,7 +11,6 @@
         <link rel="stylesheet" href="../../../css/bootstrap.min.css" />
         <link rel="shortcut icon" href="../../img/Icon/Logo-cabeca.png" />
         <link rel="stylesheet" href="../css/padrao.css" />
-        <link rel="stylesheet" href="./Vacina.css" />
         
         
         <script src="../../../js/jquery.slim.min.js"></script>
@@ -21,6 +20,7 @@
         <script src="../js/ajax.min.js"></script>
         <script src="../js/post.js"></script>
         <script src="../js/padrao.js"></script>
+        
         <script>
             $(function () {
                 $("#headerDiv").load("../Menu/Menu.jsp");
@@ -47,8 +47,8 @@
                     ResultSet rsCliente = cliente.Consultar("SELECT Id_Cliente,Nome_Cliente FROM tb_cliente WHERE Id_Cliente = " + session.getAttribute("id_cliente"));
                     if(rsCliente.next()){
 %>                
-                        <form>
-                            <label class="col-form-label login_label mt-3"><%=rsCliente.getString("nome_cliente")%></label>
+                        <form id="formRealizarPagamento">
+                            <label class="col-form-label login_label mt-3">Nome: <%=rsCliente.getString("nome_cliente")%></label>
                             <input type="hidden" name="data_compra" id="data_compra" value="" />
                             <input type="hidden" name="valor_compra" id="valor_compra" value="<%=request.getParameter("valor_total_compra")%>" />
                             <input type="hidden" class="form-control" name="id_cliente" id="id_cliente" value="<%=rsCliente.getString("id_cliente")%>"/>
@@ -56,7 +56,7 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label class="col-form-label login_label">Tipo de Pagamento:</label>
-                                    <select name="tipo_pagamento" id="tipo_pagamento" class="form-control">
+                                    <select name="tipo_pagamento_compra" id="tipo_pagamento_compra" class="form-control">
                                         <option value="Boleto">Boleto</option>
                                         <option value="Cartão">Cartão</option>
                                     </select>
@@ -84,7 +84,7 @@
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label class="col-form-label login_label">Parcelas:</label>
-                                    <select name="numero_parcelas" id="numero_parcelas" class="form-control">
+                                    <select name="numero_parcela" id="numero_parcela" class="form-control">
                                         <option value="1">1x À Vista</option>
                                         <option value="2">2x</option>
                                         <option value="3">3x</option>

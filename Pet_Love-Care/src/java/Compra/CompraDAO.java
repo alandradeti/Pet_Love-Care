@@ -3,8 +3,9 @@ package Compra;
 import Banco.DataSource;
 import java.sql.*;
 
-public class CarrinhoDAO extends Carrinho {
-      //Instanciando a classe de conexão
+public class CompraDAO extends Compra {
+    
+    //Instanciando a classe de conexão
     DataSource dataSource = new DataSource();
 
     /**
@@ -34,17 +35,21 @@ public class CarrinhoDAO extends Carrinho {
     public boolean Incluir() {
         try {
             String sSql = 
-                        "INSERT INTO TB_Carrinho("
-                            + "Preco_Carrinho, "
-                            + "Quantidade_Carrinho, "
-                            + "Status_Carrinho, "
-                            + "Produto_Id_Produto, "
+                        "INSERT INTO TB_Compra("
+                            + "Data_Compra, "
+                            + "Valor_Compra, "
+                            + "Tipo_Pagamento_Compra, "
+                            + "Numero_Cartao, "
+                            + "Numero_Seguranca_Cartao, "
+                            + "Numero_Parcela, "
                             + "Cliente_Id_Cliente"
                         +")VALUES("
-                            +"'" + getPreco_carrinho() + "',"
-                            +"'" + getQuantidade_carrinho() + "',"
-                            +"'" + getStatus_carrinho() + "',"
-                            +"'" + getId_produto() + "',"
+                            +"'" + getData_compra() + "',"
+                            +"'" + getValor_compra() + "',"
+                            +"'" + getTipo_pagamento_compra() + "',"
+                            +"'" + getNumero_cartao() + "',"
+                            +"'" + getNumero_seguranca_cartao() + "',"
+                            +"'" + getNumero_parcela() + "',"
                             +"'" + getId_cliente() + "')"; 
 
             PreparedStatement ps = dataSource.getConnection().prepareStatement(sSql); // Realiza a conexão e o preparo da query
@@ -114,27 +119,6 @@ public class CarrinhoDAO extends Carrinho {
                             + "TB_Carrinho "
                         + "WHERE "
                             + "Id_Carrinho = " + iId_Carrinho;
-            PreparedStatement ps = dataSource.getConnection().prepareStatement(sSql); // Realiza a conexão e o preparo da query
-            ps.executeUpdate(sSql); // Executa a query
-            
-            //Fechando a conexão
-            dataSource.closeDataSource();
-            ps.close();
-            
-        } catch (SQLException ex) {
-            return (false);
-        } catch (Exception ex) {
-            return (false);
-        }
-        return(true);
-    }
-    
-    public boolean LimparCarrinho(int iId_Cliente){
-    	 try {
-            String sSql = "DELETE FROM "
-                            + "TB_Carrinho"
-                        + " WHERE "
-                            + "Cliente_Id_Cliente = " + iId_Cliente;
             PreparedStatement ps = dataSource.getConnection().prepareStatement(sSql); // Realiza a conexão e o preparo da query
             ps.executeUpdate(sSql); // Executa a query
             

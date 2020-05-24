@@ -57,9 +57,9 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="../Pet/PetConsultar.jsp">Pet</a>
                             </li>
-							<li class="nav-item">
-								<a class="nav-link" href="../Relatorio/Relatorio.jsp">Teste Relatorio</a>	  							
-							</li>
+                            <li class="nav-item">
+				<a class="nav-link" href="../Relatorio/Relatorio.jsp">Pedidos</a>	  							
+                            </li>
                 <%      }
                 %>
                 <%      if (rs.getBoolean("Tipo_Cliente") == true){%>

@@ -32,6 +32,7 @@
                         <h4>Faça o seu login</h4>
                     </div>
                     <form method="POST" action="../Login/sessaoLogin.jsp">
+                        <input type="hidden" name="data_compra" id="data_compra" value="" />
                         <div class="login-form row">
                             <label class="col-form-label col-3 mt-3 login_label">E-mail</label>
                             <input name="email_cliente" id="email_cliente" type="email" class="form-control col-8 mt-3" placeholder="Seu email..." required />
@@ -50,5 +51,15 @@
         </div>
 
     </body>
-
+    <script>
+        var currentDate = {
+            day: new Date().getDate() > 9 ? new Date().getDate() : "0" + new Date().getDate(),
+            month: (new Date().getMonth() + 1) > 9 ? (new Date().getMonth() + 1) : "0" + (new Date().getMonth() + 1),
+            year: new Date().getFullYear(),
+            formatted: function(){
+                return this.day + '/' + this.month + '/' + this.year;
+            }
+        };
+        document.getElementById("data_compra").value = currentDate.formatted();
+    </script>
 </html>
