@@ -28,7 +28,7 @@
                 $("#headerDiv").load("../Menu/Menu.jsp");
             });
             $(function () {
-                $("#header_pet").load("./Editar_Pet.jsp");
+                $("#header_pet").load("./Cadastrar_pet.html");
             });
             $('#myModal').on('shown.bs.modal', function () {
                 $('#myInput').trigger('focus')
@@ -41,19 +41,28 @@
         <div id="headerDiv"></div>
         <div class="background">
             <!-- Formulário -->
-            <div class="card container mt-5 card_consulta">
-                <div class="text-center mt-4">
+            <div class="card container card_consulta">
+                <button type="button" class="btn btn_cadastrar mt-2"
+                        data-toggle="modal" data-target="#modal_pet">
+                    <a class="btn_vacina" data-toggle="modal">
+                        <i class="fa fa-plus icone_plus"></i>
+                    </a>
+                </button>
+                <div class="text-center mb-4">
                     <img src="../../img/Logo/Dog_2Cor.png" class="cabeca_gato">
                     <h3 class="mt-2">Consultar Pet</h3>
                 </div>
-                <form id="formPesquisarNomePet" method="POST" action="PetConsultar.jsp">
+                <form id="formPesquisarNomePet" method="POST" 
+                      action="PetConsultar.jsp" class="form-inline my-2 my-lg-0" >
                     <div class="form-group col-6">
-                        <input type="text" name="nome_pet" id="nome_pet" />
+                        <input type="text" name="nome_pet" id="nome_pet" 
+                               class="form-control mr-sm-2 search" placeholder="Pesquisar..." />
                         
                         <%  if(rs.next()){
                                 if (rs.getBoolean("Tipo_Cliente") == true){
                         %>
-                                    <select class="form-control col-12" name="id_cliente" id="id_cliente">
+                                    <label class="label_pet">Cliente:</label>
+                                    <select class="form-control col-8" name="id_cliente" id="id_cliente">
                                         <option value="">Todos</option>
                         <%              ResultSet rsPetPesquisa = pet.Consultar("SELECT DISTINCT Cliente_Id_Cliente FROM TB_Pet");
                                         while(rsPetPesquisa.next()){
@@ -70,7 +79,7 @@
                             }
                         %>
                                 
-                        <button type="submit" class="btn btn-danger mt-2" id="pesquisarPet" name="pesquisarPet">
+                        <button type="submit" class="btn btn-outline-success my-2 my-sm-0 btn_search" id="pesquisarPet" name="pesquisarPet">
                             <i class="fas fa-search"></i>
                         </button> 
                     </div>

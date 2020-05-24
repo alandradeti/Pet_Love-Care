@@ -24,3 +24,25 @@
     align-items: center;
     justify-content: center;
 }
+
+.input_date {
+    left: 33.5rem;
+    margin-top: 9px;
+}
+
+.select_agendamento {
+    left: 24rem;
+}
+
+.input_agendamento {
+    margin-left: 31.8rem;
+    position: absolute;
+}
+
+.label_agendamento {
+    margin-left: 19.5rem;
+    font-size: 18px;
+    font-family: inherit;
+    font-weight: bold;
+    margin-top: -3px;
+}

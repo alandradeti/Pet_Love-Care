@@ -1,3 +1,9 @@
+/*********************************************************************/
+/********************                        *************************/
+/******************** TRATAMENTO AGENDAMENTO *************************/
+/********************                        *************************/
+/*********************************************************************/
+
 //Envio do formulário de cadastramento Agendamento
 $(function () {
     $('#formCadastrarAgendamento').submit(function () {
@@ -7,6 +13,38 @@ $(function () {
             data: $('#formCadastrarAgendamento').serialize(),
             success: function (data) {
                 alert("Funcionou");
+            }
+        });
+        return false;
+    });
+});
+
+//Envio do formulário de cadastramento Agendamento
+$(function () {
+    $('#formAlterarDadosAgendamento').submit(function () {
+        $.ajax({
+            url: '../Agendar/AlterarAgendamento.jsp',
+            type: 'POST',
+            data: $('#formAlterarDadosAgendamento').serialize(),
+            success: function (data) {
+                alert("Funcionou");
+            }
+        });
+        return false;
+    });
+});
+
+//Envio do formulário de Exclusão Agendamento  
+$(function () {
+    $('#formExcluirDadosAgendamento').submit(function () {
+        $.ajax({
+            url: '../Agendar/ExcluirAgendamento.jsp',
+            type: 'POST',
+            data: $('#formExcluirDadosAgendamento').serialize(),
+            
+            success: function (data) {
+                alert("Funcionou");
+                window.location.href = "../Agendar/Consultar_Agendamento.jsp";
             }
         });
         return false;
@@ -290,3 +328,114 @@ $(function () {
         return false;
     });
 });
+
+/********************************************************************************/
+/********************                                   *************************/
+/******************** TRATAMENTO CARTEIRA DE VACINACAO  *************************/
+/********************                                   *************************/
+/********************************************************************************/
+
+//Envio do formulário de cadastramento Carteira de Vacinacao
+$(function () {
+    $('#formCadastrarDadosCarteiraVacinacao').submit(function () {
+        $.ajax({
+            url: '../CarteiraVacinacao/IncluirCarteiraVacinacao.jsp',
+            type: 'POST',
+            data: $('#formCadastrarDadosCarteiraVacinacao').serialize(),
+            success: function (data) {
+                alert("Funcionou");
+            }
+        });
+        return false;
+    });
+});
+
+//Envio do formulário de cadastramento Carteira de Vacinacao
+$(function () {
+    $('#formAlterarDadosCarteiraVacinacao').submit(function () {
+        $.ajax({
+            url: '../CarteiraVacinacao/AlterarCarteiraVacinacao.jsp',
+            type: 'POST',
+            data: $('#formAlterarDadosCarteiraVacinacao').serialize(),
+            success: function (data) {
+                alert("Funcionou");
+            }
+        });
+        return false;
+    });
+});
+
+//Envio do formulário de Exclusão Carteira de Vacinacao
+$(function () {
+    $('#formExcluirDadosCarteiraVacinacao').submit(function () {
+        $.ajax({
+            url: '../CarteiraVacinacao/ExcluirCarteiraVacinacao.jsp',
+            type: 'POST',
+            data: $('#formExcluirDadosCarteiraVacinacao').serialize(),
+            
+            success: function (data) {
+                alert("Funcionou");
+                window.location.href = "../CarteiraVacinacao/Consultar_CarteiraVacinacao.jsp";
+            }
+        });
+        return false;
+    });
+});
+
+
+
+/****************************************************************************/
+/********************                                 ***********************/
+/******************** TRATAMENTO CARRINHO DE COMPRAS  ***********************/
+/********************                                 ***********************/
+/****************************************************************************/
+
+//Envio do formulário de cadastramento Carteira de Vacinacao
+/*$(function () {
+    $('#formAdicionarCarrinho').submit(function () {
+        $.ajax({
+            url: '../Compras/CarrinhoCompras.jsp',
+            type: 'POST',
+            dataType: 'html',
+            data: $('#formAdicionarCarrinho').serialize(),
+            success: function (data) {
+                alert("Funcionou");
+            }
+        })
+        return false;
+    });
+});*/
+
+//Envio do formulário de cadastramento Carteira de Vacinacao
+/*$(function () {
+    $('#formExcluirProdutoCarrinho').submit(function () {
+        $.ajax({
+            url: '../Compras/ExcluirCarrinho.jsp',
+            type: 'POST',
+            data: $('#formExcluirProdutoCarrinho').serialize(),
+            success: function (data) {
+                alert("Funcionou");
+                window.location.href = "../Compras/Compras.jsp";
+            }
+        });
+        return false;
+    });
+});*/
+
+//Envio do formulário de Pagamento
+$(function () {
+    $('#formRealizarPagamento').submit(function () {
+        $.ajax({
+            url: '../Compras/IncluirCompra.jsp',
+            type: 'POST',
+            data: $('#formRealizarPagamento').serialize(),
+            success: function (data) {
+                alert("Pagamento Realizado");
+                window.location.href = "../Relatorio/Relatorio.jsp";
+            }
+        });
+        return false;
+    });
+});
+
+

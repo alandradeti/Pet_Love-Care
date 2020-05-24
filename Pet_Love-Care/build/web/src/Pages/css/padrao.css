@@ -161,20 +161,6 @@
     background: #38b548;
 }
 
-.btn_excluir {
-    position: relative;
-    left: 95%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 40px;
-    width: 40px;  
-    font-size: 18px;
-    border-radius: 100%;
-    cursor: pointer;
-}
-
-
 .btn_vacina {
     width: 40px;
     heigth: 40px;
@@ -190,9 +176,21 @@
     text-decoration: none;
 }
 
+.btn_excluir {
+    position: relative;
+    left: 95%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 40px;  
+    font-size: 18px;
+    border-radius: 100%;
+    cursor: pointer;
+}
+
 .btn_voltar {
     position: absolute;
-    left: 93%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -201,7 +199,7 @@
     font-size: 18px;
     border-radius: 100%;
     background: #efa329;
-    margin-top: 10px;
+    margin-top: 7px;
     cursor: pointer;
     text-decoration: none;
 }
@@ -235,4 +233,24 @@
 
 .btn_search:hover {
     background-color: #35bd54;
+}
+
+
+/* Tamanho do icone */
+.tamanho_icone {
+    width: 90px;
+    height: 80px;
+}
+
+.icone_plus {
+    color: black;
+}
+
+.btn_cadastrar_vacinas:hover {
+    background: #38b548;
+}
+
+.btn_vacina {
+    width: 40px;
+    heigth: 40px;
 }

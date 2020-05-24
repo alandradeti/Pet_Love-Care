@@ -4,6 +4,7 @@
 <%
     String sEmailCliente = request.getParameter("email_cliente");    
     String sSenhaCliente = request.getParameter("senha_cliente");
+    String sDataCompra = request.getParameter("data_compra");
     
     ResultSet rs = cliente.Consultar("SELECT "
                                         + "Email_Cliente,"
@@ -16,6 +17,7 @@
                                     + "AND "
                                         + "Senha_cliente = '" + sSenhaCliente + "'");
     if (rs.next()) {
+        session.setAttribute("data_compra", sDataCompra);
         session.setAttribute("email_cliente", sEmailCliente);
         session.setAttribute("id_cliente", rs.getInt("Id_Cliente"));
         response.sendRedirect("../Home/Home.jsp");
