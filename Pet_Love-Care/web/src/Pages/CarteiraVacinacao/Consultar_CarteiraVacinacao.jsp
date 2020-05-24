@@ -45,7 +45,7 @@
                 <div class="form-group col-6">
 <%                  if(rs.next()){
                         if (rs.getBoolean("Tipo_Cliente") == true){
-%>                          <select class="form-control col-6" name="id_cliente" id="id_cliente" class="form-control mr-sm-2" style="left: 33rem;">
+%>                          <select class="form-control col-6" name="id_cliente" id="id_cliente" class="form-control mr-sm-2" style="left: 33rem; margin-top: 14px;">
                             <%  ResultSet rsPetPesquisa = pet.Consultar("SELECT DISTINCT Cliente_Id_Cliente FROM TB_Pet");
                                 while(rsPetPesquisa.next()){
                                     ResultSet rsClientePet = cliente.Consultar("SELECT Id_Cliente, Nome_Cliente FROM TB_Cliente WHERE Id_Cliente = " + rsPetPesquisa.getString("cliente_id_cliente"));
@@ -57,7 +57,9 @@
                                 }
                             %>
                             </select>
-                            <button type="submit" class="btn btn-outline-success btn_cadastrar my-2 my-sm-0 btn_search">
+                            <button type="submit" class="btn btn-outline-success btn_cadastrar my-2 
+                                    my-sm-0 btn_search" style="margin-top: 6px !important;"
+                                    style="margin-top: 10px">
                                 <a class="btn_vacina">
                                     <i class="fa fa-plus icone_plus"></i>
                                 </a>
