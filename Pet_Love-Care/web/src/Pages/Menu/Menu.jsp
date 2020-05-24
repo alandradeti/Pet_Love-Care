@@ -45,76 +45,85 @@
                 </li>
                 <%  if (rs.next()) {
                         if (rs.getBoolean("Tipo_Cliente") == false) {%>
-                <li class="nav-item">
-                    <a class="nav-link" href="../Agendar/Consultar_Agendamento.jsp">Agendamento</a>
-                </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../Agendar/Consultar_Agendamento.jsp">Agendamento</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../CarteiraVacinacao/Consultar_CarteiraVacinacao.jsp">Carteira de Vacinação</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../Compras/Compras.jsp">Compras</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../Pet/PetConsultar.jsp">Pet</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                     Pedidos
+                                 </a>
+                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                     <a class="dropdown-item" href="../Compras/Consultar_Compras.jsp">Consultar</a>
+                                     <a class="dropdown-item" href="../Relatorio/Relatorio.jsp">Imprimir</a>
+                                 </div>
+                             </li>
+                            
                 <%      }
                 %>
-                <%      if (rs.getBoolean("Tipo_Cliente") == true) {%>
-               <li class="nav-item">
-                    <a class="nav-link" href="../Veterinario/VeterinarioConsultar.jsp">
-                        Veterinário
-                    </a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Produtos
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="../Home/Home.jsp">Consultar</a>
-                        <a class="dropdown-item" href="../Produtos/Produtos.html">Cadastrar</a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../Agendar/Consultar_Agendamento.jsp">Agendamento</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../Pet/PetConsultar.jsp">Pet</a>
-                </li>
-                <li class="nav-item">
-                     <a class="nav-link" href="../Cliente/ClienteConsultar.jsp">Clientes</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../Compras/Compras.html">Compras</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../Vacina/VacinaConsultar.jsp">
-                        Vacina
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../Carteira/Carteira.html">Carteira</a>
-                </li>
-                <%      }
-                %>
-                <%      if (rs.getBoolean("Tipo_Cliente") == false) {%>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Pet
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="nav-link" href="../Pet/PetConsultar.jsp">Consultar</a>
-                        <a class="nav-link" href="../Pet/Cadastrar_Pet.html">Cadastrar</a>
-                    </div>
-                </li>
+                <%      if (rs.getBoolean("Tipo_Cliente") == true){%>
+                            <li class="nav-item">
+                                 <a class="nav-link" href="../Veterinario/VeterinarioConsultar.jsp">
+                                     Veterinário
+                                 </a>
+                             </li>
+                             <li class="nav-item dropdown">
+                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                     Produtos
+                                 </a>
+                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                     <a class="dropdown-item" href="../Home/Home.jsp">Consultar</a>
+                                     <a class="dropdown-item" href="../Produtos/Produtos.html">Cadastrar</a>
+                                 </div>
+                             </li>
+                             <li class="nav-item">
+                                 <a class="nav-link" href="../Agendar/Consultar_Agendamento.jsp">Agendamento</a>
+                             </li>
+                             <li class="nav-item">
+                                 <a class="nav-link" href="../Pet/PetConsultar.jsp">Pet</a>
+                             </li>
+                             <li class="nav-item">
+                                  <a class="nav-link" href="../Cliente/ClienteConsultar.jsp">Clientes</a>
+                             </li>
+                             <li class="nav-item">
+                                 <a class="nav-link" href="../Compras/Consultar_Compras.jsp">Compras</a>
+                             </li>
+                             <li class="nav-item">
+                                 <a class="nav-link" href="../Vacina/VacinaConsultar.jsp">
+                                     Vacina
+                                 </a>
+                             </li>
+                             <li class="nav-item">
+                                 <a class="nav-link" href="../CarteiraVacinacao/Consultar_CarteiraVacinacao.jsp">Carteira de Vacinação</a>
+                             </li>
+
                 <%      }
                     }
                 %>
             </ul>
+			
             <%  if (session.getAttribute("id_cliente") == null) {%>
-            <a id="abrir_modal_login" href="#" class="login_cadastro mr-4">
-                <div class="balao ml-3"><span class="latido_miado">Au-Au</span></div>
-                <i class="fas fa-dog" style='font-size:26px;color: black;'></i> Login
-            </a>
-            <a id="abrir_modal_cadastro" href="#" class="login_cadastro">
-                <div class="balao ml-3"><span class="latido_miado">Meow</span></div>
-                <i class="fas fa-cat" style='font-size:26px;color: black;'></i> Cadastrar
-            </a>
+					<a id="abrir_modal_login" href="#" class="login_cadastro mr-4">
+						<div class="balao ml-3"><span class="latido_miado">Au-Au</span></div>
+						<i class="fas fa-dog" style='font-size:26px;color: black;'></i> Login
+					</a>
+					<a id="abrir_modal_cadastro" href="#" class="login_cadastro">
+						<div class="balao ml-3"><span class="latido_miado">Meow</span></div>
+						<i class="fas fa-cat" style='font-size:26px;color: black;'></i> Cadastrar
+					</a>
             <%  } else { %>
-            <a id="abrir_modal_cadastro" href="../Login/saidaLogin.jsp" class="login_cadastro mr-4">
-                <div class="balao ml-3"><span class="latido_miado">Au-Au</span></div>
-                <i class="fas fa-dog" style='font-size:26px;color: black;'></i> Sair
-            </a>
+					<a id="abrir_modal_cadastro" href="../Login/saidaLogin.jsp" class="login_cadastro mr-4">
+						<div class="balao ml-3"><span class="latido_miado">Au-Au</span></div>
+						<i class="fas fa-dog" style='font-size:26px;color: black;'></i> Sair
+					</a>
             <%  }%>
 
         </div>

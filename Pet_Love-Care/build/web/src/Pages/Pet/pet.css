@@ -24,3 +24,10 @@
     align-items: center;
     justify-content: center;
 }
+
+.label_pet {
+    font-size: 20px;
+    position: absolute;
+    font-weight: bold;
+    margin-top: -35px;
+}

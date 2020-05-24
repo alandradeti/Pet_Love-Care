@@ -42,3 +42,34 @@
     color: white;
     text-align: center;
 }
+
+.input_date {
+    left: 33.5rem;
+    margin-top: 9px;
+}
+
+.select_carteira {
+    position: absolute;
+    left: 24rem !important;
+}
+
+.input_carteira {
+    margin-left: 31.8rem;
+    position: absolute;
+}
+
+.label_carteira_pet {
+    position: absolute;
+    margin-left: 25rem;
+    margin-top: -31px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.label_carteira_vacina {
+    position: absolute;
+    margin-left: 37.2rem;
+    margin-top: -31px;
+    font-size: 18px;
+    font-weight: bold;
+}
