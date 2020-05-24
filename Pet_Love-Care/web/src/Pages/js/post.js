@@ -337,11 +337,11 @@ $(function () {
 
 //Envio do formulário de cadastramento Carteira de Vacinacao
 $(function () {
-    $('#formCadastrarCarteiraVacinacao').submit(function () {
+    $('#formCadastrarDadosCarteiraVacinacao').submit(function () {
         $.ajax({
-                url: '../CarteiraVacinacao/IncluirCarteiraVacinacao.jsp',
+            url: '../CarteiraVacinacao/IncluirCarteiraVacinacao.jsp',
             type: 'POST',
-            data: $('#formCadastrarCarteiraVacinacao').serialize(),
+            data: $('#formCadastrarDadosCarteiraVacinacao').serialize(),
             success: function (data) {
                 alert("Funcionou");
             }

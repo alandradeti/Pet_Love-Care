@@ -32,12 +32,6 @@
     $(function () {
       $("#headerDiv").load("../Menu/Menu.jsp");
     });
-    $(function () {
-        $("#header_carteira").load("./Cadastrar_CarteiraVacinacao.jsp");
-    });
-    $('#myModal').on('shown.bs.modal', function () {
-        $('#myInput').trigger('focus');
-    });
   </script>
 </head>
 
@@ -49,23 +43,28 @@
     <div class="card container mb-4 card_consulta">
         <form id="formEnviaCliente" method="POST" action="Cadastrar_CarteiraVacinacao.jsp">
                 <div class="form-group col-md-6">
-                    <select class="form-control col-12" name="id_cliente" id="id_cliente">
-                    <%  ResultSet rsPetPesquisa = pet.Consultar("SELECT DISTINCT Cliente_Id_Cliente FROM TB_Pet");
-                        while(rsPetPesquisa.next()){
-                            ResultSet rsClientePet = cliente.Consultar("SELECT Id_Cliente, Nome_Cliente FROM TB_Cliente WHERE Id_Cliente = " + rsPetPesquisa.getString("cliente_id_cliente"));
-                            while(rsClientePet.next()){
-                    %>          
-                                <option value="<%=rsClientePet.getString("id_cliente")%>">ID (<%=rsClientePet.getString("id_cliente")%>) - <%=rsClientePet.getString("nome_cliente")%></option> 
-                    <%
-                            }
-                        }
-                    %>
-                    </select>
-                    <button type="button" class="btn btn_cadastrar mt-2" data-toggle="modal" data-target="#modal_carteira">
-                        <a class="btn_vacina" data-toggle="modal">
-                            <i class="fa fa-plus icone_plus"></i>
-                        </a>
-                    </button>
+<%                  if(rs.next()){
+                        if (rs.getBoolean("Tipo_Cliente") == true){
+%>                          <select class="form-control col-12" name="id_cliente" id="id_cliente">
+                            <%  ResultSet rsPetPesquisa = pet.Consultar("SELECT DISTINCT Cliente_Id_Cliente FROM TB_Pet");
+                                while(rsPetPesquisa.next()){
+                                    ResultSet rsClientePet = cliente.Consultar("SELECT Id_Cliente, Nome_Cliente FROM TB_Cliente WHERE Id_Cliente = " + rsPetPesquisa.getString("cliente_id_cliente"));
+                                    while(rsClientePet.next()){
+                            %>          
+                                        <option value="<%=rsClientePet.getString("id_cliente")%>">ID (<%=rsClientePet.getString("id_cliente")%>) - <%=rsClientePet.getString("nome_cliente")%></option> 
+                            <%
+                                    }
+                                }
+                            %>
+                            </select>
+                            <button type="submit" class="btn btn_cadastrar mt-2">
+                                <a class="btn_vacina">
+                                    <i class="fa fa-plus icone_plus"></i>
+                                </a>
+                            </button>
+<%                      }
+                 }
+%>                     
                 </div>
         </form>
 
@@ -76,8 +75,9 @@
         <form id="formPesquisarNomeCarteira" method="POST" 
               action="" class="form-inline my-2 my-lg-0">
             <div class="form-group col-6">
-<%                 if(rs.next()){
-                        if (rs.getBoolean("Tipo_Cliente") == true){
+<%                  ResultSet rsClienteOption = cliente.Consultar("SELECT Tipo_Cliente FROM TB_Cliente WHERE Id_Cliente = '" + session.getAttribute("id_cliente") + "'");
+                    if(rsClienteOption.next()){
+                        if (rsClienteOption.getBoolean("Tipo_Cliente") == true){
 %>                
                             <select class="form-control col-12" name="id_pet" id="id_pet">
                                 <option value="">Todos</option>
@@ -105,7 +105,8 @@
                         }
                     }
 %>                
-                    <select name="id_vacina" id="id_vacina" class="form-control" required>
+                    <select name="id_vacina" id="id_vacina" class="form-control">
+                        <option value="">Todas</option>
 <%                        
                             ResultSet rsVacina = vacina.Consultar("SELECT Id_Vacina,Nome_Vacina FROM TB_Vacina");
                             while (rsVacina.next()) {
@@ -148,7 +149,7 @@
                                 <tr class="text-center">
                                     <th scope="row"><%=rsPesquisaCarteiraVacinacao.getString("data_pet_vacina")%></th>
 
-<%                                  ResultSet rsNomePet = pet.Consultar("SELECT Nome_Pet FROM TB_Pet WHERE Id_Pet = " + rsPesquisaCarteiraVacinacao.getInt("pet_id_pet"));
+<%                                  ResultSet rsNomePet = pet.Consultar("SELECT Nome_Pet,Cliente_Id_Cliente FROM TB_Pet WHERE Id_Pet = " + rsPesquisaCarteiraVacinacao.getInt("pet_id_pet"));
                                     if (rsNomePet.isBeforeFirst()){
                                         if(rsNomePet.next()){
 %>                 
@@ -187,9 +188,9 @@
                                             if (rsCliente.getBoolean("Tipo_Cliente") == true){
 %>    
                                                 <form id="formAlterarCarteiraVacinacao" method="POST" action="Editar_CarteiraVacinacao.jsp"> 
-                                                    <input type="text" id="id_carteira_vacinacao" name="id_carteira_vacinacao" value="<%=rsPesquisaCarteiraVacinacao.getString("id_carteira_vacinacao")%>">
-
-                                                    <button class="btn btn-warning">
+                                                    <input type="hidden" id="id_carteira_vacinacao" name="id_carteira_vacinacao" value="<%=rsPesquisaCarteiraVacinacao.getString("id_carteira_vacinacao")%>">
+                                                    <input type="text" id="id_cliente" name="id_cliente" value="<%=rsNomePet.getString("id_cliente")%>">
+                                                    <button type="submit" class="btn btn-warning">
                                                         <i class="fa fa-pen icone_plus"></i>
                                                     </button>
                                                 </form>
@@ -207,138 +208,234 @@
 <%       
                         }
                     }else if (!request.getParameter("id_pet").isEmpty() && request.getParameter("id_vacina").isEmpty()) {
-                        ResultSet rsPesquisaCarteiraVacinacao = carteiraVacinacao.Consultar("SELECT * FROM TB_Carteira_Vacinacao WHERE Pet_Id_Pet = " + request.getParameter("id_pet"));
-                        if (rsPesquisaCarteiraVacinacao.isBeforeFirst()){            
-                            while (rsPesquisaCarteiraVacinacao.next()) {
-%>                                 
-                                <tr class="text-center">
-                                    <th scope="row"><%=rsPesquisaCarteiraVacinacao.getString("data_pet_vacina")%></th>
+                        ResultSet rsCliente = cliente.Consultar("SELECT Tipo_Cliente FROM TB_Cliente WHERE Id_Cliente = '" + session.getAttribute("id_cliente") + "'");
+                        if(rsCliente.next()){
+                            if (rsCliente.getBoolean("Tipo_Cliente") == true){
+                                ResultSet rsPesquisaCarteiraVacinacao = carteiraVacinacao.Consultar("SELECT * FROM TB_Carteira_Vacinacao WHERE Pet_Id_Pet = " + request.getParameter("id_pet"));
+                                if (rsPesquisaCarteiraVacinacao.isBeforeFirst()){            
+                                    while (rsPesquisaCarteiraVacinacao.next()) {
+        %>                                 
+                                        <tr class="text-center">
+                                            <th scope="row"><%=rsPesquisaCarteiraVacinacao.getString("data_pet_vacina")%></th>
 
-<%                                  ResultSet rsNomePet = pet.Consultar("SELECT Nome_Pet FROM TB_Pet WHERE Id_Pet = " + rsPesquisaCarteiraVacinacao.getInt("pet_id_pet"));
-                                    if (rsNomePet.isBeforeFirst()){
-                                        if(rsNomePet.next()){
-%>                  
-                                            <td><%=rsNomePet.getString("nome_pet")%></td>
-<%                                      }else{
-%>            
-                                        <div>Pet não encontrado</div>
-<%       
-                                        }  
-                                    }else{
-%>            
-                                        <div>Pet não encontrado</div>
-<%       
-                                    }
-                                    
-                                    ResultSet rsNomeVacina = vacina.Consultar("SELECT Nome_Vacina FROM TB_Vacina WHERE Id_Vacina = " + rsPesquisaCarteiraVacinacao.getInt("vacina_id_vacina"));
-                                    if (rsNomeVacina.isBeforeFirst()){
-                                        if(rsNomeVacina.next()){
-%>    
-                                            <td><%=rsNomeVacina.getString("nome_vacina")%></td>
-<%                                      }else{
-%>    
-                                            <div>Vacina não encontrado</div>
-<%
-                                        }
-                                    }else{
-%>   
-                                        <div>Vacina não encontrada</div>
-<%    
-                                    }
-%>    
-                                    <td>
-<%    
-                                        ResultSet rsCliente = cliente.Consultar("SELECT Tipo_Cliente FROM TB_Cliente WHERE Id_Cliente = '" + session.getAttribute("id_cliente") + "'");
-                                        if(rsCliente.next()){
-                                            if (rsCliente.getBoolean("Tipo_Cliente") == true){
-%>    
+        <%                                  ResultSet rsNomePet = pet.Consultar("SELECT Nome_Pet,Cliente_Id_Cliente FROM TB_Pet WHERE Id_Pet = " + rsPesquisaCarteiraVacinacao.getInt("pet_id_pet"));
+                                            if (rsNomePet.isBeforeFirst()){
+                                                if(rsNomePet.next()){
+        %>                  
+                                                    <td><%=rsNomePet.getString("nome_pet")%></td>
+        <%                                      }else{
+        %>            
+                                                <div>Pet não encontrado</div>
+        <%       
+                                                }  
+                                            }else{
+        %>            
+                                                <div>Pet não encontrado</div>
+        <%       
+                                            }
+
+                                            ResultSet rsNomeVacina = vacina.Consultar("SELECT Nome_Vacina FROM TB_Vacina WHERE Id_Vacina = " + rsPesquisaCarteiraVacinacao.getInt("vacina_id_vacina"));
+                                            if (rsNomeVacina.isBeforeFirst()){
+                                                if(rsNomeVacina.next()){
+        %>    
+                                                    <td><%=rsNomeVacina.getString("nome_vacina")%></td>
+        <%                                      }else{
+        %>    
+                                                    <div>Vacina não encontrado</div>
+        <%
+                                                }
+                                            }else{
+        %>   
+                                                <div>Vacina não encontrada</div>
+        <%    
+                                            }
+        %>    
+                                            <td>
                                                 <form id="formAlterarCarteiraVacinacao" method="POST" action="Editar_CarteiraVacinacao.jsp"> 
-                                                    <input type="text" id="id_carteira_vacinacao" name="id_carteira_vacinacao" value="<%=rsPesquisaCarteiraVacinacao.getString("id_carteira_vacinacao")%>">
-
+                                                    <input type="hidden" id="id_carteira_vacinacao" name="id_carteira_vacinacao" value="<%=rsPesquisaCarteiraVacinacao.getString("id_carteira_vacinacao")%>">
+                                                    <input type="hidden" id="id_cliente" name="id_cliente" value="<%=rsNomePet.getString("cliente_id_cliente")%>">
                                                     <button class="btn btn-warning">
                                                         <i class="fa fa-pen icone_plus"></i>
                                                     </button>
-                                                </form>
-<%
+                                                </form>                                            
+                                            </td>
+                                        </tr>
+<%            
+                                    }
+                                }else{
+%>                   
+                                    <div>Não possui registro</div>
+<%               
+                                }
+                            }else{
+                                ResultSet rsPesquisaCarteiraVacinacao = carteiraVacinacao.Consultar("SELECT * FROM TB_Carteira_Vacinacao WHERE  Pet_Id_Pet in (SELECT Id_Pet FROM TB_Pet WHERE Cliente_Id_Cliente =" + session.getAttribute("id_cliente") +") AND Pet_Id_Pet = " + request.getParameter("id_pet"));
+                                if (rsPesquisaCarteiraVacinacao.isBeforeFirst()){            
+                                    while (rsPesquisaCarteiraVacinacao.next()) {
+%>                                             
+                                        <tr class="text-center">
+                                            <th scope="row"><%=rsPesquisaCarteiraVacinacao.getString("data_pet_vacina")%></th>
+
+<%                                          ResultSet rsNomePet = pet.Consultar("SELECT Nome_Pet FROM TB_Pet WHERE Id_Pet = " + rsPesquisaCarteiraVacinacao.getInt("pet_id_pet"));
+                                            if (rsNomePet.isBeforeFirst()){
+                                                if(rsNomePet.next()){
+%>                                     
+                                                    <td><%=rsNomePet.getString("nome_pet")%></td>
+<%                                              }else{
+%>                                
+                                                    <div>Pet não encontrado</div>
+<%                         
+                                                }  
+                                            }else{
+%>                                
+                                                <div>Pet não encontrado</div>
+<%                          
                                             }
+
+                                            ResultSet rsNomeVacina = vacina.Consultar("SELECT Nome_Vacina FROM TB_Vacina WHERE Id_Vacina = " + rsPesquisaCarteiraVacinacao.getInt("vacina_id_vacina"));
+                                            if (rsNomeVacina.isBeforeFirst()){
+                                                if(rsNomeVacina.next()){
+%>                        
+                                                    <td><%=rsNomeVacina.getString("nome_vacina")%></td>
+<%                                              }else{
+%>                        
+                                                    <div>Vacina não encontrado</div>
+<%                        
+                                                }
+                                            }else{
+%>                      
+                                                <div>Vacina não encontrada</div>
+<%                        
+                                            }
+%>                                           
+                                        </tr>
+<%                
                                         }
-%>                                               
-                                    </td>
-                                </tr>
-<%    
+                                }else{
+%>                        
+                                    <div>Não possui registro</div>
+<%                   
+                                }
                             }
                         }else{
-%>            
-                            <div>Não possui registro</div>
-<%       
-                        }
-                    }else if (request.getParameter("id_pet").isEmpty() && !request.getParameter("id_vacina").isEmpty()) {
-                        ResultSet rsPesquisaCarteiraVacinacao = carteiraVacinacao.Consultar("SELECT * FROM TB_Carteira_Vacinacao WHERE Vacina_Id_Vacina = " + request.getParameter("id_vacina"));
-                        if (rsPesquisaCarteiraVacinacao.isBeforeFirst()){            
-                            while (rsPesquisaCarteiraVacinacao.next()) {
-%>                                 
-                                <tr class="text-center">
-                                    <th scope="row"><%=rsPesquisaCarteiraVacinacao.getString("data_pet_vacina")%></th>
-
-<%                                  ResultSet rsNomePet = pet.Consultar("SELECT Nome_Pet FROM TB_Pet WHERE Id_Pet = " + rsPesquisaCarteiraVacinacao.getInt("pet_id_pet"));
-                                    if (rsNomePet.isBeforeFirst()){
-                                        if(rsNomePet.next()){
-%>                  
-                                            <td><%=rsNomePet.getString("nome_pet")%></td>
-<%                                      }else{
 %>        
-                                        <div>Pet não encontrado</div>
+                            <div>Não possui registro</div>
 <%       
-                                        }  
-                                    }else{
-%>            
-                                        <div>Pet não encontrado</div>
-<%      
-                                    }
-                                    
-                                    ResultSet rsNomeVacina = vacina.Consultar("SELECT Nome_Vacina FROM TB_Vacina WHERE Id_Vacina = " + rsPesquisaCarteiraVacinacao.getInt("vacina_id_vacina"));
-                                    if (rsNomeVacina.isBeforeFirst()){
-                                        if(rsNomeVacina.next()){
-%>   
-                                            <td><%=rsNomeVacina.getString("nome_vacina")%></td>
-<%                                      }else{
-%>    
-                                            <div>Vacina não encontrado</div>
-<%    
-                                        }
-                                    }else{
-%>    
-                                        <div>Vacina não encontrada</div>
-<%    
-                                    }
-%>    
-                                    <td>
-<%    
-                                        ResultSet rsCliente = cliente.Consultar("SELECT Tipo_Cliente FROM TB_Cliente WHERE Id_Cliente = '" + session.getAttribute("id_cliente") + "'");
-                                        if(rsCliente.next()){
-                                            if (rsCliente.getBoolean("Tipo_Cliente") == true){
-%>    
-                                                <form id="formAlterarCarteiraVacinacao" method="POST" action="Editar_CarteiraVacinacao.jsp"> 
-                                                    <input type="text" id="id_carteira_vacinacao" name="id_carteira_vacinacao" value="<%=rsPesquisaCarteiraVacinacao.getString("id_carteira_vacinacao")%>">
+                        }
+                    }else if (request.getParameter("id_pet").isEmpty() && !request.getParameter("id_vacina").isEmpty()) {
+                        ResultSet rsCliente = cliente.Consultar("SELECT Tipo_Cliente FROM TB_Cliente WHERE Id_Cliente = '" + session.getAttribute("id_cliente") + "'");
+                        if(rsCliente.next()){
+                            if (rsCliente.getBoolean("Tipo_Cliente") == true){
+                                ResultSet rsPesquisaCarteiraVacinacao = carteiraVacinacao.Consultar("SELECT * FROM TB_Carteira_Vacinacao WHERE Vacina_Id_Vacina = " + request.getParameter("id_vacina"));
+                                if (rsPesquisaCarteiraVacinacao.isBeforeFirst()){            
+                                    while (rsPesquisaCarteiraVacinacao.next()) {
+        %>                                 
+                                        <tr class="text-center">
+                                            <th scope="row"><%=rsPesquisaCarteiraVacinacao.getString("data_pet_vacina")%></th>
 
+        <%                                  ResultSet rsNomePet = pet.Consultar("SELECT Nome_Pet,Cliente_Id_Cliente FROM TB_Pet WHERE Id_Pet = " + rsPesquisaCarteiraVacinacao.getInt("pet_id_pet"));
+                                            if (rsNomePet.isBeforeFirst()){
+                                                if(rsNomePet.next()){
+        %>                  
+                                                    <td><%=rsNomePet.getString("nome_pet")%></td>
+        <%                                      }else{
+        %>        
+                                                <div>Pet não encontrado</div>
+        <%       
+                                                }  
+                                            }else{
+        %>            
+                                                <div>Pet não encontrado</div>
+        <%      
+                                            }
+
+                                            ResultSet rsNomeVacina = vacina.Consultar("SELECT Nome_Vacina FROM TB_Vacina WHERE Id_Vacina = " + rsPesquisaCarteiraVacinacao.getInt("vacina_id_vacina"));
+                                            if (rsNomeVacina.isBeforeFirst()){
+                                                if(rsNomeVacina.next()){
+        %>   
+                                                    <td><%=rsNomeVacina.getString("nome_vacina")%></td>
+        <%                                      }else{
+        %>    
+                                                    <div>Vacina não encontrado</div>
+        <%    
+                                                }
+                                            }else{
+        %>    
+                                                <div>Vacina não encontrada</div>
+        <%    
+                                            }
+        %>    
+                                            <td>
+                                                <form id="formAlterarCarteiraVacinacao" method="POST" action="Editar_CarteiraVacinacao.jsp"> 
+                                                    <input type="hidden" id="id_carteira_vacinacao" name="id_carteira_vacinacao" value="<%=rsPesquisaCarteiraVacinacao.getString("id_carteira_vacinacao")%>">
+                                                    <input type="hidden" id="id_cliente" name="id_cliente" value="<%=rsNomePet.getString("cliente_id_cliente")%>">
                                                     <button class="btn btn-warning">
                                                         <i class="fa fa-pen icone_plus"></i>
                                                     </button>
-                                                </form>
-<%    
+                                                </form>                                          
+                                            </td>
+                                        </tr>
+<%            
+                                    }
+                                }else{
+%>                    
+                                    <div>Não possui registro</div>
+<%              
+                                }
+                            }else{
+                                ResultSet rsPesquisaCarteiraVacinacao = carteiraVacinacao.Consultar("SELECT * FROM TB_Carteira_Vacinacao WHERE  Pet_Id_Pet in (SELECT Id_Pet FROM TB_Pet WHERE Cliente_Id_Cliente =" + session.getAttribute("id_cliente") +") AND Vacina_Id_Vacina = " + request.getParameter("id_vacina"));
+                                if (rsPesquisaCarteiraVacinacao.isBeforeFirst()){            
+                                    while (rsPesquisaCarteiraVacinacao.next()) {
+    %>                                         
+                                        <tr class="text-center">
+                                            <th scope="row"><%=rsPesquisaCarteiraVacinacao.getString("data_pet_vacina")%></th>
+
+    <%                                      ResultSet rsNomePet = pet.Consultar("SELECT Nome_Pet FROM TB_Pet WHERE Id_Pet = " + rsPesquisaCarteiraVacinacao.getInt("pet_id_pet"));
+                                            if (rsNomePet.isBeforeFirst()){
+                                                if(rsNomePet.next()){
+    %>                                  
+                                                    <td><%=rsNomePet.getString("nome_pet")%></td>
+    <%                                          }else{
+    %>                            
+                                                    <div>Pet não encontrado</div>
+    <%                      
+                                                }  
+                                            }else{
+    %>                            
+                                                <div>Pet não encontrado</div>
+    <%                       
                                             }
+
+                                            ResultSet rsNomeVacina = vacina.Consultar("SELECT Nome_Vacina FROM TB_Vacina WHERE Id_Vacina = " + rsPesquisaCarteiraVacinacao.getInt("vacina_id_vacina"));
+                                            if (rsNomeVacina.isBeforeFirst()){
+                                                if(rsNomeVacina.next()){
+    %>                    
+                                                    <td><%=rsNomeVacina.getString("nome_vacina")%></td>
+    <%                                          }else{
+    %>                    
+                                                    <div>Vacina não encontrado</div>
+    <%                    
+                                                }
+                                            }else{
+    %>                   
+                                                <div>Vacina não encontrada</div>
+    <%                    
+                                            }
+    %>                                       
+                                        </tr>
+    <%            
                                         }
-%>                                                
-                                    </td>
-                                </tr>
-<%    
+                                }else{
+    %>                    
+                                    <div>Não possui registro</div>
+    <%               
+                                }             
                             }
                         }else{
-%>            
+%>        
                             <div>Não possui registro</div>
-<%      
+<%       
                         }
-                    }else if (request.getParameter("id_pet").isEmpty() && !request.getParameter("id_vacina").isEmpty()) {
+                    }else if (request.getParameter("id_pet").isEmpty() && request.getParameter("id_vacina").isEmpty()) {
                         ResultSet rsCliente = cliente.Consultar("SELECT Tipo_Cliente FROM TB_Cliente WHERE Id_Cliente = '" + session.getAttribute("id_cliente") + "'");
                         if(rsCliente.next()){
                             if (rsCliente.getBoolean("Tipo_Cliente") == true){
@@ -349,7 +446,7 @@
                                         <tr class="text-center">
                                             <th scope="row"><%=rsPesquisaCarteiraVacinacao.getString("data_pet_vacina")%></th>
 
-<%                                          ResultSet rsNomePet = pet.Consultar("SELECT Nome_Pet FROM TB_Pet WHERE Id_Pet = " + rsPesquisaCarteiraVacinacao.getInt("pet_id_pet"));
+<%                                          ResultSet rsNomePet = pet.Consultar("SELECT Nome_Pet,Cliente_Id_Cliente FROM TB_Pet WHERE Id_Pet = " + rsPesquisaCarteiraVacinacao.getInt("pet_id_pet"));
                                             if (rsNomePet.isBeforeFirst()){
                                                 if(rsNomePet.next()){
 %>                                      
@@ -383,7 +480,8 @@
 %>                        
                                             <td>
                                                 <form id="formAlterarCarteiraVacinacao" method="POST" action="Editar_CarteiraVacinacao.jsp"> 
-                                                    <input type="text" id="id_carteira_vacinacao" name="id_carteira_vacinacao" value="<%=rsPesquisaCarteiraVacinacao.getString("id_carteira_vacinacao")%>">
+                                                    <input type="hidden" id="id_carteira_vacinacao" name="id_carteira_vacinacao" value="<%=rsPesquisaCarteiraVacinacao.getString("id_carteira_vacinacao")%>">
+                                                    <input type="hidden" id="id_cliente" name="id_cliente" value="<%=rsNomePet.getString("cliente_id_cliente")%>">
                                                     <button class="btn btn-warning">
                                                         <i class="fa fa-pen icone_plus"></i>
                                                     </button>
@@ -398,7 +496,7 @@
 <%                   
                                 }       
                             }else{
-                                ResultSet rsPesquisaCarteiraVacinacao = carteiraVacinacao.Consultar("SELECT * FROM TB_Carteira_Vacinacao WHERE  Pet_Id_Pet in (SELECT Id_Pet FROM TB_Pet WHERE Cliente_Id_Cliente =" + session.getAttribute("id_cliente") +")");
+								ResultSet rsPesquisaCarteiraVacinacao = carteiraVacinacao.Consultar("SELECT * FROM TB_Carteira_Vacinacao WHERE  Pet_Id_Pet in (SELECT Id_Pet FROM TB_Pet WHERE Cliente_Id_Cliente =" + session.getAttribute("id_cliente") +")");
                                 if (rsPesquisaCarteiraVacinacao.isBeforeFirst()){            
                                     while (rsPesquisaCarteiraVacinacao.next()) {
 %>                                             
@@ -436,15 +534,7 @@
                                                 <div>Vacina não encontrada</div>
 <%                        
                                             }
-%>                        
-                                            <td>
-                                                <form id="formAlterarCarteiraVacinacao" method="POST" action="Editar_CarteiraVacinacao.jsp"> 
-                                                    <input type="text" id="id_carteira_vacinacao" name="id_carteira_vacinacao" value="<%=rsPesquisaCarteiraVacinacao.getString("id_carteira_vacinacao")%>">
-                                                    <button class="btn btn-warning">
-                                                        <i class="fa fa-pen icone_plus"></i>
-                                                    </button>
-                                                </form>
-                                            </td>                      
+%>                                              
                                         </tr>
 <%               
                                         }
@@ -458,12 +548,12 @@
 %>            
                             <div>Não possui registro</div>
 <%       
-                        }
+                        }   
                     }else{
-%>    
-                        <div>Não possui registro</div>
-<%    
-                    }
+%>            
+                            <div>Não possui registro</div>
+<%       
+                    }   
                 }else{
                     ResultSet rsCliente = cliente.Consultar("SELECT Tipo_Cliente FROM TB_Cliente WHERE Id_Cliente = '" + session.getAttribute("id_cliente") + "'");
                     if(rsCliente.next()){
@@ -475,7 +565,7 @@
                                     <tr class="text-center">
                                         <th scope="row"><%=rsPesquisaCarteiraVacinacao.getString("data_pet_vacina")%></th>
 
-<%                                      ResultSet rsNomePet = pet.Consultar("SELECT Nome_Pet FROM TB_Pet WHERE Id_Pet = " + rsPesquisaCarteiraVacinacao.getInt("pet_id_pet"));
+<%                                      ResultSet rsNomePet = pet.Consultar("SELECT Nome_Pet,Cliente_Id_Cliente FROM TB_Pet WHERE Id_Pet = " + rsPesquisaCarteiraVacinacao.getInt("pet_id_pet"));
                                         if (rsNomePet.isBeforeFirst()){
                                             if(rsNomePet.next()){
 %>                                  
@@ -509,7 +599,8 @@
 %>                    
                                         <td>
                                             <form id="formAlterarCarteiraVacinacao" method="POST" action="Editar_CarteiraVacinacao.jsp"> 
-                                                <input type="text" id="id_carteira_vacinacao" name="id_carteira_vacinacao" value="<%=rsPesquisaCarteiraVacinacao.getString("id_carteira_vacinacao")%>">
+                                                <input type="hidden" id="id_carteira_vacinacao" name="id_carteira_vacinacao" value="<%=rsPesquisaCarteiraVacinacao.getString("id_carteira_vacinacao")%>">
+                                                <input type="hidden" id="id_cliente" name="id_cliente" value="<%=rsNomePet.getString("cliente_id_cliente")%>">
                                                 <button class="btn btn-warning">
                                                     <i class="fa fa-pen icone_plus"></i>
                                                 </button>
@@ -562,15 +653,7 @@
                                             <div>Vacina não encontrada</div>
 <%                    
                                         }
-%>                    
-                                        <td>
-                                            <form id="formAlterarCarteiraVacinacao" method="POST" action="Editar_CarteiraVacinacao.jsp"> 
-                                                <input type="text" id="id_carteira_vacinacao" name="id_carteira_vacinacao" value="<%=rsPesquisaCarteiraVacinacao.getString("id_carteira_vacinacao")%>">
-                                                <button class="btn btn-warning">
-                                                    <i class="fa fa-pen icone_plus"></i>
-                                                </button>
-                                            </form>
-                                        </td>                      
+%>                                       
                                     </tr>
 <%            
                                     }
