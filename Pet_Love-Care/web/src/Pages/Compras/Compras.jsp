@@ -28,18 +28,6 @@
     });
     
   </script>
-  <script>
-    $(".soma").blur(function(){
-            //declaro uma var para somar o total
-            var total = 0;
-            //faço um foreach percorrendo todos os inputs com a class soma e faço a soma na var criada acima
-            $(".soma").each(function(){
-                total = total + Number($(this).val());  
-            });
-            //mostro o total no input Sub Total
-            $("#valor_total_compra").val(total);
-        });
- </script>
 </head>
 
 <body>
@@ -102,9 +90,10 @@
           
             <!---->
             <form id="formRealizaPagamento" method="POST" action="Pagamento.jsp">
-              <input type="text" id="valor_total_compra" name="valor_total_compra">
+              <label id="valorTotal" class="col-form-label login_label mt-3"></label>
+              <input type="hidden" id="valor_total_compra" name="valor_total_compra">
               <button>
-                  <i class="fa fa-arrow-left"></i>
+                  <i class="fas fa-shopping-cart"></i>
               </button>
             </form>
             <br/>
@@ -118,7 +107,7 @@
     for(let i = 0; i < inputs.length; i++){
         soma += parseFloat(inputs[i].value);
     }
-    //document.getElementById("valorTotal").innerHTML = "Valor total: R$ " + soma;
+    document.getElementById("valorTotal").innerHTML = "Valor total: R$ " + soma;
     document.getElementById('valor_total_compra').value = soma;
 </script>
 </html>

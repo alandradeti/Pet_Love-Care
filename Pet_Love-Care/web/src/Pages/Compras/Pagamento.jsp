@@ -48,10 +48,10 @@
                     if(rsCliente.next()){
 %>                
                         <form id="formRealizarPagamento">
-                            <label class="col-form-label login_label mt-3"><%=rsCliente.getString("nome_cliente")%></label>
-                            <input type="text" name="data_compra" id="data_compra" value="" />
-                            <input type="text" name="valor_compra" id="valor_compra" value="<%=request.getParameter("valor_total_compra")%>" />
-                            <input type="text" class="form-control" name="id_cliente" id="id_cliente" value="<%=rsCliente.getString("id_cliente")%>"/>
+                            <label class="col-form-label login_label mt-3">Nome: <%=rsCliente.getString("nome_cliente")%></label>
+                            <input type="hidden" name="data_compra" id="data_compra" value="" />
+                            <input type="hidden" name="valor_compra" id="valor_compra" value="<%=request.getParameter("valor_total_compra")%>" />
+                            <input type="hidden" class="form-control" name="id_cliente" id="id_cliente" value="<%=rsCliente.getString("id_cliente")%>"/>
                            
                             <div class="form-row">
                                 <div class="form-group col-md-6">
