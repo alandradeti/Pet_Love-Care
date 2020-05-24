@@ -94,21 +94,21 @@
                                          alt="...">
                                         <span class="text_qtd">Descrição: </span>
                                         <p class="card-text center_cliente" id="descricao_produto"><%=rsProduto.getString("descricao_produto")%></p>
-                                        <!--<div class="input-group mb-3 input_center">-->
-                                         <form id="formAdicionarCarrinho">  
-                                            <p class="card-text center_cliente" id="valor_produto"><%=rsProduto.getString("valor_produto")%></p>
+                                        <form id="formAdicionarCarrinho">  
+                                            <p class="card-text center_cliente" id="valor_produto" ><%=rsProduto.getString("valor_produto")%></p>
                                             <span class="text_qtd">Quantidade: </span>
                                             <div class="row centralizar_btn_cliente">
-                                                <input type="text" class="form-control col-2" id="quantidade_produto" name="quantidade_produto"
-                                                       aria-describedby="button-addon1">
+                                                <input type="text" class="form-control col-2" id="quantidade_carrinho" name="quantidade_carrinho" aria-describedby="button-addon1" required>
+                                                <input type="hidden" id="valor_produto" name="valor_produto" value="<%=rsProduto.getString("valor_produto")%>">  
                                                 <input type="hidden" id="nome_produto" name="nome_produto" value="<%=rsProduto.getString("nome_produto")%>">     
                                                 <input type="hidden" id="id_produto" name="id_produto" value="<%=rsProduto.getString("id_produto")%>">
+                                                <input type="hidden" id="id_cliente" name="id_cliente" value="<%=session.getAttribute("id_cliente")%>">
+                                                <input type="hidden" id="status_carrinho" name="status_carrinho" value="0">
                                                 <button id="adicionaProduto" name="adicionaProduto" class="btn btn-warning btn_plus_cliente ml-1">
                                                     <i class="fa fa-plus icone_plus"></i>
                                                 </button>
                                             </div>
-                                         </form>
-                                        <!--</div>-->
+                                        </form>
                                   </div>
                                 </div>
                 <%

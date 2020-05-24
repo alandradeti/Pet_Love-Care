@@ -329,11 +329,11 @@ $(function () {
     });
 });
 
-/*********************************************************************/
-/********************                        *************************/
-/******************** TRATAMENTO AGENDAMENTO *************************/
-/********************                        *************************/
-/*********************************************************************/
+/********************************************************************************/
+/********************                                   *************************/
+/******************** TRATAMENTO CARTEIRA DE VACINACAO  *************************/
+/********************                                   *************************/
+/********************************************************************************/
 
 //Envio do formulário de cadastramento Carteira de Vacinacao
 $(function () {
@@ -376,6 +376,29 @@ $(function () {
             success: function (data) {
                 alert("Funcionou");
                 window.location.href = "../CarteiraVacinacao/Consultar_CarteiraVacinacao.jsp";
+            }
+        });
+        return false;
+    });
+});
+
+
+
+/****************************************************************************/
+/********************                                 ***********************/
+/******************** TRATAMENTO CARRINHO DE COMPRAS  ***********************/
+/********************                                 ***********************/
+/****************************************************************************/
+
+//Envio do formulário de cadastramento Carteira de Vacinacao
+$(function () {
+    $('#formAdicionarCarrinho').submit(function () {
+        $.ajax({
+            url: '../Compras/CarrinhoCompras.jsp',
+            type: 'POST',
+            data: $('#formAdicionarCarrinho').serialize(),
+            success: function (data) {
+                alert("Funcionou");
             }
         });
         return false;
