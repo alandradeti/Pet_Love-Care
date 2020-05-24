@@ -51,49 +51,49 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="../CarteiraVacinacao/Consultar_CarteiraVacinacao.jsp">Carteira de Vacinação</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../Compras/Compras.jsp">Compras</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../Pet/PetConsultar.jsp">Pet</a>
+                            </li>
                 <%      }
                 %>
-                <%      if (rs.getBoolean("Tipo_Cliente") == true) {%>
-               <li class="nav-item">
-                    <a class="nav-link" href="../Veterinario/VeterinarioConsultar.jsp">
-                        Veterinário
-                    </a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Produtos
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="../Home/Home.jsp">Consultar</a>
-                        <a class="dropdown-item" href="../Produtos/Produtos.html">Cadastrar</a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../Agendar/Consultar_Agendamento.jsp">Agendamento</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../Pet/PetConsultar.jsp">Pet</a>
-                </li>
-                <li class="nav-item">
-                     <a class="nav-link" href="../Cliente/ClienteConsultar.jsp">Clientes</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../Compras/Compras.html">Compras</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../Vacina/VacinaConsultar.jsp">
-                        Vacina
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../CarteiraVacinacao/Consultar_CarteiraVacinacao.jsp">Carteira de Vacinação</a>
-                </li>
-                <%      }
-                %>
-                <%      if (rs.getBoolean("Tipo_Cliente") == false) {%>
-                <li class="nav-item">
-                    <a class="nav-link" href="../Pet/PetConsultar.jsp">Pet</a>
-                </li>
+                <%      if (rs.getBoolean("Tipo_Cliente") == true){%>
+                            <li class="nav-item">
+                                 <a class="nav-link" href="../Veterinario/VeterinarioConsultar.jsp">
+                                     Veterinário
+                                 </a>
+                             </li>
+                             <li class="nav-item dropdown">
+                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                     Produtos
+                                 </a>
+                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                     <a class="dropdown-item" href="../Home/Home.jsp">Consultar</a>
+                                     <a class="dropdown-item" href="../Produtos/Produtos.html">Cadastrar</a>
+                                 </div>
+                             </li>
+                             <li class="nav-item">
+                                 <a class="nav-link" href="../Agendar/Consultar_Agendamento.jsp">Agendamento</a>
+                             </li>
+                             <li class="nav-item">
+                                 <a class="nav-link" href="../Pet/PetConsultar.jsp">Pet</a>
+                             </li>
+                             <li class="nav-item">
+                                  <a class="nav-link" href="../Cliente/ClienteConsultar.jsp">Clientes</a>
+                             </li>
+                             <li class="nav-item">
+                                 <a class="nav-link" href="../Compras/Compras.jsp">Compras</a>
+                             </li>
+                             <li class="nav-item">
+                                 <a class="nav-link" href="../Vacina/VacinaConsultar.jsp">
+                                     Vacina
+                                 </a>
+                             </li>
+                             <li class="nav-item">
+                                 <a class="nav-link" href="../CarteiraVacinacao/Consultar_CarteiraVacinacao.jsp">Carteira de Vacinação</a>
+                             </li>
                 <%      }
                     }
                 %>

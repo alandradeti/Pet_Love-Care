@@ -12,7 +12,12 @@
 <%
     Boolean resp = carrinho.Incluir();
     if (resp == true) {
-        
+%>
+        <script>
+            window.location.href = "../Home/Home.jsp";
+            alert("Produto Adicionado");
+        </script>
+<%
     } else {
         
     }

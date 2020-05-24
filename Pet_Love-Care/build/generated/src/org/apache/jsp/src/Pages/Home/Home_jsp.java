@@ -88,6 +88,7 @@ public final class Home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                $(\"#headerDiv\").load(\"../Menu/Menu.jsp\");\r\n");
       out.write("            });\r\n");
       out.write("        </script>\r\n");
+      out.write("            \r\n");
       out.write("    </head>\r\n");
       out.write("\r\n");
       out.write("    <body>\r\n");
@@ -169,14 +170,16 @@ public final class Home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                        <p class=\"card-text center_cliente\" id=\"descricao_produto\">");
       out.print(rsProduto.getString("descricao_produto"));
       out.write("</p>\r\n");
-      out.write("                                        <form id=\"formAdicionarCarrinho\">  \r\n");
-      out.write("                                            <p class=\"card-text center_cliente\" id=\"valor_produto\">");
+      out.write("                                        <form id=\"formAdicionarCarrinho\" method=\"GET\" name=\"formAdicionarCarrinho\" >  \r\n");
+      out.write("                                            <p class=\"card-text center_cliente\" id=\"valor_produto\" >");
       out.print(rsProduto.getString("valor_produto"));
       out.write("</p>\r\n");
       out.write("                                            <span class=\"text_qtd\">Quantidade: </span>\r\n");
       out.write("                                            <div class=\"row centralizar_btn_cliente\">\r\n");
-      out.write("                                                <input type=\"text\" class=\"form-control col-2\" id=\"quantidade_carrinho\" name=\"quantidade_carrinho\"\r\n");
-      out.write("                                                       aria-describedby=\"button-addon1\">\r\n");
+      out.write("                                                <input type=\"text\" class=\"form-control col-2\" id=\"quantidade_carrinho\" name=\"quantidade_carrinho\" aria-describedby=\"button-addon1\" required>\r\n");
+      out.write("                                                <input type=\"hidden\" id=\"valor_produto\" name=\"valor_produto\" value=\"");
+      out.print(rsProduto.getString("valor_produto"));
+      out.write("\">  \r\n");
       out.write("                                                <input type=\"hidden\" id=\"nome_produto\" name=\"nome_produto\" value=\"");
       out.print(rsProduto.getString("nome_produto"));
       out.write("\">     \r\n");
@@ -187,7 +190,7 @@ public final class Home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.print(session.getAttribute("id_cliente"));
       out.write("\">\r\n");
       out.write("                                                <input type=\"hidden\" id=\"status_carrinho\" name=\"status_carrinho\" value=\"0\">\r\n");
-      out.write("                                                <button id=\"adicionaProduto\" name=\"adicionaProduto\" class=\"btn btn-warning btn_plus_cliente ml-1\">\r\n");
+      out.write("                                                <button type=\"button\" id=\"adicionaProduto\" name=\"adicionaProduto\" class=\"btn btn-warning btn_plus_cliente ml-1\">\r\n");
       out.write("                                                    <i class=\"fa fa-plus icone_plus\"></i>\r\n");
       out.write("                                                </button>\r\n");
       out.write("                                            </div>\r\n");

@@ -27,6 +27,7 @@
                 $("#headerDiv").load("../Menu/Menu.jsp");
             });
         </script>
+            
     </head>
 
     <body>
@@ -94,7 +95,7 @@
                                          alt="...">
                                         <span class="text_qtd">Descrição: </span>
                                         <p class="card-text center_cliente" id="descricao_produto"><%=rsProduto.getString("descricao_produto")%></p>
-                                        <form id="formAdicionarCarrinho">  
+                                        <form id="formAdicionarCarrinho" method="POST" name="formAdicionarCarrinho" action="../Compras/CarrinhoCompras.jsp">  
                                             <p class="card-text center_cliente" id="valor_produto" ><%=rsProduto.getString("valor_produto")%></p>
                                             <span class="text_qtd">Quantidade: </span>
                                             <div class="row centralizar_btn_cliente">

@@ -391,16 +391,52 @@ $(function () {
 /****************************************************************************/
 
 //Envio do formulário de cadastramento Carteira de Vacinacao
-$(function () {
+/*$(function () {
     $('#formAdicionarCarrinho').submit(function () {
         $.ajax({
             url: '../Compras/CarrinhoCompras.jsp',
             type: 'POST',
+            dataType: 'html',
             data: $('#formAdicionarCarrinho').serialize(),
             success: function (data) {
                 alert("Funcionou");
+            }
+        })
+        return false;
+    });
+});*/
+
+//Envio do formulário de cadastramento Carteira de Vacinacao
+$(function () {
+    $('#formExcluirProdutoCarrinho').submit(function () {
+        $.ajax({
+            url: '../Compras/ExcluirCarrinho.jsp',
+            type: 'POST',
+            data: $('#formExcluirProdutoCarrinho').serialize(),
+            success: function (data) {
+                alert("Funcionou");
+                window.location.href = "../Compras/Compras.jsp";
             }
         });
         return false;
     });
 });
+
+ $('#adicionaProduto').on('click', function(e) {
+
+        //history.pushState(null, null, "?" + $("form[name=\"formularioBusca\"]").serialize())
+
+        $.ajax({
+            url: '../Compras/CarrinhoCompras.jsp',
+            type: 'GET',
+            dataType: 'html',
+            data: $('#formAdicionarCarrinho').serialize()
+        })
+        .done(function(data) {
+            alert("Funcionou");
+        })
+        .fail(function() {
+            alert("erro");
+        });
+    })
+
