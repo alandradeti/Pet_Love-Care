@@ -93,6 +93,7 @@
                                     </select>
                                 </div>
                             </div>
+                            <label class="col-form-label login_label mt-3">Valor Total: <%=request.getParameter("valor_total_compra")%></label>
                             <div class="centralizar_btn"> 
                                 <button class="btn btn_login mt-4 centralizar_btn mb-3">
                                     Confirmar Pagamento
