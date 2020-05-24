@@ -45,9 +45,12 @@
                 </li>
                 <%  if (rs.next()) {
                         if (rs.getBoolean("Tipo_Cliente") == false) {%>
-                <li class="nav-item">
-                    <a class="nav-link" href="../Agendar/Consultar_Agendamento.jsp">Agendamento</a>
-                </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../Agendar/Consultar_Agendamento.jsp">Agendamento</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../CarteiraVacinacao/Consultar_CarteiraVacinacao.jsp">Carteira de Vacinação</a>
+                            </li>
                 <%      }
                 %>
                 <%      if (rs.getBoolean("Tipo_Cliente") == true) {%>
@@ -83,7 +86,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../Carteira/Carteira.html">Carteira</a>
+                    <a class="nav-link" href="../CarteiraVacinacao/Consultar_CarteiraVacinacao.jsp">Carteira de Vacinação</a>
                 </li>
                 <%      }
                 %>
