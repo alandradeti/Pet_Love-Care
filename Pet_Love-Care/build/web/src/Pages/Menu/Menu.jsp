@@ -45,9 +45,12 @@
                 </li>
                 <%  if (rs.next()) {
                         if (rs.getBoolean("Tipo_Cliente") == false) {%>
-                <li class="nav-item">
-                    <a class="nav-link" href="../Agendar/Consultar_Agendamento.jsp">Agendamento</a>
-                </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../Agendar/Consultar_Agendamento.jsp">Agendamento</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../CarteiraVacinacao/Consultar_CarteiraVacinacao.jsp">Carteira de Vacinação</a>
+                            </li>
                 <%      }
                 %>
                 <%      if (rs.getBoolean("Tipo_Cliente") == true) {%>
@@ -83,24 +86,19 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../Relatorio/Relatorio.jsp">
-                        Teste Relatorio
-                    </a>
+                    <a class="nav-link" href="../CarteiraVacinacao/Consultar_CarteiraVacinacao.jsp">Carteira de Vacinação</a>
+                    
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../Carteira/Carteira.html">Carteira</a>
+                  <a class="nav-link" href="../Relatorio/Relatorio.jsp">
+                        Teste Relatorio
+                    </a>
                 </li>
                 <%      }
                 %>
                 <%      if (rs.getBoolean("Tipo_Cliente") == false) {%>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Pet
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="nav-link" href="../Pet/PetConsultar.jsp">Consultar</a>
-                        <a class="nav-link" href="../Pet/Cadastrar_Pet.html">Cadastrar</a>
-                    </div>
+                <li class="nav-item">
+                    <a class="nav-link" href="../Pet/PetConsultar.jsp">Pet</a>
                 </li>
                 <%      }
                     }
