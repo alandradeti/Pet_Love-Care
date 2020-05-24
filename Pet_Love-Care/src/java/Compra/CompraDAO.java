@@ -113,12 +113,12 @@ public class CompraDAO extends Compra {
      * @purpose: Realizar a exclusão de um cliente existente. 
      * @return: boolean.
      */
-    public boolean Excluir(int iId_Carrinho){
+    public boolean Excluir(int iId_Compra){
     	 try {
             String sSql = "DELETE FROM "
-                            + "TB_Carrinho "
+                            + "TB_Compra "
                         + "WHERE "
-                            + "Id_Carrinho = " + iId_Carrinho;
+                            + "Id_Compra = " + iId_Compra;
             PreparedStatement ps = dataSource.getConnection().prepareStatement(sSql); // Realiza a conexão e o preparo da query
             ps.executeUpdate(sSql); // Executa a query
             
