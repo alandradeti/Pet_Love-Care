@@ -41,6 +41,9 @@
                         </a>
                     </button>
                 </form>
+                <a class="btn_voltar" href="../Home/Home.jsp">
+                    <i class="fas fa-arrow-left icone_plus"></i>
+                </a>
                 <div class="centralizar">
                     <img src="../../img/Logo/produto_casa.png" 
                          alt="icone" class="tamanho_icone"/>

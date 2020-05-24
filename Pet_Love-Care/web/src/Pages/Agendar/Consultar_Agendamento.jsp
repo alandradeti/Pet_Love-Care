@@ -21,6 +21,7 @@
         <link rel="stylesheet" href="../css/padrao.css">
         <link rel="stylesheet" href="./agendar.css" > 
 
+        <script src="../../../js/jquery.slim.min.js"></script>
         <script src="../../../js/bootstrap.min.js"></script>
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>
         <script src="../../../js/jquery.min.js"></script>
@@ -29,9 +30,6 @@
         <script>
             $(function () {
                 $("#headerDiv").load("../Menu/Menu.jsp");
-            });
-            $(function () {
-                $("#header_agendamento").load("./Cadastrar_Agendamento.jsp");
             });
             $('#myModal').on('shown.bs.modal', function () {
                 $('#myInput').trigger('focus')
@@ -45,30 +43,33 @@
         <div class="background">
             <!-- FormulÃ¡rio -->
             <div class="card container mt-5 card_consulta">
-                <form id="formEnviaData" method="POST" action="Cadastrar_Agendamento.jsp">
-                    <div class="form-group col-md-6">
-                        <input type="text" class="form-control col-12" name="data_inicial_agendamento"
-                                id="data_inicial_agendamento" placeholder="Data..." required />
-                        <button type="submit"  id="data_agendamento" name="data_agendamento" class="btn btn_cadastrar mt-2">
-                            <a class="btn_vacina" >
+                <form id="formEnviaData" method="POST" action="Cadastrar_Agendamento.jsp"
+                      class="mt-1">
+                        <input type="text" class="form-control input_date col-3" name="data_inicial_agendamento"
+                                id="data_inicial_agendamento" placeholder="Data..." 
+                                style="position: absolute;" required />
+                        <button type="submit" id="data_agendamento" 
+                                name="data_agendamento" class="btn btn_cadastrar mt-2">
+                            <a class="btn_vacina">
                                 <i class="fa fa-plus icone_plus"></i>
                             </a>
                         </button>
-                    </div>
                 </form>
                 
                 <div class="text-center mt-4">
                     <img src="../../img/Logo/dog_coleira.png" class="cabeca_gato">
                     <h3 class="mt-2">Consultar Agendamento</h3>
                 </div>
-                <form id="formPesquisarAgendamento" method="POST" action="Consultar_Agendamento.jsp" class="form-inline my-2 my-lg-0 mt-4">
-                    <div class="form-group col-6">
-                        <input type="text" name="data_inicial_agendamento" id="data_inicial_agendamento"  placeholder="Data"/>
+                <form id="formPesquisarAgendamento" method="POST" 
+                      action="Consultar_Agendamento.jsp" 
+                      class="form-inline my-2 my-lg-0 form">
+                    <div class="form-group col-6" style="margin-top: 30px">
                         <%
                             if(rs.next()){
                                 if (rs.getBoolean("Tipo_Cliente") == true){
                         %>
-                                    <select class="form-control col-12" name="id_cliente" id="id_cliente">
+                                    <label class="label_agendamento" style="position: absolute;">Cliente:</label>
+                                    <select class="form-control select_agendamento col-4" name="id_cliente" id="id_cliente">
                                         <option value="">Todos</option>
                         <%              ResultSet rsPetPesquisa = pet.Consultar("SELECT DISTINCT Cliente_Id_Cliente FROM TB_Pet");
                                         while(rsPetPesquisa.next()){
@@ -83,7 +84,8 @@
                                     </select>
                         <%      }else{
                         %>
-                                    <select class="form-control col-12" name="id_pet" id="id_pet">
+                                    <label class="label_agendamento" style="position: absolute;">Pet:</label>
+                                    <select class="form-control select_agendamento  col-4" name="id_pet" id="id_pet">
                                         <option value="">Todos</option>
                         <%              ResultSet rsPetPesquisa = pet.Consultar("SELECT Nome_Pet, Id_pet FROM TB_Pet WHERE Cliente_Id_Cliente = " + session.getAttribute("id_cliente"));
                                         while(rsPetPesquisa.next()){
@@ -97,6 +99,9 @@
                                 }
                             }
                         %>
+                        <input type="text" name="data_inicial_agendamento" 
+                               class="form-control input_agendamento"
+                               id="data_inicial_agendamento"  placeholder="Data"/>
                         <button type="submit" 
                                 class="btn btn-outline-success my-2 my-sm-0 btn_search" 
                                 id="pesquisarAgendamento" name="pesquisarAgendamento">
@@ -104,7 +109,7 @@
                         </button> 
                     </div>
                 </form>
-                <table class="table responsive table-hover table-dark mt-4">
+                <table class="table table-hover table-dark responsive mt-2">
                     <thead>
                         <tr class="text-center">
                             <th scope="col">ID</th>
@@ -119,7 +124,7 @@
                                 if(rsClienteColuna.next()){
                                     if (rsClienteColuna.getBoolean("Tipo_Cliente") == true){
                             %>
-                                        <th scope="col">Cliente</th>
+                                        <th scope="col">Dono</th>
                             <%     }
                                 }
                             %>
