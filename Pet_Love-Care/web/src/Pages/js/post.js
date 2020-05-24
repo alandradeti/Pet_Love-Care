@@ -407,7 +407,7 @@ $(function () {
 });*/
 
 //Envio do formulário de cadastramento Carteira de Vacinacao
-$(function () {
+/*$(function () {
     $('#formExcluirProdutoCarrinho').submit(function () {
         $.ajax({
             url: '../Compras/ExcluirCarrinho.jsp',
@@ -420,23 +420,7 @@ $(function () {
         });
         return false;
     });
-});
+});*/
 
- $('#adicionaProduto').on('click', function(e) {
 
-        //history.pushState(null, null, "?" + $("form[name=\"formularioBusca\"]").serialize())
-
-        $.ajax({
-            url: '../Compras/CarrinhoCompras.jsp',
-            type: 'GET',
-            dataType: 'html',
-            data: $('#formAdicionarCarrinho').serialize()
-        })
-        .done(function(data) {
-            alert("Funcionou");
-        })
-        .fail(function() {
-            alert("erro");
-        });
-    })
 

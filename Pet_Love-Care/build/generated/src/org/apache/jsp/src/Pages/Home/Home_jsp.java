@@ -170,7 +170,7 @@ public final class Home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                        <p class=\"card-text center_cliente\" id=\"descricao_produto\">");
       out.print(rsProduto.getString("descricao_produto"));
       out.write("</p>\r\n");
-      out.write("                                        <form id=\"formAdicionarCarrinho\" method=\"GET\" name=\"formAdicionarCarrinho\" >  \r\n");
+      out.write("                                        <form id=\"formAdicionarCarrinho\" method=\"POST\" name=\"formAdicionarCarrinho\" action=\"../Compras/CarrinhoCompras.jsp\">  \r\n");
       out.write("                                            <p class=\"card-text center_cliente\" id=\"valor_produto\" >");
       out.print(rsProduto.getString("valor_produto"));
       out.write("</p>\r\n");
@@ -190,7 +190,7 @@ public final class Home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.print(session.getAttribute("id_cliente"));
       out.write("\">\r\n");
       out.write("                                                <input type=\"hidden\" id=\"status_carrinho\" name=\"status_carrinho\" value=\"0\">\r\n");
-      out.write("                                                <button type=\"button\" id=\"adicionaProduto\" name=\"adicionaProduto\" class=\"btn btn-warning btn_plus_cliente ml-1\">\r\n");
+      out.write("                                                <button id=\"adicionaProduto\" name=\"adicionaProduto\" class=\"btn btn-warning btn_plus_cliente ml-1\">\r\n");
       out.write("                                                    <i class=\"fa fa-plus icone_plus\"></i>\r\n");
       out.write("                                                </button>\r\n");
       out.write("                                            </div>\r\n");

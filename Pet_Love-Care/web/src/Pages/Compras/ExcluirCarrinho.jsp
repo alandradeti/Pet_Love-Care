@@ -4,7 +4,12 @@
 <jsp:setProperty name="carrinho" property="*"/>
 <%
     if (carrinho.Excluir(Integer.parseInt(request.getParameter("id_carrinho")))) {
-        out.println("Dados alterados");
+%>
+        <script>
+            window.location.href = "../Compras/Compras.jsp";
+            alert("Produto Removido do Carrinho");
+        </script>
+<%
     } else {
         out.println("Erro ao alterar");
     }

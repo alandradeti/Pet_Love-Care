@@ -28,6 +28,18 @@
     });
     
   </script>
+  <script>
+    $(".soma").blur(function(){
+            //declaro uma var para somar o total
+            var total = 0;
+            //faço um foreach percorrendo todos os inputs com a class soma e faço a soma na var criada acima
+            $(".soma").each(function(){
+                total = total + Number($(this).val());  
+            });
+            //mostro o total no input Sub Total
+            $("#valor_total_compra").val(total);
+        });
+ </script>
 </head>
 
 <body>
@@ -40,7 +52,6 @@
             <img src="../../img/Logo/Mao_sacola.png" class="cabeca_gato">
           <h3 class="mb-3">Lista de Compras</h3>
         </div>
-      <form id="formExcluirProdutoCarrinho">  
            <table id="myTable" class="table responsive">
             <thead>
               <tr>
@@ -57,8 +68,9 @@
                 if(rsCarrinho.isBeforeFirst()){
                     while (rsCarrinho.next()) {
 %>
-                        <tr class="text-center">
-                            <th scope="row"><%=rsCarrinho.getString("produto_id_produto")%></th>
+                            <tr class="text-center">
+                            
+                            <td scope="row"><%=rsCarrinho.getString("produto_id_produto")%></th>
 <%                          ResultSet rsNomeProduto = carrinho.Consultar("SELECT Nome_produto FROM TB_Produto WHERE Id_Produto = " + rsCarrinho.getString("produto_id_produto"));
                             if(rsNomeProduto.next()){
 %>
@@ -68,39 +80,46 @@
                             <td><%=rsCarrinho.getInt("quantidade_carrinho")%></td>
                             <td><%=rsCarrinho.getFloat("preco_carrinho")%></td>
                             <td>
-                              <div class="row btn_tabela_acoes">
+                                <form id="formExcluirProdutoCarrinho" method="POST" action="ExcluirCarrinho.jsp">  
                                     <input type="hidden" id="id_carrinho" name="id_carrinho" value="<%=rsCarrinho.getString("id_carrinho")%>">
-                                    <button type="submit" id="excluirProdutoCarrinho" name="excluirProdutoCarrinho" class="btn btn-danger mt-2 btn_excluir">
+                                    <button type="submit" id="excluirProdutoCarrinho" name="excluirProdutoCarrinho" class="btn btn-danger ">
                                         <i class="fa fa-trash icone_plus"></i>
                                     </button>
-                              </div>
+                                </form>
                             </td>
-                        </tr>
-<%
+                        </tr> 
+                        <input type="hidden" class="soma" id="soma>" name="soma" value="<%=rsCarrinho.getFloat("preco_carrinho")%>">  
+<%                             
                     }
                 }else{
 %>
                     <div>Carrinho vazio!</div>
 <%
                 }
-%>
+%>              
             </tbody>
           </table>
-          </form>
-        <div class="row btn_next_prev">
-          <div class="pst_btn_agendar mb-3">
-             <button class="btn btn_agendar mt-3 mr-2">
-                <i class="fa fa-arrow-left"></i>
-             </button>
-             <button class="btn btn_agendar mt-3 mr-3">
-                <i class="fa fa-arrow-right"></i>
-             </button>
-          </div>
+          
+            <!---->
+            <form id="formRealizaPagamento" method="POST" action="Pagamento.jsp">
+              <input type="text" id="valor_total_compra" name="valor_total_compra">
+              <button>
+                  <i class="fa fa-arrow-left"></i>
+              </button>
+            </form>
+            <br/>
         </div>
-         <br/>
       </div>
     </div>
 </body>
-
+<script>
+    var inputs = document.getElementsByClassName("soma");
+    var soma = 0;
+    for(let i = 0; i < inputs.length; i++){
+        soma += parseFloat(inputs[i].value);
+    }
+    //document.getElementById("valorTotal").innerHTML = "Valor total: R$ " + soma;
+    document.getElementById('valor_total_compra').value = soma;
+</script>
 </html>
 
