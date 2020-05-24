@@ -54,7 +54,7 @@
         <div class="background">
             <!-- Formulário -->
             <div class="card container mt-5 card_consulta">
-                <a class="btn_voltar" href="./Consultar_CarteiraVacinacao.html">
+                <a class="btn_voltar" href="./Consultar_CarteiraVacinacao.jsp">
                    <i class="fas fa-arrow-left icone_plus"></i>
                 </a>
                 <div class="text-center mt-4">
