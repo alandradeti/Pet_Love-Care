@@ -34,7 +34,7 @@
         <div class="background">
             <!-- FormulÃÂ¡rio -->
             <div class="card container card_consulta">
-                    <a class="btn_voltar" href="./VacinaConsultar.jsp">
+                <a class="btn_voltar" href="./Compras.jsp">
                         <i class="fas fa-arrow-left icone_plus"></i>
                     </a>
                 <div class="text-center mt-4">
@@ -93,6 +93,7 @@
                                     </select>
                                 </div>
                             </div>
+                            <label class="col-form-label login_label mt-3">Valor Total: <%=request.getParameter("valor_total_compra")%></label>
                             <div class="centralizar_btn"> 
                                 <button class="btn btn_login mt-4 centralizar_btn mb-3">
                                     Confirmar Pagamento
