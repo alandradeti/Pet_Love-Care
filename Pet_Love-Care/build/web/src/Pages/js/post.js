@@ -422,5 +422,20 @@ $(function () {
     });
 });*/
 
+//Envio do formulário de Pagamento
+$(function () {
+    $('#formRealizarPagamento').submit(function () {
+        $.ajax({
+            url: '../Compras/IncluirCompra.jsp',
+            type: 'POST',
+            data: $('#formRealizarPagamento').serialize(),
+            success: function (data) {
+                alert("Pagamento Realizado");
+                window.location.href = "../Relatorio/Relatorio.jsp";
+            }
+        });
+        return false;
+    });
+});
 
 
