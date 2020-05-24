@@ -21,7 +21,6 @@
   <link rel="shortcut icon" href="../../img/Icon/Logo-cabeca.png">
   <link rel="stylesheet" href="../css/padrao.css">
   <link rel="stylesheet" href="./carteira.css" >
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
 
   <script src="../../../js/bootstrap.min.js"></script>
   <script src="https://kit.fontawesome.com/a076d05399.js"></script>
@@ -41,11 +40,12 @@
   <div class="background">
   <!-- FormulÃ¡rio -->
     <div class="card container mb-4 card_consulta">
-        <form id="formEnviaCliente" method="POST" action="Cadastrar_CarteiraVacinacao.jsp">
-                <div class="form-group col-md-6">
+        <form id="formEnviaCliente" method="POST" action="Cadastrar_CarteiraVacinacao.jsp"
+              class="form-inline my-2 my-lg-0">
+                <div class="form-group col-6">
 <%                  if(rs.next()){
                         if (rs.getBoolean("Tipo_Cliente") == true){
-%>                          <select class="form-control col-12" name="id_cliente" id="id_cliente">
+%>                          <select class="form-control col-6" name="id_cliente" id="id_cliente" class="form-control mr-sm-2" style="left: 33rem; margin-top: 14px;">
                             <%  ResultSet rsPetPesquisa = pet.Consultar("SELECT DISTINCT Cliente_Id_Cliente FROM TB_Pet");
                                 while(rsPetPesquisa.next()){
                                     ResultSet rsClientePet = cliente.Consultar("SELECT Id_Cliente, Nome_Cliente FROM TB_Cliente WHERE Id_Cliente = " + rsPetPesquisa.getString("cliente_id_cliente"));
@@ -57,7 +57,9 @@
                                 }
                             %>
                             </select>
-                            <button type="submit" class="btn btn_cadastrar mt-2">
+                            <button type="submit" class="btn btn-outline-success btn_cadastrar my-2 
+                                    my-sm-0 btn_search" style="margin-top: 6px !important;"
+                                    style="margin-top: 10px">
                                 <a class="btn_vacina">
                                     <i class="fa fa-plus icone_plus"></i>
                                 </a>
@@ -68,18 +70,20 @@
                 </div>
         </form>
 
-        <div class="text-center mb-4">
+        <div class="text-center mb-4" style="margin-top: 10px">
             <img src="../../img/Logo/Pata_verde.png" class="cabeca_gato">
             <h3 class="mb-3">Carteira de vacinação</h3>
         </div>
         <form id="formPesquisarNomeCarteira" method="POST" 
               action="" class="form-inline my-2 my-lg-0">
-            <div class="form-group col-6">
+            <div class="form-group col-6" style="margin-top: 20px">
 <%                  ResultSet rsClienteOption = cliente.Consultar("SELECT Tipo_Cliente FROM TB_Cliente WHERE Id_Cliente = '" + session.getAttribute("id_cliente") + "'");
                     if(rsClienteOption.next()){
                         if (rsClienteOption.getBoolean("Tipo_Cliente") == true){
-%>                
-                            <select class="form-control col-12" name="id_pet" id="id_pet">
+%>                          
+                            <label class="label_carteira_pet">Pet:</label>
+                            <select class="form-control col-12" name="id_pet" id="id_pet" 
+                                    style="position: absolute; margin-left: 25rem;">
                                 <option value="">Todos</option>
 <%                                  ResultSet rsPet = pet.Consultar("SELECT Nome_Pet, Id_pet FROM TB_Pet");
                                     while(rsPet.next()){
@@ -91,7 +95,9 @@
                             </select>
 <%                      }else{
 %>
-                            <select class="form-control col-12" name="id_pet" id="id_pet">
+                            <label class="label_carteira_pet">Pet:</label>
+                            <select class="form-control col-12" name="id_pet" id="id_pet"
+                                    style="position: absolute; margin-left: 25rem;">
                                 <option value="">Todos</option>
 <%                                  ResultSet rsPet = pet.Consultar("SELECT Nome_Pet, Id_pet FROM TB_Pet WHERE Cliente_Id_Cliente = " + session.getAttribute("id_cliente"));
                                     while(rsPet.next()){
@@ -104,8 +110,10 @@
 <%                
                         }
                     }
-%>                
-                    <select name="id_vacina" id="id_vacina" class="form-control">
+%>                 
+                    <label class="label_carteira_vacina">Vacina:</label>
+                    <select name="id_vacina" id="id_vacina" 
+                            class="form-control select_carteira" style="position: absolute;margin-left: 14rem;">
                         <option value="">Todas</option>
 <%                        
                             ResultSet rsVacina = vacina.Consultar("SELECT Id_Vacina,Nome_Vacina FROM TB_Vacina");

@@ -90,9 +90,9 @@
                     
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="../Relatorio/Relatorio.jsp">
-                        Teste Relatorio
-                    </a>
+                    <a class="nav-link" href="../Relatorio/Relatorio.jsp">
+                          Teste Relatorio
+                      </a>
                 </li>
                 <%      }
                 %>
