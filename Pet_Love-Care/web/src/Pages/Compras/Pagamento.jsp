@@ -34,7 +34,7 @@
         <div class="background">
             <!-- FormulÃÂ¡rio -->
             <div class="card container card_consulta">
-                    <a class="btn_voltar" href="./VacinaConsultar.jsp">
+                <a class="btn_voltar" href="./Compras.jsp">
                         <i class="fas fa-arrow-left icone_plus"></i>
                     </a>
                 <div class="text-center mt-4">
