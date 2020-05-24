@@ -57,9 +57,16 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="../Pet/PetConsultar.jsp">Pet</a>
                             </li>
-                            <li class="nav-item">
-				<a class="nav-link" href="../Relatorio/Relatorio.jsp">Pedidos</a>	  							
-                            </li>
+                            <li class="nav-item dropdown">
+                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                     Pedidos
+                                 </a>
+                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                     <a class="dropdown-item" href="../Compras/Consultar_Compras.jsp">Consultar</a>
+                                     <a class="dropdown-item" href="../Relatorio/Relatorio.jsp">Imprimir</a>
+                                 </div>
+                             </li>
+                            
                 <%      }
                 %>
                 <%      if (rs.getBoolean("Tipo_Cliente") == true){%>
@@ -87,7 +94,7 @@
                                   <a class="nav-link" href="../Cliente/ClienteConsultar.jsp">Clientes</a>
                              </li>
                              <li class="nav-item">
-                                 <a class="nav-link" href="../Compras/Compras.jsp">Compras</a>
+                                 <a class="nav-link" href="../Compras/Consultar_Compras.jsp">Compras</a>
                              </li>
                              <li class="nav-item">
                                  <a class="nav-link" href="../Vacina/VacinaConsultar.jsp">
