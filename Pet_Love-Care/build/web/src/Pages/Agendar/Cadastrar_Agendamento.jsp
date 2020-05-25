@@ -29,6 +29,19 @@
             $(function () {
                 $("#headerDiv").load("../Menu/Menu.jsp");
             });
+            
+            function enable(){
+                if(document.getElementById("tipo_agendamento").value === 'Vacina'){
+                   document.getElementById("id_vacina").disabled = false;
+                }else{ 
+                   document.getElementById("id_vacina").disabled = true;
+                }
+                if(document.getElementById("tipo_agendamento").value === 'Hospedagem'){
+                    document.getElementById("data_final_agendamento").disabled = false;
+                }else{
+                   document.getElementById("data_final_agendamento").disabled = true;
+                } 
+            }
         </script>
     </head>
 
@@ -50,7 +63,7 @@
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label class="col-form-label login_label">Tipo de Agendamento:</label>
-                                <select name="tipo_agendamento" id="tipo_agendamento" class="form-control" required>
+                                <select onclick="enable()" name="tipo_agendamento" id="tipo_agendamento" class="form-control" required>
                                     <option>Selecione</option>
                                     <option value="Consulta">Consulta</option>
                                     <option value="Vacina">Vacina</option>
@@ -142,7 +155,7 @@
                                 <div class="form-group col-md-6">
                                     <label class="col-form-label login_label">Data Final:</label>
                                     <input type="text" class="form-control col-12" name="data_final_agendamento"
-                                           id="data_final_agendamento" placeholder="Data Final"/>
+                                           id="data_final_agendamento" placeholder="Data Final" disabled/>
                                 </div>
                             </div>
 
@@ -178,7 +191,7 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label class="col-form-label login_label">Vacina:</label>
-                                    <select name="id_vacina" id="id_vacina" class="form-control">
+                                    <select name="id_vacina" id="id_vacina" class="form-control" disabled>
                                             <option value=""></option>
                                         <%
                                             ResultSet rsVacina = agendamento.Consultar("SELECT Id_Vacina,Nome_Vacina FROM TB_Vacina");
