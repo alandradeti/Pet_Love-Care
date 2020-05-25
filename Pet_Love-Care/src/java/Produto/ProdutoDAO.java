@@ -38,13 +38,11 @@ public class ProdutoDAO extends Produto{
                     = "INSERT INTO TB_Produto("
                         + "Nome_Produto,"
                         + "Valor_Produto,"
-                        + "Quantidade_Estoque_Produto,"
                         + "Descricao_Produto,"
                         + "Numero_Imagem_Produto"
                     + ")VALUES("
                         + "'" + getNome_produto() + "',"
                         + "'" + getValor_produto() + "',"
-                        + "'" + getQuantidade_estoque_produto() + "',"
                         + "'" + getDescricao_produto() + "',"
                         + "'" + getNumero_imagem_produto() 
                     + "')";
@@ -77,7 +75,6 @@ public class ProdutoDAO extends Produto{
                         + " SET "
                             + "Nome_Produto='"+ getNome_produto()+"',"
                             + "Valor_Produto='"+ getValor_produto()+"',"
-                            + "Quantidade_Estoque_Produto='"+ getQuantidade_estoque_produto()+"',"
                             + "Descricao_Produto='"+ getDescricao_produto()+"',"
                             + "Valor_Produto='"+ getValor_produto()+"',"
                             + "Numero_Imagem_Produto='"+ getNumero_imagem_produto()+"'"

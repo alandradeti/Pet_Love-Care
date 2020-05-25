@@ -5,7 +5,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
-<head>
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,7 +24,7 @@
         <script src="../js/ajax.min.js"></script>
         <script src="../js/post.js"></script>
         <script src="../js/petUtils.js"></script>
- <script>
+		<script>
             $(function () {
                 $("#headerDiv").load("../Menu/Menu.jsp");
             });

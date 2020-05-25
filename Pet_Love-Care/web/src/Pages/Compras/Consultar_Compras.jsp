@@ -103,7 +103,7 @@
                                                         if(rsCliente.next()) {
     %> 
                                                             <td><%=rsCliente.getString("nome_cliente")%></td>
-                                                            <td><%=rsCliente.getString("cpf_cliente")%></td>
+                                                            <td style="font-size: 18px;"><%=rsCliente.getString("cpf_cliente")%></td>
     <%                                                  }
                                                     }
     %>
@@ -140,7 +140,7 @@
                                                         if(rsCliente.next()) {
         %> 
                                                             <td><%=rsCliente.getString("nome_cliente")%></td>
-                                                            <td><%=rsCliente.getString("cpf_cliente")%></td>
+                                                            <td style="font-size: 18px;"><%=rsCliente.getString("cpf_cliente")%></td>
         <%                                                  }
                                                     }
         %>
@@ -178,7 +178,7 @@
                                                     if(rsCliente.next()) {
     %> 
                                                         <td><%=rsCliente.getString("nome_cliente")%></td>
-                                                        <td><%=rsCliente.getString("cpf_cliente")%></td>
+                                                        <td style="font-size: 18px;"><%=rsCliente.getString("cpf_cliente")%></td>
     <%                                                  }
                                                 }
     %>
@@ -218,7 +218,7 @@
                                                         if(rsCliente.next()) {
     %> 
                                                             <td><%=rsCliente.getString("nome_cliente")%></td>
-                                                            <td><%=rsCliente.getString("cpf_cliente")%></td>
+                                                            <td style="font-size: 18px;"><%=rsCliente.getString("cpf_cliente")%></td>
     <%                                                  }
                                                     }
     %>
@@ -255,7 +255,7 @@
                                                         if(rsCliente.next()) {
         %> 
                                                             <td><%=rsCliente.getString("nome_cliente")%></td>
-                                                            <td><%=rsCliente.getString("cpf_cliente")%></td>
+                                                            <td style="font-size: 18px;"><%=rsCliente.getString("cpf_cliente")%></td>
         <%                                                  }
                                                     }
         %>
@@ -293,7 +293,7 @@
                                                     if(rsCliente.next()) {
     %> 
                                                         <td><%=rsCliente.getString("nome_cliente")%></td>
-                                                        <td><%=rsCliente.getString("cpf_cliente")%></td>
+                                                        <td style="font-size: 18px;"><%=rsCliente.getString("cpf_cliente")%></td>
     <%                                                  }
                                                 }
     %>

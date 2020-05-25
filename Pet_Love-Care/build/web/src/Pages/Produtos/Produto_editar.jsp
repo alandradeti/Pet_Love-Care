@@ -73,20 +73,11 @@
 
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <label class="col-form-label mt-4 login_label">Quantidade em estoque:</label>
-                                        <input type="text" class="form-control only-numbers" name="quantidade_estoque_produto"
-                                               id="quantidade_estoque_produto"  
-                                               placeholder="Quantidade de produtos em estoque" value="<%=rsProduto.getString("quantidade_estoque_produto")%>" required />
-                                    </div>
-                                    <div class="form-group col-md-6">
                                         <label class="col-form-label mt-4 login_label">Número da Imagem do produto:</label>
                                         <input type="text" class="form-control" name="numero_imagem_produto"
                                                id="numero_imagem_produto" 
                                                placeholder="Imagem produto" value="<%=rsProduto.getString("numero_imagem_produto")%>" required />
                                     </div>
-                                </div>
-
-                                <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label class="col-form-label mt-4 login_label">Descrição:</label>
                                         <input type="text" class="form-control" name="descricao_produto"

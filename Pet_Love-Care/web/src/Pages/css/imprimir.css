@@ -6,7 +6,7 @@
         display: none;
         visibility: hidden;
     }
-    .card_consulta {
+    .card_relatorio {
         background-color: #fff !important;
         border: none !important;
         border-radius: 0px !important;
@@ -29,6 +29,16 @@
         display: block;
     }
     .relatorio_box {
-        max-width: 600px !important;
+        max-width: 480px !important;
     }
+    .titulo_page {
+        visibility: hidden;
+    }
+    .logo_relatorio {
+        visibility: hidden;
+    }
+    .estilo_span {
+        font-size: 20px;
+    }
+    
 }

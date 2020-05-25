@@ -68,25 +68,16 @@ public class CarrinhoDAO extends Carrinho {
      * @purpose: Realizar a alteração de um cliente existente. 
      * @return: boolean.
      */
-    /*public boolean Alterar(int iId_Cliente) {
+    public boolean Alterar(int iId_Produto, int iQuantidade_carrinho, float fPreco_carrinho) {
         try {
             String sSql = "UPDATE "
-                    + "TB_Cliente "
-                    + "SET "
-                    + "Nome_Cliente = '" + getNome_cliente() + "',"
-                    + "CPF_Cliente = '" + getCpf_cliente() + "',"
-                    + "RG_Cliente = '" + getRg_cliente() + "',"
-                    + "Sexo_Cliente = '" + getSexo_cliente() + "',"
-                    + "Endereco_Cliente = '" + getEndereco_cliente() + "',"
-                    + "Email_Cliente = '" + getEmail_cliente() + "',"
-                    + "Telefone_Fixo_Cliente = '" + getTelefone_fixo_cliente() + "',"
-                    + "Telefone_Celular_Cliente = '" + getTelefone_celular_cliente() + "',"
-                    + "Data_Nascimento_Cliente = '" + getData_nascimento_cliente() + "',"
-                    + "Tipo_Cliente = '" + getTipo_cliente() + "',"
-                    + "Codigo_Funcionario = '" + getCodigo_funcionario() + "',"
-                    + "Senha_Cliente = '" + getSenha_cliente() + "' "
-                    + "WHERE "
-                    + "Id_Cliente = " + iId_Cliente;
+                    + "TB_Carrinho "
+                    + " SET "
+                    + "Quantidade_Carrinho = Quantidade_Carrinho + " + iQuantidade_carrinho + "," 
+                    + "Preco_Carrinho = Preco_Carrinho + " + (fPreco_carrinho * iQuantidade_carrinho) + ""
+                    + " WHERE "
+                    + "Produto_Id_Produto = " + iId_Produto;
+   
             PreparedStatement ps = dataSource.getConnection().prepareStatement(sSql); // Realiza a conexão e o preparo da query
             ps.executeUpdate(sSql); // Executa a query
 
@@ -100,7 +91,7 @@ public class CarrinhoDAO extends Carrinho {
             return (false);
         }
         return (true);
-    }*/
+    }
     
     /**
      * Método: Excluir()

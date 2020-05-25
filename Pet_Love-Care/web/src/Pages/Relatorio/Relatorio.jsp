@@ -45,6 +45,7 @@
                     <div class="card container card_consulta" style="padding: 40px;">
                         <div class="text-center mt-2" style="margin-top: -20px !important;">
                             <img src="../../img/Logo/nota_amarela.png" class="cabeca_gato">
+                            <h3 class="mb-4 titulo_page">Relatório</h3>
                         </div>
                         
                         <div class="relatorio_box col">
