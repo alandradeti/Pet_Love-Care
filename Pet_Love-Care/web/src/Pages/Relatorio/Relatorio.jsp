@@ -42,9 +42,9 @@
         while (rsCompra.next()) {
             if(rsCompra.getString("tipo_pagamento_compra").equals("Boleto")){
 %>
-                    <div class="card container card_consulta" style="padding: 40px;">
+                    <div class="card container card_relatorio mt-4" style="padding: 40px;">
                         <div class="text-center mt-2" style="margin-top: -20px !important;">
-                            <img src="../../img/Logo/nota_amarela.png" class="cabeca_gato">
+                            <img src="../../img/Logo/nota_amarela.png" class="logo_relatorio">
                             <h3 class="mb-4 titulo_page">Relatório</h3>
                         </div>
                         
@@ -75,6 +75,7 @@
                             <button onclick="window.print()" class="btn btn_agendar">Imprimir</button>
                         </div>
                     </div>
+                  <br />
 <%          }else{
 %>
            
@@ -111,6 +112,9 @@
                             <button onclick="window.print()" class="btn btn_agendar">Imprimir</button>
                         </div>
                     </div>
+                    <br />
+
+
 <%              
             }
         }
