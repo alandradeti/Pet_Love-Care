@@ -18,6 +18,7 @@
         <script src="../js/padrao.js"></script>
         <script src="../js/ajax.min.js"></script>
         <script src="../js/post.js"></script>
+        <script src="../js/petUtils.js"></script>
 
     </head>
 
@@ -65,7 +66,7 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="col-form-label login_label">Idade:</label>
-                                <input type="text" class="form-control col-12" 
+                                <input type="text" class="form-control col-12 only-numbers" 
                                        name="idade_pet" id="idade_pet" placeholder="Idade do Pet" required />
                             </div>
                         </div>
@@ -82,7 +83,7 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="col-form-label login_label">Peso:</label>
-                                <input type="text" class="form-control" 
+                                <input type="text" class="form-control only-numbers" 
                                        name="peso_pet" id="peso_pet" placeholder="Peso do Pet KG." required />
                             </div>
                         </div>
@@ -90,7 +91,7 @@
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label class="col-form-label login_label">Altura:</label>
-                                <input type="text" class="form-control" 
+                                <input type="text" class="form-control " 
                                        name="altura_pet" id="altura_pet" placeholder="Altura Pet..." required />
                             </div>
                             <div class="form-group col-md-6">
@@ -121,7 +122,7 @@
 
 
                         <div class="pst_btn_agendar">
-                            <button class="btn btn_agendar mt-4 ">Cadastrar</button>
+                            <button class="btn btn_agendar mt-4">Cadastrar</button>
                         </div>
                     </div>
                 </form>
@@ -130,8 +131,7 @@
                 </div>
               </div>
             </div>
-          </div>
-         </div>
-        </div>
+            </div>
+       </div>
     </body>
 </html>

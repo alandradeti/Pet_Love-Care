@@ -18,6 +18,7 @@
         <!-- <script type="text/javascript" src="../../../js/jquery.slim.min.js"></script> -->
         <script type="text/javascript" src="../../jquery.min.js"></script>
         <script src="../js/padrao.js"></script>
+        <script src="../js/petUtils.js"></script>
         <script>
             $(function () {
                 $("#header_login").load("../Login/Login.html");

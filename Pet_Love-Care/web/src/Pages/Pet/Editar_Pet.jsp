@@ -18,6 +18,7 @@
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>
         <script src="../../../js/jquery.min.js"></script>
         <script src="../js/padrao.js"></script>
+        <script src="../js/petUtils.js"></script>
         <script>
             $(function () {
                 $("#headerDiv").load("../Menu/Menu.jsp");
@@ -78,7 +79,7 @@
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label class="col-form-label login_label">Idade:</label>
-                                            <input type="text" class="form-control col-12" 
+                                            <input type="text" class="form-control col-12 only-numbers" 
                                                    name="idade_pet" id="idade_pet" placeholder="Idade do Pet" value="<%=rsPet.getString("idade_pet")%>" required />
                                         </div>
                                     </div>
@@ -92,7 +93,7 @@
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label class="col-form-label login_label">Peso:</label>
-                                            <input type="text" class="form-control" 
+                                            <input type="text" class="form-control only-numbers" 
                                                    name="peso_pet" id="peso_pet" placeholder="Peso do Pet KG." value="<%=rsPet.getString("peso_pet")%>" required />
                                         </div>
                                     </div>

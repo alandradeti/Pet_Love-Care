@@ -18,6 +18,7 @@
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>
         <script src="../../../js/jquery.min.js"></script>
         <script src="../js/padrao.js"></script>
+        <script src="../js/petUtils.js"></script>
     <script>
             $(function () {
                 $("#headerDiv").load("../Menu/Menu.jsp");
@@ -63,7 +64,7 @@
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label class="col-form-label mt-4 login_label">CPF:</label>
-                                                <input type="text" class="form-control" 
+                                                <input type="text" class="form-control cpf-mask" maxlength="14" 
                                                        name="cpf_veterinario" id="cpf_veterinario" placeholder="CPF do veterinÃ¡rio" value="<%=rsVeterinario.getString("cpf_veterinario")%>" required />
                                             </div>
                                         </div>
@@ -71,13 +72,13 @@
                                         <div class="form-group">
                                             <div class="form-row">
                                                 <div class="form-group col-md-6">
-                                                    <label class="col-form-label login_label">EndereÃ§o:</label>
+                                                    <label class="col-form-label login_label">Endereço:</label>
                                                     <input type="text" class="form-control" name="endereco_veterinario"
                                                            id="endereco_veterinario" placeholder="Nome da rua"  value="<%=rsVeterinario.getString("endereco_veterinario")%>" required />
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label class="col-form-label login_label">Data de nascimento:</label>
-                                                    <input type="date" class="form-control" name="data_nascimento_veterinario"
+                                                    <input type="text" class="form-control date-mask" maxlength="10" onkeyup="customDateMask(this)" name="data_nascimento_veterinario"
                                                            id="data_nascimento_veterinario" value="<%=rsVeterinario.getString("data_nascimento_veterinario")%>" required />
                                                 </div>
                                             </div>
@@ -88,7 +89,7 @@
                                             <div class="form-row">
                                                 <div class="form-group col-md-6">
                                                     <label class="col-form-label login_label">RG:</label>
-                                                    <input type="text" class="form-control col-12" 
+                                                    <input type="text" class="form-control col-12 rg-mask" maxlength="12"
                                                            name="rg_veterinario" id="rg_veterinario" placeholder="RG do veterinÃ¡rio" value="<%=rsVeterinario.getString("rg_veterinario")%>" required />
                                                 </div>
                                                 <div class="form-group col-md-6">
@@ -112,7 +113,7 @@
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label class="col-form-label login_label">Telefone Fixo:</label>
-                                                <input type="text" class="form-control" 
+                                                <input type="text" class="form-control tel-mask" maxlength="14"
                                                        name="telefone_fixo_veterinario" id="telefone_fixo_veterinario"  value="<%=rsVeterinario.getString("telefone_fixo_veterinario")%>"  required />
                                             </div>
                                         </div>
@@ -121,7 +122,7 @@
 
                                             <div class="form-group col-md-6">
                                                 <label class="col-form-label login_label">Telefone Celular:</label>
-                                                <input type="text" class="form-control" 
+                                                <input type="text" class="form-control tel-mask" maxlength="15" 
                                                        name="telefone_celular_veterinario" id="telefone_celular_veterinario" value="<%=rsVeterinario.getString("telefone_celular_veterinario")%>"  required />
                                             </div>
                                         </div>

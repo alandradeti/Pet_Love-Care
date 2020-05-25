@@ -20,11 +20,23 @@
         <script src="../js/ajax.min.js"></script>
         <script src="../js/post.js"></script>
         <script src="../js/padrao.js"></script>
+        <script src="../js/petUtils.js"></script>
         
         <script>
             $(function () {
                 $("#headerDiv").load("../Menu/Menu.jsp");
             });
+            function enable(){
+                if(document.getElementById("tipo_pagamento_compra").value === 'Cartão'){
+                   document.getElementById("numero_cartao").disabled = false;
+                   document.getElementById("numero_seguranca_cartao").disabled = false;
+                   document.getElementById("numero_parcela").disabled = false;
+               }else{
+                   document.getElementById("numero_cartao").disabled = true;
+                   document.getElementById("numero_seguranca_cartao").disabled = true;
+                   document.getElementById("numero_parcela").disabled = true;
+               } 
+            }
         </script>
     </head>
 
@@ -56,7 +68,7 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label class="col-form-label login_label">Tipo de Pagamento:</label>
-                                    <select name="tipo_pagamento_compra" id="tipo_pagamento_compra" class="form-control">
+                                    <select onclick="enable()" name="tipo_pagamento_compra" id="tipo_pagamento_compra" class="form-control">
                                         <option value="Boleto">Boleto</option>
                                         <option value="Cartão">Cartão</option>
                                     </select>
@@ -66,10 +78,11 @@
                                     <label class="col-form-label login_label">Número Cartão</label>
                                     <input
                                         type="text"
-                                        class="form-control"
+                                        class="form-control only-numbers"
+                                        maxlength="16"
                                         name="numero_cartao"
                                         id="numero_cartao"
-                                        />
+                                        disabled/>
                                 </div>
                             </div>
                             <div class="form-row">
@@ -77,14 +90,16 @@
                                     <label class="col-form-label login_label">Número Segurança</label>
                                     <input
                                         type="text"
-                                        class="form-control"
+                                        class="form-control only-numbers"
+                                        maxlength="3"
+                                        placeholder="CVV"
                                         name="numero_seguranca_cartao"
                                         id="numero_seguranca_cartao"
-                                        />
+                                        disabled/>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label class="col-form-label login_label">Parcelas:</label>
-                                    <select name="numero_parcela" id="numero_parcela" class="form-control">
+                                    <select disabled name="numero_parcela" id="numero_parcela" class="form-control">
                                         <option value="1">1x À Vista</option>
                                         <option value="2">2x</option>
                                         <option value="3">3x</option>

@@ -18,6 +18,7 @@
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>
         <script src="../../../js/jquery.min.js"></script>
         <script src="../js/padrao.js"></script>
+        <script src="../js/petUtils.js"></script>
         <script>
             $(function () {
                 $("#headerDiv").load("../Menu/Menu.jsp");
@@ -74,9 +75,10 @@
                                     <label class="col-form-label login_label">CPF</label>
                                     <input
                                         type="text"
-                                        class="form-control"
+                                        class="form-control cpf-mask"
                                         name="cpf_cliente"
                                         id="cpf_cliente"
+                                        maxlength="14"
                                         placeholder="Insira o seu CPF..."
                                         value="<%=rsCliente.getString("cpf_cliente")%>"
                                         required
@@ -89,9 +91,10 @@
                                     <label class="col-form-label login_label">RG</label>
                                     <input
                                         type="text"
-                                        class="form-control"
+                                        class="form-control rg-mask"
                                         name="rg_cliente"
                                         id="rg_cliente"
+                                        maxlength="12"
                                         placeholder="Insira o seu RG..."
                                         value="<%=rsCliente.getString("rg_cliente")%>"
                                         required
@@ -104,7 +107,7 @@
                                         class="form-control"
                                         name="email_cliente"
                                         id="email_cliente"
-                                        placeholder="Email vÃ¡lido..."
+                                        placeholder="Email válido..."
                                         value="<%=rsCliente.getString("email_cliente")%>"
                                         required
                                         />
@@ -116,10 +119,11 @@
                                     <label class="col-form-label login_label">Telefone</label>
                                     <input
                                         type="text"
-                                        class="form-control"
+                                        class="form-control tel-mask"
                                         name="telefone_fixo_cliente"
                                         id="telefone_fixo_cliente"
                                         placeholder="(11) 1111-1111"
+                                        maxlength="14"
                                         value="<%=rsCliente.getString("telefone_fixo_cliente")%>"
                                         required
                                         />
@@ -128,9 +132,10 @@
                                     <label class="col-form-label login_label">Celular</label>
                                     <input
                                         type="text"
-                                        class="form-control"
+                                        class="form-control tel-mask"
                                         name="telefone_celular_cliente"
                                         id="telefone_celular_cliente"
+                                        maxlength="15"
                                         placeholder="(11) 99999-9999"
                                         value="<%=rsCliente.getString("telefone_celular_cliente")%>"
                                         required
@@ -165,7 +170,7 @@
 
                             <div class="form-row col-12">
                                 <div class="form-group col-6">
-                                    <label class="col-form-label login_label">EndereÃ§o</label>
+                                    <label class="col-form-label login_label">Endereço</label>
                                     <input
                                         type="text"
                                         class="form-control"
@@ -179,10 +184,12 @@
                                 <div class="form-group col-6">
                                     <label class="col-form-label login_label">Data Nascimento</label>
                                     <input
-                                        type="date"
-                                        class="form-control"
+                                        type="text"
+                                        class="form-control date-mask"
                                         name="data_nascimento_cliente"
                                         id="data_nascimento_cliente"
+                                        maxlength="10"
+                                        onkeyup="customDateMask(this)"
                                         placeholder="Nome da rua"
                                         value="<%=rsCliente.getString("data_nascimento_cliente")%>"
                                         required
