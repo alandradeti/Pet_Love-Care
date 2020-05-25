@@ -5,25 +5,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pet Love Care</title>
-
-  <link rel="stylesheet" href="../../../css//bootstrap.min.css">
-  <link rel="shortcut icon" href="../../img/Icon/Logo-cabeca.png">
-  <link rel="stylesheet" href="../css/padrao.css">
-  <link rel="stylesheet" href="./carteira.css" >
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
-
-  <script src="../../../js/jquery.slim.min.js"></script>
-  <script src="../../../js/bootstrap.min.js"></script>
-  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-  <script src="../../../js/jquery.min.js"></script>
-  <script src="../js/p…
-<!DOCTYPE html>
-<html lang="en">
-
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,7 +13,8 @@
         <link rel="stylesheet" href="../../../css//bootstrap.min.css">
         <link rel="shortcut icon" href="../../img/Icon/Logo-cabeca.png">
         <link rel="stylesheet" href="../css/padrao.css">
-        <link rel="stylesheet" href="./pet.css" >
+        <link rel="stylesheet" href="./carteira.css" >
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
 
         <script src="../../../js/jquery.slim.min.js"></script>
         <script src="../../../js/bootstrap.min.js"></script>
@@ -41,7 +23,8 @@
         <script src="../js/padrao.js"></script>
         <script src="../js/ajax.min.js"></script>
         <script src="../js/post.js"></script>
- <script>
+        <script src="../js/petUtils.js"></script>
+		<script>
             $(function () {
                 $("#headerDiv").load("../Menu/Menu.jsp");
             });
@@ -82,8 +65,11 @@
                                     <input
                                         type="text"
                                         class="form-control"
+                                        maxlength="10"
+                                        placeholder="Data"
                                         name="data_pet_vacina" 
                                         id="data_pet_vacina" required
+                                        onkeyup="customDateMask(this)"
                                         />
                                 </div>
                             </div>

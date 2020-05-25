@@ -21,6 +21,7 @@
   <script src="../js/padrao.js"></script>
   <script src="../js/post.js"></script>
   <script src="../js/ajax.min.js"></script>
+  <script src="../js/petUtils.js"></script>
 
   <script>
     $(function () {
@@ -70,7 +71,7 @@
                             <td>
                                 <form id="formExcluirProdutoCarrinho" method="POST" action="ExcluirCarrinho.jsp">  
                                     <input type="hidden" id="id_carrinho" name="id_carrinho" value="<%=rsCarrinho.getString("id_carrinho")%>">
-                                    <button type="submit" id="excluirProdutoCarrinho" name="excluirProdutoCarrinho" class="btn btn-danger ">
+                                    <button type="submit" id="excluirProdutoCarrinho" name="excluirProdutoCarrinho" class="btn btn-danger btn_comprar">
                                         <i class="fa fa-trash icone_plus"></i>
                                     </button>
                                 </form>
@@ -88,12 +89,12 @@
             </tbody>
           </table>
           
-            <!---->
             <form id="formRealizaPagamento" method="POST" action="Pagamento.jsp">
               <label id="valorTotal" class="col-form-label login_label mt-3"></label>
               <input type="hidden" id="valor_total_compra" name="valor_total_compra">
-              <button>
+              <button id="botaoCommpra" class="btn btn-warning">
                   <i class="fas fa-shopping-cart"></i>
+                  <b>Pagar</b>
               </button>
             </form>
             <br/>
@@ -107,8 +108,13 @@
     for(let i = 0; i < inputs.length; i++){
         soma += parseFloat(inputs[i].value);
     }
-    document.getElementById("valorTotal").innerHTML = "Valor total: R$ " + soma;
-    document.getElementById('valor_total_compra').value = soma;
+    if(soma > 0){
+        document.getElementById("valorTotal").innerHTML = "Valor total: R$ " + soma;
+        document.getElementById('valor_total_compra').value = soma;
+    }else{
+        document.getElementById("valorTotal").innerHTML = "Valor total: R$ " + soma;
+        document.getElementById("botaoCommpra").disabled = true;
+    }
 </script>
 </html>
 

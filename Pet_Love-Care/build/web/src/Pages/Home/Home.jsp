@@ -2,6 +2,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <jsp:useBean id="produto" class="Produto.ProdutoDAO"/>
 <jsp:useBean id="cliente" class="Cliente.ClienteDAO"/>
+<jsp:useBean id="carrinho" class="Compra.CarrinhoDAO"/>
 <!DOCTYPE html>
 <html lang="PT-BR">
 
@@ -20,6 +21,7 @@
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>
         <script src="../../../js/jquery.min.js"></script>
         <script src="../js/padrao.js"></script>
+        <script src="../js/petUtils.js"></script>
 
 
         <script>
@@ -33,9 +35,14 @@
     <body>
         <!-- Menu -->
         <div id="headerDiv"></div>
-
+        
         <% if ((String) request.getAttribute("errorMessage") != null) {%>
-        <h3 style="color: red;"><%=(String) request.getAttribute("errorMessage")%></h3>
+        <div class="alert alert_custom alert-danger alert-dismissible fade show" role="alert">
+            <%=(String) request.getAttribute("errorMessage")%>
+            <button type="button" class="close close_alert_custom" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
         <% }%>
 
         <!-- Carrosel -->
@@ -95,8 +102,16 @@
                                          alt="...">
                                         <span class="text_qtd">Descrição: </span>
                                         <p class="card-text center_cliente" id="descricao_produto"><%=rsProduto.getString("descricao_produto")%></p>
-                                        <form id="formAdicionarCarrinho" method="POST" name="formAdicionarCarrinho" action="../Compras/CarrinhoCompras.jsp">  
-                                            <p class="card-text center_cliente" id="valor_produto" ><%=rsProduto.getString("valor_produto")%></p>
+<%                                      ResultSet rsCarrinho= carrinho.Consultar("SELECT Id_Carrinho FROM Tb_Carrinho WHERE Produto_Id_Produto = " + rsProduto.getString("id_produto"));
+                                        if (rsCarrinho.isBeforeFirst()) {
+%>
+                                            <form id="formAlterarCarrinho" method="POST" name="formAlterarCarrinho" action="../Compras/AlterarCarrinho.jsp"> 
+<%                                      }else{
+%>    
+                                            <form id="formAdicionarCarrinho" method="POST" name="formAdicionarCarrinho" action="../Compras/CarrinhoCompras.jsp"> 
+<%                                      }
+%>
+                                            <p class="card-text center_cliente" id="valor_produto" ><span class="text_qtd">R$</span><%=rsProduto.getString("valor_produto")%></p>
                                             <span class="text_qtd">Quantidade: </span>
                                             <div class="row centralizar_btn_cliente">
                                                 <input type="text" class="form-control col-2" id="quantidade_carrinho" name="quantidade_carrinho" aria-describedby="button-addon1" required>
@@ -112,12 +127,12 @@
                                         </form>
                                   </div>
                                 </div>
-                <%
+<%
                             }
-                        }else{
+                        }if (rsCliente.getBoolean("Tipo_Cliente") == true){
                             ResultSet rsProduto = produto.Consultar("SELECT * FROM TB_Produto");
                             while (rsProduto.next()) {
-                %>
+%>
                                 <div class="card custom_card_produtos" style="width: 15rem;">
                                     <div class="card-body">
                                         <form id="formAlterarProduto" method="POST" action="../Produtos/Produto_Editar.jsp">  
@@ -130,15 +145,29 @@
                                         <img src="../../img/Produtos/produto_<%=rsProduto.getString("numero_imagem_produto")%>.png" class="card-img-top custom_img_produtos" alt="...">
                                         <span class="text_qtd">Descrição: </span>
                                         <p class="card-text" id="descricao_produto"><%=rsProduto.getString("descricao_produto")%></p>
-                                        <span class="text_qtd">Quantidade em estoque: </span>
-                                        <p class="card-text" id="valor_produto"><%=rsProduto.getString("valor_produto")%></p>
+                                        <p class="card-text" id="valor_produto"><span class="text_qtd">R$</span><%=rsProduto.getString("valor_produto")%></p>
                                     </div>
                                 </div>
-                <%
+<%
                             }
                         }
+                    }else{
+                        ResultSet rsProduto = produto.Consultar("SELECT * FROM TB_Produto");
+                        while (rsProduto.next()) {
+%>
+                            <div class="card custom_card_produtos" style="width: 15rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title" id="nome_produto"><%=rsProduto.getString("nome_produto")%></h5>
+                                    <img src="../../img/Produtos/produto_<%=rsProduto.getString("numero_imagem_produto")%>.png" class="card-img-top custom_img_produtos" alt="...">
+                                    <span class="text_qtd">Descrição: </span>
+                                    <p class="card-text" id="descricao_produto"><%=rsProduto.getString("descricao_produto")%></p>
+                                    <p class="card-text" id="valor_produto"><span class="text_qtd">R$</span><%=rsProduto.getString("valor_produto")%></p>
+                                </div>
+                            </div>
+<%
+                        }
                     }
-                %>
+%>
             </div>
         </section>
         

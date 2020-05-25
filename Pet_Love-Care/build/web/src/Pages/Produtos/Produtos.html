@@ -18,6 +18,7 @@
         <script src="../js/post.js"></script>
         <script src="../js/ajax.min.js"></script>
         <script src="../js/padrao.js"></script>
+        <script src="../js/petUtils.js"></script>
 
         <script>
             $(function () {
@@ -49,27 +50,18 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="col-form-label mt-4 login_label">Valor do Produto:</label>
-                                <input type="text" class="form-control" name="valor_produto"
+                                <input type="text" class="form-control price-mask" name="valor_produto"
                                        id="valor_produto" placeholder="R$ " required />
                             </div>
                         </div>
 
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label class="col-form-label mt-4 login_label">Quantidade em estoque:</label>
-                                <input type="text" class="form-control" name="quantidade_estoque_produto"
-                                       id="quantidade_estoque_produto" 
-                                       placeholder="Quantidade de produtos em estoque" required />
-                            </div>
-                            <div class="form-group col-md-6">
                                 <label class="col-form-label mt-4 login_label">Número da Imagem do produto:</label>
                                 <input type="text" class="form-control" name="numero_imagem_produto"
                                        id="numero_imagem_produto" 
                                        placeholder="Imagem produto" required />
                             </div>
-                        </div>
-                        
-                        <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label class="col-form-label mt-4 login_label">Descrição:</label>
                                 <input type="text" class="form-control" name="descricao_produto"

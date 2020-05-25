@@ -20,6 +20,7 @@
         <script src="../js/post.js"></script>
         <script src="../js/ajax.min.js"></script>
         <script src="../js/padrao.js"></script>
+        <script src="../js/petUtils.js"></script>
         <script>
             $(function () {
                 $("#headerDiv").load("../Menu/Menu.jsp");
@@ -65,27 +66,18 @@
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label class="col-form-label mt-4 login_label">Valor do Produto:</label>
-                                        <input type="text" class="form-control" name="valor_produto"
+                                        <input type="text" class="form-control price-mask" name="valor_produto"
                                                id="valor_produto" placeholder="R$ " value="<%=rsProduto.getString("valor_produto")%>" required />
                                     </div>
                                 </div>
 
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <label class="col-form-label mt-4 login_label">Quantidade em estoque:</label>
-                                        <input type="text" class="form-control" name="quantidade_estoque_produto"
-                                               id="quantidade_estoque_produto"  
-                                               placeholder="Quantidade de produtos em estoque" value="<%=rsProduto.getString("quantidade_estoque_produto")%>" required />
-                                    </div>
-                                    <div class="form-group col-md-6">
                                         <label class="col-form-label mt-4 login_label">Número da Imagem do produto:</label>
                                         <input type="text" class="form-control" name="numero_imagem_produto"
                                                id="numero_imagem_produto" 
                                                placeholder="Imagem produto" value="<%=rsProduto.getString("numero_imagem_produto")%>" required />
                                     </div>
-                                </div>
-
-                                <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label class="col-form-label mt-4 login_label">Descrição:</label>
                                         <input type="text" class="form-control" name="descricao_produto"
