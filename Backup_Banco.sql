@@ -85,14 +85,14 @@ CREATE TABLE `tb_cliente` (
   `Sexo_Cliente` char(1) NOT NULL,
   `Endereco_Cliente` varchar(120) NOT NULL,
   `Email_Cliente` varchar(256) NOT NULL,
-  `Telefone_Fixo_Cliente` varchar(13) NOT NULL,
-  `Telefone_Celular_Cliente` varchar(14) NOT NULL,
+  `Telefone_Fixo_Cliente` varchar(20) NOT NULL,
+  `Telefone_Celular_Cliente` varchar(20) DEFAULT NULL,
   `Data_Nascimento_Cliente` varchar(10) NOT NULL,
   `Senha_Cliente` varchar(20) NOT NULL,
   `Tipo_Cliente` tinyint(1) NOT NULL,
   `Codigo_Funcionario` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`Id_Cliente`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 /*Table structure for table `tb_compra` */
 
