@@ -254,3 +254,13 @@
     width: 40px;
     heigth: 40px;
 }
+
+/* Estilo alert */
+.alert {
+    position: fixed !important;
+    top: 0 !important;
+    left: 10%;
+    width: 80%;
+    z-index: 1;
+    margin-bottom: 0 !important; 
+}

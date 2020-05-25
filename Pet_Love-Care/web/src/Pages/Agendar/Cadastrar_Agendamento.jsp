@@ -24,6 +24,7 @@
         <script src="../js/padrao.js"></script>
         <script src="../js/ajax.min.js"></script>
         <script src="../js/post.js"></script>
+        <script src="../js/petUtils.js"></script>
 
         <script>
             $(function () {
@@ -150,11 +151,14 @@
 
                         <div class="form-group">
                             <div class="form-row">
-                                 <input type="hidden" class="form-control col-12" name="data_inicial_agendamento"
-                                           id="data_inicial_agendamento" placeholder="Data" value="<%=request.getParameter("data_inicial_agendamento")%>" required />
                                 <div class="form-group col-md-6">
+                                <label class="col-form-label login_label">Data:</label>
+                                 <input type="text" class="form-control col-12 date-mask" onkeypress="customDateMask(this)" maxlength="10" name="data_inicial_agendamento"
+                                           id="data_inicial_agendamento" placeholder="Data" value="<%=request.getParameter("data_inicial_agendamento")%>" required />
+                                </div>
+                                 <div class="form-group col-md-6">
                                     <label class="col-form-label login_label">Data Final:</label>
-                                    <input type="text" class="form-control col-12" name="data_final_agendamento"
+                                    <input type="text" class="form-control col-12" name="data_final_agendamento" onkeypress="customDateMask(this)" maxlength="10"
                                            id="data_final_agendamento" placeholder="Data Final" disabled/>
                                 </div>
                             </div>

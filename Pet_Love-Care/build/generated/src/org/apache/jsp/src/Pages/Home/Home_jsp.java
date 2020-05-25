@@ -91,6 +91,7 @@ public final class Home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <script src=\"https://kit.fontawesome.com/a076d05399.js\"></script>\r\n");
       out.write("        <script src=\"../../../js/jquery.min.js\"></script>\r\n");
       out.write("        <script src=\"../js/padrao.js\"></script>\r\n");
+      out.write("        <script src=\"../js/petUtils.js\"></script>\r\n");
       out.write("\r\n");
       out.write("\r\n");
       out.write("        <script>\r\n");
@@ -104,13 +105,18 @@ public final class Home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <body>\r\n");
       out.write("        <!-- Menu -->\r\n");
       out.write("        <div id=\"headerDiv\"></div>\r\n");
-      out.write("\r\n");
+      out.write("        \r\n");
       out.write("        ");
  if ((String) request.getAttribute("errorMessage") != null) {
       out.write("\r\n");
-      out.write("        <h3 style=\"color: red;\">");
+      out.write("        <div class=\"alert alert_custom alert-danger alert-dismissible fade show\" role=\"alert\">\r\n");
+      out.write("            ");
       out.print((String) request.getAttribute("errorMessage"));
-      out.write("</h3>\r\n");
+      out.write("\r\n");
+      out.write("            <button type=\"button\" class=\"close close_alert_custom\" data-dismiss=\"alert\" aria-label=\"Close\">\r\n");
+      out.write("                <span aria-hidden=\"true\">&times;</span>\r\n");
+      out.write("            </button>\r\n");
+      out.write("        </div>\r\n");
       out.write("        ");
  }
       out.write("\r\n");
