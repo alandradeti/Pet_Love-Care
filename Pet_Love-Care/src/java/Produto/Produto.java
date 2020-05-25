@@ -4,7 +4,6 @@ public class Produto {
     //private int iId_produto;
     private String sNome_produto;
     private float fValor_produto;
-    private int iQuantidade_estoque_produto ;
     private String sDescricao_produto;
     private int iNumero_imagem_produto;
 
@@ -25,14 +24,6 @@ public class Produto {
 
     public void setValor_produto(float fValor_produto) {
         this.fValor_produto = fValor_produto;
-    }
-
-    public int getQuantidade_estoque_produto() {
-        return iQuantidade_estoque_produto;
-    }
-
-    public void setQuantidade_estoque_produto(int iQuantidade_estoque_produto) {
-        this.iQuantidade_estoque_produto = iQuantidade_estoque_produto;
     }
 
     public int getNumero_imagem_produto() {
