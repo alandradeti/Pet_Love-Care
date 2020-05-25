@@ -62,6 +62,16 @@ public final class Home_jsp extends org.apache.jasper.runtime.HttpJspBase
           _jspx_page_context.setAttribute("cliente", cliente, PageContext.PAGE_SCOPE);
         }
       }
+      out.write('\r');
+      out.write('\n');
+      Compra.CarrinhoDAO carrinho = null;
+      synchronized (_jspx_page_context) {
+        carrinho = (Compra.CarrinhoDAO) _jspx_page_context.getAttribute("carrinho", PageContext.PAGE_SCOPE);
+        if (carrinho == null){
+          carrinho = new Compra.CarrinhoDAO();
+          _jspx_page_context.setAttribute("carrinho", carrinho, PageContext.PAGE_SCOPE);
+        }
+      }
       out.write("\r\n");
       out.write("<!DOCTYPE html>\r\n");
       out.write("<html lang=\"PT-BR\">\r\n");
@@ -170,7 +180,18 @@ public final class Home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                        <p class=\"card-text center_cliente\" id=\"descricao_produto\">");
       out.print(rsProduto.getString("descricao_produto"));
       out.write("</p>\r\n");
-      out.write("                                        <form id=\"formAdicionarCarrinho\" method=\"POST\" name=\"formAdicionarCarrinho\" action=\"../Compras/CarrinhoCompras.jsp\">  \r\n");
+                                      ResultSet rsCarrinho= carrinho.Consultar("SELECT Id_Carrinho FROM Tb_Carrinho WHERE Produto_Id_Produto = " + rsProduto.getString("id_produto"));
+                                        if (rsCarrinho.isBeforeFirst()) {
+
+      out.write("\r\n");
+      out.write("                                            <form id=\"formAlterarCarrinho\" method=\"POST\" name=\"formAlterarCarrinho\" action=\"../Compras/AlterarCarrinho.jsp\"> \r\n");
+                                      }else{
+
+      out.write("    \r\n");
+      out.write("                                            <form id=\"formAdicionarCarrinho\" method=\"POST\" name=\"formAdicionarCarrinho\" action=\"../Compras/CarrinhoCompras.jsp\"> \r\n");
+                                      }
+
+      out.write("\r\n");
       out.write("                                            <p class=\"card-text center_cliente\" id=\"valor_produto\" >");
       out.print(rsProduto.getString("valor_produto"));
       out.write("</p>\r\n");
@@ -200,7 +221,7 @@ public final class Home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                ");
 
                             }
-                        }else{
+                        }if (rsCliente.getBoolean("Tipo_Cliente") == true){
                             ResultSet rsProduto = produto.Consultar("SELECT * FROM TB_Produto");
                             while (rsProduto.next()) {
                 
@@ -215,6 +236,32 @@ public final class Home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                                    <i class=\"fa fa-pen icone_plus\"></i>\r\n");
       out.write("                                                </button>\r\n");
       out.write("                                        </form>\r\n");
+      out.write("                                        <h5 class=\"card-title\" id=\"nome_produto\">");
+      out.print(rsProduto.getString("nome_produto"));
+      out.write("</h5>\r\n");
+      out.write("                                        <img src=\"../../img/Produtos/produto_");
+      out.print(rsProduto.getString("numero_imagem_produto"));
+      out.write(".png\" class=\"card-img-top custom_img_produtos\" alt=\"...\">\r\n");
+      out.write("                                        <span class=\"text_qtd\">Descrição: </span>\r\n");
+      out.write("                                        <p class=\"card-text\" id=\"descricao_produto\">");
+      out.print(rsProduto.getString("descricao_produto"));
+      out.write("</p>\r\n");
+      out.write("                                        <span class=\"text_qtd\">Quantidade em estoque: </span>\r\n");
+      out.write("                                        <p class=\"card-text\" id=\"valor_produto\">");
+      out.print(rsProduto.getString("valor_produto"));
+      out.write("</p>\r\n");
+      out.write("                                    </div>\r\n");
+      out.write("                                </div>\r\n");
+      out.write("                ");
+
+                            }
+                        }else{
+                            ResultSet rsProduto = produto.Consultar("SELECT * FROM TB_Produto");
+                            while (rsProduto.next()) {
+                
+      out.write("\r\n");
+      out.write("                                <div class=\"card custom_card_produtos\" style=\"width: 15rem;\">\r\n");
+      out.write("                                    <div class=\"card-body\">\r\n");
       out.write("                                        <h5 class=\"card-title\" id=\"nome_produto\">");
       out.print(rsProduto.getString("nome_produto"));
       out.write("</h5>\r\n");
