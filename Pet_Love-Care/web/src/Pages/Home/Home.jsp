@@ -155,7 +155,6 @@
                                     <img src="../../img/Produtos/produto_<%=rsProduto.getString("numero_imagem_produto")%>.png" class="card-img-top custom_img_produtos" alt="...">
                                     <span class="text_qtd">Descrição: </span>
                                     <p class="card-text" id="descricao_produto"><%=rsProduto.getString("descricao_produto")%></p>
-                                    <span class="text_qtd">Quantidade em estoque: </span>
                                     <p class="card-text" id="valor_produto"><span class="text_qtd">R$</span><%=rsProduto.getString("valor_produto")%></p>
                                 </div>
                             </div>
