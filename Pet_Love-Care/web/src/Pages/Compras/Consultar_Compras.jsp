@@ -17,13 +17,13 @@
         <link rel="shortcut icon" href="../../img/Icon/Logo-cabeca.png">
         <link rel="stylesheet" href="../css/padrao.css">
         <link rel="stylesheet" href="./Vacina.css"> 
-        <link rel="stylesheet" href="../css/modal.css"> 
       
+        
         <script src="../js/ajax.min.js"></script>
         <script src="../js/post.js"></script>
+        <script src="../../../js/jquery.min.js"></script>
         <script src="../../../js/bootstrap.min.js"></script>
         
-        <script src="../../../js/jquery.min.js"></script>
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>
         
         <script src="../js/padrao.js"></script>
@@ -102,7 +102,7 @@
                                                         if(rsCliente.next()) {
     %> 
                                                             <td><%=rsCliente.getString("nome_cliente")%></td>
-                                                            <td><%=rsCliente.getString("cpf_cliente")%></td>
+                                                            <td style="font-size: 18px;"><%=rsCliente.getString("cpf_cliente")%></td>
     <%                                                  }
                                                     }
     %>
@@ -139,7 +139,7 @@
                                                         if(rsCliente.next()) {
         %> 
                                                             <td><%=rsCliente.getString("nome_cliente")%></td>
-                                                            <td><%=rsCliente.getString("cpf_cliente")%></td>
+                                                            <td style="font-size: 18px;"><%=rsCliente.getString("cpf_cliente")%></td>
         <%                                                  }
                                                     }
         %>
@@ -177,7 +177,7 @@
                                                     if(rsCliente.next()) {
     %> 
                                                         <td><%=rsCliente.getString("nome_cliente")%></td>
-                                                        <td><%=rsCliente.getString("cpf_cliente")%></td>
+                                                        <td style="font-size: 18px;"><%=rsCliente.getString("cpf_cliente")%></td>
     <%                                                  }
                                                 }
     %>
@@ -217,7 +217,7 @@
                                                         if(rsCliente.next()) {
     %> 
                                                             <td><%=rsCliente.getString("nome_cliente")%></td>
-                                                            <td><%=rsCliente.getString("cpf_cliente")%></td>
+                                                            <td style="font-size: 18px;"><%=rsCliente.getString("cpf_cliente")%></td>
     <%                                                  }
                                                     }
     %>
@@ -254,7 +254,7 @@
                                                         if(rsCliente.next()) {
         %> 
                                                             <td><%=rsCliente.getString("nome_cliente")%></td>
-                                                            <td><%=rsCliente.getString("cpf_cliente")%></td>
+                                                            <td style="font-size: 18px;"><%=rsCliente.getString("cpf_cliente")%></td>
         <%                                                  }
                                                     }
         %>
@@ -292,7 +292,7 @@
                                                     if(rsCliente.next()) {
     %> 
                                                         <td><%=rsCliente.getString("nome_cliente")%></td>
-                                                        <td><%=rsCliente.getString("cpf_cliente")%></td>
+                                                        <td style="font-size: 18px;"><%=rsCliente.getString("cpf_cliente")%></td>
     <%                                                  }
                                                 }
     %>

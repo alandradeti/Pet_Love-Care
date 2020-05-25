@@ -31,20 +31,22 @@
     </head>
 
     <body>
+         <div id="headerDiv"></div>
+         <div class="background">
+         <div class="orientacao_relatorio">
+
 <%
     ResultSet rsCompra = compras.Consultar("SELECT * FROM TB_Compra WHERE Cliente_Id_Cliente = " + session.getAttribute("id_cliente") + " AND Data_Compra = '" + session.getAttribute("data_compra") + "'");
     if(rsCompra.isBeforeFirst()){
         while (rsCompra.next()) {
             if(rsCompra.getString("tipo_pagamento_compra").equals("Boleto")){
 %>
-                <!-- Menu -->
-                <div id="headerDiv"></div>
-                <div class="background">
-                    <div class="card container mt-5 card_consulta" style="padding: 40px">
-                        <div class="text-center mt-2">
+                    <div class="card container card_consulta" style="padding: 40px;">
+                        <div class="text-center mt-2" style="margin-top: -20px !important;">
                             <img src="../../img/Logo/nota_amarela.png" class="cabeca_gato">
                             <h3 class="mb-4 titulo_page">Relatório</h3>
                         </div>
+                        
                         <div class="relatorio_box col">
                             <div class="relatorio_centralizar">
                             <div class="text-center logo_imprimi">
@@ -72,16 +74,13 @@
                             <button onclick="window.print()" class="btn btn_agendar">Imprimir</button>
                         </div>
                     </div>
-                </div>
 <%          }else{
 %>
-                  <!-- Menu -->
-                <div id="headerDiv"></div>
-                <div class="background">
-                    <div class="card container mt-5 card_consulta" style="padding: 40px">
-                        <div class="text-center mt-2">
-                            <img src="../../img/Logo/nota_amarela.png" class="cabeca_gato">
-                            <h3 class="mb-4 titulo_page">Relatório</h3>
+           
+                    <div class="card container mt-4 card_relatorio" style="padding: 40px">
+                        <div class="text-center mt-2" style="margin-top: -20px !important;">
+                            <img src="../../img/Logo/nota_amarela.png" class="logo_relatorio">
+                            <h4 class="mb-4 titulo_page">Relatório</h4>
                         </div>
                         <div class="relatorio_box col">
                             <div class="relatorio_centralizar">
@@ -111,16 +110,26 @@
                             <button onclick="window.print()" class="btn btn_agendar">Imprimir</button>
                         </div>
                     </div>
-                </div>
-<%
+<%              
             }
         }
     }else{
 %>
-        <div>Realize uma compra para imprimir a nota fiscal!</div>
+        <div class="card container mt-4 card_relatorio" style="padding: 40px">
+            <div class="text-center mt-2" style="margin-top: -20px !important;">
+                <img src="../../img/Logo/nota_amarela.png" class="logo_relatorio">
+                <h3 class="mb-4 titulo_page">Relatório</h3>
+            </div>
+            <div class="relatorio_box col">
+                <div class="relatorio_centralizar">
+                    <h4>Nenhum relatório disponível</h4>
+                </div>
+            </div>
+        </div>
 <%
     }
 %>
+    </div>
+    </div>
     </body>
 </html>
-
