@@ -22,6 +22,7 @@
   <link rel="stylesheet" href="../css/padrao.css">
   <link rel="stylesheet" href="./carteira.css" >
 
+  <script src="../../../js/jquery.slim.min.js"></script>
   <script src="../../../js/bootstrap.min.js"></script>
   <script src="https://kit.fontawesome.com/a076d05399.js"></script>
   <script src="../../../js/jquery.min.js"></script>
