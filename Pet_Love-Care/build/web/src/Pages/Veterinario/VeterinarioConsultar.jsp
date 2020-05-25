@@ -24,6 +24,12 @@
             $(function () {
                 $("#headerDiv").load("../Menu/Menu.jsp");
             });
+            $(function () {
+                $("#header_veterinario").load("./Veterinario.html");
+            });
+            $('#myModal').on('shown.bs.modal', function () {
+                $('#myInput').trigger('focus')
+            });
         </script>
     </head>
 
@@ -33,8 +39,9 @@
         <div class="background">
             <!-- Formulario -->
             <div class="card container mt-5 card_consulta">
-                <button type="button" class="btn btn_cadastrar mt-2">
-                    <a class="btn_vacina" href="./Veterinario.html">
+                <button type="button" class="btn btn_cadastrar mt-2"
+                        data-toggle="modal" data-target="#modal_veterinario">
+                    <a class="btn_vacina" data-toggle="modal">
                         <i class="fa fa-plus icone_plus"></i>
                     </a>
                 </button>

@@ -13,10 +13,12 @@
         <link rel="shortcut icon" href="../../img/Icon/Logo-cabeca.png">
         <link rel="stylesheet" href="../css/padrao.css">
         <link rel="stylesheet" href="./Vacina.css"> 
+        <link rel="stylesheet" href="../css/modal.css"> 
       
         <script src="../js/ajax.min.js"></script>
         <script src="../js/post.js"></script>
         <script src="../../../js/bootstrap.min.js"></script>
+        
         <script src="../../../js/jquery.min.js"></script>
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>
         
@@ -26,6 +28,12 @@
         <script>
             $(function () {
                 $("#headerDiv").load("../Menu/Menu.jsp");
+            });
+            $(function () {
+                $("#header_vacina").load("./Cadastrar_Vacina.html");
+            });
+            $('#myModal').on('shown.bs.modal', function () {
+                $('#myInput').trigger('focus')
             });
         </script>
     </head>
@@ -37,8 +45,9 @@
         <div class="background">
             <!-- FormulÃ¡rio -->
             <div class="card container mt-5 card_consulta">
-                <button type="button" class="btn btn_cadastrar mt-2">
-                    <a class="btn_vacina" href="./Cadastrar_Vacina.html">
+                <button type="button" class="btn btn_cadastrar mt-2"
+                        data-toggle="modal" data-target="#modal_vacina">
+                    <a class="btn_vacina" data-toggle="modal">
                         <i class="fa fa-plus icone_plus"></i>
                     </a>
                 </button>
