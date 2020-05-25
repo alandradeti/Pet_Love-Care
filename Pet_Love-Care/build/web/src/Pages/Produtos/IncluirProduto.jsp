@@ -3,7 +3,6 @@
 
 <jsp:setProperty name="produto" property="nome_produto" value="${param.nome_produto}"/>
 <jsp:setProperty name="produto" property="valor_produto" value="${param.valor_produto}"/>
-<jsp:setProperty name="produto" property="quantidade_estoque_produto" value="${param.quantidade_estoque_produto}"/>
 <jsp:setProperty name="produto" property="descricao_produto" value="${param.descricao_produto}"/>
 <jsp:setProperty name="produto" property="numero_imagem_produto" value="${param.numero_imagem_produto}"/>
 

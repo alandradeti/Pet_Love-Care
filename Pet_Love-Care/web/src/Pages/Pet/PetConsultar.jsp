@@ -42,12 +42,20 @@
         <div class="background">
             <!-- Formulário -->
             <div class="card container card_consulta">
-                <button type="button" class="btn btn_cadastrar mt-2"
-                        data-toggle="modal" data-target="#modal_pet">
-                    <a class="btn_vacina" data-toggle="modal">
-                        <i class="fa fa-plus icone_plus"></i>
-                    </a>
-                </button>
+<%
+                if(rs.next()){
+                    if (rs.getBoolean("Tipo_Cliente") == false){
+%>
+                        <button type="button" class="btn btn_cadastrar mt-2"
+                                data-toggle="modal" data-target="#modal_pet">
+                            <a class="btn_vacina" data-toggle="modal">
+                                <i class="fa fa-plus icone_plus"></i>
+                            </a>
+                        </button>
+<%
+                    }
+                }
+%>
                 <div class="text-center mb-4">
                     <img src="../../img/Logo/Dog_2Cor.png" class="cabeca_gato">
                     <h3 class="mt-2">Consultar Pet</h3>
@@ -58,7 +66,7 @@
                         <input type="text" name="nome_pet" id="nome_pet" 
                                class="form-control mr-sm-2 search" placeholder="Pesquisar..." />
                         
-                        <%  if(rs.next()){
+                        <%  
                                 if (rs.getBoolean("Tipo_Cliente") == true){
                         %>
                                     <label class="label_pet">Cliente:</label>
@@ -76,7 +84,7 @@
                         %>
                                     </select>
                         <%      }
-                            }
+                            
                         %>
                                 
                         <button type="submit" class="btn btn-outline-success my-2 my-sm-0 btn_search" id="pesquisarPet" name="pesquisarPet">
