@@ -20,6 +20,7 @@
         <script src="../js/ajax.min.js"></script>
         <script src="../js/post.js"></script>
         <script src="../js/padrao.js"></script>
+        <script src="../js/petUtils.js"></script>
         
         <script>
             $(function () {
@@ -66,7 +67,8 @@
                                     <label class="col-form-label login_label">Número Cartão</label>
                                     <input
                                         type="text"
-                                        class="form-control"
+                                        class="form-control only-numbers"
+                                        maxlength="16"
                                         name="numero_cartao"
                                         id="numero_cartao"
                                         />
@@ -77,7 +79,9 @@
                                     <label class="col-form-label login_label">Número Segurança</label>
                                     <input
                                         type="text"
-                                        class="form-control"
+                                        class="form-control only-numbers"
+                                        maxlength="3"
+                                        placeholder="CVV"
                                         name="numero_seguranca_cartao"
                                         id="numero_seguranca_cartao"
                                         />

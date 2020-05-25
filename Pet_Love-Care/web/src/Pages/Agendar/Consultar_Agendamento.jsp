@@ -26,6 +26,7 @@
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>
         <script src="../../../js/jquery.min.js"></script>
         <script src="../js/padrao.js"></script>
+        <script src="../js/petUtils.js"></script>
 
         <script>
             $(function () {
@@ -45,7 +46,7 @@
             <div class="card container mt-5 card_consulta">
                 <form id="formEnviaData" method="POST" action="Cadastrar_Agendamento.jsp"
                       class="mt-1">
-                        <input type="text" class="form-control input_date col-3" name="data_inicial_agendamento"
+                        <input type="text" class="form-control input_date col-3 date-mask" maxlength="10" name="data_inicial_agendamento"
                                 id="data_inicial_agendamento" placeholder="Data..." 
                                 style="position: absolute;" required />
                         <button type="submit" id="data_agendamento" 
@@ -100,7 +101,7 @@
                             }
                         %>
                         <input type="text" name="data_inicial_agendamento" 
-                               class="form-control input_agendamento"
+                               class="form-control input_agendamento date-mask" maxlength="10"
                                id="data_inicial_agendamento"  placeholder="Data"/>
                         <button type="submit" 
                                 class="btn btn-outline-success my-2 my-sm-0 btn_search" 

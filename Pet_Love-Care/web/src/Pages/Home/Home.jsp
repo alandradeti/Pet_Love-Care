@@ -20,6 +20,7 @@
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>
         <script src="../../../js/jquery.min.js"></script>
         <script src="../js/padrao.js"></script>
+        <script src="../js/petUtils.js"></script>
 
 
         <script>
@@ -33,9 +34,14 @@
     <body>
         <!-- Menu -->
         <div id="headerDiv"></div>
-
+        
         <% if ((String) request.getAttribute("errorMessage") != null) {%>
-        <h3 style="color: red;"><%=(String) request.getAttribute("errorMessage")%></h3>
+        <div class="alert alert_custom alert-danger alert-dismissible fade show" role="alert">
+            <%=(String) request.getAttribute("errorMessage")%>
+            <button type="button" class="close close_alert_custom" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
         <% }%>
 
         <!-- Carrosel -->
