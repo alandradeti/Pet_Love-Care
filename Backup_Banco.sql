@@ -37,7 +37,7 @@ CREATE TABLE `tb_agendamento` (
   CONSTRAINT `FK_TB_Agendamento_TB_Cliente` FOREIGN KEY (`Cliente_Id_Cliente`) REFERENCES `tb_cliente` (`Id_Cliente`),
   CONSTRAINT `FK_TB_Agendamento_TB_Pet` FOREIGN KEY (`Pet_Id_Pet`) REFERENCES `tb_pet` (`Id_Pet`),
   CONSTRAINT `FK_TB_Agendamento_TB_Veterinario` FOREIGN KEY (`Veterinario_Id_Veterinario`) REFERENCES `tb_veterinario` (`Id_Veterinario`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 /*Table structure for table `tb_carrinho` */
 
@@ -55,7 +55,7 @@ CREATE TABLE `tb_carrinho` (
   KEY `FK_TB_Carrinho_TB_Cliente` (`Cliente_Id_Cliente`),
   CONSTRAINT `FK_TB_Carrinho_TB_Cliente` FOREIGN KEY (`Cliente_Id_Cliente`) REFERENCES `tb_cliente` (`Id_Cliente`),
   CONSTRAINT `FK_TB_Carrinho_TB_Produto` FOREIGN KEY (`Produto_Id_Produto`) REFERENCES `tb_produto` (`Id_Produto`)
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 /*Table structure for table `tb_carteira_vacinacao` */
 
@@ -71,7 +71,7 @@ CREATE TABLE `tb_carteira_vacinacao` (
   KEY `FK_TB_Carteira_Vacinacao_TB_Vacina` (`Vacina_Id_Vacina`),
   CONSTRAINT `FK_TB_Carteira_Vacinacao_TB_Pet` FOREIGN KEY (`Pet_Id_Pet`) REFERENCES `tb_pet` (`Id_Pet`),
   CONSTRAINT `FK_TB_Carteira_Vacinacao_TB_Vacina` FOREIGN KEY (`Vacina_Id_Vacina`) REFERENCES `tb_vacina` (`Id_Vacina`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 /*Table structure for table `tb_cliente` */
 
@@ -92,7 +92,7 @@ CREATE TABLE `tb_cliente` (
   `Tipo_Cliente` tinyint(1) NOT NULL,
   `Codigo_Funcionario` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`Id_Cliente`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 /*Table structure for table `tb_compra` */
 
@@ -110,7 +110,7 @@ CREATE TABLE `tb_compra` (
   PRIMARY KEY (`Id_Compra`),
   KEY `FK_TB_Compra_TB_Cliente` (`Cliente_ID_Cliente`),
   CONSTRAINT `FK_TB_Compra_TB_Cliente` FOREIGN KEY (`Cliente_ID_Cliente`) REFERENCES `tb_cliente` (`Id_Cliente`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 /*Table structure for table `tb_pet` */
 
@@ -130,7 +130,7 @@ CREATE TABLE `tb_pet` (
   `Cor_Pelagem_Pet` varchar(50) NOT NULL,
   `Cliente_Id_Cliente` int NOT NULL,
   PRIMARY KEY (`Id_Pet`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 /*Table structure for table `tb_produto` */
 
@@ -143,7 +143,7 @@ CREATE TABLE `tb_produto` (
   `Numero_Imagem_Produto` int NOT NULL,
   `Descricao_Produto` varchar(50) NOT NULL,
   PRIMARY KEY (`Id_Produto`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 /*Table structure for table `tb_vacina` */
 
@@ -155,7 +155,7 @@ CREATE TABLE `tb_vacina` (
   `Valor_Vacina` float NOT NULL,
   `Descricao_Vacina` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`Id_Vacina`)
-) ENGINE=InnoDB AUTO_INCREMENT=96 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 /*Table structure for table `tb_veterinario` */
 
@@ -173,7 +173,7 @@ CREATE TABLE `tb_veterinario` (
   `Telefone_Celular_Veterinario` varchar(20) DEFAULT NULL,
   `Data_Nascimento_Veterinario` varchar(10) NOT NULL,
   PRIMARY KEY (`Id_Veterinario`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
