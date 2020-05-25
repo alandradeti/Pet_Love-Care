@@ -2,6 +2,10 @@
     @Page{
         size: A4;
     }
+    * {
+        margin: auto;
+        top: 0;
+    }
     .btn_agendar {
         display: none;
         visibility: hidden;
@@ -14,6 +18,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        margin-top: 50px !important;
     }
     .titulo_page {
         visibility: hidden;
@@ -39,6 +44,12 @@
     }
     .estilo_span {
         font-size: 20px;
+    }
+    .orientacao_relatorio {
+        justify-content: center !important;
+        align-items: center !important;
+        position: absolute !important;
+        margin-top: 210px !important;
     }
     
 }
