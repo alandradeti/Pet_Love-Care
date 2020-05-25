@@ -21,6 +21,7 @@
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>
         <script src="../../../js/jquery.min.js"></script>
         <script src="../js/padrao.js"></script>
+        <script src="../js/petUtils.js"></script>
 
 
         <script>
@@ -34,9 +35,14 @@
     <body>
         <!-- Menu -->
         <div id="headerDiv"></div>
-
+        
         <% if ((String) request.getAttribute("errorMessage") != null) {%>
-        <h3 style="color: red;"><%=(String) request.getAttribute("errorMessage")%></h3>
+        <div class="alert alert_custom alert-danger alert-dismissible fade show" role="alert">
+            <%=(String) request.getAttribute("errorMessage")%>
+            <button type="button" class="close close_alert_custom" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
         <% }%>
 
         <!-- Carrosel -->
@@ -105,7 +111,7 @@
                                             <form id="formAdicionarCarrinho" method="POST" name="formAdicionarCarrinho" action="../Compras/CarrinhoCompras.jsp"> 
 <%                                      }
 %>
-                                            <p class="card-text center_cliente" id="valor_produto" ><%=rsProduto.getString("valor_produto")%></p>
+                                            <p class="card-text center_cliente" id="valor_produto" ><span class="text_qtd">R$</span><%=rsProduto.getString("valor_produto")%></p>
                                             <span class="text_qtd">Quantidade: </span>
                                             <div class="row centralizar_btn_cliente">
                                                 <input type="text" class="form-control col-2" id="quantidade_carrinho" name="quantidade_carrinho" aria-describedby="button-addon1" required>
@@ -139,8 +145,7 @@
                                         <img src="../../img/Produtos/produto_<%=rsProduto.getString("numero_imagem_produto")%>.png" class="card-img-top custom_img_produtos" alt="...">
                                         <span class="text_qtd">Descrição: </span>
                                         <p class="card-text" id="descricao_produto"><%=rsProduto.getString("descricao_produto")%></p>
-                                        <span class="text_qtd">Quantidade em estoque: </span>
-                                        <p class="card-text" id="valor_produto"><%=rsProduto.getString("valor_produto")%></p>
+                                        <p class="card-text" id="valor_produto"><span class="text_qtd">R$</span><%=rsProduto.getString("valor_produto")%></p>
                                     </div>
                                 </div>
 <%
@@ -156,8 +161,7 @@
                                     <img src="../../img/Produtos/produto_<%=rsProduto.getString("numero_imagem_produto")%>.png" class="card-img-top custom_img_produtos" alt="...">
                                     <span class="text_qtd">Descrição: </span>
                                     <p class="card-text" id="descricao_produto"><%=rsProduto.getString("descricao_produto")%></p>
-                                    <span class="text_qtd">Quantidade em estoque: </span>
-                                    <p class="card-text" id="valor_produto"><%=rsProduto.getString("valor_produto")%></p>
+                                    <p class="card-text" id="valor_produto"><span class="text_qtd">R$</span><%=rsProduto.getString("valor_produto")%></p>
                                 </div>
                             </div>
 <%

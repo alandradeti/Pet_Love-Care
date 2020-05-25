@@ -21,6 +21,7 @@
   <script src="../js/padrao.js"></script>
   <script src="../js/post.js"></script>
   <script src="../js/ajax.min.js"></script>
+  <script src="../js/petUtils.js"></script>
 
   <script>
     $(function () {
@@ -91,7 +92,7 @@
             <form id="formRealizaPagamento" method="POST" action="Pagamento.jsp">
               <label id="valorTotal" class="col-form-label login_label mt-3"></label>
               <input type="hidden" id="valor_total_compra" name="valor_total_compra">
-              <button class="btn btn-warning">
+              <button id="botaoCommpra" class="btn btn-warning">
                   <i class="fas fa-shopping-cart"></i>
                   <b>Pagar</b>
               </button>
@@ -107,8 +108,13 @@
     for(let i = 0; i < inputs.length; i++){
         soma += parseFloat(inputs[i].value);
     }
-    document.getElementById("valorTotal").innerHTML = "Valor total: R$ " + soma;
-    document.getElementById('valor_total_compra').value = soma;
+    if(soma > 0){
+        document.getElementById("valorTotal").innerHTML = "Valor total: R$ " + soma;
+        document.getElementById('valor_total_compra').value = soma;
+    }else{
+        document.getElementById("valorTotal").innerHTML = "Valor total: R$ " + soma;
+        document.getElementById("botaoCommpra").disabled = true;
+    }
 </script>
 </html>
 

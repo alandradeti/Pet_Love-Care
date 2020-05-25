@@ -19,6 +19,7 @@
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>
         <script src="../../../js/jquery.min.js"></script>
         <script src="../js/padrao.js"></script>
+        <script src="../js/petUtils.js"></script>
 
         <script>
             $(function () {

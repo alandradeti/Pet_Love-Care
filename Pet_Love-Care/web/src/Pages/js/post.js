@@ -12,7 +12,7 @@ $(function () {
             type: 'POST',
             data: $('#formCadastrarAgendamento').serialize(),
             success: function (data) {
-                alert("Funcionou");
+                showMessage('Agendamento cadastrado!', 'success');
             }
         });
         return false;
@@ -27,7 +27,7 @@ $(function () {
             type: 'POST',
             data: $('#formAlterarDadosAgendamento').serialize(),
             success: function (data) {
-                alert("Funcionou");
+                showMessage('Agendamento atualizado!', 'success');
             }
         });
         return false;
@@ -43,8 +43,10 @@ $(function () {
             data: $('#formExcluirDadosAgendamento').serialize(),
             
             success: function (data) {
-                alert("Funcionou");
-                window.location.href = "../Agendar/Consultar_Agendamento.jsp";
+                showMessage('Agendamento deletado!', 'success');
+                setTimeout(function(){
+                    window.location.href = "../Agendar/Consultar_Agendamento.jsp";
+                }, 3000);
             }
         });
         return false;
@@ -67,7 +69,11 @@ $(function () {
             data: $('#formCadastrarVacina').serialize(),
             
             success: function (data) {
-                alert("Funcionou");
+                $('.close').click();
+                showMessage('Vacina cadastrada!', 'success');
+                setTimeout(function(){
+                    window.location.reload();
+                }, 3000);
             }
         });
         return false;
@@ -83,7 +89,7 @@ $(function () {
             data: $('#formAlterarDadosVacina').serialize(),
             
             success: function (data) {
-                alert("Funcionou");
+                showMessage('Vacina atualizada!', 'success');
             }
         });
         return false;
@@ -99,8 +105,10 @@ $(function () {
             data: $('#formExcluirDadosVacina').serialize(),
             
             success: function (data) {
-                alert("Funcionou");
-                window.location.href = "../Home/Home.jsp";
+                showMessage('Vacina deletada!', 'success');
+                setTimeout(function(){
+                    window.location.href = "../Home/Home.jsp";
+                }, 3000);
             }
         });
         return false;
@@ -121,7 +129,11 @@ $(function () {
             type: 'POST',
             data: $('#formCadastrarPet').serialize(),
             success: function (data) {
-                alert("Funcionou");
+                $('.close').click();
+                showMessage('Pet cadastrado!', 'success');
+                setTimeout(function(){
+                    window.location.reload();
+                }, 3000);
             }
         });
         return false;
@@ -138,7 +150,7 @@ $(function () {
             data: $('#formAlterarDadosPet').serialize(),
             
             success: function (data) {
-                alert("Funcionou");
+                showMessage('Pet atualizado!', 'success');
             }
         });
         return false;
@@ -154,8 +166,10 @@ $(function () {
             data: $('#formExcluirDadosPet').serialize(),
             
             success: function (data) {
-                alert("Funcionou");
-                window.location.href = "../Pet/PetConsultar.jsp";
+                showMessage('Pet deletado!', 'success');
+                setTimeout(function(){
+                    window.location.href = "../Pet/PetConsultar.jsp";
+                }, 3000);
             }
         });
         return false;
@@ -177,7 +191,11 @@ $(function () {
             type: 'POST',
             data: $('#formCadastrarVeterinario').serialize(),
             success: function (data) {
-                alert("Funcionou");
+                $('.close').click();
+                showMessage('Veterinário cadastrado!', 'success');
+                setTimeout(function(){
+                    window.location.reload();
+                }, 3000);
             }
         });
         return false;
@@ -193,7 +211,7 @@ $(function () {
             data: $('#formAlterarDadosVeterinario').serialize(),
             
             success: function (data) {
-                alert("Funcionou");
+                showMessage('Veterinário atualizado!', 'success');
             }
         });
         return false;
@@ -209,8 +227,10 @@ $(function () {
             data: $('#formExcluirDadosVeterinario').serialize(),
             
             success: function (data) {
-                alert("Funcionou");
-                window.location.href = "../Veterinario/VeterinarioConsultar.jsp";
+                showMessage('Veterinário deletado!', 'success');
+                setTimeout(function(){
+                    window.location.href = "../Veterinario/VeterinarioConsultar.jsp";
+                }, 3000);
             }
         });
         return false;
@@ -232,7 +252,7 @@ $(function () {
             type: 'POST',
             data: $('#formCadastrarProduto').serialize(),
             success: function (data) {
-                alert("Funcionou");
+                showMessage('Produto cadastrado!', 'success');
             }
         });
         return false;
@@ -251,7 +271,7 @@ $(function () {
             data: $('#formAlterarDadosProduto').serialize(),
             
             success: function (data) {
-                alert("Funcionou");
+                showMessage('Produto atualizado!', 'success');
             }
         });
         return false;
@@ -267,8 +287,10 @@ $(function () {
             data: $('#formExcluirDadosProduto').serialize(),
             
             success: function (data) {
-                alert("Funcionou");
-                window.location.href = "../Home/Home.jsp";
+                showMessage('Produto deletado!', 'success');
+                setTimeout(function(){
+                    window.location.href = "../Home/Home.jsp";
+                }, 3000);
             }
         });
         return false;
@@ -289,8 +311,12 @@ $(function () {
             url: '../Cliente/IncluirCliente.jsp',
             type: 'POST',
             data: $('#formCadastrarCliente').serialize(),
-			success: function (data) {
-                alert("Funcionou");
+            success: function (data) {
+                $('.close').click();
+                showMessage('Usuário cadastrado!', 'success');
+                setTimeout(function(){
+                    window.location.reload();
+                }, 3000);
             }
         });
         return false;
@@ -306,7 +332,7 @@ $(function () {
             type: 'POST',
             data: $('#formAlterarDadosCliente').serialize(),
             success: function (data) {
-                alert("Funcionou");
+                showMessage('Usuário atualizado!', 'success');
             }
         });
         return false;
@@ -321,8 +347,10 @@ $(function () {
             type: 'POST',
             data: $('#formExcluirDadosCliente').serialize(),
             success: function (data) {
-                alert("Funcionou");
-                window.location.href = "../Cliente/ClienteConsultar.jsp";
+                showMessage('Usuário deletado!', 'success');
+                setTimeout(function(){
+                    window.location.href = "../Cliente/ClienteConsultar.jsp";
+                }, 3000);
             }
         });
         return false;
@@ -343,7 +371,7 @@ $(function () {
             type: 'POST',
             data: $('#formCadastrarDadosCarteiraVacinacao').serialize(),
             success: function (data) {
-                alert("Funcionou");
+                showMessage('Carteira de Vacinação cadastrada!', 'success');
             }
         });
         return false;
@@ -358,7 +386,7 @@ $(function () {
             type: 'POST',
             data: $('#formAlterarDadosCarteiraVacinacao').serialize(),
             success: function (data) {
-                alert("Funcionou");
+                showMessage('Carteira de Vacinação atualizada!', 'success');
             }
         });
         return false;
@@ -374,8 +402,10 @@ $(function () {
             data: $('#formExcluirDadosCarteiraVacinacao').serialize(),
             
             success: function (data) {
-                alert("Funcionou");
-                window.location.href = "../CarteiraVacinacao/Consultar_CarteiraVacinacao.jsp";
+                showMessage('Carteira de Vacinação deletada!', 'success');
+                setTimeout(function(){
+                    window.location.href = "../CarteiraVacinacao/Consultar_CarteiraVacinacao.jsp";
+                }, 3000);                
             }
         });
         return false;
