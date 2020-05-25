@@ -158,7 +158,7 @@
                                 </div>
                                  <div class="form-group col-md-6">
                                     <label class="col-form-label login_label">Data Final:</label>
-                                    <input type="text" class="form-control col-12" name="data_final_agendamento" onkeypress="customDateMask(this)" maxlength="10" 
+                                    <input type="text" class="form-control col-12" name="data_final_agendamento" onkeypress="customDateMask(this)" maxlength="10"
                                            id="data_final_agendamento" placeholder="Data Final" disabled/>
                                 </div>
                             </div>
