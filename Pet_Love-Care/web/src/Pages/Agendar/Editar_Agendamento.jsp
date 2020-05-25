@@ -23,6 +23,7 @@
         <script src="../js/ajax.min.js"></script>
         <script src="../js/post.js"></script>
         <script src="../js/padrao.js"></script>
+        <script src="../js/petUtils.js"></script>
         <script>
             $(function () {
                 $("#headerDiv").load("../Menu/Menu.jsp");
@@ -152,7 +153,7 @@
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
                                             <label class="col-form-label login_label">Data:</label>
-                                            <input type="text" class="form-control col-12" name="data_inicial_agendamento"
+                                            <input type="text" class="form-control col-12" onkeypress="customDateMask(this)" name="data_inicial_agendamento"
                                                    id="data_inicial_agendamento" placeholder="Data" value="<%=rsAgendamento.getString("data_inicial_agendamento")%>" readonly />
                                         </div>
                                         <div class="form-group col-md-6">
@@ -160,10 +161,10 @@
                                             <%  if(!rsAgendamento.getString("data_final_agendamento").equalsIgnoreCase("null") && !rsAgendamento.getString("data_final_agendamento").isEmpty()){
                                             %>
                                                     
-                                                    <input type="text" class="form-control col-12" name="data_final_agendamento" id="data_final_agendamento" value="<%=rsAgendamento.getString("data_final_agendamento")%>" placeholder="Data Final"/>
+                                                    <input type="text" class="form-control col-12" onkeypress="customDateMask(this)" name="data_final_agendamento" id="data_final_agendamento" value="<%=rsAgendamento.getString("data_final_agendamento")%>" placeholder="Data Final"/>
                                             <%  }else{
                                             %>
-                                            <input type="text" readonly class="form-control col-12" name="data_final_agendamento" id="data_final_agendamento" value="" placeholder="Data Final"/>
+                                            <input type="text" readonly class="form-control col-12" onkeypress="customDateMask(this)" name="data_final_agendamento" id="data_final_agendamento" value="" placeholder="Data Final"/>
                                             <%  }
                                             %>
                                         </div>

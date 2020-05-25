@@ -22,6 +22,7 @@
         <script src="../js/ajax.min.js"></script>
         <script src="../js/post.js"></script>
         <script src="../js/padrao.js"></script>
+        <script src="../js/petUtils.js"></script>
         <script>
             $(function () {
                 $("#headerDiv").load("../Menu/Menu.jsp");
@@ -74,7 +75,7 @@
                                     <label class="col-form-label login_label mt-3">Valor</label>
                                     <input
                                         type="text"
-                                        class="form-control"
+                                        class="form-control price-mask"
                                         name="valor_vacina"
                                         id="valor_vacina"
                                         placeholder="Preço R$ "
