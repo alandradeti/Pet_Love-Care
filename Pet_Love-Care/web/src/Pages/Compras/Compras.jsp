@@ -70,7 +70,7 @@
                             <td>
                                 <form id="formExcluirProdutoCarrinho" method="POST" action="ExcluirCarrinho.jsp">  
                                     <input type="hidden" id="id_carrinho" name="id_carrinho" value="<%=rsCarrinho.getString("id_carrinho")%>">
-                                    <button type="submit" id="excluirProdutoCarrinho" name="excluirProdutoCarrinho" class="btn btn-danger ">
+                                    <button type="submit" id="excluirProdutoCarrinho" name="excluirProdutoCarrinho" class="btn btn-danger btn_comprar">
                                         <i class="fa fa-trash icone_plus"></i>
                                     </button>
                                 </form>
@@ -88,12 +88,12 @@
             </tbody>
           </table>
           
-            <!---->
             <form id="formRealizaPagamento" method="POST" action="Pagamento.jsp">
               <label id="valorTotal" class="col-form-label login_label mt-3"></label>
               <input type="hidden" id="valor_total_compra" name="valor_total_compra">
-              <button>
+              <button class="btn btn-warning">
                   <i class="fas fa-shopping-cart"></i>
+                  <b>Pagar</b>
               </button>
             </form>
             <br/>
