@@ -52,3 +52,7 @@
     align-items: flex-end;
     justify-content: flex-end;
 }
+
+.font_cpf {
+    font-size: 18px !important;
+}
