@@ -18,6 +18,8 @@
         <link rel="stylesheet" href="../css/padrao.css">
         <link rel="stylesheet" href="./pet.css" > 
 
+        
+        <script src="../../../js/jquery.slim.min.js"></script>
         <script src="../../../js/bootstrap.min.js"></script>
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>
         <script src="../../../js/jquery.min.js"></script>
@@ -27,12 +29,6 @@
         <script>
             $(function () {
                 $("#headerDiv").load("../Menu/Menu.jsp");
-            });
-            $(function () {
-                $("#header_pet").load("./Cadastrar_pet.html");
-            });
-            $('#myModal').on('shown.bs.modal', function () {
-                $('#myInput').trigger('focus')
             });
         </script>
     </head>
@@ -47,9 +43,8 @@
                 if(rs.next()){
                     if (rs.getBoolean("Tipo_Cliente") == false){
 %>
-                        <button type="button" class="btn btn_cadastrar mt-2"
-                                data-toggle="modal" data-target="#modal_pet">
-                            <a class="btn_vacina" data-toggle="modal">
+                        <button type="button" class="btn btn_cadastrar mt-2">
+                            <a class="btn_vacina" href="Cadastrar_pet.html">
                                 <i class="fa fa-plus icone_plus"></i>
                             </a>
                         </button>

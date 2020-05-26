@@ -76,14 +76,8 @@
                                      Veterinário
                                  </a>
                              </li>
-                             <li class="nav-item dropdown">
-                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                     Produtos
-                                 </a>
-                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                     <a class="dropdown-item" href="../Home/Home.jsp">Consultar</a>
-                                     <a class="dropdown-item" href="../Produtos/Produtos.html">Cadastrar</a>
-                                 </div>
+                             <li class="nav-item">
+                                 <a class="nav-link" href="../Produtos/Produtos.html">Cadastrar Produto</a>
                              </li>
                              <li class="nav-item">
                                  <a class="nav-link" href="../Agendar/Consultar_Agendamento.jsp">Agendamento</a>
