@@ -83,9 +83,9 @@
                     if(rsClienteOption.next()){
                         if (rsClienteOption.getBoolean("Tipo_Cliente") == true){
 %>                          
-                            <label class="label_carteira_pet">Pet:</label>
+                            <label class="label_carteira_pet" style="margin-left: 17rem;">Pet:</label>
                             <select class="form-control col-12" name="id_pet" id="id_pet" 
-                                    style="position: absolute; margin-left: 25rem;">
+                                    style="position: absolute; margin-left: 17rem;">
                                 <option value="">Todos</option>
 <%                                  ResultSet rsPet = pet.Consultar("SELECT Nome_Pet, Id_pet FROM TB_Pet");
                                     while(rsPet.next()){
@@ -97,9 +97,9 @@
                             </select>
 <%                      }else{
 %>
-                            <label class="label_carteira_pet">Pet:</label>
+                        <label class="label_carteira_pet" style="margin-left: 16rem;">Pet:</label>
                             <select class="form-control col-12" name="id_pet" id="id_pet"
-                                    style="position: absolute; margin-left: 25rem;">
+                                    style="position: absolute; margin-left: 16rem;">
                                 <option value="">Todos</option>
 <%                                  ResultSet rsPet = pet.Consultar("SELECT Nome_Pet, Id_pet FROM TB_Pet WHERE Cliente_Id_Cliente = " + session.getAttribute("id_cliente"));
                                     while(rsPet.next()){
@@ -113,9 +113,10 @@
                         }
                     }
 %>                 
-                    <label class="label_carteira_vacina">Vacina:</label>
+                <label class="label_carteira_vacina" style="margin-left: 29rem;">Vacina:</label>
                     <select name="id_vacina" id="id_vacina" 
-                            class="form-control select_carteira" style="position: absolute;margin-left: 14rem;">
+                            class="form-control select_carteira" 
+                            style="position: absolute;margin-left: 6rem;">
                         <option value="">Todas</option>
 <%                        
                             ResultSet rsVacina = vacina.Consultar("SELECT Id_Vacina,Nome_Vacina FROM TB_Vacina");
